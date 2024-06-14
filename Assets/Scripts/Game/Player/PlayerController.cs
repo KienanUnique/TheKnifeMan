@@ -1,7 +1,6 @@
 ﻿using Game.Object;
 using Game.Player.Parts;
 using Game.Player.Parts.Movement;
-using UnityEngine;
 
 namespace Game.Player
 {
@@ -16,7 +15,6 @@ namespace Game.Player
 
         protected override void HandleInitialize()
         {
-            Debug.Log($"HandleInitialize");
             _movement.Enable();
         }
     }

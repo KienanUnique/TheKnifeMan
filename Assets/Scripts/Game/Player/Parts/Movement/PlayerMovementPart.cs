@@ -56,8 +56,6 @@ namespace Game.Player.Parts.Movement
             var needDirection = _inputService.NeedDirection;
             var needSpeed = _playerParameters.MovementSpeed * needDirection;
             _rigidbody.velocity = needSpeed;
-            
-            Debug.Log($"_rigidbody.velocity: {_rigidbody.velocity.sqrMagnitude}");
         }
 
         public void Disable()

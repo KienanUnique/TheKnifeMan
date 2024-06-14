@@ -22,6 +22,8 @@ namespace Services.Input.Impl
         public void Initialize()
         {
             SubscribeOnGameplayEvents();
+            
+            _controls.Gameplay.Enable();
         }
 
         public void Dispose()
