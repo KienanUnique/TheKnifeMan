@@ -1,7 +1,7 @@
 ﻿using Services.Input.Impl;
 using Zenject;
 
-namespace Installers
+namespace Installers.Project
 {
     public class ProjectServicesInstaller : MonoInstaller
     {

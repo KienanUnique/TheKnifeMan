@@ -4,7 +4,7 @@ using UnityEngine;
 using Utils;
 using Zenject;
 
-namespace Installers
+namespace Installers.Game
 {
     [CreateAssetMenu(menuName = MenuPathBase.Installers + nameof(GameParametersInstaller),
         fileName = nameof(GameParametersInstaller))]
