@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.Object.Part;
+using Game.Object.PartsFactory;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -11,15 +12,23 @@ namespace Game.Object
         where TView : AObjectView
     {
         protected readonly CompositeDisposable CompositeDisposable = new();
+
+        [Inject] private IPartsFactory _partsFactory;
+
+        private readonly List<IObjectPart> _parts = new();
+
+        protected virtual object[] ExtraArgsForParts => new object[] {View};
         protected TView View { get; private set; }
+
 
         public void Initialize()
         {
             View = GetComponent<TView>();
-            
-            var parts = CreateParts(View);
-            InitializeParts(parts);
-            
+
+            _partsFactory.CreateParts(ExtraArgsForParts);
+            ResolveParts();
+            InitializeParts();
+
             HandleInitialize();
         }
 
@@ -28,15 +37,23 @@ namespace Game.Object
             CompositeDisposable?.Dispose();
         }
 
-        protected abstract List<IObjectPart> CreateParts(TView view);
+        protected abstract void ResolveParts();
 
         protected virtual void HandleInitialize()
         {
         }
 
-        private void InitializeParts(List<IObjectPart> parts)
+        protected T Resolve<T>() where T : IObjectPart
         {
-            foreach (var objectPart in parts)
+            var part = _partsFactory.Resolve<T>();
+            _parts.Add(part);
+
+            return part;
+        }
+
+        private void InitializeParts()
+        {
+            foreach (var objectPart in _parts)
             {
                 CompositeDisposable.Add(objectPart);
                 objectPart.Initialize();
