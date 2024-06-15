@@ -94,4 +94,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelView: {fileID: 0}
-  playerPrefab: {fileID: 8691151146227549522, guid: 47cd1c524d20fc0498cda6fab78d072f, type: 3}
+  playerPrefab: {fileID: 734930753854366182, guid: 47cd1c524d20fc0498cda6fab78d072f, type: 3}

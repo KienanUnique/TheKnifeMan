@@ -8,8 +8,8 @@ using Zenject;
 
 namespace Game.Object
 {
-    public abstract class AObjectController<TView> : MonoBehaviour, IInitializable, IDisposable
-        where TView : AObjectView
+    public abstract class AObjectController<TData> : MonoBehaviour, IInitializable, IDisposable
+        where TData : AObjectData
     {
         protected readonly CompositeDisposable CompositeDisposable = new();
 
@@ -17,14 +17,11 @@ namespace Game.Object
 
         private readonly List<IObjectPart> _parts = new();
 
-        protected virtual object[] ExtraArgsForParts => new object[] {View};
-        protected TView View { get; private set; }
-
+        protected virtual object[] ExtraArgsForParts => new object[] {Data};
+        protected abstract TData Data { get; } 
 
         public void Initialize()
-        {
-            View = GetComponent<TView>();
-
+        { 
             _partsFactory.CreateParts(ExtraArgsForParts);
             ResolveParts();
             InitializeParts();
