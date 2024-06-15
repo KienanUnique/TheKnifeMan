@@ -169,6 +169,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawnPoint: {fileID: 1766380980}
+--- !u!1 &209221632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7355274160964542065, guid: a0f37de5695a61645a73fdcfdd3d7796, type: 3}
+  m_PrefabInstance: {fileID: 4333417959624690311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &209221637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209221632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff48fa6c62842c293eac8f65d39bf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +457,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 417889884431845796, guid: a0f37de5695a61645a73fdcfdd3d7796, type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 417889884431845796, guid: a0f37de5695a61645a73fdcfdd3d7796, type: 3}
+      propertyPath: _monoInstallers.Array.data[2]
+      value: 
+      objectReference: {fileID: 209221637}
     - target: {fileID: 946288529927563261, guid: a0f37de5695a61645a73fdcfdd3d7796, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -491,7 +516,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7355274160964542065, guid: a0f37de5695a61645a73fdcfdd3d7796, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 209221637}
   m_SourcePrefab: {fileID: 100100000, guid: a0f37de5695a61645a73fdcfdd3d7796, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
