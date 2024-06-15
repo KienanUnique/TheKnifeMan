@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Game.Player.Parts.Visual
 {
-    public class PlayerVisualPart : AObjectPart<PlayerView>, IPlayerVisualPart
+    public class PlayerVisualPart : AObjectPart<PlayerData>, IPlayerVisualPart
     {
         private readonly IPlayerParameters _playerParameters;
         private readonly IScreenPositionService _screenPositionService;
@@ -19,7 +19,6 @@ namespace Game.Player.Parts.Visual
         private Animator _animator;
         private Rigidbody2D _rigidbody;
         private SpriteRenderer _spriteRenderer;
-
 
         private Vector2 _lookDirection;
 
@@ -36,9 +35,9 @@ namespace Game.Player.Parts.Visual
 
         public override void Initialize()
         {
-            _animator = View.Animator;
-            _rigidbody = View.MainRigidbody;
-            _spriteRenderer = View.MainSprite;
+            _animator = Data.Animator;
+            _rigidbody = Data.MainRigidbody;
+            _spriteRenderer = Data.MainSprite;
 
             Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_compositeDisposable);
         }

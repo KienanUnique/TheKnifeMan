@@ -1,14 +1,19 @@
 ﻿using Game.Object;
-using Game.Player.Parts;
 using Game.Player.Parts.Movement;
 using Game.Player.Parts.Visual;
+using UnityEngine;
 
 namespace Game.Player
 {
-    public class PlayerController : AObjectController<PlayerView>
+    public class PlayerController : AObjectController<PlayerData>, IPlayerInformation
     {
+        [SerializeField] private PlayerData data;
+        
         private IPlayerMovementPart _movement;
         private IPlayerVisualPart _visualPart;
+
+        public Transform Transform => transform;
+        protected override PlayerData Data => data;
 
         protected override void ResolveParts()
         {

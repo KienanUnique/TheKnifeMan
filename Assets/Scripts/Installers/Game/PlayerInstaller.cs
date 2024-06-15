@@ -1,6 +1,5 @@
 ﻿using Game.Level;
 using Game.Player;
-using Game.Player.Parts;
 using Game.Player.PartsFactory;
 using UnityEngine;
 using Zenject;
@@ -12,7 +11,7 @@ namespace Installers.Game
         [SerializeField] private LevelView levelView;
         
         [Header("Prefab only!")]
-        [SerializeField] private PlayerView playerPrefab;
+        [SerializeField] private PlayerController playerPrefab;
 
         public override void InstallBindings()
         {

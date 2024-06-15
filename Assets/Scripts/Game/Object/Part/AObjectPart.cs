@@ -4,9 +4,9 @@ namespace Game.Object.Part
 {
     public abstract class AObjectPart<T> : IObjectPart
     {
-        [Inject] private T _view;
+        [Inject] private T _data;
 
-        protected T View => _view;
+        protected T Data => _data;
 
         public abstract void Initialize();
         

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Player.Parts.Movement
 {
-    public class PlayerMovementPart : AObjectPart<PlayerView>, IPlayerMovementPart
+    public class PlayerMovementPart : AObjectPart<PlayerData>, IPlayerMovementPart
     {
         private readonly IInputService _inputService;
         private readonly IPlayerParameters _playerParameters;
@@ -27,7 +27,7 @@ namespace Game.Player.Parts.Movement
 
         public override void Initialize()
         {
-            _rigidbody = View.MainRigidbody;
+            _rigidbody = Data.MainRigidbody;
         }
 
         public override void Dispose()
