@@ -14,7 +14,7 @@ namespace Game.Player.Parts.Visual
         private readonly IScreenPositionService _screenPositionService;
         private readonly IInputService _inputService;
         
-        private readonly CompositeDisposable _compositeDisposable = new();
+        private CompositeDisposable _aliveDisposables = new();
         
         private Animator _animator;
         private Rigidbody2D _rigidbody;
@@ -39,12 +39,12 @@ namespace Game.Player.Parts.Visual
             _rigidbody = Data.MainRigidbody;
             _spriteRenderer = Data.MainSprite;
 
-            Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_compositeDisposable);
+            Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
         }
         
         public override void Dispose()
         {
-            _compositeDisposable.Dispose();
+            _aliveDisposables?.Dispose();
         }
 
         private void OnUpdate()
@@ -69,6 +69,19 @@ namespace Game.Player.Parts.Visual
 
             var needRotateRight = _lookDirection.x > 0;
             _spriteRenderer.flipX = needRotateRight;
+        }
+
+        public void PlayInjuredAnimation()
+        {
+            _animator.SetBool(AnimationKeys.IsInjured, true);
+        }
+
+        public void PlayDeathAnimation()
+        {
+            _aliveDisposables?.Dispose();
+            _aliveDisposables = null;
+            
+            _animator.SetTrigger(AnimationKeys.Dead);
         }
     }
 }

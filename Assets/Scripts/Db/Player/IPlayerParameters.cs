@@ -2,6 +2,9 @@
 {
     public interface IPlayerParameters
     {
+        // character
+        public int Health { get; }
+        
         // movement
         public float MovementSpeed { get; }
         public float DashSpeed { get; }
@@ -9,5 +12,6 @@
         
         // animator
         public float AnimatorMovingVelocityThreshold { get; }
+        public int LowHealthThreshold { get; }
     }
 }
