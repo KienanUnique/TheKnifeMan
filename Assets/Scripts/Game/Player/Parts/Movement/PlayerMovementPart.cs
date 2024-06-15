@@ -10,16 +10,14 @@ namespace Game.Player.Parts.Movement
     {
         private readonly IInputService _inputService;
         private readonly IPlayerParameters _playerParameters;
-        
-        private readonly CompositeDisposable _compositeDisposable = new();
-        
+
         private CompositeDisposable _movementDisposable;
         private Rigidbody2D _rigidbody;
 
         private bool _canMove = false;
 
         public PlayerMovementPart(
-            IInputService inputService, 
+            IInputService inputService,
             IPlayerParameters playerParameters
         )
         {
@@ -34,17 +32,16 @@ namespace Game.Player.Parts.Movement
 
         public override void Dispose()
         {
-            _compositeDisposable.Dispose();
             _movementDisposable?.Dispose();
         }
 
         public void Enable()
         {
-            if(_canMove)
+            if (_canMove)
                 return;
 
             _canMove = true;
-            
+
             _movementDisposable?.Dispose();
             _movementDisposable = new CompositeDisposable();
 
@@ -60,9 +57,9 @@ namespace Game.Player.Parts.Movement
 
         public void Disable()
         {
-            if(!_canMove)
+            if (!_canMove)
                 return;
-            
+
             _canMove = false;
         }
     }

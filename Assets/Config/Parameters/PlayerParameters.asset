@@ -15,3 +15,4 @@ MonoBehaviour:
   movementSpeed: 2
   dashSpeed: 4
   dashDurationSeconds: 0.5
+  animatorMovingSqrVelocityThreshold: 0.001

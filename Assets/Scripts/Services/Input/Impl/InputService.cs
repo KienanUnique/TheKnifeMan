@@ -13,8 +13,8 @@ namespace Services.Input.Impl
         private readonly CompositeDisposable _compositeDisposable = new();
         
         private readonly MainControls _controls = new();
-        
-        public Vector2 NeedDirection { get; private set; }
+
+        public Vector2 NeedDirection => _controls.Gameplay.Movement.ReadValue<Vector2>();
         public IReactiveProperty<bool> IsDashPressed => _isDashPressed;
         public IObservable<Unit> PausePressed => _pausePressed;
 
@@ -40,7 +40,7 @@ namespace Services.Input.Impl
         
         private void SubscribeOnGameplayEvents()
         {
-            _controls.Gameplay.Movement.performed += OnMovementPerformed;
+            //_controls.Gameplay.Movement.performed += OnMovementPerformed;
             
             _controls.Gameplay.Dash.started += OnDashStarted;
             _controls.Gameplay.Dash.canceled += OnDashCanceled;
@@ -48,16 +48,16 @@ namespace Services.Input.Impl
         
         private void UnsubscribeOnGameplayEvents()
         {
-            _controls.Gameplay.Movement.performed -= OnMovementPerformed;
+            //_controls.Gameplay.Movement.performed -= OnMovementPerformed;
             
             _controls.Gameplay.Dash.started -= OnDashStarted;
             _controls.Gameplay.Dash.canceled -= OnDashCanceled;
         }
 
-        private void OnMovementPerformed(InputAction.CallbackContext obj)
-        {
-            NeedDirection = obj.ReadValue<Vector2>();
-        }
+        // private void OnMovementPerformed(InputAction.CallbackContext obj)
+        // {
+        //     NeedDirection = obj.ReadValue<Vector2>();
+        // }
         
         private void OnDashStarted(InputAction.CallbackContext obj)
         {
