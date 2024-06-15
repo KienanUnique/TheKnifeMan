@@ -34,7 +34,9 @@ namespace Game.Object
             CompositeDisposable?.Dispose();
         }
 
-        protected abstract void ResolveParts();
+        protected virtual void ResolveParts()
+        {
+        }
 
         protected virtual void HandleInitialize()
         {
