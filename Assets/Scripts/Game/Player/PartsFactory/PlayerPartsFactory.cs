@@ -1,4 +1,5 @@
 ﻿using Game.Object.PartsFactory;
+using Game.Player.Parts.Character;
 using Game.Player.Parts.Movement;
 using Game.Player.Parts.Visual;
 using Zenject;
@@ -15,6 +16,7 @@ namespace Game.Player.PartsFactory
         {
             container.BindInterfacesTo<PlayerMovementPart>().AsSingle().WithArguments(extraArgs);
             container.BindInterfacesTo<PlayerVisualPart>().AsSingle().WithArguments(extraArgs);
+            container.BindInterfacesTo<PlayerCharacterPart>().AsSingle().WithArguments(extraArgs);
         }
     }
 }

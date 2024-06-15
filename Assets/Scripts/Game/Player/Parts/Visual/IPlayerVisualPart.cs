@@ -4,5 +4,7 @@ namespace Game.Player.Parts.Visual
 {
     public interface IPlayerVisualPart : IObjectPart
     {
+        void PlayInjuredAnimation();
+        void PlayDeathAnimation();
     }
 }

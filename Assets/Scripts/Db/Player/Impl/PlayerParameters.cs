@@ -7,6 +7,9 @@ namespace Db.Player.Impl
         fileName = nameof(PlayerParameters))]
     public class PlayerParameters : ScriptableObject, IPlayerParameters
     {
+        [Header("Character")]
+        [SerializeField] private int health;
+        
         [Header("Movement")]
         [SerializeField] private float movementSpeed;
         [SerializeField] private float dashSpeed;
@@ -14,10 +17,13 @@ namespace Db.Player.Impl
 
         [Header("Visual")]
         [SerializeField] private float animatorMovingSqrVelocityThreshold;
+        [SerializeField] private int lowHealthThreshold;
 
+        public int Health => health;
         public float MovementSpeed => movementSpeed;
         public float DashSpeed => dashSpeed;
         public float DashDurationSeconds => dashDurationSeconds;
         public float AnimatorMovingVelocityThreshold => animatorMovingSqrVelocityThreshold;
+        public int LowHealthThreshold => lowHealthThreshold;
     }
 }
