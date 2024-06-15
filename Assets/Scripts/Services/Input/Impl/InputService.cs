@@ -15,6 +15,8 @@ namespace Services.Input.Impl
         private readonly MainControls _controls = new();
 
         public Vector2 NeedDirection => _controls.Gameplay.Movement.ReadValue<Vector2>();
+        public Vector2 MousePosition => Mouse.current.position.ReadValue();
+
         public IReactiveProperty<bool> IsDashPressed => _isDashPressed;
         public IObservable<Unit> PausePressed => _pausePressed;
 
