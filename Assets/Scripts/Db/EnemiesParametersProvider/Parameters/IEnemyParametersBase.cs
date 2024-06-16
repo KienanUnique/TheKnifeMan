@@ -1,4 +1,4 @@
-namespace Db.Enemy
+namespace Db.EnemiesParametersProvider.Parameters
 {
     public interface IEnemyParametersBase
     {
@@ -8,5 +8,8 @@ namespace Db.Enemy
         
         // character
         int Health { get; }
+        
+        // visual
+        float AnimatorMovingVelocityThreshold { get; }
     }
 }

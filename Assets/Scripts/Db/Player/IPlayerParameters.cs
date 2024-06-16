@@ -3,15 +3,15 @@
     public interface IPlayerParameters
     {
         // character
-        public int Health { get; }
+        int Health { get; }
         
         // movement
-        public float MovementSpeed { get; }
-        public float DashSpeed { get; }
-        public float DashDurationSeconds { get; }
+        float MovementSpeed { get; }
+        float DashSpeed { get; }
+        float DashDurationSeconds { get; }
         
         // animator
-        public float AnimatorMovingVelocityThreshold { get; }
-        public int LowHealthThreshold { get; }
+        float AnimatorMovingVelocityThreshold { get; }
+        int LowHealthThreshold { get; }
     }
 }

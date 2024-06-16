@@ -1,6 +1,8 @@
-﻿namespace Game.Enemy.Parts.Visual
+﻿using Game.Object.Part;
+
+namespace Game.Enemy.Parts.Visual
 {
-    public interface IEnemyVisualPartBase
+    public interface IEnemyVisualPartBase : IEnemyPoolPart, IObjectPart
     {
         void PlayDeathAnimation();
     }

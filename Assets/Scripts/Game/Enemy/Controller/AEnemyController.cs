@@ -15,23 +15,22 @@ namespace Game.Enemy.Controller
     public abstract class AEnemyController<TData> : AObjectController<TData>, IDefaultActionsExecutor, IPoolEnemy,
         IDamageable where TData : AEnemyData
     {
-        protected CompositeDisposable AlifeDisposables;
+        private CompositeDisposable _aliveDisposables;
         private readonly List<IEnemyPoolPart> _poolParts = new();
-        private readonly ReactiveCommand _onDead = new();
-        private readonly ReactiveCommand _onReadyToUse = new();
+        private readonly ReactiveCommand<IPoolEnemy> _onDead = new();
 
         private IEnemyContextBase _context;
 
-        public IObservable<Unit> OnDead => _onDead;
-        public IObservable<Unit> OnReadyToUse => _onReadyToUse;
+        public IObservable<IPoolEnemy> OnDead => _onDead;
 
         protected abstract IEnemyCharacterPartBase CharacterBase { get; }
         protected abstract IEnemyVisualPartBase EnemyVisualBase { get; }
+        protected CompositeDisposable AliveDisposables => _aliveDisposables;
 
         public virtual void HandleEnable()
         {
-            AlifeDisposables?.Dispose();
-            AlifeDisposables = new CompositeDisposable();
+            _aliveDisposables?.Dispose();
+            _aliveDisposables = new CompositeDisposable();
             
             gameObject.SetActive(true);
             foreach (var poolPart in _poolParts)
@@ -39,7 +38,7 @@ namespace Game.Enemy.Controller
                 poolPart.Enable();
             }
 
-            Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(AlifeDisposables);
+            Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
             
             Data.NavMeshAgent.isStopped = false;
             
@@ -65,7 +64,9 @@ namespace Game.Enemy.Controller
 
         protected abstract IEnemyContextBase CreateContext();
 
-        protected abstract void OnInitialize();
+        protected virtual void OnInitialize()
+        {
+        }
 
         protected sealed override void HandleInitialize()
         {
@@ -105,12 +106,12 @@ namespace Game.Enemy.Controller
             
             EnemyVisualBase.PlayDeathAnimation();
             
-            AlifeDisposables?.Dispose();
+            _aliveDisposables?.Dispose();
             
             Data.NavMeshAgent.isStopped = true;
             Data.NavMeshAgent.ResetPath();
             
-            _onDead.Execute();
+            _onDead.Execute(this);
         }
     }
 }

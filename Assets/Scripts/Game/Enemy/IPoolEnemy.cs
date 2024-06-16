@@ -1,13 +1,12 @@
 ﻿using System;
-using UniRx;
+using Zenject;
 
 namespace Game.Enemy
 {
-    public interface IPoolEnemy
+    public interface IPoolEnemy : IInitializable
     {
-        IObservable<Unit> OnDead { get; }
-        IObservable<Unit> OnReadyToUse { get; }
-        
+        IObservable<IPoolEnemy> OnDead { get; }
+
         void HandleEnable();
         void HandleDisableAndReset();
     }

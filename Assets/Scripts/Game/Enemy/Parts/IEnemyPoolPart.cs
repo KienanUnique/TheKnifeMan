@@ -1,6 +1,8 @@
-﻿namespace Game.Enemy.Parts
+﻿using Game.Object.Part;
+
+namespace Game.Enemy.Parts
 {
-    public interface IEnemyPoolPart
+    public interface IEnemyPoolPart : IObjectPart
     {
         void Enable();
         void DisableAndReset();
