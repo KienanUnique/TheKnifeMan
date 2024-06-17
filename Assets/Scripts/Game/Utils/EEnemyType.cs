@@ -2,6 +2,6 @@
 {
     public enum EEnemyType
     {
-        Simple
+        Simple = 0,
     }
 }

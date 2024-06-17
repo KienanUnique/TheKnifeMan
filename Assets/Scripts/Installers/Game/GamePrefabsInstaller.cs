@@ -1,5 +1,5 @@
 ﻿using Game.Camera;
-using Game.Level;
+using Game.Level.View.Impl;
 using Game.Object.PartsFactory;
 using Game.Player;
 using Game.Player.PartsFactory;
