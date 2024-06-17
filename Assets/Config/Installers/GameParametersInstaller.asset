@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: GameParametersInstaller
   m_EditorClassIdentifier: 
   playerParameters: {fileID: 11400000, guid: 11c27bd3cee07164e8900e2e3936f43b, type: 2}
+  enemiesParametersProvider: {fileID: 11400000, guid: 6f1a7a375a590ee4cb236990014135dd, type: 2}
+  enemyFactoryParameters: {fileID: 11400000, guid: 19a532e083b9db24f8ca882bf1213446, type: 2}

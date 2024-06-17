@@ -7,19 +7,26 @@
       "dependencies": {},
       "hash": "5fef637954b6886c055a0d893b070470cf2c295c"
     },
+    "com.h8man.2d.navmeshplus": {
+      "version": "https://github.com/h8man/NavMeshPlus.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c5c8af2c675090cda6f7d6c430b966c061dbeb7e"
+    },
+    "com.kienanunique.behaviourtreeditor": {
+      "version": "https://github.com/KienanUnique/UnityBehaviourTreeEditor.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "48801f986012041382e646e11180fe30bd34c412"
+    },
     "com.kienanunique.kobolduiframework": {
       "version": "https://github.com/KienanUnique/KoboldUiFramework.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "58bf7d15d32da5033a1e790a62c3d24fdb347e9e"
-    },
-    "com.thekiwicoder.behaviourtreeditor": {
-      "version": "https://github.com/KienanUnique/UnityBehaviourTreeEditor.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "42d9bbf47db40290b8748c98112817b53d58ff83"
     },
     "com.unity.2d.animation": {
       "version": "9.0.3",
@@ -112,6 +119,15 @@
         "com.unity.2d.tilemap": "1.0.0",
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.ai.navigation": {
+      "version": "1.1.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
