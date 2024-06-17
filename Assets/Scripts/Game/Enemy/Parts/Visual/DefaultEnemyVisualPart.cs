@@ -4,6 +4,7 @@ using Game.Object.Part;
 using Game.Utils;
 using UniRx;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Game.Enemy.Parts.Visual
 {
@@ -14,11 +15,11 @@ namespace Game.Enemy.Parts.Visual
         private CompositeDisposable _aliveDisposables;
 
         private Animator _animator;
-        private Rigidbody2D _rigidbody;
+        private NavMeshAgent _navMeshAgent;
+        private Transform _transform;
         private SpriteRenderer _spriteRenderer;
 
         private bool _leftRotationForFlipX;
-
 
         public DefaultEnemyVisualPart(IEnemyParametersBase parameters)
         {
@@ -28,7 +29,8 @@ namespace Game.Enemy.Parts.Visual
         public override void Initialize()
         {
             _animator = Data.Animator;
-            _rigidbody = Data.MainRigidbody;
+            _navMeshAgent = Data.NavMeshAgent;
+            _transform = _navMeshAgent.transform;
             _spriteRenderer = Data.MainSprite;
 
             _leftRotationForFlipX = _spriteRenderer.flipX;
@@ -41,7 +43,22 @@ namespace Game.Enemy.Parts.Visual
 
         private void HandleRotation()
         {
-            if (_rigidbody.velocity.x > 0)
+            var currentPosition = _transform.position;
+
+            Vector3 lookAtPosition;
+            if (_navMeshAgent.hasPath && _navMeshAgent.path.corners.Length > 1)
+            {
+                var nextPosition = _navMeshAgent.path.corners[1];
+                lookAtPosition = nextPosition;
+            }
+            else
+            {
+                lookAtPosition = _navMeshAgent.destination;
+            }
+
+            var lookDirection = lookAtPosition - currentPosition;
+
+            if (lookDirection.x > 0)
                 _spriteRenderer.flipX = !_leftRotationForFlipX;
             else
                 _spriteRenderer.flipX = _leftRotationForFlipX;
@@ -76,7 +93,7 @@ namespace Game.Enemy.Parts.Visual
 
         private void HandleMoving()
         {
-            var isMoving = _rigidbody.velocity.sqrMagnitude >= _parameters.AnimatorMovingVelocityThreshold;
+            var isMoving = _navMeshAgent.velocity.sqrMagnitude >= _parameters.AnimatorMovingVelocityThreshold;
             _animator.SetBool(AnimationKeys.IsMoving, isMoving);
         }
     }
