@@ -14,15 +14,8 @@ namespace Installers.Game
         {
             Container.BindInterfacesTo<ScreenPositionService>().AsSingle();
             Container.BindInterfacesTo<EnemyFactory>().AsSingle();
-
             // TODO: remove test logic
-            Observable.Timer(TimeSpan.FromSeconds(4)).Subscribe(_ =>
-            {
-                var factory = Container.Resolve<IEnemyFactory>();
-                factory.Create(EEnemyType.Simple, Vector3.zero);
-            });
-            
-            Observable.Timer(TimeSpan.FromSeconds(15)).Subscribe(_ =>
+            Observable.Timer(TimeSpan.FromSeconds(2)).Subscribe(_ =>
             {
                 var factory = Container.Resolve<IEnemyFactory>();
                 factory.Create(EEnemyType.Simple, Vector3.zero);

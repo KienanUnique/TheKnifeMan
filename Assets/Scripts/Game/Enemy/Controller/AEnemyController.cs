@@ -9,6 +9,7 @@ using Game.Enemy.Parts.Visual;
 using Game.Interfaces;
 using Game.Object;
 using UniRx;
+using UnityEngine;
 
 namespace Game.Enemy.Controller
 {
@@ -41,8 +42,6 @@ namespace Game.Enemy.Controller
             Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
             
             Data.NavMeshAgent.isStopped = false;
-            
-            Data.BehaviourTreeInstance.Initialize(_context);
         }
 
         public virtual void HandleDisableAndReset()
@@ -54,7 +53,7 @@ namespace Game.Enemy.Controller
                 poolPart.DisableAndReset();
             }
 
-            //Data.BehaviourTreeInstance.Reset(); // TODO: update package for this logic
+            Data.BehaviourTreeInstance.Reset();
         }
         
         public void HandleDamage(int damage)
@@ -71,13 +70,15 @@ namespace Game.Enemy.Controller
         protected sealed override void HandleInitialize()
         {
             CharacterBase.IsDead.Subscribe(OnIsDead).AddTo(CompositeDisposable);
-
-            Data.NavMeshAgent.updatePosition = false;
+            
             Data.NavMeshAgent.updateRotation = false;
+            Data.NavMeshAgent.updateUpAxis = false;
 
             Data.NavMeshAgent.isStopped = true;
 
             _context = CreateContext();
+            
+            Data.BehaviourTreeInstance.Initialize(_context);
 
             OnInitialize();
             
@@ -112,6 +113,12 @@ namespace Game.Enemy.Controller
             Data.NavMeshAgent.ResetPath();
             
             _onDead.Execute(this);
+        }
+
+        public bool SetDestination(Vector3 position)
+        {
+            var result = Data.NavMeshAgent.SetDestination(position);
+            return result;
         }
     }
 }
