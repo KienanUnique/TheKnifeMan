@@ -1,6 +1,9 @@
 ﻿using Db.EnemiesParametersProvider;
 using Db.EnemiesParametersProvider.Impl;
 using Db.EnemyFactory;
+using Db.EnemyFactory.Impl;
+using Db.LayerMasks;
+using Db.LayerMasks.Impl;
 using Db.Player;
 using Db.Player.Impl;
 using Db.Spawners;
@@ -27,6 +30,9 @@ namespace Installers.Game
         [SerializeField] private WavesParameters wavesParameters;
         [SerializeField] private SpawnersParameters spawnersParameters;
 
+        [Header("Other")] 
+        [SerializeField] private LayerMasksParameters layerMasksParameters;
+
         public override void InstallBindings()
         {
             Container.Bind<IPlayerParameters>().FromInstance(playerParameters).AsSingle();
@@ -36,6 +42,8 @@ namespace Installers.Game
 
             Container.Bind<IWavesParameters>().FromInstance(wavesParameters).AsSingle();
             Container.Bind<ISpawnersParameters>().FromInstance(spawnersParameters).AsSingle();
+            
+            Container.Bind<ILayerMasksParameters>().FromInstance(layerMasksParameters).AsSingle();
         }
     }
 }

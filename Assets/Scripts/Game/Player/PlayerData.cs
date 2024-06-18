@@ -1,18 +1,25 @@
 ﻿using System;
-using Game.Object;
+using Game.Character;
 using UnityEngine;
 
 namespace Game.Player
 {
     [Serializable]
-    public class PlayerData : AObjectData
+    public class PlayerData : ACharacterData
     {
         [SerializeField] private Rigidbody2D mainRigidbody;
-        [SerializeField] private Animator animator;
-        [SerializeField] private SpriteRenderer mainSprite;
+        
+        [Header("Damage colliders")]
+        [SerializeField] private BoxCollider2D damageColliderUp;
+        [SerializeField] private BoxCollider2D damageColliderDown;
+        [SerializeField] private BoxCollider2D damageColliderLeft;
+        [SerializeField] private BoxCollider2D damageColliderRight;
 
         public Rigidbody2D MainRigidbody => mainRigidbody;
-        public Animator Animator => animator;
-        public SpriteRenderer MainSprite => mainSprite;
+
+        public BoxCollider2D DamageColliderUp => damageColliderUp;
+        public BoxCollider2D DamageColliderDown => damageColliderDown;
+        public BoxCollider2D DamageColliderLeft => damageColliderLeft;
+        public BoxCollider2D DamageColliderRight => damageColliderRight;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Utils;
 
-namespace Db.EnemyFactory
+namespace Db.EnemyFactory.Impl
 {
     [CreateAssetMenu(menuName = MenuPathBase.Parameters + nameof(EnemyFactoryParameters),
         fileName = nameof(EnemyFactoryParameters))]

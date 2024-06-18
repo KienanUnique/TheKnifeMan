@@ -1,9 +1,13 @@
 ﻿using Db.Player;
+using Game.Character.Parts.AnimatorStatus;
 using Game.Interfaces;
 using Game.Object;
+using Game.Player.Parts.Attack;
 using Game.Player.Parts.Character;
+using Game.Player.Parts.LookDirection;
 using Game.Player.Parts.Movement;
 using Game.Player.Parts.Visual;
+using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -12,54 +16,94 @@ namespace Game.Player
 {
     public class PlayerController : AObjectController<PlayerData>, IPlayerInformation, IDamageable
     {
+        private readonly CompositeDisposable _aliveDisposable = new();
+
         [SerializeField] private PlayerData data;
 
         [Inject] private IPlayerParameters _parameters;
-        
-        private IPlayerMovementPart _movement;
-        private IPlayerVisualPart _visual;
-        private IPlayerCharacterPart _character;
+
+        private IPlayerMovementPart _movementPart;
+        private IPlayerVisualPart _visualPart;
+        private IPlayerCharacterPart _characterPart;
+        private IPlayerAttackPart _attackPart;
+        private IPlayerLookDirectionPart _lookDirectionPart;
+        private IAnimatorStatusCheckerPart _animatorStatusCheckerPart;
+
+        private EDirection2D _attackDirection;
 
         public Transform Transform => transform;
-        public IReactiveProperty<int> Health => _character.Health;
-        public IReactiveProperty<bool> IsDead => _character.IsDead;
+        public IReactiveProperty<int> Health => _characterPart.Health;
+        public IReactiveProperty<bool> IsDead => _characterPart.IsDead;
 
         protected override PlayerData Data => data;
-        
-        public void HandleDamage(int damage) => _character.HandleDamage(damage);
+
+        public void HandleDamage(int damage) => _characterPart.HandleDamage(damage);
 
         protected override void ResolveParts()
         {
-            _movement = Resolve<IPlayerMovementPart>();
-            _visual = Resolve<IPlayerVisualPart>();
-            _character = Resolve<IPlayerCharacterPart>();
+            _movementPart = Resolve<IPlayerMovementPart>();
+            _visualPart = Resolve<IPlayerVisualPart>();
+            _characterPart = Resolve<IPlayerCharacterPart>();
+            _attackPart = Resolve<IPlayerAttackPart>();
+            _lookDirectionPart = Resolve<IPlayerLookDirectionPart>();
+            _animatorStatusCheckerPart = Resolve<IAnimatorStatusCheckerPart>();
         }
 
         protected override void HandleInitialize()
         {
-            _character.IsDead.Subscribe(OnDead).AddTo(CompositeDisposable);
-            _character.Health.Subscribe(OnHealth).AddTo(CompositeDisposable);
-            
-            _movement.Enable();
+            _characterPart.IsDead.Subscribe(OnDead).AddTo(_aliveDisposable);
+            _characterPart.Health.Subscribe(OnHealth).AddTo(_aliveDisposable);
+
+            _attackPart.Attack.Subscribe(_ => OnAttack()).AddTo(_aliveDisposable);
+            Data.AttackTrigger.AttackFramePlayed.Single().Subscribe(_ => OnAttackFramePlayed())
+                .AddTo(_aliveDisposable);
+
+            _lookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposable);
+
+            _movementPart.Enable();
+
+            CompositeDisposable.Add(_aliveDisposable);
+        }
+
+        private void OnLookDirection(EDirection1D newDirection)
+        {
+            _visualPart.ChangeLookDirection(newDirection);
+        }
+
+        private void OnAttackFramePlayed()
+        {
+            _attackPart.DamageTargets(_attackDirection);
+        }
+
+        private void OnAttack()
+        {
+            if (_animatorStatusCheckerPart.IsAnimatorBusy)
+                return;
+
+            _attackDirection = _lookDirectionPart.CalculateLookDirection2D();
+            _visualPart.PlayAttackAnimation(_attackDirection);
         }
 
         private void OnHealth(int health)
         {
-            if(_character.IsDead.Value)
+            if (_characterPart.IsDead.Value)
                 return;
-            
+
             var lowHealthThreshold = _parameters.LowHealthThreshold;
             if (health > lowHealthThreshold) return;
-            
-            _visual.PlayInjuredAnimation();
+
+            _visualPart.PlayInjuredAnimation();
         }
 
         private void OnDead(bool isDead)
         {
-            if(!isDead)
+            if (!isDead)
                 return;
-            
-            _visual.PlayDeathAnimation();
+
+            _visualPart.PlayDeathAnimation();
+            _movementPart.Disable();
+
+            _aliveDisposable?.Dispose();
         }
     }
 }
