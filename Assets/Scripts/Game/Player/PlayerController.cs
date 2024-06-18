@@ -60,13 +60,27 @@ namespace Game.Player
 
             _lookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposable);
 
+            _animatorStatusCheckerPart.IsAnimatorBusyChanged.Subscribe(OnIsAnimatorBusy).AddTo(_aliveDisposable);
+
             _movementPart.Enable();
 
             CompositeDisposable.Add(_aliveDisposable);
         }
 
+        private void OnIsAnimatorBusy(bool isBusy)
+        {
+            if (isBusy)
+                return;
+
+            var lookDirection = _lookDirectionPart.LookDirection1D.Value;
+            _visualPart.ChangeLookDirection(lookDirection);
+        }
+
         private void OnLookDirection(EDirection1D newDirection)
         {
+            if (_animatorStatusCheckerPart.IsAnimatorBusy)
+                return;
+
             _visualPart.ChangeLookDirection(newDirection);
         }
 

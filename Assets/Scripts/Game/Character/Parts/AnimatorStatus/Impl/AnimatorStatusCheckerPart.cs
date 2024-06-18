@@ -7,7 +7,10 @@ namespace Game.Character.Parts.AnimatorStatus.Impl
     public class AnimatorStatusCheckerPart : AObjectPart<ACharacterData>, IAnimatorStatusCheckerPart
     {
         private readonly CompositeDisposable _compositeDisposable = new();
+        private readonly ReactiveCommand<bool> _isAnimatorBusyChanged = new();
+        
         public bool IsAnimatorBusy { get; private set; }
+        public IReactiveCommand<bool> IsAnimatorBusyChanged => _isAnimatorBusyChanged;
 
         public override void Initialize()
         {
@@ -21,6 +24,7 @@ namespace Game.Character.Parts.AnimatorStatus.Impl
         private void OnAnimatorBusy(bool isBusy)
         {
             IsAnimatorBusy = isBusy;
+            _isAnimatorBusyChanged?.Execute(isBusy);
         }
 
         public override void Dispose()

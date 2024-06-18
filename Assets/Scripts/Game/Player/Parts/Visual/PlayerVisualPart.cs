@@ -66,7 +66,7 @@ namespace Game.Player.Parts.Visual
         public void PlayAttackAnimation(EDirection2D direction2D)
         {
             _animator.SetInteger(AnimationKeys.AttackDirection, (int) direction2D);
-            _animator.SetTrigger(AnimationKeys.Dead);
+            _animator.SetTrigger(AnimationKeys.AttackTrigger);
         }
     }
 }
