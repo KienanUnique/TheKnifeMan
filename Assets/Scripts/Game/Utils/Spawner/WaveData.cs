@@ -8,9 +8,9 @@ namespace Game.Utils.Spawner
     public class WaveData
     {
         [SerializeField] private List<EnemyWaveSpawnData> enemies;
-        [SerializeField] private float delayBeforeSpawnSeconds;
+        [SerializeField] private int delayBeforeSpawnSeconds;
 
         public List<EnemyWaveSpawnData> Enemies => enemies;
-        public float DelayBeforeSpawnSeconds => delayBeforeSpawnSeconds;
+        public int DelayBeforeSpawnSeconds => delayBeforeSpawnSeconds;
     }
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   wavesInfo:
   - enemies:
     - enemy: 0
-      count: 4
-    delayBeforeSpawnSeconds: 2
+      count: 2
+    delayBeforeSpawnSeconds: 6

@@ -3,39 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using Db.Spawners;
 using Game.Enemy.Factory;
+using Game.Level.Provider;
 using Game.SpawnPoint;
 using Game.Utils;
 using Game.Utils.Spawner;
 using ModestTree;
 using UniRx;
-using Unity.VisualScripting;
+using Zenject;
 
 namespace Game.Services.Spawner.Impl
 {
     public class SpawnService : IInitializable, IDisposable, ISpawnService
     {
+        private readonly ILevelViewProvider _levelViewProvider;
+        private readonly IEnemyFactory _enemyFactory;
+        private readonly ISpawnersParameters _spawnersParameters;
+
         private readonly CompositeDisposable _compositeDisposable = new();
         private readonly List<EEnemyType> _spawnOrder = new();
         private readonly List<IEnemySpawnPoint> _freeSpawnPoints = new();
 
-        private readonly List<IEnemySpawnPoint> _spawnPoints;
-        private readonly IEnemyFactory _enemyFactory;
-        private readonly ISpawnersParameters _spawnersParameters;
-
         public SpawnService(
-            List<IEnemySpawnPoint> spawnPoints,
+            ILevelViewProvider levelViewProvider,
             IEnemyFactory enemyFactory,
             ISpawnersParameters spawnersParameters
         )
         {
-            _spawnPoints = spawnPoints;
+            _levelViewProvider = levelViewProvider;
             _enemyFactory = enemyFactory;
             _spawnersParameters = spawnersParameters;
         }
 
         public void Initialize()
         {
-            foreach (var spawnPoint in _spawnPoints)
+            var spawnPoints = _levelViewProvider.LevelView.EnemySpawnPoints;
+            foreach (var spawnPoint in spawnPoints)
             {
                 _freeSpawnPoints.Add(spawnPoint);
                 spawnPoint.OnBecomeFree.Subscribe(OnSpawnPointBecomeFree).AddTo(_compositeDisposable);
@@ -59,9 +61,9 @@ namespace Game.Services.Spawner.Impl
             {
                 var spawnPoint = _freeSpawnPoints[0];
                 var enemy = _spawnOrder[0];
-                
+
                 _enemyFactory.Create(enemy, spawnPoint.Position);
-                
+
                 spawnPoint.SetBusy(spawnDelay);
                 _freeSpawnPoints.RemoveAt(0);
                 _spawnOrder.RemoveAt(0);
@@ -70,19 +72,19 @@ namespace Game.Services.Spawner.Impl
 
         private void OnSpawnPointBecomeFree(IEnemySpawnPoint enemySpawnPoint)
         {
-            if(_spawnPoints.Contains(enemySpawnPoint))
+            if (_freeSpawnPoints.Contains(enemySpawnPoint))
                 return;
 
             if (_spawnOrder.IsEmpty())
             {
-                _spawnPoints.Add(enemySpawnPoint);
+                _freeSpawnPoints.Add(enemySpawnPoint);
             }
             else
             {
                 var enemy = _spawnOrder[0];
 
                 _enemyFactory.Create(enemy, enemySpawnPoint.Position);
-                
+
                 var spawnDelay = _spawnersParameters.SpawnPointSpawnDelaySeconds;
                 enemySpawnPoint.SetBusy(spawnDelay);
 
