@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using Alchemy.Inspector;
 using Game.Character;
 using UnityEngine;
 
@@ -21,5 +23,18 @@ namespace Game.Player
         public BoxCollider2D DamageColliderDown => damageColliderDown;
         public BoxCollider2D DamageColliderLeft => damageColliderLeft;
         public BoxCollider2D DamageColliderRight => damageColliderRight;
+        
+        [Button]
+        public override void AutoFill()
+        {
+            base.AutoFill();
+            mainRigidbody = rootTransform.GetComponent<Rigidbody2D>();
+
+            var colliders = rootTransform.GetComponentsInChildren<BoxCollider2D>().ToList();
+            damageColliderUp = colliders.FirstOrDefault(collider => collider.name.Contains("Up"));
+            damageColliderDown = colliders.FirstOrDefault(collider => collider.name.Contains("Down"));
+            damageColliderLeft = colliders.FirstOrDefault(collider => collider.name.Contains("Left"));
+            damageColliderRight = colliders.FirstOrDefault(collider => collider.name.Contains("Right"));
+        }
     }
 }
