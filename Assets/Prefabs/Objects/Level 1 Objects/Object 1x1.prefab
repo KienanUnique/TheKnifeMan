@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 89193398084629273}
   - component: {fileID: 377127895487552369}
   m_Layer: 0
-  m_Name: Crate
+  m_Name: Object 1x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4906006131129222130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.009, y: -0.009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.14, y: 0.14}
+  m_Size: {x: 0.875, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -121,8 +121,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.513834, y: 0.12840544}
-    oldSize: {x: 0.7777778, y: 0.7777778}
-    newSize: {x: 0.14, y: 0.14}
+    oldSize: {x: 0.875, y: 0.875}
+    newSize: {x: 0.875, y: 0.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -131,11 +131,11 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.20073193, y: 0.15403089}
       - {x: -0.38566235, y: 0.12361151}
-      - {x: -0.39534184, y: 0.012809157}
-      - {x: -0.39211535, y: 0.0047429055}
-      - {x: -0.18552475, y: -0.06045866}
+      - {x: -0.41831708, y: 0.07254477}
+      - {x: -0.3760327, y: 0.041503266}
+      - {x: -0.17173961, y: -0.0420785}
       - {x: -0.00451909, y: -0.107014805}
-      - {x: 0.3888889, y: 0.0038348734}
+      - {x: 0.3751037, y: 0.063570485}
       - {x: 0.35554993, y: 0.15059277}
-      - {x: -0.0033663511, y: 0.17602322}
+      - {x: -0.021746516, y: 0.1737257}
   m_UseDelaunayMesh: 0
