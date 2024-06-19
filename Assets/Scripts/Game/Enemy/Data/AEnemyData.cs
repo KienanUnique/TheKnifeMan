@@ -1,5 +1,5 @@
 ﻿using System;
-using Game.Object;
+using Game.Character;
 using Instance;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,15 +7,11 @@ using UnityEngine.AI;
 namespace Game.Enemy.Data
 {
     [Serializable]
-    public abstract class AEnemyData : AObjectData
+    public abstract class AEnemyData : ACharacterData
     {
-        [SerializeField] private Animator animator;
-        [SerializeField] private SpriteRenderer mainSprite;
         [SerializeField] private BehaviourTreeInstance behaviourTree;
         [SerializeField] private NavMeshAgent navMeshAgent;
         
-        public Animator Animator => animator;
-        public SpriteRenderer MainSprite => mainSprite;
         public IBehaviourTreeInstance BehaviourTreeInstance => behaviourTree;
         public NavMeshAgent NavMeshAgent => navMeshAgent;
     }

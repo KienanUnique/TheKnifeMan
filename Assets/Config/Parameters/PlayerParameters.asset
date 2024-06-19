@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerParameters
   m_EditorClassIdentifier: 
   health: 3
+  damage: 1
   movementSpeed: 10
   dashSpeed: 4
   dashDurationSeconds: 0.5

@@ -17,3 +17,4 @@ MonoBehaviour:
   enemyFactoryParameters: {fileID: 11400000, guid: 19a532e083b9db24f8ca882bf1213446, type: 2}
   wavesParameters: {fileID: 11400000, guid: f4be5a55bda466d4199265f08b5c0f06, type: 2}
   spawnersParameters: {fileID: 11400000, guid: 28cc5f973d84c5c44a6ab6bbd24ed4c9, type: 2}
+  layerMasksParameters: {fileID: 11400000, guid: b6c124a0aaed8f041bc2e8a26aaa1d50, type: 2}

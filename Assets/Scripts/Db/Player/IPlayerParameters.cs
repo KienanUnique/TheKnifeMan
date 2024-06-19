@@ -4,6 +4,7 @@
     {
         // character
         int Health { get; }
+        int Damage { get; }
         
         // movement
         float MovementSpeed { get; }

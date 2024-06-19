@@ -8,7 +8,8 @@ namespace Db.Player.Impl
     public class PlayerParameters : ScriptableObject, IPlayerParameters
     {
         [Header("Character")]
-        [SerializeField] private int health;
+        [SerializeField] [Min(1)] private int health;
+        [SerializeField] [Min(0)] private int damage;
         
         [Header("Movement")]
         [SerializeField] private float movementSpeed;
@@ -20,6 +21,8 @@ namespace Db.Player.Impl
         [SerializeField] private int lowHealthThreshold;
 
         public int Health => health;
+        public int Damage => damage;
+
         public float MovementSpeed => movementSpeed;
         public float DashSpeed => dashSpeed;
         public float DashDurationSeconds => dashDurationSeconds;
