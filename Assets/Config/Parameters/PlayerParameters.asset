@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
-  movementSpeed: 10
+  movementSpeed: 6.3
   dashSpeed: 4
   dashDurationSeconds: 0.5
   animatorMovingSqrVelocityThreshold: 0.001
