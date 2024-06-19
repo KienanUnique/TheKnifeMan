@@ -1,6 +1,7 @@
 ﻿using Context;
 using Game.Enemy.ActionsExecutor;
 using Game.Utils;
+using UnityEngine;
 
 namespace Game.Enemy.Context
 {
@@ -8,5 +9,6 @@ namespace Game.Enemy.Context
     {
         EEnemyType Type { get; }
         IDefaultActionsExecutor DefaultActionsExecutor { get; }
+        Transform Transform { get; }
     }
 }

@@ -4,10 +4,10 @@ using Game.Player;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Enemy.Nodes
+namespace Game.Enemy.Nodes.Actions
 {
     [Serializable]
-    public class MoveToNode : ActionNodeWithContext<IEnemyContextBase>
+    public class MoveToPlayer : ActionNodeWithContext<IEnemyContextBase>
     {
         [Inject] private IPlayerInformation _information;
 

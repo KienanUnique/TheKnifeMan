@@ -22,12 +22,6 @@ namespace Game.Services.WaveTimer.Impl
         {
             var delay = waveData.DelayBeforeSpawnSeconds;
 
-            // _compositeDisposable.Add(
-            //     Observable.Timer(TimeSpan.FromSeconds(delay))
-            //         .Do(_ => _onTimerEnd.Execute())
-            //         .Subscribe()
-            // );
-
             _compositeDisposable.Add(
                 Observable.Interval(TimeSpan.FromSeconds(1))
                     .Take(delay)
