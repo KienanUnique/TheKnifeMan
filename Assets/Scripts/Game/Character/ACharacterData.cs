@@ -4,6 +4,7 @@ using Game.Object;
 using Game.Utils.AnimatorTriggers.Attack;
 using Game.Utils.AnimatorTriggers.Attack.Impl;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Game.Character
 {
@@ -22,6 +23,7 @@ namespace Game.Character
 
         public bool IsRootTransformFilled => rootTransform != null;
         
+        [HelpBox("No automatic saving! Make manual change and then save prefab!", HelpBoxMessageType.Warning)]
         [ShowIf(nameof(IsRootTransformFilled))]
         public virtual void AutoFill()
         {
