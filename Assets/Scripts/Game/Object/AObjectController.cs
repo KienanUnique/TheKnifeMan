@@ -42,7 +42,7 @@ namespace Game.Object
         {
         }
 
-        protected T Resolve<T>() where T : IObjectPart
+        protected virtual T Resolve<T>() where T : IObjectPart
         {
             var part = _partsFactory.Resolve<T>();
             _parts.Add(part);

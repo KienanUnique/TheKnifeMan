@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "com.annulusgames.alchemy": "https://github.com/AnnulusGames/Alchemy.git?path=/Alchemy/Assets/Alchemy",
+    "com.h8man.2d.navmeshplus": "https://github.com/h8man/NavMeshPlus.git",
+    "com.kienanunique.behaviourtreeditor": "https://github.com/KienanUnique/UnityBehaviourTreeEditor.git",
     "com.kienanunique.kobolduiframework": "https://github.com/KienanUnique/KoboldUiFramework.git",
-    "com.thekiwicoder.behaviourtreeditor": "https://github.com/KienanUnique/UnityBehaviourTreeEditor.git",
+    "com.unity.ai.navigation": "1.1.5",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.2d": "2.0.0",
