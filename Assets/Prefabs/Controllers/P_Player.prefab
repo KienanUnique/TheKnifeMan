@@ -75,14 +75,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    rootTransform: {fileID: 5886346316332846342}
     animator: {fileID: 1195355872262530545}
     mainSprite: {fileID: 5359826605271757694}
     animatorAttackTrigger: {fileID: 7196720156155552728}
     mainRigidbody: {fileID: 8421560611831455579}
-    damageColliderUp: {fileID: 0}
-    damageColliderDown: {fileID: 0}
-    damageColliderLeft: {fileID: 0}
-    damageColliderRight: {fileID: 0}
+    damageColliderUp: {fileID: 6343641747424825812}
+    damageColliderDown: {fileID: 8077270787348116839}
+    damageColliderLeft: {fileID: 8303602116771126227}
+    damageColliderRight: {fileID: 272112394122700879}
 --- !u!1 &3447419000828806653
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &3873845031105193594
 GameObject:
@@ -386,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &5488444566766067225
 GameObject:
@@ -463,7 +464,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &6623156067853617130
 GameObject:
@@ -540,7 +541,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &8778064741212504233
 GameObject:

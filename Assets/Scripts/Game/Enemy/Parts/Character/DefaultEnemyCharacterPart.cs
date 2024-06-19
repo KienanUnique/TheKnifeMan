@@ -43,7 +43,6 @@ namespace Game.Enemy.Parts.Character
 
         public void HandleDamage(int damage)
         {
-            Debug.Log($"HandleDamage {damage}");
             if(_isDead.Value)
                 return;
 
@@ -54,7 +53,6 @@ namespace Game.Enemy.Parts.Character
                 _isDead.Value = true;
 
             _health.Value = newHealth;
-            Debug.Log($"Left Health {_health.Value}");
         }
     }
 }

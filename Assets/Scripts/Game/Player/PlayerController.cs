@@ -55,8 +55,7 @@ namespace Game.Player
             _characterPart.Health.Subscribe(OnHealth).AddTo(_aliveDisposable);
 
             _attackPart.Attack.Subscribe(_ => OnAttack()).AddTo(_aliveDisposable);
-            Data.AttackTrigger.AttackFramePlayed.Single().Subscribe(_ => OnAttackFramePlayed())
-                .AddTo(_aliveDisposable);
+            Data.AttackTrigger.AttackFramePlayed.Subscribe(_ => OnAttackFramePlayed()).AddTo(_aliveDisposable);
 
             _lookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposable);
 
