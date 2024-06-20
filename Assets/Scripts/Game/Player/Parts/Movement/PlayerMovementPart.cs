@@ -41,6 +41,8 @@ namespace Game.Player.Parts.Movement
                 return;
 
             _canMove = true;
+            
+            _rigidbody.isKinematic = false;
 
             _movementDisposable?.Dispose();
             _movementDisposable = new CompositeDisposable();
@@ -62,6 +64,8 @@ namespace Game.Player.Parts.Movement
 
             _canMove = false;
             _movementDisposable?.Dispose();
+            _rigidbody.velocity = Vector2.zero;
+            _rigidbody.isKinematic = true;
         }
     }
 }
