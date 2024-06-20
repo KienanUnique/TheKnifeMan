@@ -61,6 +61,7 @@ namespace Game.Player.Parts.Movement
                 return;
 
             _canMove = false;
+            _movementDisposable?.Dispose();
         }
     }
 }
