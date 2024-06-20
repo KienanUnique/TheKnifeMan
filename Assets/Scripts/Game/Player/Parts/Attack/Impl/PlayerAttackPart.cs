@@ -22,7 +22,6 @@ namespace Game.Player.Parts.Attack.Impl
         private readonly ReactiveCommand _onAttack = new();
         private readonly CompositeDisposable _compositeDisposable = new();
         private readonly Collider2D[] _overlapResult = new Collider2D[MaxOverlapCount];
-        private readonly HashSet<IDamageable> _foundedTargets = new();
 
         public IObservable<Unit> Attack => _onAttack;
 
@@ -62,6 +61,7 @@ namespace Game.Player.Parts.Attack.Impl
             var countOfColliders = Physics2D.OverlapBoxNonAlloc(position, needCollider.size, 0f, _overlapResult,
                 _layerMasksParameters.EnemyLayer);
 
+            var foundedTargets = new HashSet<IDamageable>();
             for (var i = 0; i < countOfColliders; i++)
             {
                 var collider = _overlapResult[i];
@@ -69,14 +69,11 @@ namespace Game.Player.Parts.Attack.Impl
                 if (!collider.TryGetComponent(out IDamageable damageable))
                     continue;
 
-                _foundedTargets.Add(damageable);
+                foundedTargets.Add(damageable);
             }
 
             var damage = _playerParameters.Damage;
-            foreach (var target in _foundedTargets)
-            {
-                target.HandleDamage(damage);
-            }
+            foreach (var target in foundedTargets) target.HandleDamage(damage);
         }
 
         private void OnAttackPressed()
