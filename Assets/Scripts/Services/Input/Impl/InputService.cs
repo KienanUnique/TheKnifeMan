@@ -21,7 +21,7 @@ namespace Services.Input.Impl
         public IReactiveProperty<bool> IsDashPressed => _isDashPressed;
         public IObservable<Unit> PausePressed => _pausePressed;
         public IObservable<Unit> AttackPressed => _attackPressed;
-        
+
         public void Initialize()
         {
             SubscribeOnGameplayEvents();

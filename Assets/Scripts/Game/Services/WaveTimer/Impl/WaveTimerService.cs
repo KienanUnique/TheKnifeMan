@@ -26,10 +26,7 @@ namespace Game.Services.WaveTimer.Impl
                 Observable.Interval(TimeSpan.FromSeconds(1))
                     .Take(delay)
                     .Select(_ => TimeSpan.FromSeconds(delay - _))
-                    .Subscribe(remainingTime => _onTick.Execute(remainingTime), () =>
-                    {
-                        _onTimerEnd.Execute();
-                    })
+                    .Subscribe(remainingTime => _onTick.Execute(remainingTime), () => { _onTimerEnd.Execute(); })
             );
         }
     }

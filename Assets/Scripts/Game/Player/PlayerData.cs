@@ -10,9 +10,10 @@ namespace Game.Player
     public class PlayerData : ACharacterData
     {
         [SerializeField] private Rigidbody2D mainRigidbody;
-        
-        [Header("Damage colliders")]
-        [SerializeField] private BoxCollider2D damageColliderUp;
+
+        [Header("Damage colliders")] [SerializeField]
+        private BoxCollider2D damageColliderUp;
+
         [SerializeField] private BoxCollider2D damageColliderDown;
         [SerializeField] private BoxCollider2D damageColliderLeft;
         [SerializeField] private BoxCollider2D damageColliderRight;
@@ -23,7 +24,7 @@ namespace Game.Player
         public BoxCollider2D DamageColliderDown => damageColliderDown;
         public BoxCollider2D DamageColliderLeft => damageColliderLeft;
         public BoxCollider2D DamageColliderRight => damageColliderRight;
-        
+
         [Button]
         public override void AutoFill()
         {

@@ -5,6 +5,5 @@ namespace Game.Object
     [Serializable]
     public class AObjectData
     {
-        
     }
 }

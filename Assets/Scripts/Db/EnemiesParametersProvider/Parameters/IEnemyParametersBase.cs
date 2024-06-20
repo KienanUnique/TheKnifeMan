@@ -5,10 +5,10 @@ namespace Db.EnemiesParametersProvider.Parameters
         // movement
         float Acceleration { get; }
         float MaxSpeed { get; }
-        
+
         // character
         int Health { get; }
-        
+
         // visual
         float AnimatorMovingVelocityThreshold { get; }
     }

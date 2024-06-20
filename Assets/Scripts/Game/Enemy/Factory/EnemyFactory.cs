@@ -15,7 +15,7 @@ namespace Game.Enemy.Factory
 
         private readonly Dictionary<EEnemyType, IConcreteEnemyFactory> _factories = new();
         private readonly CompositeDisposable _compositeDisposable = new();
-        
+
         private readonly DiContainer _diContainer;
 
         public EnemyFactory(DiContainer diContainer)

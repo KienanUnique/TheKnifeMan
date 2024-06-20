@@ -57,7 +57,7 @@ namespace Game.Enemy.Factory.Concrete
                 position, Quaternion.identity, _rootTransform);
 
             poolEnemy.Initialize();
-            
+
             poolEnemy.OnDead.Subscribe(OnEnemyDead).AddTo(_compositeDisposable);
 
             return poolEnemy;

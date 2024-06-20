@@ -11,10 +11,10 @@ namespace Installers.Game
     public class GamePrefabsInstaller : MonoInstaller
     {
         [SerializeField] private LevelView levelView;
-        
-        [Header("Prefab only!")]
-        [SerializeField] private PlayerController playerPrefab;
-        
+
+        [Header("Prefab only!")] [SerializeField]
+        private PlayerController playerPrefab;
+
         [SerializeField] private CameraController cameraPrefab;
 
         public override void InstallBindings()
@@ -26,7 +26,7 @@ namespace Installers.Game
         private void InstallPlayer()
         {
             Container.BindInterfacesTo<PlayerPartsFactory>().AsSingle().WhenInjectedInto<PlayerController>();
-            
+
             Container.BindInterfacesAndSelfTo<PlayerController>()
                 .FromComponentInNewPrefab(playerPrefab)
                 .AsSingle()
@@ -41,7 +41,7 @@ namespace Installers.Game
         private void InstallCamera()
         {
             Container.BindInterfacesTo<EmptyPartsFactory>().AsSingle().WhenInjectedInto<CameraController>();
-            
+
             Container.BindInterfacesAndSelfTo<CameraController>()
                 .FromComponentInNewPrefab(cameraPrefab)
                 .AsSingle()

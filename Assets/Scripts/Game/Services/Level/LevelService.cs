@@ -14,7 +14,7 @@ namespace Game.Services.Level
         private readonly ISpawnService _spawnService;
         private readonly IWavesParameters _wavesParameters;
         private readonly IPlayerInformation _playerInformation;
-        
+
         private readonly CompositeDisposable _compositeDisposable = new();
 
         private int _nextWaveIndex = 0;
@@ -47,11 +47,11 @@ namespace Game.Services.Level
         private void StartNewWave()
         {
             var allWaves = _wavesParameters.WavesInfo;
-            if(allWaves.Count <= _nextWaveIndex)
+            if (allWaves.Count <= _nextWaveIndex)
                 return;
 
             var wave = allWaves[_nextWaveIndex];
-            
+
             _spawnService.SpawnWave(wave);
             _waveTimerService.StartTimer(wave);
 
