@@ -37,7 +37,10 @@ namespace Game.Player
 
         protected override PlayerData Data => data;
 
-        public void HandleDamage(int damage) => _characterPart.HandleDamage(damage);
+        public void HandleDamage(int damage)
+        {
+            _characterPart.HandleDamage(damage);
+        }
 
         protected override void ResolveParts()
         {

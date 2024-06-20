@@ -73,10 +73,7 @@ namespace Game.Player.Parts.Attack.Impl
             }
 
             var damage = _playerParameters.Damage;
-            foreach (var target in foundedTargets)
-            {
-                target.HandleDamage(damage);
-            }
+            foreach (var target in foundedTargets) target.HandleDamage(damage);
         }
 
         private void OnAttackPressed()

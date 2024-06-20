@@ -18,10 +18,10 @@ namespace Game.Object
         private readonly List<IObjectPart> _parts = new();
 
         protected virtual object[] ExtraArgsForParts => new object[] {Data};
-        protected abstract TData Data { get; } 
+        protected abstract TData Data { get; }
 
         public void Initialize()
-        { 
+        {
             _partsFactory.CreateParts(ExtraArgsForParts);
             ResolveParts();
             InitializeParts();

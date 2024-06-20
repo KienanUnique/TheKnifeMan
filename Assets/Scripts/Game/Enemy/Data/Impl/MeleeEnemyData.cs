@@ -8,12 +8,13 @@ namespace Game.Enemy.Data.Impl
     [Serializable]
     public class MeleeEnemyData : AEnemyData, IMeleeEnemyData
     {
-        [Header("Damage colliders")]
-        [SerializeField] private BoxCollider2D damageColliderUp;
+        [Header("Damage colliders")] [SerializeField]
+        private BoxCollider2D damageColliderUp;
+
         [SerializeField] private BoxCollider2D damageColliderDown;
         [SerializeField] private BoxCollider2D damageColliderLeft;
         [SerializeField] private BoxCollider2D damageColliderRight;
-        
+
         public BoxCollider2D DamageColliderUp => damageColliderUp;
         public BoxCollider2D DamageColliderDown => damageColliderDown;
         public BoxCollider2D DamageColliderLeft => damageColliderLeft;

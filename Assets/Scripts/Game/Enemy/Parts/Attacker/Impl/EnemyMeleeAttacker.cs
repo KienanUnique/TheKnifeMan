@@ -20,7 +20,7 @@ namespace Game.Enemy.Parts.Attacker.Impl
         private readonly Collider2D[] _overlapResult = new Collider2D[MaxOverlapCount];
 
         public EnemyMeleeAttacker(
-            IMeleeEnemyParameters parameters, 
+            IMeleeEnemyParameters parameters,
             ILayerMasksParameters layerMasksParameters
         )
         {
@@ -71,10 +71,7 @@ namespace Game.Enemy.Parts.Attacker.Impl
             }
 
             var damage = _parameters.Damage;
-            foreach (var target in foundedTargets)
-            {
-                target.HandleDamage(damage);
-            }
+            foreach (var target in foundedTargets) target.HandleDamage(damage);
         }
     }
 }

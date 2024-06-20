@@ -3,6 +3,6 @@
     public enum EDirection1D
     {
         Left,
-        Right,
+        Right
     }
 }

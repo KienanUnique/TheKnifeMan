@@ -8,7 +8,7 @@ namespace Game.Character.Parts.AnimatorStatus.Impl
     {
         private readonly CompositeDisposable _compositeDisposable = new();
         private readonly ReactiveCommand<bool> _isAnimatorBusyChanged = new();
-        
+
         public bool IsAnimatorBusy { get; private set; }
         public IReactiveCommand<bool> IsAnimatorBusyChanged => _isAnimatorBusyChanged;
 
@@ -16,9 +16,7 @@ namespace Game.Character.Parts.AnimatorStatus.Impl
         {
             var triggers = Data.Animator.GetBehaviours<AnimatorBusyTrigger>();
             foreach (var animatorBusyTrigger in triggers)
-            {
                 animatorBusyTrigger.OnAnimatorBusy.Subscribe(OnAnimatorBusy).AddTo(_compositeDisposable);
-            }
         }
 
         private void OnAnimatorBusy(bool isBusy)

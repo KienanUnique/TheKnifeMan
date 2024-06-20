@@ -9,7 +9,7 @@ namespace Game.Enemy.Nodes
         where TEnemy : IDefaultControllableEnemy
     {
         protected TEnemy Enemy { get; private set; }
-        
+
         protected sealed override void HandleInitialize()
         {
             base.HandleInitialize();
@@ -28,12 +28,12 @@ namespace Game.Enemy.Nodes
         {
         }
     }
-    
+
     public abstract class AAiActionNode<TEnemy> : ActionNodeWithContext<IEnemyContextBase>
         where TEnemy : IDefaultControllableEnemy
     {
         protected TEnemy Enemy { get; private set; }
-        
+
         protected sealed override void HandleInitialize()
         {
             base.HandleInitialize();
@@ -56,12 +56,13 @@ namespace Game.Enemy.Nodes
     public abstract class AAiActionNode : ActionNodeWithContext<IEnemyContextBase>
     {
         protected IDefaultControllableEnemy Enemy { get; private set; }
+
         protected sealed override void HandleInitialize()
         {
             base.HandleInitialize();
 
             Enemy = ConcreteContext.DefaultControllableEnemy;
-                
+
             Initialize();
         }
 

@@ -3,6 +3,6 @@
     public enum ECompareType
     {
         Less,
-        More,
+        More
     }
 }

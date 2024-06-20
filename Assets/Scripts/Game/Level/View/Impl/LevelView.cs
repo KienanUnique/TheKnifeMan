@@ -19,7 +19,7 @@ namespace Game.Level.View.Impl
         public void AutoFill()
         {
             playerSpawnPoint = FindObjectOfType<PlayerSpawnPoint>();
-            
+
             enemySpawnPoints.Clear();
             enemySpawnPoints.AddRange(FindObjectsOfType<EnemySpawnPoint>());
         }

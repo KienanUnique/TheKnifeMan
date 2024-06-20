@@ -9,7 +9,7 @@ namespace Game.Object.Part
         protected T Data => _data;
 
         public abstract void Initialize();
-        
+
         public abstract void Dispose();
     }
 }

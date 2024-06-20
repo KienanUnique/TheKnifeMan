@@ -38,16 +38,14 @@ namespace Game.Enemy.Controller
         {
             _aliveDisposables?.Dispose();
             _aliveDisposables = new CompositeDisposable();
-            
+
             gameObject.SetActive(true);
-            foreach (var poolPart in _poolParts)
-            {
-                poolPart.Enable();
-            }
+            foreach (var poolPart in _poolParts) poolPart.Enable();
 
             Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
 
-            LookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposables);;
+            LookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposables);
+            ;
 
             Data.NavMeshAgent.isStopped = false;
         }
@@ -55,20 +53,17 @@ namespace Game.Enemy.Controller
         public virtual void HandleDisableAndReset()
         {
             gameObject.SetActive(false);
-            
-            foreach (var poolPart in _poolParts)
-            {
-                poolPart.DisableAndReset();
-            }
+
+            foreach (var poolPart in _poolParts) poolPart.DisableAndReset();
 
             Data.BehaviourTreeInstance.Reset();
         }
-        
+
         public void HandleDamage(int damage)
         {
             CharacterPart.HandleDamage(damage);
         }
-        
+
         public void EnableMoving()
         {
             Data.NavMeshAgent.updatePosition = true;
@@ -78,7 +73,7 @@ namespace Game.Enemy.Controller
         {
             Data.NavMeshAgent.updatePosition = false;
         }
-        
+
         public bool SetDestination(Vector3 position)
         {
             var result = Data.NavMeshAgent.SetDestination(position);
@@ -94,31 +89,31 @@ namespace Game.Enemy.Controller
         protected sealed override void HandleInitialize()
         {
             CharacterPart.IsDead.Subscribe(OnIsDead).AddTo(CompositeDisposable);
-            
+
             Data.NavMeshAgent.updateRotation = false;
             Data.NavMeshAgent.updateUpAxis = false;
 
             Data.NavMeshAgent.isStopped = true;
 
             _context = CreateContext();
-            
+
             Data.BehaviourTreeInstance.Initialize(_context);
 
             OnInitialize();
-            
+
             gameObject.SetActive(false);
         }
 
         protected override T Resolve<T>()
         {
             var resolveResult = base.Resolve<T>();
-            
-            if (resolveResult is IEnemyPoolPart enemyPoolPart) 
+
+            if (resolveResult is IEnemyPoolPart enemyPoolPart)
                 _poolParts.Add(enemyPoolPart);
 
             return resolveResult;
         }
-        
+
         private void OnUpdate()
         {
             Data.BehaviourTreeInstance.Execute();
@@ -126,24 +121,24 @@ namespace Game.Enemy.Controller
 
         private void OnIsDead(bool isDead)
         {
-            if(!isDead)
+            if (!isDead)
                 return;
-            
+
             EnemyVisualPart.PlayDeathAnimation();
-            
+
             _aliveDisposables?.Dispose();
-            
+
             Data.NavMeshAgent.isStopped = true;
             Data.NavMeshAgent.ResetPath();
-            
+
             _onDead.Execute(this);
         }
-        
+
         private void OnLookDirection(EDirection1D direction1D)
         {
-            if(AnimatorStatusCheckerPart.IsAnimatorBusy)
+            if (AnimatorStatusCheckerPart.IsAnimatorBusy)
                 return;
-            
+
             EnemyVisualPart.ChangeLookDirection(direction1D);
         }
     }
