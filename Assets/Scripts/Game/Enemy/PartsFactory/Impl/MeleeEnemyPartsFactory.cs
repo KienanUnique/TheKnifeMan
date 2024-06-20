@@ -1,5 +1,4 @@
 ﻿using Db.EnemiesParametersProvider;
-using Db.EnemiesParametersProvider.Parameters;
 using Db.EnemiesParametersProvider.Parameters.Impl;
 using Game.Character.Parts.AnimatorStatus.Impl;
 using Game.Enemy.Parts.Attacker.Impl;
@@ -10,17 +9,19 @@ using Zenject;
 
 namespace Game.Enemy.PartsFactory.Impl
 {
-    public abstract class AMeleeEnemyPartsFactory<TParameters> : AEnemyPartsFactory
+    public class MeleeEnemyPartsFactory<TParameters> : AEnemyPartsFactory
         where TParameters : IMeleeEnemyParameters
     {
-        protected AMeleeEnemyPartsFactory(
+        private readonly TParameters _parameters;
+        
+        protected MeleeEnemyPartsFactory(
             DiContainer mainContainer,
-            IEnemiesParametersProvider enemiesParametersProvider
+            IEnemiesParametersProvider enemiesParametersProvider,
+            TParameters parameters
         ) : base(mainContainer, enemiesParametersProvider)
         {
+            _parameters = parameters;
         }
-
-        protected abstract TParameters GetParameters(IEnemiesParametersProvider enemiesParametersProvider);
 
         protected override void HandleCreateParts(DiContainer container, object[] extraArgs,
             IEnemiesParametersProvider enemiesParametersProvider)
@@ -28,9 +29,8 @@ namespace Game.Enemy.PartsFactory.Impl
             container.BindInterfacesTo<DefaultEnemyCharacterPart>().AsSingle().WithArguments(extraArgs);
             container.BindInterfacesTo<DefaultEnemyLookDirectionPart>().AsSingle().WithArguments(extraArgs);
             container.BindInterfacesTo<AnimatorStatusCheckerPart>().AsSingle().WithArguments(extraArgs);
-
-            var parameters = GetParameters(enemiesParametersProvider);
-            container.BindInterfacesTo<TParameters>().FromInstance(parameters).AsSingle();
+            
+            container.BindInterfacesTo<TParameters>().FromInstance(_parameters).AsSingle();
 
             container.BindInterfacesTo<MeleeAttackEnemyVisualPart>().AsSingle().WithArguments(extraArgs);
             container.BindInterfacesTo<EnemyMeleeAttacker>().AsSingle().WithArguments(extraArgs);
