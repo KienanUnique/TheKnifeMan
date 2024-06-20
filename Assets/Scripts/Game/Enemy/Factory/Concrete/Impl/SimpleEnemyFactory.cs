@@ -1,5 +1,4 @@
 ﻿using Db.EnemyFactory;
-using Game.Enemy.Controller.Impl;
 using Game.Enemy.PartsFactory.Impl;
 using UnityEngine;
 using Zenject;
@@ -20,7 +19,7 @@ namespace Game.Enemy.Factory.Concrete.Impl
 
         protected override void InstallBindings(DiContainer container)
         {
-            container.BindInterfacesTo<SimpleEnemyPartsFactory>().AsSingle().WhenInjectedInto<SimpleEnemyController>();
+            container.BindInterfacesTo<SimpleEnemyPartsFactory>().AsSingle();
         }
     }
 }

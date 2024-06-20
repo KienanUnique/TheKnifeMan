@@ -6,7 +6,7 @@ using UniRx;
 
 namespace Game.Enemy.Parts.Character.Impl
 {
-    public class DefaultEnemyCharacterPart : AObjectPart<AEnemyData>, IEnemyCharacterPartBase
+    public class DefaultEnemyCharacterPart : AObjectPart<IEnemyData>, IEnemyCharacterPartBase
     {
         private readonly IEnemyParametersBase _enemyParameters;
         

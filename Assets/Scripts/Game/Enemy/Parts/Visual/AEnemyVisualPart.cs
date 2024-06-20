@@ -10,7 +10,7 @@ using UnityEngine.AI;
 
 namespace Game.Enemy.Parts.Visual
 {
-    public class AEnemyVisualPart : AObjectPart<AEnemyData>
+    public class AEnemyVisualPart : AObjectPart<IEnemyData>
     {
         protected readonly IEnemyParametersBase Parameters;
 

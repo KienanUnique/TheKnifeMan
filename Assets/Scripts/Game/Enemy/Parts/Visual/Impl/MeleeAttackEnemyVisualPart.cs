@@ -4,9 +4,9 @@ using Game.Utils.Directions;
 
 namespace Game.Enemy.Parts.Visual.Impl
 {
-    public class MeleeEnemyVisualPart : AEnemyVisualPart, IMeleeEnemyVisualPart
+    public class MeleeAttackEnemyVisualPart : AEnemyVisualPart, IMeleeEnemyVisualPart
     {
-        protected MeleeEnemyVisualPart(IEnemyParametersBase parameters) : base(parameters)
+        protected MeleeAttackEnemyVisualPart(IEnemyParametersBase parameters) : base(parameters)
         {
         }
 

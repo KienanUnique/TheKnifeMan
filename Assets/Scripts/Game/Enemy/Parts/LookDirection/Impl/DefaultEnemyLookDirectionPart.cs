@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace Game.Enemy.Parts.LookDirection.Impl
 {
-    public class DefaultEnemyLookDirectionPart : AObjectPart<AEnemyData>, IEnemyLookDirectionPart
+    public class DefaultEnemyLookDirectionPart : AObjectPart<IEnemyData>, IEnemyLookDirectionPart
     {
         private CompositeDisposable _aliveDisposable;
         private readonly ReactiveProperty<EDirection1D> _lookDirection1D = new();

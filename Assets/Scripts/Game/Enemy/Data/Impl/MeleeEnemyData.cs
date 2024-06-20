@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Game.Enemy.Data.Impl
 {
     [Serializable]
-    public class SimpleEnemyData : AEnemyData, IMeleeEnemyData
+    public class MeleeEnemyData : AEnemyData, IMeleeEnemyData
     {
         [Header("Damage colliders")]
         [SerializeField] private BoxCollider2D damageColliderUp;

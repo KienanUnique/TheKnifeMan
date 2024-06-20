@@ -13,9 +13,9 @@ using UnityEngine;
 
 namespace Game.Enemy.Controller.Impl
 {
-    public class SimpleEnemyController : AEnemyController<SimpleEnemyData>, IMeleeAttackEnemy
+    public class MeleeEnemyController : AEnemyController<MeleeEnemyData>, IMeleeAttackEnemy
     {
-        [SerializeField] private SimpleEnemyData data;
+        [SerializeField] private MeleeEnemyData data;
 
         private IEnemyCharacterPartBase _characterPart;
         private IMeleeEnemyVisualPart _visualPart;
@@ -25,7 +25,7 @@ namespace Game.Enemy.Controller.Impl
 
         private EDirection2D _attackDirection;
 
-        protected override SimpleEnemyData Data => data;
+        protected override MeleeEnemyData Data => data;
         protected override IEnemyCharacterPartBase CharacterPart => _characterPart;
         protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
         protected override IAnimatorStatusCheckerPart AnimatorStatusCheckerPart => _animatorStatusCheckerPart;
