@@ -17,5 +17,5 @@ MonoBehaviour:
   movementSpeed: 6.3
   dashSpeed: 4
   dashDurationSeconds: 0.5
-  animatorMovingSqrVelocityThreshold: 0.001
+  animatorMovingSqrVelocityThreshold: 0.01
   lowHealthThreshold: 1
