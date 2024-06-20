@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Character.Parts.AnimatorStatus;
 using Game.Enemy.ActionsExecutor;
 using Game.Enemy.Context;
 using Game.Enemy.Data;
 using Game.Enemy.Parts;
 using Game.Enemy.Parts.Character;
+using Game.Enemy.Parts.LookDirection;
 using Game.Enemy.Parts.Visual;
 using Game.Interfaces;
 using Game.Object;
+using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
 
 namespace Game.Enemy.Controller
 {
-    public abstract class AEnemyController<TData> : AObjectController<TData>, IDefaultActionsExecutor, IPoolEnemy,
+    public abstract class AEnemyController<TData> : AObjectController<TData>, IDefaultControllableEnemy, IPoolEnemy,
         IDamageable where TData : AEnemyData
     {
         private CompositeDisposable _aliveDisposables;
@@ -24,8 +27,11 @@ namespace Game.Enemy.Controller
 
         public IObservable<IPoolEnemy> OnDead => _onDead;
 
-        protected abstract IEnemyCharacterPartBase CharacterBase { get; }
-        protected abstract IEnemyVisualPartBase EnemyVisualBase { get; }
+        protected abstract IEnemyCharacterPartBase CharacterPart { get; }
+        protected abstract IEnemyVisualPartBase EnemyVisualPart { get; }
+        protected abstract IAnimatorStatusCheckerPart AnimatorStatusCheckerPart { get; }
+        protected abstract IEnemyLookDirectionPart LookDirectionPart { get; }
+        public bool IsInAction => AnimatorStatusCheckerPart.IsAnimatorBusy;
         protected CompositeDisposable AliveDisposables => _aliveDisposables;
 
         public virtual void HandleEnable()
@@ -40,7 +46,9 @@ namespace Game.Enemy.Controller
             }
 
             Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
-            
+
+            LookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposables);;
+
             Data.NavMeshAgent.isStopped = false;
         }
 
@@ -58,7 +66,23 @@ namespace Game.Enemy.Controller
         
         public void HandleDamage(int damage)
         {
-            CharacterBase.HandleDamage(damage);
+            CharacterPart.HandleDamage(damage);
+        }
+        
+        public void EnableMoving()
+        {
+            Data.NavMeshAgent.updatePosition = true;
+        }
+
+        public void DisableMoving()
+        {
+            Data.NavMeshAgent.updatePosition = false;
+        }
+        
+        public bool SetDestination(Vector3 position)
+        {
+            var result = Data.NavMeshAgent.SetDestination(position);
+            return result;
         }
 
         protected abstract IEnemyContextBase CreateContext();
@@ -69,7 +93,7 @@ namespace Game.Enemy.Controller
 
         protected sealed override void HandleInitialize()
         {
-            CharacterBase.IsDead.Subscribe(OnIsDead).AddTo(CompositeDisposable);
+            CharacterPart.IsDead.Subscribe(OnIsDead).AddTo(CompositeDisposable);
             
             Data.NavMeshAgent.updateRotation = false;
             Data.NavMeshAgent.updateUpAxis = false;
@@ -105,7 +129,7 @@ namespace Game.Enemy.Controller
             if(!isDead)
                 return;
             
-            EnemyVisualBase.PlayDeathAnimation();
+            EnemyVisualPart.PlayDeathAnimation();
             
             _aliveDisposables?.Dispose();
             
@@ -114,11 +138,13 @@ namespace Game.Enemy.Controller
             
             _onDead.Execute(this);
         }
-
-        public bool SetDestination(Vector3 position)
+        
+        private void OnLookDirection(EDirection1D direction1D)
         {
-            var result = Data.NavMeshAgent.SetDestination(position);
-            return result;
+            if(AnimatorStatusCheckerPart.IsAnimatorBusy)
+                return;
+            
+            EnemyVisualPart.ChangeLookDirection(direction1D);
         }
     }
 }

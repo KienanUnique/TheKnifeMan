@@ -1,14 +1,13 @@
 ﻿using System;
-using Game.Enemy.ActionsExecutor;
 
 namespace Game.Enemy.Nodes.Actions
 {
     [Serializable]
-    public class AttackMelee : AAiActionNode<IMeleeAttackEnemy>
+    public class EnableMoving : AAiActionNode
     {
         protected override ENodeState OnUpdate()
         {
-            Enemy.AttackMelee();
+            Enemy.EnableMoving();
             return ENodeState.Success;
         }
     }

@@ -8,7 +8,7 @@ using Zenject;
 namespace Game.Enemy.Nodes.States
 {
     [Serializable]
-    public class DistanceToPlayer : ActionNodeWithContext<IEnemyContextBase>
+    public class DistanceToPlayer : AAiActionNode
     {
         public NodeProperty<ECompareType> compareType = new();
         public NodeProperty<float> compareValue = new();
@@ -18,7 +18,7 @@ namespace Game.Enemy.Nodes.States
         private Transform _playerTransform;
         private Transform _enemyTransform;
 
-        protected override void HandleInitialize()
+        protected override void Initialize()
         {
             _playerTransform = _information.Transform;
             _enemyTransform = ConcreteContext.Transform;
@@ -26,12 +26,12 @@ namespace Game.Enemy.Nodes.States
 
         protected override ENodeState OnUpdate()
         {
-            var distance = (_enemyTransform.position - _playerTransform.position).sqrMagnitude;
-            var needDistance = compareValue.Value * compareValue.Value;
+            var actualDistance = (_enemyTransform.position - _playerTransform.position).sqrMagnitude;
+            var expectedDistance = compareValue.Value * compareValue.Value;
             return compareType.Value switch
             {
-                ECompareType.Less => needDistance < distance ? ENodeState.Success : ENodeState.Failure,
-                ECompareType.More => needDistance > distance ? ENodeState.Success : ENodeState.Failure,
+                ECompareType.Less => actualDistance < expectedDistance ? ENodeState.Success : ENodeState.Failure,
+                ECompareType.More => actualDistance > expectedDistance ? ENodeState.Success : ENodeState.Failure,
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

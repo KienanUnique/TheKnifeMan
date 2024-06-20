@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 namespace Game.Character
 {
     [Serializable]
-    public abstract class ACharacterData : AObjectData
+    public abstract class ACharacterData : AObjectData, ICharacterData
     {
         [SerializeField] protected Transform rootTransform;
         [SerializeField] private Animator animator;

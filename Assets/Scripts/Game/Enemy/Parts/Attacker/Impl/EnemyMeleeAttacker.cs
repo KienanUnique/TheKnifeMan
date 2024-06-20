@@ -1,49 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using Db.EnemiesParametersProvider.Parameters.Impl;
 using Db.LayerMasks;
-using Db.Player;
+using Game.Enemy.Data;
 using Game.Interfaces;
 using Game.Object.Part;
 using Game.Utils.Directions;
-using Services.Input;
-using UniRx;
 using UnityEngine;
 
-namespace Game.Player.Parts.Attack.Impl
+namespace Game.Enemy.Parts.Attacker.Impl
 {
-    public class PlayerAttackPart : AObjectPart<PlayerData>, IPlayerAttackPart
+    public class EnemyMeleeAttacker : AObjectPart<IMeleeEnemyData>, IEnemyMeleeAttacker
     {
-        private const int MaxOverlapCount = 15;
+        private const int MaxOverlapCount = 10;
 
-        private readonly IInputService _inputService;
-        private readonly IPlayerParameters _playerParameters;
+        private readonly IMeleeEnemyParameters _parameters;
         private readonly ILayerMasksParameters _layerMasksParameters;
 
-        private readonly ReactiveCommand _onAttack = new();
-        private readonly CompositeDisposable _compositeDisposable = new();
         private readonly Collider2D[] _overlapResult = new Collider2D[MaxOverlapCount];
 
-        public IObservable<Unit> Attack => _onAttack;
-
-        public PlayerAttackPart(
-            IInputService inputService,
-            IPlayerParameters playerParameters,
+        public EnemyMeleeAttacker(
+            IMeleeEnemyParameters parameters, 
             ILayerMasksParameters layerMasksParameters
         )
         {
-            _inputService = inputService;
-            _playerParameters = playerParameters;
+            _parameters = parameters;
             _layerMasksParameters = layerMasksParameters;
         }
 
         public override void Initialize()
         {
-            _inputService.AttackPressed.Subscribe(_ => OnAttackPressed()).AddTo(_compositeDisposable);
         }
 
         public override void Dispose()
         {
-            _compositeDisposable?.Dispose();
+        }
+
+        public void Enable()
+        {
+        }
+
+        public void DisableAndReset()
+        {
         }
 
         public void DamageTargets(EDirection2D attackDirection)
@@ -59,7 +57,7 @@ namespace Game.Player.Parts.Attack.Impl
 
             var position = (Vector2) needCollider.transform.position + needCollider.offset;
             var countOfColliders = Physics2D.OverlapBoxNonAlloc(position, needCollider.size, 0f, _overlapResult,
-                _layerMasksParameters.EnemyLayer);
+                _layerMasksParameters.PlayerLayer);
 
             var foundedTargets = new HashSet<IDamageable>();
             for (var i = 0; i < countOfColliders; i++)
@@ -72,16 +70,11 @@ namespace Game.Player.Parts.Attack.Impl
                 foundedTargets.Add(damageable);
             }
 
-            var damage = _playerParameters.Damage;
+            var damage = _parameters.Damage;
             foreach (var target in foundedTargets)
             {
                 target.HandleDamage(damage);
             }
-        }
-
-        private void OnAttackPressed()
-        {
-            _onAttack.Execute();
         }
     }
 }

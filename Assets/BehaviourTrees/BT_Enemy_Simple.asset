@@ -17,17 +17,23 @@ MonoBehaviour:
   nodes:
   - rid: 7309586691978690563
   - rid: 7309586692051828736
-  - rid: 7309586692051828737
-  - rid: 7309586692051828738
   - rid: 7309586692051828740
+  - rid: 7309586756488134656
+  - rid: 7309586756488134657
+  - rid: 7309586756488134658
+  - rid: 7309586756488134659
+  - rid: 7309586756488134660
+  - rid: 7309586756488134661
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 600, y: 300, z: 0}
+  viewPosition: {x: 600, y: 231, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 7309586691978690563
       type: {class: RootNode, ns: , asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -47,37 +53,17 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 00adbe3e2a528bb4591b3e4f619383e8
-        position: {x: -2, y: 186}
+        position: {x: 0, y: 180}
         blackboard:
           keys: []
         description: 
         drawGizmos: 0
         children:
-        - rid: 7309586692051828737
-        - rid: 7309586692051828738
-    - rid: 7309586692051828737
-      type: {class: MoveToNode, ns: Game.Enemy.Nodes, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 7d2b6bd80c6a076469294c21b458c750
-        position: {x: -180, y: 321}
-        blackboard:
-          keys: []
-        description: 
-        drawGizmos: 0
-    - rid: 7309586692051828738
-      type: {class: Wait, ns: Actions, asm: thekiwicoder.behaviourtreeeditor}
-      data:
-        state: 0
-        started: 0
-        guid: 530056c9100da7f4492c32f83083f8cc
-        position: {x: 60, y: 330}
-        blackboard:
-          keys: []
-        description: 
-        drawGizmos: 0
-        duration: 0.5
+        - rid: 7309586756488134656
+        - rid: 7309586756488134659
+        - rid: 7309586756488134657
+        - rid: 7309586756488134660
+        - rid: 7309586756488134661
     - rid: 7309586692051828740
       type: {class: Repeat, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -92,5 +78,82 @@ MonoBehaviour:
         child:
           rid: 7309586692051828736
         restartOnSuccess: 1
-        restartOnFailure: 0
+        restartOnFailure: 1
         maxRepeats: 0
+    - rid: 7309586756488134656
+      type: {class: SetPlayerPositionAsDestination, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 161ec1d3d9904274b9c229bd9bf094ba
+        position: {x: -360, y: 330}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586756488134657
+      type: {class: DistanceToPlayer, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b05465c7cd4557843a11cd344344ee05
+        position: {x: 195, y: 330}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        compareType:
+          reference:
+            rid: -2
+          defaultValue: 0
+        compareValue:
+          reference:
+            rid: -2
+          defaultValue: 3
+    - rid: 7309586756488134658
+      type: {class: IsInAction, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6167fd9b84e628d409547b944a71f848
+        position: {x: 0, y: 465}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586756488134659
+      type: {class: Inverter, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: eceaf09d5818c564bbb4314421a729ef
+        position: {x: 0, y: 330}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 7309586756488134658
+    - rid: 7309586756488134660
+      type: {class: AttackMelee, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f8fe8956c9df0424eb457093a252f7f1
+        position: {x: 379, y: 334}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586756488134661
+      type: {class: Wait, ns: Actions, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 9b3cab114ffafa24ab27871fbf320fa7
+        position: {x: 555, y: 330}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        duration: 1

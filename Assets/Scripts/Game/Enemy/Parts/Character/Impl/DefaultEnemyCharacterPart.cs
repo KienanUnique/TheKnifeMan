@@ -3,9 +3,8 @@ using Db.EnemiesParametersProvider.Parameters;
 using Game.Enemy.Data;
 using Game.Object.Part;
 using UniRx;
-using UnityEngine;
 
-namespace Game.Enemy.Parts.Character
+namespace Game.Enemy.Parts.Character.Impl
 {
     public class DefaultEnemyCharacterPart : AObjectPart<AEnemyData>, IEnemyCharacterPartBase
     {
