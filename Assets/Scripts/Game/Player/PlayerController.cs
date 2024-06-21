@@ -63,10 +63,18 @@ namespace Game.Player
             _lookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposable);
 
             _animatorStatusCheckerPart.IsAnimatorBusyChanged.Subscribe(OnIsAnimatorBusy).AddTo(_aliveDisposable);
+            
+            _movementPart.DashStarted.Subscribe(_ => OnDashStarted()).AddTo(_aliveDisposable);
 
             _movementPart.Enable();
+            _visualPart.ChangeLookDirection(_lookDirectionPart.LookDirection1D.Value);
 
             CompositeDisposable.Add(_aliveDisposable);
+        }
+
+        private void OnDashStarted()
+        {
+            _visualPart.StartPlayingDashAnimation();
         }
 
         private void OnIsAnimatorBusy(bool isBusy)

@@ -8,11 +8,14 @@
 
         // movement
         float MovementSpeed { get; }
-        float DashSpeed { get; }
+        float DashForce { get; }
         float DashDurationSeconds { get; }
+        float DashCooldownSeconds { get; }
+        float DashDrag { get; }
 
         // animator
         float AnimatorMovingVelocityThreshold { get; }
         int LowHealthThreshold { get; }
+        float DashEndAnimationDurationSeconds { get; }
     }
 }
