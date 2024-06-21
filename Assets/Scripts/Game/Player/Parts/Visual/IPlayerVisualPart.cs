@@ -9,5 +9,6 @@ namespace Game.Player.Parts.Visual
         void PlayInjuredAnimation();
         void PlayDeathAnimation();
         void PlayAttackAnimation(EDirection2D direction2D);
+        void StartPlayingDashAnimation();
     }
 }
