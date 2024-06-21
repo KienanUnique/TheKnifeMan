@@ -110,85 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: isometric four buildings 2_0
+      name: S_Buildings2_0
       rect:
         serializedVersion: 2
         x: 34
         y: 235
         width: 128
         height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.67, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96740bca2b9909748a6f6cfe0ae50522
-      internalID: 1514537175
+      spriteID: b94fbcb8f24a24a4194109b04427fc4b
+      internalID: 1625070185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: isometric four buildings 2_1
+      name: S_Buildings2_1
       rect:
         serializedVersion: 2
         x: 227
         y: 252
         width: 128
         height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.67, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ab420a3228e2434baa5b42bb5354a1c
-      internalID: -1341265234
+      spriteID: 95d46a97d83919343bef219b46b1c19d
+      internalID: -75926917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: isometric four buildings 2_2
+      name: S_Buildings2_2
       rect:
         serializedVersion: 2
         x: 21
-        y: 46
+        y: 45
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.67, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa2b8cbbf9ae17749bba2971954a6f72
-      internalID: 1742490617
+      spriteID: 74545a491a88dc447bd996e2de808374
+      internalID: 1846884204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: isometric four buildings 2_3
+      name: S_Buildings2_3
       rect:
         serializedVersion: 2
         x: 229
         y: 29
         width: 128
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.67, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e182391ec68c6684fa615b79769860df
-      internalID: 1920896014
+      spriteID: 3a40059f170d5d040bed5c6023009bda
+      internalID: -546361340
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      isometric four buildings 2_0: 1514537175
-      isometric four buildings 2_1: -1341265234
-      isometric four buildings 2_2: 1742490617
-      isometric four buildings 2_3: 1920896014
+      S_Buildings2_0: 1625070185
+      S_Buildings2_1: -75926917
+      S_Buildings2_2: 1846884204
+      S_Buildings2_3: -546361340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

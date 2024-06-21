@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Isometric_Portal_0
+      name: S_Isometric_Portal_0
       rect:
         serializedVersion: 2
         x: 6
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81bdb28fba5866f43a3f1f9412f1ad2e
-      internalID: -1869973915
+      spriteID: 6e180e7ed1c6dc74f9c11a273ddef04a
+      internalID: 1689066427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isometric_Portal_1
+      name: S_Isometric_Portal_1
       rect:
         serializedVersion: 2
         x: 118
         y: 1
         width: 98
-        height: 126
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d975e3e5ac89def4eb061c4b88b054b1
-      internalID: -537940707
+      spriteID: a3e525ae2770f0e4e820b957564ed5df
+      internalID: 442238419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isometric_Portal_2
+      name: S_Isometric_Portal_2
       rect:
         serializedVersion: 2
         x: 230
         y: 1
-        width: 98
-        height: 126
+        width: 99
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c5b25b528be21a40a1d92f5bf628cfc
-      internalID: -560824074
+      spriteID: 59ac7dffc2ece7a4ab6ebc71c7ceda2f
+      internalID: -443103941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isometric_Portal_3
+      name: S_Isometric_Portal_3
       rect:
         serializedVersion: 2
         x: 342
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1fac6aba84829d40989a5df9c85888c
-      internalID: 302948079
+      spriteID: f268c822d52d9614c8e89b4a4fc10708
+      internalID: 1959057878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isometric_Portal_4
+      name: S_Isometric_Portal_4
       rect:
         serializedVersion: 2
         x: 454
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdce7fb7f659b7449af1564b3e642f23
-      internalID: -1966914686
+      spriteID: 99ddc9c38804f834ca2941c5ad351c1f
+      internalID: -1379122213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isometric_Portal_5
+      name: S_Isometric_Portal_5
       rect:
         serializedVersion: 2
         x: 566
         y: 1
         width: 98
-        height: 126
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da6c09785530d2740b89b464d50003cc
-      internalID: 2120392049
+      spriteID: ea246a99405aec04ea579c63cac70ceb
+      internalID: 223876248
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Isometric_Portal_0: -1869973915
-      Isometric_Portal_1: -537940707
-      Isometric_Portal_2: -560824074
-      Isometric_Portal_3: 302948079
-      Isometric_Portal_4: -1966914686
-      Isometric_Portal_5: 2120392049
+      S_Isometric_Portal_0: 1689066427
+      S_Isometric_Portal_1: 442238419
+      S_Isometric_Portal_2: -443103941
+      S_Isometric_Portal_3: 1959057878
+      S_Isometric_Portal_4: -1379122213
+      S_Isometric_Portal_5: 223876248
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
