@@ -4,5 +4,6 @@
     {
         public const string Installers = "Installers/";
         public const string Parameters = "Parameters/";
+        public const string Projectiles = "Projectiles/";
     }
 }

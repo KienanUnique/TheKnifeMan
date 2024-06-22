@@ -4,8 +4,7 @@ using Utils;
 
 namespace Db.Player.Impl
 {
-    [CreateAssetMenu(menuName = MenuPathBase.Parameters + nameof(PlayerParameters),
-        fileName = nameof(PlayerParameters))]
+    [CreateAssetMenu(menuName = MenuPathBase.Parameters + nameof(PlayerParameters), fileName = nameof(PlayerParameters))]
     public class PlayerParameters : ScriptableObject, IPlayerParameters
     {
         [Header("Character")] [SerializeField] [Min(1)] private int health;
