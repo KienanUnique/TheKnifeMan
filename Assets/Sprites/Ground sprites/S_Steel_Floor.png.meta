@@ -1,0 +1,2877 @@
+fileFormatVersion: 2
+guid: ff735936a0663b743bab5658221c198a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: S_Steel_Floor_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 498
+        width: 14
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f658fe61908ff5946ac3d4c78fdee23d
+      internalID: -1864495284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_1
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 508
+        width: 6
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f158f658ad0e87a44a87740665b1c4d1
+      internalID: 339447051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 508
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde56e92b874d7d49931094be18f1908
+      internalID: -2127132313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_3
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 508
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f759c736a17a674eb8c37213a81e9fc
+      internalID: -165431549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 508
+        width: 10
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67285748b1a5acc49867e8d07c49d01d
+      internalID: 801533775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_5
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 504
+        width: 10
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550b5268876a12d4695ecb2f78ce3410
+      internalID: 1710832032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_6
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 508
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fdd0831a7b95e4b998a4aacd0e939f
+      internalID: 1789281481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_7
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 508
+        width: 9
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc40b748fdecea42935e0d55722c3ff
+      internalID: -726762139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_8
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 508
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7485e9970f9cacf48b455eed3a074229
+      internalID: 862870728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_9
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 504
+        width: 7
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9c21cc8e3c0904cb8c504d57214239
+      internalID: 242571318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_10
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 508
+        width: 10
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ee1479fefa9d5438002e5258774c17
+      internalID: 1949478337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 508
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061958f079b87204ca8ada194ffa3767
+      internalID: -729368177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_12
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 508
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32efa2618e20e644ea90665fd5f1163c
+      internalID: -763939148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_13
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 508
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8773e1d9b823e43b1e0e416848bb3d
+      internalID: -802190484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_14
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 498
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451b2249e04b6294887af91f49921416
+      internalID: -82671274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_15
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 498
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb522ce5db50783489060f9c268a61a6
+      internalID: 779853177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_16
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 296
+        width: 162
+        height: 203
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ce83cdcb47a5d4ab3bcd5feb04949e
+      internalID: 1418436935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_17
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 454
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897c3bd0cf697d34098e7f14e2dd7cfa
+      internalID: 323986362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_18
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 454
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dba07caf23ec61469710ba9c0603692
+      internalID: 555612757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_19
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 454
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60bd8d3c4ce73b844a35ce16c1691c89
+      internalID: -2045859214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_20
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 454
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54360736acd29a94aa33ee83323f5417
+      internalID: -1519111806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_21
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 454
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3aa479ffb861a04b807e451293b2fb8
+      internalID: 581118206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 454
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463df16fcfb3b574192409382a578974
+      internalID: -1847786073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_23
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 454
+        width: 14
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0128c17f2308ac84a849e4a97347775f
+      internalID: -2014071801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_24
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 430
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f48345fe6fcc2469243102c9413287
+      internalID: 938789619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_25
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 430
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad246f6402367dd46a8a253b5499388c
+      internalID: -649706119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_26
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 430
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba95dd8ec3a9184c928ab7f5910a7ca
+      internalID: -2109704940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_27
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 430
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87144a3cdabe044a9e7fb06f14b1df5
+      internalID: 1267154544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_28
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 430
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a32b3882c75a2f4384912e77d631a32
+      internalID: -1558757345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 430
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79855b36fd8f7741bd44abd7bf488d9
+      internalID: 138609078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_30
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 430
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aba04a597730a3448ea05867057ffe1
+      internalID: 1759262141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_31
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 404
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72b15a95913a784396052450e5ae05b
+      internalID: -512272483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_32
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 404
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc825a2e7eb7f54699ab45ff6472af7
+      internalID: 2134938604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_33
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 404
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6a97d9a922d944ea835b05562b5679
+      internalID: -2030179711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_34
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 406
+        width: 14
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcdb486a1503404285e1a58d9f6dae0
+      internalID: -1447723686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_35
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 404
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e5cf1b662d55043847758ebedc7f78
+      internalID: 1331895713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_36
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 404
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b3b1993245c994984f33c42de6b814
+      internalID: -616485087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_37
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 404
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d7ac598e8d86c64b94b65a4eca18e61
+      internalID: 196076621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_38
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 404
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c32b9636ba006f459a807e7dceddd92
+      internalID: -688473286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_39
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 378
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce482fbd689f43498251390e07fa9d9
+      internalID: -1865515802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_40
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 378
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282a4fd1dd4ee5541959be09922a9a2f
+      internalID: -458145749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_41
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 378
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d793462759b245f46934fb42668761f4
+      internalID: -1250733148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_42
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 378
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5396825da75ac4aa112cb510893d50
+      internalID: 189715382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_43
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 379
+        width: 14
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f09d31df5ed5440953632c395c80b1
+      internalID: -2038001030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_44
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 378
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6c943fae811d9468abc1d2e9f786a8
+      internalID: 40749442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_45
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 378
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cbb90ad409c96643af44b48127124b2
+      internalID: -893465856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_46
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 378
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30794cec81d4394780b643f5a2e1761
+      internalID: -244061253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_47
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 356
+        width: 22
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dd0e01ddfb5694d861c97dcf95cc67
+      internalID: 288733854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_48
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 357
+        width: 20
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b278450a7f9bb408bc5baa6e9cab53
+      internalID: 199932642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_49
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 349
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ad6281963b95640aa7b3675ccb868c
+      internalID: 1893187821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_50
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 354
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0900d7472cca85a49b374dfe30c1115b
+      internalID: 1718162740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_51
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 349
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f0b7d095118234b9a531cb8c063a94
+      internalID: 258692230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_52
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 349
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f08dd0f49234d34ab74f669864e65d2
+      internalID: 537825642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_53
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 349
+        width: 22
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae677c922245fde44bd4c2cd2bc5cb3d
+      internalID: -257648810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_54
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 257
+        width: 160
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe7dbe62ec0479f48aae66c0d6d280a3
+      internalID: 1257180352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_55
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 330
+        width: 4
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35fe53aef89b5c346a9d76cbde3e6f00
+      internalID: -251436149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_56
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 333
+        width: 4
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4049ca329053a064cbb18a7e689515d7
+      internalID: -1676123417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_57
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 333
+        width: 4
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b8854ef0eb00144ea5786630fc825a1
+      internalID: -1763136367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_58
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 333
+        width: 4
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115367a4cef5bb441b5120e0dcde0dbc
+      internalID: 578686609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_59
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 318
+        width: 4
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8b0587e800d82428dceaee2c9ac81c
+      internalID: -1089088056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_60
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 333
+        width: 4
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 987c9d8dfd8bc9e479b5248fbd657fb7
+      internalID: 491958762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_61
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 321
+        width: 4
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf4c27800663f141b120babe49502a3
+      internalID: -433886128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_62
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 318
+        width: 4
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0854b6ff317bd2f469d15e00544cb5a6
+      internalID: 1800603688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_63
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 315
+        width: 4
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7c085556091e04ea9f1aae83fc39f9
+      internalID: 1316942365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_64
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 306
+        width: 4
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3840373882951514fb1b66378c298f88
+      internalID: 1432991748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_65
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 324
+        width: 4
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d205e5fa3c76842be0811b362e6a78
+      internalID: 1107722042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_66
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 315
+        width: 4
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70991f93bf22a584b8c4e910d5576181
+      internalID: -926665230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_67
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 91
+        width: 196
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc85b2c2772ca24bb1864c4385ccfa2
+      internalID: -939684926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_68
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 196
+        width: 8
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e012b47551d404cb9247790849cf31
+      internalID: 412453838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_69
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 196
+        width: 7
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb088ce22564c89429b5fd6bd1377bdc
+      internalID: 1263330670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_70
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 196
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2978e6efa9fceb4cb077b0f083b579d
+      internalID: -1329043249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_71
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 196
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a0381271419df4994697b255470986
+      internalID: 1480498947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_72
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 196
+        width: 7
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108ebe98e7c40d544b753abdfbf5d170
+      internalID: 1762324536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_73
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 196
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82b28e5274c24e43a0ff10dbfa0db0c
+      internalID: -1746710388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_74
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 195
+        width: 6
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b6e5da87b34f941b24382af7adbdb5
+      internalID: 1181835864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_75
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 196
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01bd570047254074b9ce55d0b50aa4ac
+      internalID: 469612632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_76
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 196
+        width: 5
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391e991cd9c6dac42a3a5c36b8723597
+      internalID: -984873141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_77
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 196
+        width: 7
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d5ddce11250dd49ae0d8ba670a30b5
+      internalID: -1164580720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_78
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 196
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c33c9cb91fd1148b792627f146241e
+      internalID: 1551568267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_79
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 196
+        width: 9
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095356d2b94cf12409edb49b3a1728c2
+      internalID: 982205168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_80
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 196
+        width: 10
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9102a281a1c4543ae41ac5bae3b553
+      internalID: 1507878922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_81
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 196
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03212f0b52f22c547866a936c1873e51
+      internalID: 360300866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_82
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 196
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f1ded7e54530e4baaa0a1695365a6f
+      internalID: -1500300365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_83
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 196
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7603ed11252151c45ab45cdbf8bb6e22
+      internalID: 979022527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_84
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 196
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b0267b3b27c4042adb11c888497fd4
+      internalID: 315403843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_85
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 192
+        width: 8
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9fe8b6b556b3743bce80951d9e1a4d
+      internalID: 848035797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_86
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 196
+        width: 6
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911b0c7b4ca6d604488e8c98a8117738
+      internalID: 834454143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_87
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 196
+        width: 10
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b2b5acda70fa6043bdea441caeca9c8
+      internalID: -172196896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_88
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 196
+        width: 9
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f122d78623292429e94912c82c9898
+      internalID: 830202552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_89
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 177
+        width: 9
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d704612ec0e0fd46bfbe5c7823edba7
+      internalID: -83610560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_90
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 177
+        width: 10
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa60b4a06eebe443b81b175da24315d
+      internalID: 1106133096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_91
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 177
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa66efc0ec6812b49a2cdc043e135c6c
+      internalID: 258875779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_92
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 177
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8359971c5d33973449a49ccab4ab973b
+      internalID: 972469586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_93
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 177
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b48c2619a166df4bb63ad9a32bd2de9
+      internalID: 770695279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_94
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 177
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215d133aabc19524eb72ca830f2947b1
+      internalID: -2017554906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_95
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 177
+        width: 10
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53dc080ba18dfb441872e6c1eaa212d7
+      internalID: 837875704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_96
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 177
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6500c766abedf458fc86f7944530f4
+      internalID: 1744180171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_97
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 177
+        width: 6
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97bcc0081bbf10345b99c0fc9066f6dc
+      internalID: -1924074124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_98
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 177
+        width: 10
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432c01062fc4dd94b85b7d07e64c6cdc
+      internalID: 1587108927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_99
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 177
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b4257844f71c9458f5ad3c3b48a05e
+      internalID: 1285005108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_100
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 177
+        width: 5
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072af8902163d494688e8905317f5fed
+      internalID: -455301985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_101
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 177
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0feccf5c8f67840ae4a7c4c3f059cc
+      internalID: -956054286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_102
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 177
+        width: 6
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7631006a4168e44809a163120726c4
+      internalID: 895825701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_103
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 177
+        width: 7
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85521cc11069d542a33420d7df3e267
+      internalID: 370362200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_104
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 177
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fb9d6d3432069478fc036100f4c165
+      internalID: 1836164918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_105
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 177
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d494cf26afade42902fe13146a9002
+      internalID: -1496995942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_106
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 154
+        width: 8
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60902dd0db25dc649ae0a875131a8639
+      internalID: 1729500247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_107
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 157
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e91c18fee80e04f9a015dc00d67f3f
+      internalID: 1436868134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_108
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 157
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63ce5c170681174887f5bc07c6c8b1c
+      internalID: 1185288929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_109
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 157
+        width: 10
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf9f22f5025c9848a580cddc2b46ade
+      internalID: -1964230140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_110
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 153
+        width: 11
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1cb08eaefbe80459562695b2ad362a
+      internalID: 154735314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_111
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 157
+        width: 7
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf5cc7891837ff40aba1bf42ad588c3
+      internalID: 1805124035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_112
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 157
+        width: 6
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a57a92137c0a92438830bb329a41c2a
+      internalID: 803259497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_113
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 157
+        width: 6
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7945346e71fa26a469bb070d2a2ff325
+      internalID: 1807415664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_114
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 157
+        width: 10
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e7af2db04913f4bb31e32e0a5079bc
+      internalID: -1005340272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_115
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 157
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c368859752aa048a901b03ef1fd49b
+      internalID: 746091245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_116
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 157
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3801aaf385b6a9649aa25d93c1af52d7
+      internalID: 1729702798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_117
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 70
+        width: 7
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 915beee0840d3374eab96398449cb61e
+      internalID: 867871135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_118
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 70
+        width: 15
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17aa94b0884c80a44bbe574117d58abb
+      internalID: -587154256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_119
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 70
+        width: 9
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd89b968a9fa04459c770a5b86d0e0e
+      internalID: -51054943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_120
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 70
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3434701b41416748b45da88b3d5a169
+      internalID: -400755716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_121
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 70
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1da0981c300dc41a0687dec9782c25
+      internalID: 2134659601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_122
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 70
+        width: 7
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e14037aced36804ea8fea12d2fd44d4
+      internalID: 90895177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_123
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 66
+        width: 8
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88a2f39c757cab459697967ec57f7a8
+      internalID: -21496283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Steel_Floor_124
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 70
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15cf6f72b395ed42b238a9f22813252
+      internalID: -1906859972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      S_Steel_Floor_0: -1864495284
+      S_Steel_Floor_1: 339447051
+      S_Steel_Floor_10: 1949478337
+      S_Steel_Floor_100: -455301985
+      S_Steel_Floor_101: -956054286
+      S_Steel_Floor_102: 895825701
+      S_Steel_Floor_103: 370362200
+      S_Steel_Floor_104: 1836164918
+      S_Steel_Floor_105: -1496995942
+      S_Steel_Floor_106: 1729500247
+      S_Steel_Floor_107: 1436868134
+      S_Steel_Floor_108: 1185288929
+      S_Steel_Floor_109: -1964230140
+      S_Steel_Floor_11: -729368177
+      S_Steel_Floor_110: 154735314
+      S_Steel_Floor_111: 1805124035
+      S_Steel_Floor_112: 803259497
+      S_Steel_Floor_113: 1807415664
+      S_Steel_Floor_114: -1005340272
+      S_Steel_Floor_115: 746091245
+      S_Steel_Floor_116: 1729702798
+      S_Steel_Floor_117: 867871135
+      S_Steel_Floor_118: -587154256
+      S_Steel_Floor_119: -51054943
+      S_Steel_Floor_12: -763939148
+      S_Steel_Floor_120: -400755716
+      S_Steel_Floor_121: 2134659601
+      S_Steel_Floor_122: 90895177
+      S_Steel_Floor_123: -21496283
+      S_Steel_Floor_124: -1906859972
+      S_Steel_Floor_13: -802190484
+      S_Steel_Floor_14: -82671274
+      S_Steel_Floor_15: 779853177
+      S_Steel_Floor_16: 1418436935
+      S_Steel_Floor_17: 323986362
+      S_Steel_Floor_18: 555612757
+      S_Steel_Floor_19: -2045859214
+      S_Steel_Floor_2: -2127132313
+      S_Steel_Floor_20: -1519111806
+      S_Steel_Floor_21: 581118206
+      S_Steel_Floor_22: -1847786073
+      S_Steel_Floor_23: -2014071801
+      S_Steel_Floor_24: 938789619
+      S_Steel_Floor_25: -649706119
+      S_Steel_Floor_26: -2109704940
+      S_Steel_Floor_27: 1267154544
+      S_Steel_Floor_28: -1558757345
+      S_Steel_Floor_29: 138609078
+      S_Steel_Floor_3: -165431549
+      S_Steel_Floor_30: 1759262141
+      S_Steel_Floor_31: -512272483
+      S_Steel_Floor_32: 2134938604
+      S_Steel_Floor_33: -2030179711
+      S_Steel_Floor_34: -1447723686
+      S_Steel_Floor_35: 1331895713
+      S_Steel_Floor_36: -616485087
+      S_Steel_Floor_37: 196076621
+      S_Steel_Floor_38: -688473286
+      S_Steel_Floor_39: -1865515802
+      S_Steel_Floor_4: 801533775
+      S_Steel_Floor_40: -458145749
+      S_Steel_Floor_41: -1250733148
+      S_Steel_Floor_42: 189715382
+      S_Steel_Floor_43: -2038001030
+      S_Steel_Floor_44: 40749442
+      S_Steel_Floor_45: -893465856
+      S_Steel_Floor_46: -244061253
+      S_Steel_Floor_47: 288733854
+      S_Steel_Floor_48: 199932642
+      S_Steel_Floor_49: 1893187821
+      S_Steel_Floor_5: 1710832032
+      S_Steel_Floor_50: 1718162740
+      S_Steel_Floor_51: 258692230
+      S_Steel_Floor_52: 537825642
+      S_Steel_Floor_53: -257648810
+      S_Steel_Floor_54: 1257180352
+      S_Steel_Floor_55: -251436149
+      S_Steel_Floor_56: -1676123417
+      S_Steel_Floor_57: -1763136367
+      S_Steel_Floor_58: 578686609
+      S_Steel_Floor_59: -1089088056
+      S_Steel_Floor_6: 1789281481
+      S_Steel_Floor_60: 491958762
+      S_Steel_Floor_61: -433886128
+      S_Steel_Floor_62: 1800603688
+      S_Steel_Floor_63: 1316942365
+      S_Steel_Floor_64: 1432991748
+      S_Steel_Floor_65: 1107722042
+      S_Steel_Floor_66: -926665230
+      S_Steel_Floor_67: -939684926
+      S_Steel_Floor_68: 412453838
+      S_Steel_Floor_69: 1263330670
+      S_Steel_Floor_7: -726762139
+      S_Steel_Floor_70: -1329043249
+      S_Steel_Floor_71: 1480498947
+      S_Steel_Floor_72: 1762324536
+      S_Steel_Floor_73: -1746710388
+      S_Steel_Floor_74: 1181835864
+      S_Steel_Floor_75: 469612632
+      S_Steel_Floor_76: -984873141
+      S_Steel_Floor_77: -1164580720
+      S_Steel_Floor_78: 1551568267
+      S_Steel_Floor_79: 982205168
+      S_Steel_Floor_8: 862870728
+      S_Steel_Floor_80: 1507878922
+      S_Steel_Floor_81: 360300866
+      S_Steel_Floor_82: -1500300365
+      S_Steel_Floor_83: 979022527
+      S_Steel_Floor_84: 315403843
+      S_Steel_Floor_85: 848035797
+      S_Steel_Floor_86: 834454143
+      S_Steel_Floor_87: -172196896
+      S_Steel_Floor_88: 830202552
+      S_Steel_Floor_89: -83610560
+      S_Steel_Floor_9: 242571318
+      S_Steel_Floor_90: 1106133096
+      S_Steel_Floor_91: 258875779
+      S_Steel_Floor_92: 972469586
+      S_Steel_Floor_93: 770695279
+      S_Steel_Floor_94: -2017554906
+      S_Steel_Floor_95: 837875704
+      S_Steel_Floor_96: 1744180171
+      S_Steel_Floor_97: -1924074124
+      S_Steel_Floor_98: 1587108927
+      S_Steel_Floor_99: 1285005108
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
