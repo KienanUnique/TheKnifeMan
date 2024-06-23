@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Db.EnemiesParameters.Parameters;
 using Game.Character.Parts.AnimatorStatus;
 using Game.Enemy.ActionsExecutor;
 using Game.Enemy.Context;
@@ -11,18 +12,24 @@ using Game.Enemy.Parts.LookDirection;
 using Game.Enemy.Parts.Visual;
 using Game.Interfaces;
 using Game.Object;
+using Game.Services.Score;
 using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Enemy.Controller
 {
     public abstract class AEnemyController<TData> : AObjectController<TData>, IDefaultControllableEnemy, IPoolEnemy,
         IDamageable where TData : AEnemyData
     {
-        private CompositeDisposable _aliveDisposables;
         private readonly List<IEnemyPoolPart> _poolParts = new();
         private readonly ReactiveCommand<IPoolEnemy> _onDead = new();
+
+        [Inject] private IScoreService _scoreService;
+        [Inject] private IEnemyParametersBase _parametersBase;
+        
+        private CompositeDisposable _aliveDisposables;
 
         private IEnemyContextBase _context;
 
@@ -136,6 +143,8 @@ namespace Game.Enemy.Controller
             Data.NavMeshAgent.ResetPath();
 
             _onDead.Execute(this);
+            
+            _scoreService.IncreaseScore(_parametersBase.PointsForKill);
         }
 
         private void OnLookDirection(EDirection1D direction1D)

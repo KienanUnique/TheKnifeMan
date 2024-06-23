@@ -13,10 +13,14 @@ namespace Db.EnemiesParameters.Parameters
         [SerializeField] private float maxSpeed = 5;
 
         [Header("Visual")] [SerializeField] private float animatorMovingVelocityThreshold = 0.01f;
+        
+        [Header("Other")]
+        [SerializeField] private int pointsForKill;
 
         public float Acceleration => acceleration;
         public float MaxSpeed => maxSpeed;
         public int Health => health;
         public float AnimatorMovingVelocityThreshold => animatorMovingVelocityThreshold;
+        public int PointsForKill => pointsForKill;
     }
 }

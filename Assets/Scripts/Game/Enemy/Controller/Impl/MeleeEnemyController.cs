@@ -1,7 +1,5 @@
 ﻿using Game.Character.Parts.AnimatorStatus;
 using Game.Enemy.ActionsExecutor;
-using Game.Enemy.Context;
-using Game.Enemy.Context.Impl;
 using Game.Enemy.Data.Impl;
 using Game.Enemy.Parts.Attacker;
 using Game.Enemy.Parts.Character;

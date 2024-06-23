@@ -11,5 +11,6 @@ namespace Db.EnemiesParameters.Parameters
 
         // visual
         float AnimatorMovingVelocityThreshold { get; }
+        int PointsForKill { get; }
     }
 }

@@ -68,6 +68,11 @@ namespace Game.Services.Spawner.Impl
             }
         }
 
+        public void ForceStopSpawning()
+        {
+            _spawnOrder.Clear();
+        }
+
         private void OnSpawnPointBecomeFree(IEnemySpawnPoint enemySpawnPoint)
         {
             if (_freeSpawnPoints.Contains(enemySpawnPoint))
