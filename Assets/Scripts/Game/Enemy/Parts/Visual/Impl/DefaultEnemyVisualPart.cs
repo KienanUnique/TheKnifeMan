@@ -1,4 +1,5 @@
-﻿using Db.EnemiesParametersProvider.Parameters;
+﻿using Db.EnemiesParameters;
+using Db.EnemiesParameters.Parameters;
 
 namespace Game.Enemy.Parts.Visual.Impl
 {

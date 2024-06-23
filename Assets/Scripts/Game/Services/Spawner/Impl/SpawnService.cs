@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Db.EnemiesParameters.TypeData;
 using Db.Spawners;
 using Game.Enemy.Factory;
 using Game.Level.Provider;
 using Game.SpawnPoint;
-using Game.Utils;
 using Game.Utils.Spawner;
 using ModestTree;
 using UniRx;
@@ -20,7 +20,7 @@ namespace Game.Services.Spawner.Impl
         private readonly ISpawnersParameters _spawnersParameters;
 
         private readonly CompositeDisposable _compositeDisposable = new();
-        private readonly List<EEnemyType> _spawnOrder = new();
+        private readonly List<IEnemyType> _spawnOrder = new();
         private readonly List<IEnemySpawnPoint> _freeSpawnPoints = new();
 
         public SpawnService(

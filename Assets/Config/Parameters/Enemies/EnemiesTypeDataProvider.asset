@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977388e7bae34dfa908b7b11714d4817, type: 3}
-  m_Name: WavesParameters
+  m_Script: {fileID: 11500000, guid: 228ccae0ddc94bf68e4a7e0afdac53f5, type: 3}
+  m_Name: EnemiesTypeDataProvider
   m_EditorClassIdentifier: 
-  wavesInfo:
-  - enemies:
-    - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
-      count: 2
-    delayBeforeSpawnSeconds: 6
+  allEnemiesTypes: []
