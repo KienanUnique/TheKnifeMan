@@ -4,12 +4,14 @@ using Db.Projectiles;
 using Game.Projectile.Factory.Concrete;
 using Game.Projectile.Pattern;
 using Game.Projectile.TypeData;
+using Game.Utils;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Projectile.Factory.Impl
 {
-    public class ProjectilesFactory : IProjectilesFactory, IInitializable
+    public class ProjectilesFactory : IProjectilesFactory, IInitializable, INeedWaitInitializable
     {
         private const string RootName = "Projectiles";
 
@@ -17,6 +19,9 @@ namespace Game.Projectile.Factory.Impl
         private readonly IProjectilesParameters _projectilesParameters;
 
         private readonly Dictionary<IProjectileType, ConcreteProjectileFactory> _factories = new();
+        private readonly ReactiveProperty<bool> _isInitilized = new();
+
+        public IReactiveProperty<bool> IsInitilized => _isInitilized;
 
         public ProjectilesFactory(
             DiContainer diContainer, 
@@ -39,6 +44,8 @@ namespace Game.Projectile.Factory.Impl
                 factory.Initialize();
                 _factories.Add(projectileTypeData, factory);
             }
+
+            _isInitilized.Value = true;
         }
 
         public void Create(IProjectilesPattern pattern, IProjectileType projectileType, IProjectilesSender sender,

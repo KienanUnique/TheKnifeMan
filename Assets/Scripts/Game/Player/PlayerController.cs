@@ -1,4 +1,5 @@
-﻿using Db.Player;
+﻿using System;
+using Db.Player;
 using Game.Character.Parts.AnimatorStatus;
 using Game.Interfaces;
 using Game.Object;
@@ -7,6 +8,7 @@ using Game.Player.Parts.Character;
 using Game.Player.Parts.LookDirection;
 using Game.Player.Parts.Movement;
 using Game.Player.Parts.Visual;
+using Game.Utils;
 using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
@@ -14,9 +16,10 @@ using Zenject;
 
 namespace Game.Player
 {
-    public class PlayerController : AObjectController<PlayerData>, IPlayerInformation, IDamageable
+    public class PlayerController : AObjectController<PlayerData>, IPlayerInformation, IDamageable, INeedWaitInitializable
     {
         private readonly CompositeDisposable _aliveDisposable = new();
+        private readonly ReactiveProperty<bool> _isInitilized = new();
 
         [SerializeField] private PlayerData data;
 
@@ -31,6 +34,7 @@ namespace Game.Player
 
         private EDirection2D _attackDirection;
 
+        public IReactiveProperty<bool> IsInitilized => _isInitilized;
         public Transform Transform => transform;
         public IReactiveProperty<int> Health => _characterPart.Health;
         public IReactiveProperty<bool> IsDead => _characterPart.IsDead;
@@ -70,6 +74,8 @@ namespace Game.Player
             _visualPart.ChangeLookDirection(_lookDirectionPart.LookDirection1D.Value);
 
             CompositeDisposable.Add(_aliveDisposable);
+
+            _isInitilized.Value = true;
         }
 
         private void OnDashStarted()

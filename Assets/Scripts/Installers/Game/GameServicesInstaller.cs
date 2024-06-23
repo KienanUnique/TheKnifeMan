@@ -1,4 +1,6 @@
-﻿using Game.Enemy.Factory.Impl;
+﻿using System;
+using Game.Enemy.Factory.Impl;
+using Game.GameStateMachine.Impl;
 using Game.Level.Provider.Impl;
 using Game.Projectile.Factory.Impl;
 using Game.Services.Level;
@@ -7,6 +9,7 @@ using Game.Services.Spawner.Impl;
 using Game.Services.WaveTimer.Impl;
 using Game.Utils;
 using Services.ScreenPosition.Impl;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -44,6 +47,7 @@ namespace Installers.Game
             Container.BindInterfacesTo<TmpGameStateService>().AsSingle();
             Container.BindInterfacesTo<WaveTimerService>().AsSingle();
             Container.BindInterfacesTo<ScoreService>().AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IDisposable)).To<GameStateMachine>().AsSingle();
         }
     }
 }
