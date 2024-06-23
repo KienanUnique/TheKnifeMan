@@ -46,7 +46,6 @@ namespace Game.Enemy.Controller
             Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
 
             LookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposables);
-            ;
 
             Data.NavMeshAgent.isStopped = false;
         }

@@ -1,6 +1,5 @@
 ﻿using System;
 using Game.Player;
-using Game.Projectile.Pattern;
 using UnityEngine;
 using Zenject;
 
