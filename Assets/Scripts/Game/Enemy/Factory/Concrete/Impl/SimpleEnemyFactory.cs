@@ -1,5 +1,6 @@
-﻿using Db.EnemyFactory;
-using Game.Enemy.Controller.Impl;
+﻿using Db.EnemiesParametersProvider;
+using Db.EnemiesParametersProvider.Parameters.Impl;
+using Db.EnemyFactory;
 using Game.Enemy.PartsFactory.Impl;
 using UnityEngine;
 using Zenject;
@@ -9,10 +10,11 @@ namespace Game.Enemy.Factory.Concrete.Impl
     public class SimpleEnemyFactory : AConcreteEnemyFactory
     {
         public SimpleEnemyFactory(
-            DiContainer diContainer,
-            Transform rootTransform,
-            IEnemyFactoryParameters parameters
-        ) : base(diContainer, rootTransform, parameters)
+            DiContainer diContainer, 
+            Transform rootTransform, 
+            IEnemyFactoryParameters parameters,
+            IEnemiesParametersProvider parametersProvider
+        ) : base(diContainer, rootTransform, parameters, parametersProvider)
         {
         }
 
@@ -20,7 +22,8 @@ namespace Game.Enemy.Factory.Concrete.Impl
 
         protected override void InstallBindings(DiContainer container)
         {
-            container.BindInterfacesTo<SimpleEnemyPartsFactory>().AsSingle().WhenInjectedInto<SimpleEnemyController>();
+            container.BindInterfacesTo<MeleeEnemyPartsFactory<ISimpleEnemyParameters>>().AsSingle()
+                .WithArguments(ParametersProvider.SimpleEnemyParameters);
         }
     }
 }

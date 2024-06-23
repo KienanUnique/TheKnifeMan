@@ -22,16 +22,13 @@ namespace Installers.Game
     {
         [SerializeField] private PlayerParameters playerParameters;
 
-        [Header("Enemies")] 
-        [SerializeField] private EnemiesParametersProvider enemiesParametersProvider;
+        [Header("Enemies")] [SerializeField] private EnemiesParametersProvider enemiesParametersProvider;
         [SerializeField] private EnemyFactoryParameters enemyFactoryParameters;
 
-        [Header("Spawn")] 
-        [SerializeField] private WavesParameters wavesParameters;
+        [Header("Spawn")] [SerializeField] private WavesParameters wavesParameters;
         [SerializeField] private SpawnersParameters spawnersParameters;
 
-        [Header("Other")] 
-        [SerializeField] private LayerMasksParameters layerMasksParameters;
+        [Header("Other")] [SerializeField] private LayerMasksParameters layerMasksParameters;
 
         public override void InstallBindings()
         {
@@ -42,7 +39,7 @@ namespace Installers.Game
 
             Container.Bind<IWavesParameters>().FromInstance(wavesParameters).AsSingle();
             Container.Bind<ISpawnersParameters>().FromInstance(spawnersParameters).AsSingle();
-            
+
             Container.Bind<ILayerMasksParameters>().FromInstance(layerMasksParameters).AsSingle();
         }
     }

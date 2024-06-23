@@ -52,9 +52,7 @@ namespace Game.Services.Spawner.Impl
         public void SpawnWave(WaveData wave)
         {
             foreach (var enemyWaveSpawnData in wave.Enemies)
-            {
                 _spawnOrder.AddRange(Enumerable.Repeat(enemyWaveSpawnData.Enemy, enemyWaveSpawnData.Count));
-            }
 
             var spawnDelay = _spawnersParameters.SpawnPointSpawnDelaySeconds;
             while (!_freeSpawnPoints.IsEmpty() && !_spawnOrder.IsEmpty())

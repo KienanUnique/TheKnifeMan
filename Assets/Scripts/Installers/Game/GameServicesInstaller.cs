@@ -16,11 +16,11 @@ namespace Installers.Game
     public class GameServicesInstaller : MonoInstaller
     {
         [SerializeField] private LevelView levelView;
-        
+
         public override void InstallBindings()
         {
             BindLevel();
-            
+
             BindFactories();
 
             BindServices();
@@ -41,7 +41,7 @@ namespace Installers.Game
         {
             Container.BindInterfacesTo<EnemyFactory>().AsSingle();
         }
-        
+
         private void BindServices()
         {
             Container.BindInterfacesTo<ScreenPositionService>().AsSingle();
