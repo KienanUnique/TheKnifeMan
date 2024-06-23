@@ -31,6 +31,7 @@ namespace Game.Enemy.Controller.Impl
         protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
 
         public int InstanceId => GetInstanceID();
+        public bool IsInReload => _projectileAttacker.IsInReload;
 
         public override void HandleEnable()
         {

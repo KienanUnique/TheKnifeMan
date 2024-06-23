@@ -6,6 +6,7 @@ namespace Game.Enemy.Parts.Attacker
 {
     public interface IEnemyProjectileAttacker : IEnemyPoolPart
     {
+        bool IsInReload { get; }
         void AttackWithProjectile(IProjectilesPattern pattern, IProjectileType type, Vector2 attackDirection);
     }
 }

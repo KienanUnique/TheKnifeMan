@@ -17,4 +17,5 @@ MonoBehaviour:
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.01
+    reloadDurationSeconds: 4
   prefab: {fileID: 5443585650099049973, guid: 208c0cad58194c745a9bb314fb0620a2, type: 3}

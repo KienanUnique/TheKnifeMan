@@ -10,7 +10,7 @@ namespace Db.EnemiesParameters.TypeData.Impl
     [CreateAssetMenu(menuName = MenuPathBase.Enemies + nameof(LongRangeEnemyTypeData), fileName = nameof(LongRangeEnemyTypeData))]
     public class LongRangeEnemyTypeData : AEnemyTypeData
     {
-        [SerializeField] private LongRangeEnemyParameters parameters;
+        [SerializeField] private ProjectileEnemyParameters parameters;
         [SerializeField] private LongRangeEnemyController prefab;
         private EEnemyType _type;
 

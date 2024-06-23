@@ -6,6 +6,7 @@ namespace Game.Enemy.ActionsExecutor
 {
     public interface IProjectileAttackEnemy : IDefaultControllableEnemy, IProjectilesSender
     {
+        bool IsInReload { get; }
         void AttackWithProjectile(IProjectilesPattern pattern, IProjectileType type);
     }
 }

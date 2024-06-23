@@ -16,11 +16,9 @@ MonoBehaviour:
     rid: 7309586691978690563
   nodes:
   - rid: 7309586691978690563
-  - rid: 7309586692051828736
   - rid: 7309586756488134656
   - rid: 7309586756488134658
   - rid: 7309586756488134659
-  - rid: 7309586756488134661
   - rid: 7309586756488134671
   - rid: 7309586756488134678
   - rid: 7309586756488134679
@@ -29,11 +27,15 @@ MonoBehaviour:
   - rid: 7309586756488134682
   - rid: 7309586756488134683
   - rid: 7309586817818558466
+  - rid: 7309586817818558468
+  - rid: 7309586817818558469
+  - rid: 7309586817818558470
+  - rid: 7309586817818558471
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 384, y: -85, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 745, y: 233, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -52,29 +54,13 @@ MonoBehaviour:
         drawGizmos: 0
         child:
           rid: 7309586756488134682
-    - rid: 7309586692051828736
-      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
-      data:
-        state: 0
-        started: 0
-        guid: 00adbe3e2a528bb4591b3e4f619383e8
-        position: {x: 225, y: 540}
-        blackboard:
-          keys: []
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 7309586756488134656
-        - rid: 7309586756488134659
-        - rid: 7309586817818558466
-        - rid: 7309586756488134661
     - rid: 7309586756488134656
       type: {class: SetPlayerPositionAsDestination, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 161ec1d3d9904274b9c229bd9bf094ba
-        position: {x: -120, y: 675}
+        position: {x: 390, y: 660}
         blackboard:
           keys: []
         description: 
@@ -85,7 +71,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6167fd9b84e628d409547b944a71f848
-        position: {x: 225, y: 840}
+        position: {x: -60, y: 930}
         blackboard:
           keys: []
         description: 
@@ -96,25 +82,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: eceaf09d5818c564bbb4314421a729ef
-        position: {x: 225, y: 705}
+        position: {x: -60, y: 795}
         blackboard:
           keys: []
         description: 
         drawGizmos: 0
         child:
           rid: 7309586756488134658
-    - rid: 7309586756488134661
-      type: {class: Wait, ns: Actions, asm: thekiwicoder.behaviourtreeeditor}
-      data:
-        state: 0
-        started: 0
-        guid: 9b3cab114ffafa24ab27871fbf320fa7
-        position: {x: 675, y: 675}
-        blackboard:
-          keys: []
-        description: 
-        drawGizmos: 0
-        duration: 3
     - rid: 7309586756488134671
       type: {class: Repeat, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -181,7 +155,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         child:
-          rid: 7309586692051828736
+          rid: 7309586817818558468
     - rid: 7309586756488134682
       type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -213,7 +187,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 51d2e0e72bca7cf42af1cdbcd779142c
-        position: {x: 450, y: 675}
+        position: {x: 105, y: 795}
         blackboard:
           keys: []
         description: 
@@ -221,8 +195,61 @@ MonoBehaviour:
         pattern:
           reference:
             rid: -2
-          defaultValue: {fileID: 11400000, guid: 890492a2396676246812f5972cdf8275, type: 2}
+          defaultValue: {fileID: 11400000, guid: a7a5aa079c844274bba771354d25ed6d, type: 2}
         type:
           reference:
             rid: -2
           defaultValue: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
+    - rid: 7309586817818558468
+      type: {class: Selector, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: ec2e006453a559b409c4864adeef71d7
+        position: {x: 225, y: 525}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 7309586817818558470
+        - rid: 7309586756488134656
+    - rid: 7309586817818558469
+      type: {class: Inverter, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 277b321334975a64da685c60ea03b9f2
+        position: {x: -240, y: 795}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 7309586817818558471
+    - rid: 7309586817818558470
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 02c35ad546c2f444fbd6772c844ad7ac
+        position: {x: -30, y: 660}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 7309586817818558469
+        - rid: 7309586756488134659
+        - rid: 7309586817818558466
+    - rid: 7309586817818558471
+      type: {class: IsInReload, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: cd91d2cb101f1f84997d065fc73c1467
+        position: {x: -240, y: 930}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
