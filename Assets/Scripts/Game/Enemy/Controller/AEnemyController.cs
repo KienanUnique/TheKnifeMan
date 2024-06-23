@@ -78,6 +78,7 @@ namespace Game.Enemy.Controller
 
         public void DisableMoving()
         {
+            Data.NavMeshAgent.ResetPath();
             Data.NavMeshAgent.updatePosition = false;
             Data.NavMeshAgent.velocity = Vector3.zero;
         }

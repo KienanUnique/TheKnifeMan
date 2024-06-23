@@ -45,6 +45,11 @@ namespace Game.Enemy.Factory.Concrete
             
             var partsFactory = GetPartsFactoryByType(_typeData.Type);
             _diContainer.Bind<IPartsFactory>().FromInstance(partsFactory).AsSingle();
+
+            for (int i = 0; i < _typeData.StartPoolCount; i++)
+            {
+                _availableEnemies.Enqueue(Instantiate(Vector3.zero));
+            }
         }
 
         public void Dispose()
@@ -65,7 +70,8 @@ namespace Game.Enemy.Factory.Concrete
             var poolEnemy = poolEnemyGameObject.GetComponent<IPoolEnemy>();
             
             poolEnemy.Initialize();
-
+            poolEnemy.HandleDisableAndReset();
+            
             poolEnemy.OnDead.Subscribe(OnEnemyDead).AddTo(_compositeDisposable);
 
             return poolEnemy;

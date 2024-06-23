@@ -2,18 +2,19 @@
 using Game.Enemy.ActionsExecutor;
 using Game.Projectile.Pattern;
 using Game.Projectile.TypeData.Impl;
+using UnityEngine;
 
 namespace Game.Enemy.Nodes.Actions
 {
     [Serializable]
     public class AttackWithProjectile : AAiActionNode<IProjectileAttackEnemy>
     {
-        public NodeProperty<AProjectilesPattern> pattern = new();
-        public NodeProperty<ProjectileTypeData> type = new();
+        [SerializeField] private AProjectilesPattern pattern;
+        [SerializeField] private ProjectileTypeData type;
 
         protected override ENodeState OnUpdate()
         {
-            Enemy.AttackWithProjectile(pattern.Value, type.Value);
+            Enemy.AttackWithProjectile(pattern, type);
             return ENodeState.Success;
         }
     }

@@ -3,22 +3,22 @@ using Db.LayerMasks;
 using Game.Interfaces;
 using Game.Projectile.Data;
 using UniRx;
-using UniRx.Triggers;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Projectile.Controller.Impl
 {
+    [RequireComponent(typeof(Collider2D))]
     public class ProjectileController : MonoBehaviour, IPoolProjectile
     {
         [SerializeField] private Rigidbody2D mainRigidbody;
-        [SerializeField] private Collider2D triggerCollider;
 
         [Inject] private ILayerMasksParameters _layerMasksParameters;
         [Inject] private ProjectileData _projectileData;
 
         private CompositeDisposable _appearDisposables;
         private IProjectilesSender _sender;
+        private bool _isEnabled = false;
         
         private readonly ReactiveCommand<IPoolProjectile> _disappeared = new();
 
@@ -31,8 +31,7 @@ namespace Game.Projectile.Controller.Impl
             gameObject.SetActive(true);
             
             transform.position = position;
-
-            mainRigidbody.isKinematic = false;
+            
             mainRigidbody.velocity = direction * _projectileData.Speed;
 
             var negateDirection = direction * -1f;
@@ -41,15 +40,30 @@ namespace Game.Projectile.Controller.Impl
 
             _appearDisposables = new CompositeDisposable();
 
-            triggerCollider.OnTriggerEnter2DAsObservable().Subscribe(OnTriggerColliderEnter)
-                .AddTo(_appearDisposables, this);
-
             Observable.Timer(TimeSpan.FromSeconds(_projectileData.AutomaticDisappearDelaySeconds))
                 .Subscribe(_ => Disappear()).AddTo(_appearDisposables, this);
+
+            Observable.TimerFrame(1).Subscribe(_ => _isEnabled = true).AddTo(_appearDisposables, this);
         }
 
-        private void OnTriggerColliderEnter(Collider2D other)
+        public void DisableAndReset()
         {
+            gameObject.SetActive(false);
+            _appearDisposables?.Dispose();
+            mainRigidbody.velocity = Vector2.zero;
+        }
+
+        private void Disappear()
+        {
+            _disappeared.Execute(this);
+            _isEnabled = false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if(!_isEnabled)
+                return;
+            
             var enemyLayer = _layerMasksParameters.EnemyLayer;
             var isCollidingWithEnemy = IsInLayerMask(other, enemyLayer);
 
@@ -73,17 +87,7 @@ namespace Game.Projectile.Controller.Impl
             damageable.HandleDamage(_projectileData.Damage);
         }
 
-        private void Disappear()
-        {
-            gameObject.SetActive(false);
-            _appearDisposables?.Dispose();
-            mainRigidbody.velocity = Vector2.zero;
-            mainRigidbody.isKinematic = true;
-            
-            _disappeared.Execute(this);
-        }
-        
-        bool IsInLayerMask(Collider2D obj, int layerMask)
+        private static bool IsInLayerMask(Collider2D obj, int layerMask)
         {
             var objLayerMask = 1 << obj.gameObject.layer;
             return (layerMask & objLayerMask) != 0;

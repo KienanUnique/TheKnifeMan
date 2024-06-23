@@ -1,5 +1,4 @@
 ﻿using System;
-using Game.Enemy.Context;
 using Game.Player;
 using Game.Utils;
 using UnityEngine;
@@ -10,8 +9,8 @@ namespace Game.Enemy.Nodes.States
     [Serializable]
     public class DistanceToPlayer : AAiActionNode
     {
-        public NodeProperty<ECompareType> compareType = new();
-        public NodeProperty<float> compareValue = new();
+        [SerializeField] private ECompareType compareType = ECompareType.Less;
+        [SerializeField] private float compareValue = 1f;
 
         [Inject] private IPlayerInformation _information;
 
@@ -27,8 +26,8 @@ namespace Game.Enemy.Nodes.States
         protected override ENodeState OnUpdate()
         {
             var actualDistance = (_enemyTransform.position - _playerTransform.position).sqrMagnitude;
-            var expectedDistance = compareValue.Value * compareValue.Value;
-            return compareType.Value switch
+            var expectedDistance = compareValue * compareValue;
+            return compareType switch
             {
                 ECompareType.Less => actualDistance < expectedDistance ? ENodeState.Success : ENodeState.Failure,
                 ECompareType.More => actualDistance > expectedDistance ? ENodeState.Success : ENodeState.Failure,

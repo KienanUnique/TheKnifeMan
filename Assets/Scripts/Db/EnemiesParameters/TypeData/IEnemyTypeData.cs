@@ -9,5 +9,6 @@ namespace Db.EnemiesParameters.TypeData
         Object Prefab { get; }
         IEnemyParametersBase Parameters { get; }
         EEnemyType Type { get; }
+        int StartPoolCount { get; }
     }
 }

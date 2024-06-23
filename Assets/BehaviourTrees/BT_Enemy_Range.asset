@@ -37,13 +37,11 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 365, y: -366, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 701, y: -2, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 7309586691978690563
       type: {class: RootNode, ns: , asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -184,14 +182,8 @@ MonoBehaviour:
           keys: []
         description: 
         drawGizmos: 0
-        pattern:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 11400000, guid: a7a5aa079c844274bba771354d25ed6d, type: 2}
-        type:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
+        pattern: {fileID: 11400000, guid: a7a5aa079c844274bba771354d25ed6d, type: 2}
+        type: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
     - rid: 7309586817818558469
       type: {class: Inverter, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -268,10 +260,7 @@ MonoBehaviour:
           keys: []
         description: 
         drawGizmos: 0
-        needDistance:
-          reference:
-            rid: -2
-          defaultValue: 6
+        needDistance: 4
     - rid: 7309586817818558477
       type: {class: Succeed, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
       data:
