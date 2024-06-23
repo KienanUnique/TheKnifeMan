@@ -1,4 +1,5 @@
-﻿using Db.EnemiesParametersProvider.Parameters;
+﻿using Db.EnemiesParameters;
+using Db.EnemiesParameters.Parameters;
 using Game.Utils;
 using Game.Utils.Directions;
 

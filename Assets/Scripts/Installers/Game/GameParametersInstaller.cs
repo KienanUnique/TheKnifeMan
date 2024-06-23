@@ -1,5 +1,5 @@
-﻿using Db.EnemiesParametersProvider;
-using Db.EnemiesParametersProvider.Impl;
+﻿using Db.EnemiesParameters.EnemiesTypeProvider;
+using Db.EnemiesParameters.EnemiesTypeProvider.Impl;
 using Db.EnemyFactory;
 using Db.EnemyFactory.Impl;
 using Db.LayerMasks;
@@ -24,7 +24,7 @@ namespace Installers.Game
     {
         [SerializeField] private PlayerParameters playerParameters;
 
-        [Header("Enemies")] [SerializeField] private EnemiesParametersProvider enemiesParametersProvider;
+        [Header("Enemies")] [SerializeField] private EnemiesTypeDataProvider enemiesTypeDataProvider;
         [SerializeField] private EnemyFactoryParameters enemyFactoryParameters;
         [SerializeField] private ProjectilesParameters projectilesParameters;
 
@@ -37,7 +37,7 @@ namespace Installers.Game
         {
             Container.Bind<IPlayerParameters>().FromInstance(playerParameters).AsSingle();
 
-            Container.Bind<IEnemiesParametersProvider>().FromInstance(enemiesParametersProvider).AsSingle();
+            Container.Bind<IEnemiesTypeDataProvider>().FromInstance(enemiesTypeDataProvider).AsSingle();
             Container.Bind<IEnemyFactoryParameters>().FromInstance(enemyFactoryParameters).AsSingle();
             Container.Bind<IProjectilesParameters>().FromInstance(projectilesParameters).AsSingle();
 

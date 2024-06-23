@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameParametersInstaller
   m_EditorClassIdentifier: 
   playerParameters: {fileID: 11400000, guid: 11c27bd3cee07164e8900e2e3936f43b, type: 2}
-  enemiesParametersProvider: {fileID: 11400000, guid: 6f1a7a375a590ee4cb236990014135dd, type: 2}
+  enemiesTypeDataProvider: {fileID: 11400000, guid: a8da9925c03a8e940a033fa7ac7f5507, type: 2}
   enemyFactoryParameters: {fileID: 11400000, guid: 19a532e083b9db24f8ca882bf1213446, type: 2}
   wavesParameters: {fileID: 11400000, guid: f4be5a55bda466d4199265f08b5c0f06, type: 2}
   spawnersParameters: {fileID: 11400000, guid: 28cc5f973d84c5c44a6ab6bbd24ed4c9, type: 2}

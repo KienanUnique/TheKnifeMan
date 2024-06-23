@@ -10,7 +10,7 @@ namespace Game.Utils.Spawner
         [SerializeField] private List<EnemyWaveSpawnData> enemies;
         [SerializeField] private int delayBeforeSpawnSeconds;
 
-        public List<EnemyWaveSpawnData> Enemies => enemies;
+        public IReadOnlyList<EnemyWaveSpawnData> Enemies => enemies;
         public int DelayBeforeSpawnSeconds => delayBeforeSpawnSeconds;
     }
 }
