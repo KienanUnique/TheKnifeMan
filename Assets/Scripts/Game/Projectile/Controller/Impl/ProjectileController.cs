@@ -79,6 +79,8 @@ namespace Game.Projectile.Controller.Impl
             _appearDisposables?.Dispose();
             mainRigidbody.velocity = Vector2.zero;
             mainRigidbody.isKinematic = true;
+            
+            _disappeared.Execute(this);
         }
         
         bool IsInLayerMask(Collider2D obj, int layerMask)
