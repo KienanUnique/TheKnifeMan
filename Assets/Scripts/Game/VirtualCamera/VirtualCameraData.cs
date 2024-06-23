@@ -3,10 +3,10 @@ using Cinemachine;
 using Game.Object;
 using UnityEngine;
 
-namespace Game.Camera
+namespace Game.VirtualCamera
 {
     [Serializable]
-    public class CameraData : AObjectData
+    public class VirtualCameraData : AObjectData
     {
         [SerializeField] private CinemachineVirtualCamera virtualCamera;
 

@@ -3,15 +3,15 @@ using Game.Player;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Camera
+namespace Game.VirtualCamera
 {
-    public class CameraController : AObjectController<CameraData>
+    public class VirtualCameraController : AObjectController<VirtualCameraData>
     {
-        [SerializeField] private CameraData data;
+        [SerializeField] private VirtualCameraData data;
 
         [Inject] private IPlayerInformation _playerInformation;
 
-        protected override CameraData Data => data;
+        protected override VirtualCameraData Data => data;
 
         protected override void HandleInitialize()
         {

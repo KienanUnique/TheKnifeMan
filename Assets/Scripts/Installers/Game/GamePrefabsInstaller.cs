@@ -1,32 +1,36 @@
-﻿using Game.Camera;
+﻿using Alchemy.Inspector;
+using Game.CameraHolder;
 using Game.Level.View.Impl;
 using Game.Object.PartsFactory;
 using Game.Player;
 using Game.Player.PartsFactory;
+using Game.Utils;
+using Game.VirtualCamera;
 using UnityEngine;
 using Zenject;
 
 namespace Installers.Game
 {
+    [RequireComponent(typeof(LevelViewLink))]
     public class GamePrefabsInstaller : MonoInstaller
     {
-        [SerializeField] private LevelView levelView;
-
-        [Header("Prefab only!")] [SerializeField]
-        private PlayerController playerPrefab;
-
-        [SerializeField] private CameraController cameraPrefab;
+        [AssetsOnly] [SerializeField] private PlayerController playerPrefab;
+        [AssetsOnly] [SerializeField] private VirtualCameraController virtualCameraPrefab;
+        [AssetsOnly] [SerializeField] private CameraHolderController cameraHolderPrefab;
 
         public override void InstallBindings()
         {
             InstallPlayer();
-            InstallCamera();
+            InstallCameras();
         }
 
         private void InstallPlayer()
         {
             Container.BindInterfacesTo<PlayerPartsFactory>().AsSingle().WhenInjectedInto<PlayerController>();
 
+            var levelViewLink = GetComponent<LevelViewLink>();
+            var levelView = levelViewLink.LevelView;
+            
             Container.BindInterfacesAndSelfTo<PlayerController>()
                 .FromComponentInNewPrefab(playerPrefab)
                 .AsSingle()
@@ -38,12 +42,18 @@ namespace Installers.Game
                 .NonLazy();
         }
 
-        private void InstallCamera()
+        private void InstallCameras()
         {
-            Container.BindInterfacesTo<EmptyPartsFactory>().AsSingle().WhenInjectedInto<CameraController>();
+            Container.BindInterfacesTo<EmptyPartsFactory>().AsSingle()
+                .WhenInjectedInto(typeof(VirtualCameraController), typeof(CameraHolderController));
 
-            Container.BindInterfacesAndSelfTo<CameraController>()
-                .FromComponentInNewPrefab(cameraPrefab)
+            Container.BindInterfacesAndSelfTo<VirtualCameraController>()
+                .FromComponentInNewPrefab(virtualCameraPrefab)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<CameraHolderController>()
+                .FromComponentInNewPrefab(cameraHolderPrefab)
                 .AsSingle()
                 .NonLazy();
         }

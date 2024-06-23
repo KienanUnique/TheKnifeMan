@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5356386468984218190}
   - component: {fileID: 8657392373198177822}
   - component: {fileID: 5971296731652944756}
+  - component: {fileID: 9100908330128472725}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -95,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acbbcb10954432a943300f4a6f4af41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelView: {fileID: 0}
   playerPrefab: {fileID: 734930753854366182, guid: 47cd1c524d20fc0498cda6fab78d072f, type: 3}
-  cameraPrefab: {fileID: 3602746344638936097, guid: bd64e07524cdbdf4baa47277ded093c4, type: 3}
+  virtualCameraPrefab: {fileID: 3602746344638936097, guid: bd64e07524cdbdf4baa47277ded093c4, type: 3}
+  cameraHolderPrefab: {fileID: 4385822559531518529, guid: a0adf24c565249b4f885378813591c82, type: 3}
 --- !u!114 &5971296731652944756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff48fa6c62842c293eac8f65d39bf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9100908330128472725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355274160964542065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afaea49cec3496da3be73580999af91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelView: {fileID: 0}
