@@ -6,7 +6,6 @@ namespace Game.Projectile.Pattern
 {
     public interface IProjectilesPattern
     {
-        IProjectileType ProjectileType { get; }
         IReadOnlyList<Vector2> Directions { get; }
     }   
 }

@@ -21,7 +21,7 @@ namespace Game.Enemy.Controller.Impl
         private IMeleeEnemyVisualPart _visualPart;
         private IAnimatorStatusCheckerPart _animatorStatusCheckerPart;
         private IEnemyLookDirectionPart _lookDirectionPart;
-        private IEnemyMeleeAttacker _attacker;
+        private IEnemyMeleeAttacker _attackerPart;
 
         private EDirection2D _attackDirection;
 
@@ -30,8 +30,7 @@ namespace Game.Enemy.Controller.Impl
         protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
         protected override IAnimatorStatusCheckerPart AnimatorStatusCheckerPart => _animatorStatusCheckerPart;
         protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
-
-
+        
         public void AttackMelee()
         {
             if (_animatorStatusCheckerPart.IsAnimatorBusy)
@@ -43,7 +42,7 @@ namespace Game.Enemy.Controller.Impl
 
         protected override void ResolveParts()
         {
-            _attacker = Resolve<IEnemyMeleeAttacker>();
+            _attackerPart = Resolve<IEnemyMeleeAttacker>();
             _characterPart = Resolve<IEnemyCharacterPartBase>();
             _visualPart = Resolve<IMeleeEnemyVisualPart>();
             _animatorStatusCheckerPart = Resolve<IAnimatorStatusCheckerPart>();
@@ -56,14 +55,9 @@ namespace Game.Enemy.Controller.Impl
             Data.AttackTrigger.AttackFramePlayed.Subscribe(_ => OnAttackFramePlayed()).AddTo(AliveDisposables);
         }
 
-        protected override IEnemyContextBase CreateContext()
-        {
-            return new DefaultEnemyContext(this, transform);
-        }
-
         private void OnAttackFramePlayed()
         {
-            _attacker.DamageTargets(_attackDirection);
+            _attackerPart.DamageTargets(_attackDirection);
         }
     }
 }

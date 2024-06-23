@@ -89,6 +89,7 @@ namespace Game.Enemy.Factory.Concrete
             return enemyType switch
             {
                 EEnemyType.Melee => _diContainer.Instantiate<MeleeEnemyPartsFactory>(),
+                EEnemyType.LongRange => _diContainer.Instantiate<LongRangeEnemyPartsFactory>(),
                 _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
             };
         }

@@ -7,9 +7,6 @@ namespace Game.Projectile.Pattern
 {
     public abstract class AProjectilesPattern : ScriptableObject, IProjectilesPattern
     {
-        [SerializeField] private ProjectileTypeData projectileType;
-        
-        public IProjectileType ProjectileType => projectileType;
         public abstract IReadOnlyList<Vector2> Directions { get; }
     }
 }

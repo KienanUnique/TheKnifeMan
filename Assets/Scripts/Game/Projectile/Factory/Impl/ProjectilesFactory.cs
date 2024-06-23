@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using Db.Projectiles;
 using Game.Projectile.Factory.Concrete;
 using Game.Projectile.Pattern;
@@ -17,30 +18,38 @@ namespace Game.Projectile.Factory.Impl
 
         private readonly Dictionary<IProjectileType, ConcreteProjectileFactory> _factories = new();
 
-        public ProjectilesFactory(DiContainer diContainer)
+        public ProjectilesFactory(
+            DiContainer diContainer, 
+            IProjectilesParameters projectilesParameters
+        )
         {
             _diContainer = diContainer;
+            _projectilesParameters = projectilesParameters;
         }
 
         public void Initialize()
         {
+            var rootTransform = _diContainer.CreateEmptyGameObject(RootName).transform;
+            
             var projectilesTypes = _projectilesParameters.ProjectilesTypes;
+
             foreach (var projectileTypeData in projectilesTypes)
             {
-                var factory = _diContainer.Instantiate<ConcreteProjectileFactory>(new[] {projectileTypeData});
+                var factory = _diContainer.Instantiate<ConcreteProjectileFactory>(new object[] {rootTransform, projectileTypeData});
                 factory.Initialize();
                 _factories.Add(projectileTypeData, factory);
             }
         }
 
-        public void Create(IProjectilesPattern pattern, Vector3 position, Quaternion rotation)
+        public void Create(IProjectilesPattern pattern, IProjectileType projectileType, IProjectilesSender sender,
+            Vector3 position, Quaternion rotation)
         {
-            var factory = _factories[pattern.ProjectileType];
+            var factory = _factories[projectileType];
 
             foreach (var patternDirection in pattern.Directions)
             {
                 var needDirection = rotation * patternDirection;
-                factory.Create(position, needDirection);
+                factory.Create(position, needDirection, sender);
             }
         }
     }

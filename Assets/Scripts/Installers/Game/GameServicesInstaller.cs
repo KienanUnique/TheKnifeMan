@@ -1,6 +1,5 @@
 ﻿using Game.Enemy.Factory.Impl;
 using Game.Level.Provider.Impl;
-using Game.Level.View.Impl;
 using Game.Projectile.Factory.Impl;
 using Game.Services.Level;
 using Game.Services.Spawner.Impl;

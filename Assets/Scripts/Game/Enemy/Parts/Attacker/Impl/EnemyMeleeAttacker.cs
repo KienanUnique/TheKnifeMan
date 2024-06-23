@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Db.EnemiesParameters.Parameters;
-using Db.EnemiesParameters.Parameters.Impl;
 using Db.LayerMasks;
 using Game.Enemy.Data;
 using Game.Interfaces;

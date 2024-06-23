@@ -18,41 +18,56 @@ namespace Game.Projectile.Controller.Impl
         [Inject] private ProjectileData _projectileData;
 
         private CompositeDisposable _appearDisposables;
-
-        private ReactiveCommand<IPoolProjectile> _disappeared;
+        private IProjectilesSender _sender;
+        
+        private readonly ReactiveCommand<IPoolProjectile> _disappeared = new();
 
         public IObservable<IPoolProjectile> Disappeared => _disappeared;
 
-        public void Appear(Vector2 direction, Vector2 position)
+        public void Appear(Vector2 direction, Vector2 position, IProjectilesSender sender)
         {
+            _sender = sender;
+            
             gameObject.SetActive(true);
+            
+            transform.position = position;
+
+            mainRigidbody.isKinematic = false;
             mainRigidbody.velocity = direction * _projectileData.Speed;
+
+            var negateDirection = direction * -1f;
+            var angle = Mathf.Atan2(negateDirection.y, negateDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             _appearDisposables = new CompositeDisposable();
 
-            triggerCollider.OnTriggerEnterAsObservable().Subscribe(OnTriggerColliderEnter)
+            triggerCollider.OnTriggerEnter2DAsObservable().Subscribe(OnTriggerColliderEnter)
                 .AddTo(_appearDisposables, this);
 
             Observable.Timer(TimeSpan.FromSeconds(_projectileData.AutomaticDisappearDelaySeconds))
                 .Subscribe(_ => Disappear()).AddTo(_appearDisposables, this);
         }
 
-        private void OnTriggerColliderEnter(Collider obj)
+        private void OnTriggerColliderEnter(Collider2D other)
         {
-            Disappear();
-
-            var layerBitMask = 1 << obj.gameObject.layer;
-
-            var playerLayer = _layerMasksParameters.PlayerLayer;
-            var isCollidingWithPlayer = playerLayer == (playerLayer | layerBitMask);
-
             var enemyLayer = _layerMasksParameters.EnemyLayer;
-            var isCollidingWithEnemy = enemyLayer == (enemyLayer | layerBitMask);
+            var isCollidingWithEnemy = IsInLayerMask(other, enemyLayer);
 
-            if (!isCollidingWithPlayer && (!_projectileData.CanDamageEnemies || !isCollidingWithEnemy))
+            if (_projectileData.IgnoreEnemies && isCollidingWithEnemy)
+                return;
+            
+            if(other.TryGetComponent(out IProjectilesSender otherSender) && otherSender.Equals(_sender))
                 return;
 
-            if (!obj.TryGetComponent(out IDamageable damageable))
+            Disappear();
+
+            var playerLayer = _layerMasksParameters.PlayerLayer;
+            var isCollidingWithPlayer = IsInLayerMask(other, playerLayer);
+            
+            if(!isCollidingWithEnemy && !isCollidingWithPlayer)
+                return;
+
+            if (!other.TryGetComponent(out IDamageable damageable))
                 return;
 
             damageable.HandleDamage(_projectileData.Damage);
@@ -62,6 +77,14 @@ namespace Game.Projectile.Controller.Impl
         {
             gameObject.SetActive(false);
             _appearDisposables?.Dispose();
+            mainRigidbody.velocity = Vector2.zero;
+            mainRigidbody.isKinematic = true;
+        }
+        
+        bool IsInLayerMask(Collider2D obj, int layerMask)
+        {
+            var objLayerMask = 1 << obj.gameObject.layer;
+            return (layerMask & objLayerMask) != 0;
         }
     }
 }

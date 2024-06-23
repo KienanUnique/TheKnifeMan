@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.Projectile.Controller;
+using Game.Projectile.Controller.Impl;
 using Game.Projectile.TypeData.Impl;
 using ModestTree;
 using UniRx;
@@ -18,6 +19,17 @@ namespace Game.Projectile.Factory.Concrete
         private readonly Queue<IPoolProjectile> _availableProjectiles = new();
         private readonly CompositeDisposable _compositeDisposable = new();
 
+        public ConcreteProjectileFactory(
+            DiContainer diContainer, 
+            Transform rootTransform, 
+            ProjectileTypeData projectileTypeData
+        )
+        {
+            _diContainer = diContainer;
+            _rootTransform = rootTransform;
+            _projectileTypeData = projectileTypeData;
+        }
+
         public void Initialize()
         {
         }
@@ -27,16 +39,16 @@ namespace Game.Projectile.Factory.Concrete
             _compositeDisposable?.Dispose();
         }
 
-        public void Create(Vector3 position, Vector2 direction)
+        public void Create(Vector3 position, Vector2 direction, IProjectilesSender sender)
         {
             var projectile = _availableProjectiles.IsEmpty() ? Instantiate(position) : _availableProjectiles.Dequeue();
 
-            projectile.Appear(direction, position);
+            projectile.Appear(direction, position, sender);
         }
 
         private IPoolProjectile Instantiate(Vector3 position)
         {
-            var newProjectile = _diContainer.InstantiatePrefabForComponent<IPoolProjectile>(_projectileTypeData.Prefab,
+            var newProjectile = _diContainer.InstantiatePrefabForComponent<ProjectileController>(_projectileTypeData.Prefab,
                 position, Quaternion.identity, _rootTransform, new[] {_projectileTypeData.ProjectileData});
 
             newProjectile.Disappeared.Subscribe(OnProjectileDisappear).AddTo(_compositeDisposable);
