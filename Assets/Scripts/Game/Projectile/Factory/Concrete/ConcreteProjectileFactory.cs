@@ -18,6 +18,7 @@ namespace Game.Projectile.Factory.Concrete
 
         private readonly Queue<IPoolProjectile> _availableProjectiles = new();
         private readonly CompositeDisposable _compositeDisposable = new();
+        private readonly List<IPoolProjectile> _busyProjectiles = new();
 
         public ConcreteProjectileFactory(
             DiContainer diContainer, 
@@ -48,6 +49,15 @@ namespace Game.Projectile.Factory.Concrete
             var projectile = _availableProjectiles.IsEmpty() ? Instantiate(position) : _availableProjectiles.Dequeue();
 
             projectile.Appear(direction, position, sender);
+            _busyProjectiles.Add(projectile);
+        }
+
+        public void ForceDisable()
+        {
+            foreach (var busyProjectile in _busyProjectiles)
+            {
+                busyProjectile.DisableAndReset();
+            }
         }
 
         private IPoolProjectile Instantiate(Vector3 position)
@@ -65,6 +75,7 @@ namespace Game.Projectile.Factory.Concrete
         {
             poolProjectile.DisableAndReset();
             _availableProjectiles.Enqueue(poolProjectile);
+            _busyProjectiles.Remove(poolProjectile);
         }
     }
 }

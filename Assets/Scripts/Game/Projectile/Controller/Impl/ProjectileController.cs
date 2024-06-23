@@ -18,7 +18,7 @@ namespace Game.Projectile.Controller.Impl
 
         private CompositeDisposable _appearDisposables;
         private IProjectilesSender _sender;
-        private bool _isEnabled = false;
+        private bool _isEnabled;
         
         private readonly ReactiveCommand<IPoolProjectile> _disappeared = new();
 
@@ -51,6 +51,7 @@ namespace Game.Projectile.Controller.Impl
             gameObject.SetActive(false);
             _appearDisposables?.Dispose();
             mainRigidbody.velocity = Vector2.zero;
+            _isEnabled = false;
         }
 
         private void Disappear()

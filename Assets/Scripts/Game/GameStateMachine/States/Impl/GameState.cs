@@ -1,4 +1,5 @@
-﻿using Game.Player;
+﻿using System.Collections.Generic;
+using Game.Player;
 using Game.Services.Level;
 using Game.Services.Score;
 using Game.Services.Spawner;
@@ -15,6 +16,7 @@ namespace Game.GameStateMachine.States.Impl
         private readonly ILevelsService _levelsService;
         private readonly ISpawnService _spawnService;
         private readonly IWaveTimerService _waveTimerService;
+        private readonly List<IGameStateListener> _gameStateListeners;
 
         private int _nextWaveIndex = 0;
 
@@ -25,7 +27,8 @@ namespace Game.GameStateMachine.States.Impl
             IScoreService scoreService,
             ILevelsService levelsService,
             ISpawnService spawnService,
-            IWaveTimerService waveTimerService
+            IWaveTimerService waveTimerService,
+            List<IGameStateListener> gameStateListeners
         )
         {
             _playerInformation = playerInformation;
@@ -33,6 +36,7 @@ namespace Game.GameStateMachine.States.Impl
             _levelsService = levelsService;
             _spawnService = spawnService;
             _waveTimerService = waveTimerService;
+            _gameStateListeners = gameStateListeners;
         }
 
         protected override void HandleEnter()
@@ -49,6 +53,10 @@ namespace Game.GameStateMachine.States.Impl
         protected override void HandleExit()
         {
             _spawnService.ForceStopSpawning();
+            foreach (var gameStateListener in _gameStateListeners)
+            {
+                gameStateListener.OnGameEnd();
+            }
         }
 
         private void OnNeedScoreAchieved()

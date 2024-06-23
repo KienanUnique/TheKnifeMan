@@ -32,12 +32,10 @@ namespace Game.Enemy.Nodes.Actions
             if (TryFoundPointOnGivenDistance(out var foundedPoint))
             {
                 Enemy.SetDestination(foundedPoint);
-                Debug.DrawLine(_thisTransform.position, foundedPoint, Color.red, 999f);
                 return ENodeState.Success;
             }
 
             Enemy.SetDestination(_playerTransform.position);
-            Debug.DrawLine(_thisTransform.position, _playerTransform.position, Color.blue, 999f);
             return ENodeState.Failure;
         }
 
@@ -52,10 +50,6 @@ namespace Game.Enemy.Nodes.Actions
             {
                 var offsetVector = Quaternion.Euler(0, 0, angle) * -targetDirection * needDistance;
                 var point = targetPosition + offsetVector;
-                
-                
-                //Debug.DrawLine(_thisTransform.position, point, Color.yellow, 999f);
-                
                 
                 if (IsPathFromPointToEnemyClear(point))
                 {

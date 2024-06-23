@@ -20,6 +20,7 @@ namespace Game.Enemy.Factory.Concrete
         private readonly IEnemyFactoryParameters _parameters;
         
         private readonly Queue<IPoolEnemy> _availableEnemies = new();
+        private readonly List<IPoolEnemy> _busyEnemies = new();
         private readonly CompositeDisposable _compositeDisposable = new();
         
         private DiContainer _diContainer;
@@ -62,6 +63,16 @@ namespace Game.Enemy.Factory.Concrete
             var enemy = _availableEnemies.IsEmpty() ? Instantiate(position) : _availableEnemies.Dequeue();
 
             enemy.HandleEnable();
+            _busyEnemies.Add(enemy);
+        }
+
+        public void HandleGameEnd()
+        {
+            _compositeDisposable?.Dispose();
+            foreach (var busyEnemy in _busyEnemies)
+            {
+                busyEnemy.HandleGameEnd();
+            }
         }
 
         private IPoolEnemy Instantiate(Vector3 position)
@@ -79,6 +90,7 @@ namespace Game.Enemy.Factory.Concrete
 
         private void OnEnemyDead(IPoolEnemy poolEnemy)
         {
+            _busyEnemies.Remove(poolEnemy);
             var afterDeathDelay = _parameters.AfterDeathDelaySeconds;
             Observable.Timer(TimeSpan.FromSeconds(afterDeathDelay)).Subscribe(_ => ReturnEnemyToPool(poolEnemy))
                 .AddTo(_compositeDisposable);

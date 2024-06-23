@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Game.Enemy.Factory.Impl
 {
-    public class EnemyFactory : IDisposable, IEnemyFactory, INeedWaitInitializable
+    public class EnemyFactory : IDisposable, IEnemyFactory, INeedWaitInitializable, IGameStateListener
     {
         private const string EnemiesRootName = "Enemies";
 
@@ -60,6 +60,14 @@ namespace Game.Enemy.Factory.Impl
         public void Dispose()
         {
             _compositeDisposable?.Dispose();
+        }
+
+        public void OnGameEnd()
+        {
+            foreach (var (_, factory) in _factories)
+            {
+                factory.HandleGameEnd();
+            }
         }
     }
 }
