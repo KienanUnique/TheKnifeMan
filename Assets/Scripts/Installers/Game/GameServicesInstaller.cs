@@ -1,22 +1,18 @@
-﻿using System;
-using Game.Enemy.Factory;
+﻿using Game.Enemy.Factory.Impl;
 using Game.Level.Provider.Impl;
-using Game.Level.View.Impl;
 using Game.Services.Level;
 using Game.Services.Spawner.Impl;
 using Game.Services.WaveTimer.Impl;
 using Game.Utils;
 using Services.ScreenPosition.Impl;
-using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace Installers.Game
 {
+    [RequireComponent(typeof(LevelViewLink))]
     public class GameServicesInstaller : MonoInstaller
     {
-        [SerializeField] private LevelView levelView;
-
         public override void InstallBindings()
         {
             BindLevel();
@@ -24,16 +20,12 @@ namespace Installers.Game
             BindFactories();
 
             BindServices();
-
-            Observable.Timer(TimeSpan.FromSeconds(2)).Subscribe(_ =>
-            {
-                var factory = Container.Resolve<IEnemyFactory>();
-                factory.Create(EEnemyType.Simple, Vector3.zero);
-            });
         }
 
         private void BindLevel()
         {
+            var levelViewLink = GetComponent<LevelViewLink>();
+            var levelView = levelViewLink.LevelView;
             Container.BindInterfacesTo<LevelViewProvider>().AsSingle().WithArguments(levelView);
         }
 
