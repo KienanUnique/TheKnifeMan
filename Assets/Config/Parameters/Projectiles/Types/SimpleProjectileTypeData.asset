@@ -15,6 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 5730707330059161337, guid: daa823e593412c54da1991f817940f28, type: 3}
   projectileData:
     damage: 1
-    speed: 5
-    automaticDisappearDelaySeconds: 2
+    speed: 10
+    automaticDisappearDelaySeconds: 5
     ignoreEnemies: 1
