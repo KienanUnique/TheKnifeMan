@@ -1,6 +1,4 @@
 ﻿using System;
-using Db.Waves;
-using Game.Player;
 using Game.Services.Spawner;
 using Game.Services.WaveTimer;
 using UniRx;
@@ -8,28 +6,25 @@ using Zenject;
 
 namespace Game.Services.Level
 {
-    public class LevelService : IInitializable, IDisposable
+    public class TmpGameStateService : IInitializable, IDisposable
     {
         private readonly IWaveTimerService _waveTimerService;
         private readonly ISpawnService _spawnService;
-        private readonly IWavesParameters _wavesParameters;
-        private readonly IPlayerInformation _playerInformation;
+        private readonly ILevelsService _levelsService;
 
         private readonly CompositeDisposable _compositeDisposable = new();
 
         private int _nextWaveIndex = 0;
 
-        public LevelService(
+        public TmpGameStateService(
             IWaveTimerService waveTimerService,
             ISpawnService spawnService,
-            IWavesParameters wavesParameters,
-            IPlayerInformation playerInformation
+            ILevelsService levelsService
         )
         {
             _waveTimerService = waveTimerService;
             _spawnService = spawnService;
-            _wavesParameters = wavesParameters;
-            _playerInformation = playerInformation;
+            _levelsService = levelsService;
         }
 
         public void Initialize()
@@ -46,7 +41,7 @@ namespace Game.Services.Level
 
         private void StartNewWave()
         {
-            var allWaves = _wavesParameters.WavesInfo;
+            var allWaves = _levelsService.CurrentLevelData.WavesParameters.WavesInfo;
             if (allWaves.Count <= _nextWaveIndex)
                 return;
 

@@ -17,5 +17,6 @@ MonoBehaviour:
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.01
+    pointsForKill: 25
     damage: 1
   prefab: {fileID: 469239487118506368, guid: af4dc9292ce5b7e4b844384aa345a590, type: 3}

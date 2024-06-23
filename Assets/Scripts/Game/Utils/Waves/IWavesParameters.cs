@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Game.Utils.Spawner;
 
-namespace Db.Waves
+namespace Game.Utils.Waves
 {
     public interface IWavesParameters
     {

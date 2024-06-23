@@ -2,6 +2,7 @@
 using Game.Level.Provider.Impl;
 using Game.Projectile.Factory.Impl;
 using Game.Services.Level;
+using Game.Services.Score.Impl;
 using Game.Services.Spawner.Impl;
 using Game.Services.WaveTimer.Impl;
 using Game.Utils;
@@ -40,8 +41,9 @@ namespace Installers.Game
         {
             Container.BindInterfacesTo<ScreenPositionService>().AsSingle();
             Container.BindInterfacesTo<SpawnService>().AsSingle();
-            Container.BindInterfacesTo<LevelService>().AsSingle();
+            Container.BindInterfacesTo<TmpGameStateService>().AsSingle();
             Container.BindInterfacesTo<WaveTimerService>().AsSingle();
+            Container.BindInterfacesTo<ScoreService>().AsSingle();
         }
     }
 }
