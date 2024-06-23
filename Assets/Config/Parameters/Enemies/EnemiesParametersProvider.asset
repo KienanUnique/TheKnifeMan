@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: EnemiesParametersProvider
   m_EditorClassIdentifier: 
   simpleEnemyParameters:
-    health: 3
+    health: 1
     acceleration: 3
     maxSpeed: 3
     animatorMovingVelocityThreshold: 0.01
+    damage: 1
