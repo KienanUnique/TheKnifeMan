@@ -6,6 +6,8 @@ using Db.LayerMasks;
 using Db.LayerMasks.Impl;
 using Db.Player;
 using Db.Player.Impl;
+using Db.Projectiles;
+using Db.Projectiles.Impl;
 using Db.Spawners;
 using Db.Spawners.Impl;
 using Db.Waves;
@@ -24,6 +26,7 @@ namespace Installers.Game
 
         [Header("Enemies")] [SerializeField] private EnemiesTypeDataProvider enemiesTypeDataProvider;
         [SerializeField] private EnemyFactoryParameters enemyFactoryParameters;
+        [SerializeField] private ProjectilesParameters projectilesParameters;
 
         [Header("Spawn")] [SerializeField] private WavesParameters wavesParameters;
         [SerializeField] private SpawnersParameters spawnersParameters;
@@ -36,6 +39,7 @@ namespace Installers.Game
 
             Container.Bind<IEnemiesTypeDataProvider>().FromInstance(enemiesTypeDataProvider).AsSingle();
             Container.Bind<IEnemyFactoryParameters>().FromInstance(enemyFactoryParameters).AsSingle();
+            Container.Bind<IProjectilesParameters>().FromInstance(projectilesParameters).AsSingle();
 
             Container.Bind<IWavesParameters>().FromInstance(wavesParameters).AsSingle();
             Container.Bind<ISpawnersParameters>().FromInstance(spawnersParameters).AsSingle();

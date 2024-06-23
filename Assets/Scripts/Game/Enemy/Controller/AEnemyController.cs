@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Game.Character.Parts.AnimatorStatus;
 using Game.Enemy.ActionsExecutor;
 using Game.Enemy.Context;
+using Game.Enemy.Context.Impl;
 using Game.Enemy.Data;
 using Game.Enemy.Parts;
 using Game.Enemy.Parts.Character;
@@ -45,7 +46,6 @@ namespace Game.Enemy.Controller
             Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
 
             LookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposables);
-            ;
 
             Data.NavMeshAgent.isStopped = false;
         }
@@ -81,7 +81,10 @@ namespace Game.Enemy.Controller
             return result;
         }
 
-        protected abstract IEnemyContextBase CreateContext();
+        protected virtual IEnemyContextBase CreateContext()
+        {
+            return new DefaultEnemyContext(this, transform);
+        }
 
         protected virtual void OnInitialize()
         {

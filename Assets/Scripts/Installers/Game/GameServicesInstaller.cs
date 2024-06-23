@@ -1,5 +1,6 @@
 ﻿using Game.Enemy.Factory.Impl;
 using Game.Level.Provider.Impl;
+using Game.Projectile.Factory.Impl;
 using Game.Services.Level;
 using Game.Services.Spawner.Impl;
 using Game.Services.WaveTimer.Impl;
@@ -32,6 +33,7 @@ namespace Installers.Game
         private void BindFactories()
         {
             Container.BindInterfacesTo<EnemyFactory>().AsSingle();
+            Container.BindInterfacesTo<ProjectilesFactory>().AsSingle();
         }
 
         private void BindServices()
