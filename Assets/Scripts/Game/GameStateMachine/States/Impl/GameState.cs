@@ -5,6 +5,7 @@ using Game.Services.Score;
 using Game.Services.Spawner;
 using Game.Services.WaveTimer;
 using Game.Utils;
+using Services.Input;
 using UniRx;
 
 namespace Game.GameStateMachine.States.Impl
@@ -16,6 +17,7 @@ namespace Game.GameStateMachine.States.Impl
         private readonly ILevelsService _levelsService;
         private readonly ISpawnService _spawnService;
         private readonly IWaveTimerService _waveTimerService;
+        private readonly IInputService _inputService;
         private readonly List<IGameStateListener> _gameStateListeners;
 
         private int _nextWaveIndex = 0;
@@ -28,7 +30,8 @@ namespace Game.GameStateMachine.States.Impl
             ILevelsService levelsService,
             ISpawnService spawnService,
             IWaveTimerService waveTimerService,
-            List<IGameStateListener> gameStateListeners
+            List<IGameStateListener> gameStateListeners,
+            IInputService inputService
         )
         {
             _playerInformation = playerInformation;
@@ -37,6 +40,7 @@ namespace Game.GameStateMachine.States.Impl
             _spawnService = spawnService;
             _waveTimerService = waveTimerService;
             _gameStateListeners = gameStateListeners;
+            _inputService = inputService;
         }
 
         protected override void HandleEnter()
@@ -48,6 +52,8 @@ namespace Game.GameStateMachine.States.Impl
             _waveTimerService.OnTimerEnd.Subscribe(_ => StartNewWave()).AddTo(ActiveDisposable);
 
             StartNewWave();
+            
+            _inputService.SwitchToGameInput();
         }
 
         protected override void HandleExit()
@@ -57,6 +63,8 @@ namespace Game.GameStateMachine.States.Impl
             {
                 gameStateListener.OnGameEnd();
             }
+            
+            _inputService.SwitchToUiInput();
         }
 
         private void OnNeedScoreAchieved()

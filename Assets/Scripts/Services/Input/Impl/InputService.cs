@@ -39,6 +39,18 @@ namespace Services.Input.Impl
             _controls?.Dispose();
         }
 
+        public void SwitchToUiInput()
+        {
+            _controls.Gameplay.Disable();
+            _controls.UI.Enable();
+        }
+
+        public void SwitchToGameInput()
+        {
+            _controls.UI.Disable();
+            _controls.Gameplay.Enable();
+        }
+
         #region Gameplay
 
         private void SubscribeOnGameplayEvents()

@@ -68,7 +68,6 @@ namespace Game.Enemy.Factory.Concrete
 
         public void HandleGameEnd()
         {
-            _compositeDisposable?.Dispose();
             foreach (var busyEnemy in _busyEnemies)
             {
                 busyEnemy.HandleGameEnd();

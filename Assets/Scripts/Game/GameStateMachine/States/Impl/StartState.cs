@@ -2,15 +2,24 @@
 using System.Linq;
 using Game.Utils;
 using ModestTree;
+using Services.Input;
 using UniRx;
-using UnityEngine;
-using Zenject;
 
 namespace Game.GameStateMachine.States.Impl
 {
     public class StartState : AState
     {
-        [Inject] private List<INeedWaitInitializable> _needWaitInitializables;
+        private readonly IInputService _inputService;
+        private readonly List<INeedWaitInitializable> _needWaitInitializables;
+
+        public StartState(
+            IInputService inputService, 
+            List<INeedWaitInitializable> needWaitInitializables
+        )
+        {
+            _inputService = inputService;
+            _needWaitInitializables = needWaitInitializables;
+        }
 
         protected override void HandleEnter()
         {
@@ -24,8 +33,6 @@ namespace Game.GameStateMachine.States.Impl
                 observablesToWait.Add(needWaitInitializable.IsInitilized);
             }
 
-            Debug.Log($"StartState enter: {observablesToWait.Count}");
-
             if (observablesToWait.IsEmpty())
             {
                 GameStateMachine.Enter<GameState>();
@@ -36,6 +43,8 @@ namespace Game.GameStateMachine.States.Impl
             {
                 if (values.All(value => value)) OnAllInitializeblesWaited();
             }).AddTo(ActiveDisposable);
+            
+            _inputService.SwitchToUiInput();
         }
 
         private void OnAllInitializeblesWaited()
