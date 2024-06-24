@@ -4,9 +4,12 @@ using Game.Services.Level;
 using Game.Services.Score;
 using Game.Services.Spawner;
 using Game.Services.WaveTimer;
+using Game.Ui.GameplayWindow;
 using Game.Utils;
+using KoboldUi.Utils;
 using Services.Input;
 using UniRx;
+using Zenject;
 
 namespace Game.GameStateMachine.States.Impl
 {
@@ -18,6 +21,7 @@ namespace Game.GameStateMachine.States.Impl
         private readonly ISpawnService _spawnService;
         private readonly IWaveTimerService _waveTimerService;
         private readonly IInputService _inputService;
+        private readonly SignalBus _signalBus;
         private readonly List<IGameStateListener> _gameStateListeners;
 
         private int _nextWaveIndex = 0;
@@ -31,7 +35,8 @@ namespace Game.GameStateMachine.States.Impl
             ISpawnService spawnService,
             IWaveTimerService waveTimerService,
             List<IGameStateListener> gameStateListeners,
-            IInputService inputService
+            IInputService inputService,
+            SignalBus signalBus
         )
         {
             _playerInformation = playerInformation;
@@ -41,6 +46,7 @@ namespace Game.GameStateMachine.States.Impl
             _waveTimerService = waveTimerService;
             _gameStateListeners = gameStateListeners;
             _inputService = inputService;
+            _signalBus = signalBus;
         }
 
         protected override void HandleEnter()
@@ -54,6 +60,8 @@ namespace Game.GameStateMachine.States.Impl
             StartNewWave();
             
             _inputService.SwitchToGameInput();
+            
+            _signalBus.OpenWindow<GameplayWindow>();
         }
 
         protected override void HandleExit()

@@ -13,10 +13,10 @@ namespace Game.Services.Score.Impl
 
         public IReactiveProperty<int> CurrentScore => _currentScore;
         public IObservable<Unit> NeedScoreAchieved => _needScoreAchieved;
+        public int NeedScore => _levelsService.CurrentLevelData.TargetScore;
 
         public ScoreService(ILevelsService levelsService)
         {
-            var pause = new BoolReactiveProperty(); // create UniRx 
             _levelsService = levelsService;
         }
 

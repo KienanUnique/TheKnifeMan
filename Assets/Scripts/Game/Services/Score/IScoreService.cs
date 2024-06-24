@@ -7,6 +7,7 @@ namespace Game.Services.Score
     {
         IReactiveProperty<int> CurrentScore { get; }
         IObservable<Unit> NeedScoreAchieved { get; }
+        int NeedScore { get; }
         
         void IncreaseScore(int pointsToAdd);
     }

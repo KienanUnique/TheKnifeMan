@@ -10,10 +10,10 @@ namespace Game.Utils
     {
         [SerializeField] private string levelName;
         [SerializeField] private WavesParameters wavesParameters;
-        [SerializeField] private float targetScore;
+        [SerializeField] private int targetScore;
 
         public string LevelName => levelName;
-        public float TargetScore => targetScore;
+        public int TargetScore => targetScore;
         public IWavesParameters WavesParameters => wavesParameters;
     }
 }

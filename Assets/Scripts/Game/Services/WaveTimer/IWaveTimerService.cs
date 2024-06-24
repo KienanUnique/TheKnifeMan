@@ -6,7 +6,7 @@ namespace Game.Services.WaveTimer
 {
     public interface IWaveTimerService
     {
-        IObservable<TimeSpan> OnTick { get; }
+        IReactiveProperty<TimeSpan> RemainingTime { get; }
         IObservable<Unit> OnTimerEnd { get; }
 
         void StartTimer(WaveData waveData);
