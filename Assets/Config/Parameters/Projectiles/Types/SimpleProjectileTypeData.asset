@@ -18,3 +18,4 @@ MonoBehaviour:
     speed: 10
     automaticDisappearDelaySeconds: 5
     ignoreEnemies: 1
+  _startPoolCount: 20

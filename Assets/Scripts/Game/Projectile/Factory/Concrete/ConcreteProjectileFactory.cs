@@ -18,6 +18,7 @@ namespace Game.Projectile.Factory.Concrete
 
         private readonly Queue<IPoolProjectile> _availableProjectiles = new();
         private readonly CompositeDisposable _compositeDisposable = new();
+        private readonly List<IPoolProjectile> _busyProjectiles = new();
 
         public ConcreteProjectileFactory(
             DiContainer diContainer, 
@@ -32,6 +33,10 @@ namespace Game.Projectile.Factory.Concrete
 
         public void Initialize()
         {
+            for (int i = 0; i < _projectileTypeData.StartPoolCount; i++)
+            {
+                _availableProjectiles.Enqueue(Instantiate(Vector3.zero));
+            }
         }
 
         public void Dispose()
@@ -44,21 +49,33 @@ namespace Game.Projectile.Factory.Concrete
             var projectile = _availableProjectiles.IsEmpty() ? Instantiate(position) : _availableProjectiles.Dequeue();
 
             projectile.Appear(direction, position, sender);
+            _busyProjectiles.Add(projectile);
+        }
+
+        public void ForceDisable()
+        {
+            foreach (var busyProjectile in _busyProjectiles)
+            {
+                busyProjectile.DisableAndReset();
+            }
         }
 
         private IPoolProjectile Instantiate(Vector3 position)
         {
             var newProjectile = _diContainer.InstantiatePrefabForComponent<ProjectileController>(_projectileTypeData.Prefab,
                 position, Quaternion.identity, _rootTransform, new[] {_projectileTypeData.ProjectileData});
-
+            
             newProjectile.Disappeared.Subscribe(OnProjectileDisappear).AddTo(_compositeDisposable);
+            newProjectile.DisableAndReset();
 
             return newProjectile;
         }
 
-        private void OnProjectileDisappear(IPoolProjectile poolEnemy)
+        private void OnProjectileDisappear(IPoolProjectile poolProjectile)
         {
-            _availableProjectiles.Enqueue(poolEnemy);
+            poolProjectile.DisableAndReset();
+            _availableProjectiles.Enqueue(poolProjectile);
+            _busyProjectiles.Remove(poolProjectile);
         }
     }
 }

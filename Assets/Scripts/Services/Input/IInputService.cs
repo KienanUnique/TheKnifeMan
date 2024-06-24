@@ -11,5 +11,8 @@ namespace Services.Input
         IReactiveProperty<bool> IsDashPressed { get; }
         IObservable<Unit> PausePressed { get; }
         IObservable<Unit> AttackPressed { get; }
+
+        void SwitchToUiInput();
+        void SwitchToGameInput();
     }
 }

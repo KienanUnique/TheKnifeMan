@@ -9,5 +9,6 @@ namespace Game.Enemy
 
         void HandleEnable();
         void HandleDisableAndReset();
+        void HandleGameEnd();
     }
 }

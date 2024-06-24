@@ -1,7 +1,6 @@
 ﻿using System;
 using Game.Services.Level;
 using UniRx;
-using UnityEngine;
 
 namespace Game.Services.Score.Impl
 {
@@ -17,6 +16,7 @@ namespace Game.Services.Score.Impl
 
         public ScoreService(ILevelsService levelsService)
         {
+            var pause = new BoolReactiveProperty(); // create UniRx 
             _levelsService = levelsService;
         }
 
@@ -26,8 +26,6 @@ namespace Game.Services.Score.Impl
             
             if (_currentScore.Value >= _levelsService.CurrentLevelData.TargetScore) 
                 _needScoreAchieved.Execute();
-            
-            Debug.Log($"{_currentScore.Value} / {_levelsService.CurrentLevelData.TargetScore}");
         }
     }
 }

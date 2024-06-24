@@ -13,7 +13,7 @@ namespace Game.Enemy.Nodes.Actions
         private const float FullCircleAngle = 360f;
         private const float SamplePositionMaxDistance = 1f;
         
-        public NodeProperty<float> needDistance = new();
+        [SerializeField] private float needDistance = 4f;
         
         [Inject] private IPlayerInformation _information;
         
@@ -32,12 +32,10 @@ namespace Game.Enemy.Nodes.Actions
             if (TryFoundPointOnGivenDistance(out var foundedPoint))
             {
                 Enemy.SetDestination(foundedPoint);
-                Debug.DrawLine(_thisTransform.position, foundedPoint, Color.red, 999f);
                 return ENodeState.Success;
             }
 
             Enemy.SetDestination(_playerTransform.position);
-            Debug.DrawLine(_thisTransform.position, _playerTransform.position, Color.blue, 999f);
             return ENodeState.Failure;
         }
 
@@ -50,12 +48,8 @@ namespace Game.Enemy.Nodes.Actions
 
             for (var angle = 0f; angle < FullCircleAngle; angle += AngleCheckStep)
             {
-                var offsetVector = Quaternion.Euler(0, 0, angle) * -targetDirection * needDistance.Value;
+                var offsetVector = Quaternion.Euler(0, 0, angle) * -targetDirection * needDistance;
                 var point = targetPosition + offsetVector;
-                
-                
-                //Debug.DrawLine(_thisTransform.position, point, Color.yellow, 999f);
-                
                 
                 if (IsPathFromPointToEnemyClear(point))
                 {
@@ -63,7 +57,7 @@ namespace Game.Enemy.Nodes.Actions
                     return true;
                 }
                 
-                offsetVector = Quaternion.Euler(0, -angle, 0) * targetDirection * needDistance.Value;
+                offsetVector = Quaternion.Euler(0, -angle, 0) * targetDirection * needDistance;
                 point = targetPosition + offsetVector;
 
                 if (IsPathFromPointToEnemyClear(point))

@@ -66,6 +66,19 @@ namespace Game.Enemy.Controller
             Data.BehaviourTreeInstance.Reset();
         }
 
+        public void HandleGameEnd()
+        {
+            _aliveDisposables?.Dispose();
+            
+            foreach (var poolPart in _poolParts) poolPart.DisableAndReset();
+            Data.BehaviourTreeInstance.Reset();
+            
+            Data.NavMeshAgent.isStopped = true;
+            Data.NavMeshAgent.ResetPath();
+            
+            Data.NavMeshAgent.velocity = Vector3.zero;
+        }
+
         public void HandleDamage(int damage)
         {
             CharacterPart.HandleDamage(damage);
@@ -78,6 +91,7 @@ namespace Game.Enemy.Controller
 
         public void DisableMoving()
         {
+            Data.NavMeshAgent.ResetPath();
             Data.NavMeshAgent.updatePosition = false;
             Data.NavMeshAgent.velocity = Vector3.zero;
         }

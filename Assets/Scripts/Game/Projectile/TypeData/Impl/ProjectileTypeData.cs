@@ -10,10 +10,12 @@ namespace Game.Projectile.TypeData.Impl
     {
         [SerializeField] private ProjectileController prefab;
         [SerializeField] private ProjectileData projectileData;
+        [SerializeField] private int _startPoolCount = 17;
 
         public int InstanceID => GetInstanceID();
         public ProjectileController Prefab => prefab;
         public ProjectileData ProjectileData => projectileData;
+        public int StartPoolCount => _startPoolCount;
 
         public bool Equals(IProjectileType other)
         {
