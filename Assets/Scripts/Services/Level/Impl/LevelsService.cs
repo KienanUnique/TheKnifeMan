@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace Game.Services.Level.Impl
+namespace Services.Level.Impl
 {
     public class LevelsService : IInitializable, ILevelsService, IDisposable
     {

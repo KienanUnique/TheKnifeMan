@@ -2,7 +2,6 @@
 using Game.Enemy.Factory.Impl;
 using Game.Level.Provider.Impl;
 using Game.Projectile.Factory.Impl;
-using Game.Services.Level;
 using Game.Services.Score.Impl;
 using Game.Services.Spawner.Impl;
 using Game.Services.WaveTimer.Impl;
@@ -42,7 +41,6 @@ namespace Game.Installers
         {
             Container.BindInterfacesTo<ScreenPositionService>().AsSingle();
             Container.BindInterfacesTo<SpawnService>().AsSingle();
-            Container.BindInterfacesTo<TmpGameStateService>().AsSingle();
             Container.BindInterfacesTo<WaveTimerService>().AsSingle();
             Container.BindInterfacesTo<ScoreService>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IDisposable)).To<GameStateMachine.Impl.GameStateMachine>().AsSingle();

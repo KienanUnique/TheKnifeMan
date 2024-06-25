@@ -1,5 +1,5 @@
 ﻿using System;
-using Game.Services.Level;
+using Services.Level;
 using UniRx;
 
 namespace Game.Services.Score.Impl

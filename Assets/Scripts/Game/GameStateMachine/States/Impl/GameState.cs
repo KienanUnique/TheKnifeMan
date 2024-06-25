@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Game.Player;
-using Game.Services.Level;
 using Game.Services.Score;
 using Game.Services.Spawner;
 using Game.Services.WaveTimer;
@@ -8,6 +7,7 @@ using Game.Ui.GameplayWindow;
 using Game.Utils;
 using KoboldUi.Utils;
 using Services.Input;
+using Services.Level;
 using UniRx;
 using Zenject;
 

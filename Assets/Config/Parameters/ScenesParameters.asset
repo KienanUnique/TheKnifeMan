@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b689c471d34142ac35f8c37495b6dd, type: 3}
   m_Name: ScenesParameters
   m_EditorClassIdentifier: 
-  mainMenuSceneName: 
+  mainMenuSceneName: MainMenu
   levels:
-  - levelName: 
+  - levelName: SampleScene
     wavesParameters:
       wavesInfo:
       - enemies:

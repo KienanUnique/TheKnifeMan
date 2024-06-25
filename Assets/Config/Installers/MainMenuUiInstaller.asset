@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae67f6c7dfb4b6080a13c46d8ce75dd, type: 3}
   m_Name: MainMenuUiInstaller
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  menuWindow: {fileID: 0}
+  canvas: {fileID: 4456162027341417173, guid: f1e330904351d8c4b8862dc9f8621def, type: 3}
+  menuWindow: {fileID: 5215023601299967741, guid: bb0aaefe423cfc443889ea6bb5f02eed, type: 3}

@@ -17,6 +17,8 @@ namespace Installers.MainMenu
             var canvasInstance = Instantiate(canvas);
             
             Container.BindWindowFromPrefab(canvasInstance, menuWindow);
+
+            Container.BindInterfacesTo<MainMenuOpener>().AsSingle().NonLazy();
         }
     }
 }

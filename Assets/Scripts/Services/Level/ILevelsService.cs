@@ -1,7 +1,7 @@
 ﻿using Game.Utils;
 using UniRx;
 
-namespace Game.Services.Level
+namespace Services.Level
 {
     public interface ILevelsService
     {

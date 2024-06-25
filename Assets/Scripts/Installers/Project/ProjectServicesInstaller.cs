@@ -1,5 +1,5 @@
-﻿using Game.Services.Level.Impl;
-using Services.Input.Impl;
+﻿using Services.Input.Impl;
+using Services.Level.Impl;
 using Zenject;
 
 namespace Installers.Project
