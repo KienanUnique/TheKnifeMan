@@ -1,6 +1,9 @@
 ﻿using System;
 using Db.Scenes;
 using Game.Utils;
+using KoboldUi.Utils;
+using PostProcessing;
+using Ui.Loading;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +14,8 @@ namespace Services.Level.Impl
     public class LevelsService : IInitializable, ILevelsService, IDisposable
     {
         private readonly IScenesParameters _scenesParameters;
+        private readonly IPostProcessingController _processingController;
+        private readonly SignalBus _signalBus;
         
         private readonly ReactiveProperty<float> _loadingProgress = new();
         private readonly ReactiveProperty<bool> _isLoadingCompleted = new(true);
@@ -22,12 +27,18 @@ namespace Services.Level.Impl
         public IReactiveProperty<float> LoadingProgress => _loadingProgress;
         public IReactiveProperty<bool> IsLoadingCompleted => _isLoadingCompleted;
         public LevelSceneData CurrentLevelData => _scenesParameters.Levels[0];
-        
-        public LevelsService(IScenesParameters scenesParameters)
+
+        public LevelsService(
+            IScenesParameters scenesParameters, 
+            IPostProcessingController processingController,
+            SignalBus signalBus
+        )
         {
             _scenesParameters = scenesParameters;
+            _processingController = processingController;
+            _signalBus = signalBus;
         }
-        
+
         public void Initialize()
         {
             var currentSceneName = SceneManager.GetActiveScene().name;
@@ -84,14 +95,21 @@ namespace Services.Level.Impl
         {
             if(!_isLoadingCompleted.Value)
                 return;
-
+            
             _isLoadingCompleted.Value = false;
             
-            _loadingOperation = SceneManager.LoadSceneAsync(sceneName);
+            _loadingProgress.Value = 0f;
             
-            _loadingOperation.completed += OnLoadingCompleted;
+            _signalBus.OpenWindow<LoadingWindow>(EWindowLayer.Project);
             
-            _updateLoadingDisposable = Observable.EveryUpdate().Subscribe(_ => OnUpdateDuringLoading());
+            _processingController.EnterFade(() =>
+            {
+                _loadingOperation = SceneManager.LoadSceneAsync(sceneName);
+            
+                _loadingOperation.completed += OnLoadingCompleted;
+            
+                _updateLoadingDisposable = Observable.EveryUpdate().Subscribe(_ => OnUpdateDuringLoading());
+            });
         }
 
         private void OnLoadingCompleted(AsyncOperation obj)
@@ -100,8 +118,11 @@ namespace Services.Level.Impl
             _loadingOperation = null;
             
             _updateLoadingDisposable.Dispose();
+            _loadingProgress.Value = 1f;
             
-            _isLoadingCompleted.Value = true;
+            _signalBus.BackWindow(EWindowLayer.Project);
+            
+            _processingController.ExitFade(() => _isLoadingCompleted.Value = true);
         }
 
         private void OnUpdateDuringLoading()

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Game.Object.Part;
 using Game.Object.PartsFactory;
 using UniRx;

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: MainMenuUiInstaller
   m_EditorClassIdentifier: 
   canvas: {fileID: 4456162027341417173, guid: f1e330904351d8c4b8862dc9f8621def, type: 3}
+  cameraHolderPrefab: {fileID: 8844555703248953365, guid: 2ac33cf283534094a97ccb7d8d2291f6, type: 3}
   menuWindow: {fileID: 5215023601299967741, guid: bb0aaefe423cfc443889ea6bb5f02eed, type: 3}
