@@ -13,6 +13,7 @@ namespace Game.Player.Parts.Movement
         private readonly IPlayerParameters _playerParameters;
         
         private readonly ReactiveCommand _dashStarted = new();
+        private readonly ReactiveCommand _dashEnded = new();
 
         private CompositeDisposable _movementDisposable;
         private Rigidbody2D _rigidbody;
@@ -22,6 +23,8 @@ namespace Game.Player.Parts.Movement
         private bool _canWalk = false;
 
         public IObservable<Unit> DashStarted => _dashStarted;
+
+        public IObservable<Unit> DashEnded => _dashEnded;
 
         private bool IsMoveDirectionNotInputted => _inputService.NeedDirection == Vector2.zero;
 
@@ -115,7 +118,9 @@ namespace Game.Player.Parts.Movement
                     
                     Observable.Timer(TimeSpan.FromSeconds(_playerParameters.DashCooldownSeconds))
                         .Subscribe(_ => _canDash = true).AddTo(_movementDisposable);
-                    
+
+                    _dashEnded.Execute();
+
                 }).AddTo(_movementDisposable);
 
             _canDash = false;
