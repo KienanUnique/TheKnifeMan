@@ -74,6 +74,7 @@ namespace Game.Player
             _animatorStatusCheckerPart.IsAnimatorBusyChanged.Subscribe(OnIsAnimatorBusy).AddTo(_aliveDisposable);
             
             _movementPart.DashStarted.Subscribe(_ => OnDashStarted()).AddTo(_aliveDisposable);
+            _movementPart.DashEnded.Subscribe(_ => OnDashEnded()).AddTo(_aliveDisposable);
 
             _movementPart.Enable();
             _visualPart.ChangeLookDirection(_lookDirectionPart.LookDirection1D.Value);
@@ -85,7 +86,13 @@ namespace Game.Player
 
         private void OnDashStarted()
         {
+            _characterPart.EnableImmortal();
             _visualPart.StartPlayingDashAnimation();
+        }
+
+        private void OnDashEnded()
+        {
+            _characterPart.DisableImmortal();
         }
 
         private void OnIsAnimatorBusy(bool isBusy)

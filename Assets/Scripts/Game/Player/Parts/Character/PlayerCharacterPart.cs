@@ -12,12 +12,24 @@ namespace Game.Player.Parts.Character
         private readonly ReactiveProperty<int> _health = new();
         private readonly ReactiveProperty<bool> _isDead = new();
 
+        private bool _isImmortal = false;
+
         public IReactiveProperty<int> Health => _health;
         public IReactiveProperty<bool> IsDead => _isDead;
 
         public PlayerCharacterPart(IPlayerParameters playerParameters)
         {
             _playerParameters = playerParameters;
+        }
+
+        public void EnableImmortal()
+        {
+            _isImmortal = true;
+        }
+
+        public void DisableImmortal()
+        {
+            _isImmortal = false;
         }
 
         public override void Initialize()
@@ -32,7 +44,7 @@ namespace Game.Player.Parts.Character
 
         public void HandleDamage(int damage)
         {
-            if (_isDead.Value)
+            if (_isDead.Value || _isImmortal)
                 return;
 
             var currentHealth = _health.Value;
