@@ -4,6 +4,7 @@ using Game.Utils;
 using ModestTree;
 using Services.Input;
 using UniRx;
+using UnityEngine;
 
 namespace Game.GameStateMachine.States.Impl
 {
@@ -54,6 +55,7 @@ namespace Game.GameStateMachine.States.Impl
 
         protected override void HandleExit()
         {
+            ActiveDisposable?.Dispose();
         }
     }
 }

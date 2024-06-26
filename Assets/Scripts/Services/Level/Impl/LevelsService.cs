@@ -54,9 +54,10 @@ namespace Services.Level.Impl
         {
             var nextSceneName = _scenesParameters.MainMenuSceneName;
             
+            _currentLevelIndex++;
+            
             if (_currentLevelIndex < _scenesParameters.Levels.Count)
             {
-                _currentLevelIndex++;
                 nextSceneName = _scenesParameters.Levels[_currentLevelIndex].LevelName;
             }
             

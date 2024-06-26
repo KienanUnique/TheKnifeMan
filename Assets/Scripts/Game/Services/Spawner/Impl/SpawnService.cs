@@ -6,6 +6,7 @@ using Db.Spawners;
 using Game.Enemy.Factory;
 using Game.Level.Provider;
 using Game.SpawnPoint;
+using Game.Utils;
 using Game.Utils.Spawner;
 using ModestTree;
 using UniRx;
@@ -13,7 +14,7 @@ using Zenject;
 
 namespace Game.Services.Spawner.Impl
 {
-    public class SpawnService : IInitializable, IDisposable, ISpawnService
+    public class SpawnService : IInitializable, IDisposable, ISpawnService, IGameStateListener
     {
         private readonly ILevelViewProvider _levelViewProvider;
         private readonly IEnemyFactory _enemyFactory;
@@ -93,6 +94,12 @@ namespace Game.Services.Spawner.Impl
 
                 _spawnOrder.RemoveAt(0);
             }
+        }
+
+        public void OnGameEnd()
+        {
+            _compositeDisposable?.Dispose();
+            _spawnOrder.Clear();
         }
     }
 }

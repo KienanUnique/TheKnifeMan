@@ -14,6 +14,7 @@ namespace Services.Input.Impl
 
         private readonly MainControls _controls = new();
         private readonly ReactiveCommand _attackPressed = new();
+        private readonly ReactiveCommand _anyKeyPressed = new();
 
         public Vector2 NeedDirection => _controls.Gameplay.Movement.ReadValue<Vector2>();
         public Vector2 MousePosition => Mouse.current.position.ReadValue();
@@ -21,10 +22,12 @@ namespace Services.Input.Impl
         public IReactiveProperty<bool> IsDashPressed => _isDashPressed;
         public IObservable<Unit> PausePressed => _pausePressed;
         public IObservable<Unit> AttackPressed => _attackPressed;
+        public IObservable<Unit> AnyKeyPressed => _anyKeyPressed;
 
         public void Initialize()
         {
             SubscribeOnGameplayEvents();
+            SubscribeOnAnyKeyEvents();
 
             _controls.Gameplay.Enable();
         }
@@ -32,6 +35,7 @@ namespace Services.Input.Impl
         public void Dispose()
         {
             UnsubscribeOnGameplayEvents();
+            UnsubscribeOnAnyKeyEvents();
 
             _isDashPressed?.Dispose();
             _pausePressed?.Dispose();
@@ -42,13 +46,22 @@ namespace Services.Input.Impl
         public void SwitchToUiInput()
         {
             _controls.Gameplay.Disable();
+            _controls.AnyKey.Disable();
             _controls.UI.Enable();
         }
 
         public void SwitchToGameInput()
         {
             _controls.UI.Disable();
+            _controls.AnyKey.Disable();
             _controls.Gameplay.Enable();
+        }
+
+        public void SwitchToAnyKeyInput()
+        {
+            _controls.UI.Disable();
+            _controls.Gameplay.Disable();
+            _controls.AnyKey.Enable();
         }
 
         #region Gameplay
@@ -80,6 +93,25 @@ namespace Services.Input.Impl
         private void OnDashCanceled(InputAction.CallbackContext obj)
         {
             _isDashPressed.Value = false;
+        }
+
+        #endregion
+ 
+        #region AnyKey
+        
+        private void SubscribeOnAnyKeyEvents()
+        {
+            _controls.AnyKey.AnyKey.performed += OnAnyKeyPerformed;
+        }
+        
+        private void UnsubscribeOnAnyKeyEvents()
+        {
+            _controls.AnyKey.AnyKey.performed -= OnAnyKeyPerformed;
+        }
+
+        private void OnAnyKeyPerformed(InputAction.CallbackContext obj)
+        {
+            _anyKeyPressed.Execute();
         }
 
         #endregion

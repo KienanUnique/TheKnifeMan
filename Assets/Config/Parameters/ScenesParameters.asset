@@ -27,4 +27,4 @@ MonoBehaviour:
         - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
           count: 3
         delayBeforeSpawnSeconds: 10
-    targetScore: 300
+    targetScore: 200

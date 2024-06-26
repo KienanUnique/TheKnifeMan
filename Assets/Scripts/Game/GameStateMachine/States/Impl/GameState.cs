@@ -66,13 +66,13 @@ namespace Game.GameStateMachine.States.Impl
 
         protected override void HandleExit()
         {
+            ActiveDisposable?.Dispose();
+            
             _spawnService.ForceStopSpawning();
             foreach (var gameStateListener in _gameStateListeners)
             {
                 gameStateListener.OnGameEnd();
             }
-            
-            _inputService.SwitchToUiInput();
         }
 
         private void OnNeedScoreAchieved()

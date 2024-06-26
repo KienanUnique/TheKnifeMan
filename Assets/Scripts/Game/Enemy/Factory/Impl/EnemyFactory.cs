@@ -22,6 +22,8 @@ namespace Game.Enemy.Factory.Impl
         private readonly IEnemiesTypeDataProvider _enemiesTypeDataProvider;
         public IReactiveProperty<bool> IsInitilized => _isInitilized;
 
+        private bool _isSpawningDisabled = false;
+
         public EnemyFactory(
             DiContainer diContainer,
             IEnemiesTypeDataProvider enemiesTypeDataProvider
@@ -54,6 +56,9 @@ namespace Game.Enemy.Factory.Impl
 
         public void Create(IEnemyType typeData, Vector3 position)
         {
+            if(_isSpawningDisabled)
+                return;
+            
             _factories[typeData].Create(position);
         }
 
@@ -64,6 +69,7 @@ namespace Game.Enemy.Factory.Impl
 
         public void OnGameEnd()
         {
+            _isSpawningDisabled = true;
             foreach (var (_, factory) in _factories)
             {
                 factory.HandleGameEnd();

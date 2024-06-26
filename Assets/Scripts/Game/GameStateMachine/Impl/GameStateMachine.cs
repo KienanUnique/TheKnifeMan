@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Game.GameStateMachine.States;
 using Game.GameStateMachine.States.Impl;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace Game.GameStateMachine.Impl
@@ -26,14 +27,14 @@ namespace Game.GameStateMachine.Impl
         {
             _diContainer = _rootDiContainer.CreateSubContainer();
             _diContainer.Bind<IGameStateMachine>().FromInstance(this).AsSingle();
-            
+
             _states.Clear();
 
             AddState<StartState>();
             AddState<GameState>();
             AddState<WinState>();
             AddState<LoseState>();
-            
+
             Enter<StartState>();
         }
 

@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Game.Object
 {
-    public abstract class AObjectController<TData> : MonoBehaviour, IInitializable, IDisposable
+    public abstract class AObjectController<TData> : MonoBehaviour, IInitializable
         where TData : AObjectData
     {
         protected readonly CompositeDisposable CompositeDisposable = new();
@@ -27,11 +27,6 @@ namespace Game.Object
             InitializeParts();
 
             HandleInitialize();
-        }
-
-        public void Dispose()
-        {
-            CompositeDisposable?.Dispose();
         }
 
         protected virtual void ResolveParts()
@@ -57,6 +52,11 @@ namespace Game.Object
                 CompositeDisposable.Add(objectPart);
                 objectPart.Initialize();
             }
+        }
+
+        private void OnDestroy()
+        {
+            CompositeDisposable?.Dispose();
         }
     }
 }

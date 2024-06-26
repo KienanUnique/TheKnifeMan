@@ -1,5 +1,4 @@
-﻿using System;
-using Db.Player;
+﻿using Db.Player;
 using Game.Character.Parts.AnimatorStatus;
 using Game.Interfaces;
 using Game.Object;
