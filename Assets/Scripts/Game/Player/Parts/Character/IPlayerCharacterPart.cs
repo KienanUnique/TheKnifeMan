@@ -8,5 +8,8 @@ namespace Game.Player.Parts.Character
     {
         IReactiveProperty<int> Health { get; }
         IReactiveProperty<bool> IsDead { get; }
+        
+        void EnableImmortal();
+        void DisableImmortal();
     }
 }

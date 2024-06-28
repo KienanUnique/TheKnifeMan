@@ -2,7 +2,8 @@
 {
     public interface ILayerMasksParameters
     {
-        int PlayerLayer { get;}
-        int EnemyLayer { get;}
+        int PlayerLayer { get; }
+        int EnemyLayer { get; }
+        int ProjectilesLayer { get; }
     }
 }

@@ -9,5 +9,6 @@ namespace Game.Utils
         public static readonly int Dead = Animator.StringToHash("Dead");
         public static readonly int AttackDirection = Animator.StringToHash("AttackDirection");
         public static readonly int AttackTrigger = Animator.StringToHash("Attack");
+        public static readonly int IsDashing = Animator.StringToHash("IsDashing");
     }
 }

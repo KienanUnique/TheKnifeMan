@@ -7,6 +7,7 @@ using Game.Player.Parts.Character;
 using Game.Player.Parts.LookDirection;
 using Game.Player.Parts.Movement;
 using Game.Player.Parts.Visual;
+using Game.Utils;
 using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
@@ -14,9 +15,10 @@ using Zenject;
 
 namespace Game.Player
 {
-    public class PlayerController : AObjectController<PlayerData>, IPlayerInformation, IDamageable
+    public class PlayerController : AObjectController<PlayerData>, IPlayerInformation, IDamageable, INeedWaitInitializable, IGameStateListener
     {
         private readonly CompositeDisposable _aliveDisposable = new();
+        private readonly ReactiveProperty<bool> _isInitilized = new();
 
         [SerializeField] private PlayerData data;
 
@@ -31,13 +33,23 @@ namespace Game.Player
 
         private EDirection2D _attackDirection;
 
+        public IReactiveProperty<bool> IsInitilized => _isInitilized;
         public Transform Transform => transform;
         public IReactiveProperty<int> Health => _characterPart.Health;
         public IReactiveProperty<bool> IsDead => _characterPart.IsDead;
 
         protected override PlayerData Data => data;
 
-        public void HandleDamage(int damage) => _characterPart.HandleDamage(damage);
+        public void HandleDamage(int damage)
+        {
+            _characterPart.HandleDamage(damage);
+        }
+        
+        public void OnGameEnd()
+        {
+            _movementPart.Disable();
+            _aliveDisposable?.Dispose();
+        }
 
         protected override void ResolveParts()
         {
@@ -60,10 +72,27 @@ namespace Game.Player
             _lookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposable);
 
             _animatorStatusCheckerPart.IsAnimatorBusyChanged.Subscribe(OnIsAnimatorBusy).AddTo(_aliveDisposable);
+            
+            _movementPart.DashStarted.Subscribe(_ => OnDashStarted()).AddTo(_aliveDisposable);
+            _movementPart.DashEnded.Subscribe(_ => OnDashEnded()).AddTo(_aliveDisposable);
 
             _movementPart.Enable();
+            _visualPart.ChangeLookDirection(_lookDirectionPart.LookDirection1D.Value);
 
             CompositeDisposable.Add(_aliveDisposable);
+
+            _isInitilized.Value = true;
+        }
+
+        private void OnDashStarted()
+        {
+            _characterPart.EnableImmortal();
+            _visualPart.StartPlayingDashAnimation();
+        }
+
+        private void OnDashEnded()
+        {
+            _characterPart.DisableImmortal();
         }
 
         private void OnIsAnimatorBusy(bool isBusy)

@@ -1,4 +1,5 @@
-﻿using Db.Player;
+﻿using System;
+using Db.Player;
 using Game.Object.Part;
 using Game.Utils;
 using Game.Utils.Directions;
@@ -18,6 +19,8 @@ namespace Game.Player.Parts.Visual
         private SpriteRenderer _spriteRenderer;
 
         private Vector2 _lookDirection;
+        private bool _isInDash = false;
+        private IDisposable _dashDisposable;
 
         public PlayerVisualPart(IPlayerParameters playerParameters)
         {
@@ -35,6 +38,7 @@ namespace Game.Player.Parts.Visual
 
         public override void Dispose()
         {
+            _dashDisposable?.Dispose();
             _aliveDisposables?.Dispose();
         }
 
@@ -46,6 +50,9 @@ namespace Game.Player.Parts.Visual
 
         private void OnUpdate()
         {
+            if(_isInDash)
+                return;
+            
             var isMoving = _rigidbody.velocity.sqrMagnitude >= _playerParameters.AnimatorMovingVelocityThreshold;
             _animator.SetBool(AnimationKeys.IsMoving, isMoving);
         }
@@ -67,6 +74,25 @@ namespace Game.Player.Parts.Visual
         {
             _animator.SetInteger(AnimationKeys.AttackDirection, (int) direction2D);
             _animator.SetTrigger(AnimationKeys.AttackTrigger);
+        }
+
+        public void StartPlayingDashAnimation()
+        {
+            _isInDash = true;
+            _animator.SetBool(AnimationKeys.IsMoving, false);
+            _animator.SetBool(AnimationKeys.IsDashing, true);
+            
+            var endAnimationInvokeDelay = _playerParameters.DashDurationSeconds - _playerParameters.DashEndAnimationDurationSeconds;
+            endAnimationInvokeDelay = Mathf.Clamp(endAnimationInvokeDelay, 0f, endAnimationInvokeDelay);
+            
+            _dashDisposable = Observable.Timer(TimeSpan.FromSeconds(endAnimationInvokeDelay))
+                .Subscribe(_ => StopPlayingDashAnimation());
+        }
+
+        private void StopPlayingDashAnimation()
+        {
+            _isInDash = false;
+            _animator.SetBool(AnimationKeys.IsDashing, false);
         }
     }
 }

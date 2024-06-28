@@ -2,6 +2,7 @@
 {
     public enum EEnemyType
     {
-        Simple = 0,
+        Melee = 0,
+        LongRange = 1,
     }
 }

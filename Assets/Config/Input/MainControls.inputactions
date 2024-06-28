@@ -102,6 +102,17 @@
                 },
                 {
                     "name": "",
+                    "id": "39bd4da7-11a2-401e-8f99-39bde65dc882",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7ec4ce17-3744-4fc8-93b0-71a588173bf6",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -147,6 +158,34 @@
                     "processors": "",
                     "groups": "Main",
                     "action": "CloseWindow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "AnyKey",
+            "id": "f8ae5472-ce0a-4685-996f-f407f6356c67",
+            "actions": [
+                {
+                    "name": "AnyKey",
+                    "type": "Button",
+                    "id": "4b64e649-4437-4bb4-ae38-70886abeb29a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2b3bf84d-ebe2-457a-b3f7-242766048e9b",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main",
+                    "action": "AnyKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

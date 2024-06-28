@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 namespace Game.Character
 {
     [Serializable]
-    public abstract class ACharacterData : AObjectData
+    public abstract class ACharacterData : AObjectData, ICharacterData
     {
         [SerializeField] protected Transform rootTransform;
         [SerializeField] private Animator animator;
@@ -22,7 +22,7 @@ namespace Game.Character
         public IAnimatorAttackTrigger AttackTrigger => animatorAttackTrigger;
 
         public bool IsRootTransformFilled => rootTransform != null;
-        
+
         [HelpBox("No automatic saving! Make manual change and then save prefab!", HelpBoxMessageType.Warning)]
         [ShowIf(nameof(IsRootTransformFilled))]
         public virtual void AutoFill()
