@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8320886952185068892}
   - component: {fileID: 8197629770630921629}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 504123050511962573}
   - component: {fileID: 8455542119521043590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6476843615067096981}
   - component: {fileID: 6738583466270026896}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 90400379633733705}
   - component: {fileID: 1291128269765136403}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119494938500801095}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DamageColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}

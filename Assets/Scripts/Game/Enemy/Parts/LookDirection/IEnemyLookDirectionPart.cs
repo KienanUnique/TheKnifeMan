@@ -1,5 +1,6 @@
 ﻿using Game.Utils.Directions;
 using UniRx;
+using UnityEngine;
 
 namespace Game.Enemy.Parts.LookDirection
 {

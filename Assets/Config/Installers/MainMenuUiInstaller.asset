@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae67f6c7dfb4b6080a13c46d8ce75dd, type: 3}
+  m_Name: MainMenuUiInstaller
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 4456162027341417173, guid: f1e330904351d8c4b8862dc9f8621def, type: 3}
+  cameraHolderPrefab: {fileID: 8844555703248953365, guid: 2ac33cf283534094a97ccb7d8d2291f6, type: 3}
+  menuWindow: {fileID: 5215023601299967741, guid: bb0aaefe423cfc443889ea6bb5f02eed, type: 3}

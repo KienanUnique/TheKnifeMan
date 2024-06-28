@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531160202a3ff448eef42b9a0ef51a, type: 3}
   m_Name: DefaultAnimationsInstaller
   m_EditorClassIdentifier: 
-  fadeAnimationParameters: {fileID: 0}
-  scaleAnimationParameters: {fileID: 0}
-  slideAnimationParameters: {fileID: 0}
+  fadeAnimationParameters: {fileID: 11400000, guid: 6cd87f36201b5614cab6956fb3e71190, type: 2}
+  scaleAnimationParameters: {fileID: 11400000, guid: 74e4085c71bace34ab57cdf94024a3b5, type: 2}
+  slideAnimationParameters: {fileID: 11400000, guid: bba5552e576ce7848b7c1066d69893ec, type: 2}

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Db.EnemiesParameters.TypeData;
 using Db.Spawners;
 using Game.Enemy.Factory;
 using Game.Level.Provider;
@@ -13,14 +14,14 @@ using Zenject;
 
 namespace Game.Services.Spawner.Impl
 {
-    public class SpawnService : IInitializable, IDisposable, ISpawnService
+    public class SpawnService : IInitializable, IDisposable, ISpawnService, IGameStateListener
     {
         private readonly ILevelViewProvider _levelViewProvider;
         private readonly IEnemyFactory _enemyFactory;
         private readonly ISpawnersParameters _spawnersParameters;
 
         private readonly CompositeDisposable _compositeDisposable = new();
-        private readonly List<EEnemyType> _spawnOrder = new();
+        private readonly List<IEnemyType> _spawnOrder = new();
         private readonly List<IEnemySpawnPoint> _freeSpawnPoints = new();
 
         public SpawnService(
@@ -68,6 +69,11 @@ namespace Game.Services.Spawner.Impl
             }
         }
 
+        public void ForceStopSpawning()
+        {
+            _spawnOrder.Clear();
+        }
+
         private void OnSpawnPointBecomeFree(IEnemySpawnPoint enemySpawnPoint)
         {
             if (_freeSpawnPoints.Contains(enemySpawnPoint))
@@ -88,6 +94,12 @@ namespace Game.Services.Spawner.Impl
 
                 _spawnOrder.RemoveAt(0);
             }
+        }
+
+        public void OnGameEnd()
+        {
+            _compositeDisposable?.Dispose();
+            _spawnOrder.Clear();
         }
     }
 }

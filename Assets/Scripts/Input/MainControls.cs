@@ -184,6 +184,34 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""AnyKey"",
+            ""id"": ""f8ae5472-ce0a-4685-996f-f407f6356c67"",
+            ""actions"": [
+                {
+                    ""name"": ""AnyKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b64e649-4437-4bb4-ae38-70886abeb29a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2b3bf84d-ebe2-457a-b3f7-242766048e9b"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Main"",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -202,6 +230,9 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_CloseWindow = m_UI.FindAction("CloseWindow", throwIfNotFound: true);
+        // AnyKey
+        m_AnyKey = asset.FindActionMap("AnyKey", throwIfNotFound: true);
+        m_AnyKey_AnyKey = m_AnyKey.FindAction("AnyKey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -367,6 +398,52 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // AnyKey
+    private readonly InputActionMap m_AnyKey;
+    private List<IAnyKeyActions> m_AnyKeyActionsCallbackInterfaces = new List<IAnyKeyActions>();
+    private readonly InputAction m_AnyKey_AnyKey;
+    public struct AnyKeyActions
+    {
+        private @MainControls m_Wrapper;
+        public AnyKeyActions(@MainControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyKey => m_Wrapper.m_AnyKey_AnyKey;
+        public InputActionMap Get() { return m_Wrapper.m_AnyKey; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AnyKeyActions set) { return set.Get(); }
+        public void AddCallbacks(IAnyKeyActions instance)
+        {
+            if (instance == null || m_Wrapper.m_AnyKeyActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AnyKeyActionsCallbackInterfaces.Add(instance);
+            @AnyKey.started += instance.OnAnyKey;
+            @AnyKey.performed += instance.OnAnyKey;
+            @AnyKey.canceled += instance.OnAnyKey;
+        }
+
+        private void UnregisterCallbacks(IAnyKeyActions instance)
+        {
+            @AnyKey.started -= instance.OnAnyKey;
+            @AnyKey.performed -= instance.OnAnyKey;
+            @AnyKey.canceled -= instance.OnAnyKey;
+        }
+
+        public void RemoveCallbacks(IAnyKeyActions instance)
+        {
+            if (m_Wrapper.m_AnyKeyActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IAnyKeyActions instance)
+        {
+            foreach (var item in m_Wrapper.m_AnyKeyActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_AnyKeyActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public AnyKeyActions @AnyKey => new AnyKeyActions(this);
     private int m_MainSchemeIndex = -1;
     public InputControlScheme MainScheme
     {
@@ -385,5 +462,9 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnCloseWindow(InputAction.CallbackContext context);
+    }
+    public interface IAnyKeyActions
+    {
+        void OnAnyKey(InputAction.CallbackContext context);
     }
 }

@@ -35,7 +35,7 @@ namespace Game.Enemy.Parts.LookDirection.Impl
             _aliveDisposable?.Dispose();
 
             _aliveDisposable = new CompositeDisposable();
-            Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposable);
+            Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposable, _navMeshAgent);
         }
 
         public void DisableAndReset()

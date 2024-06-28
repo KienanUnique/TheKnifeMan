@@ -1,5 +1,6 @@
 ﻿using System;
-using Db.EnemiesParametersProvider.Parameters;
+using Db.EnemiesParameters;
+using Db.EnemiesParameters.Parameters;
 using Game.Enemy.Data;
 using Game.Object.Part;
 using UniRx;
