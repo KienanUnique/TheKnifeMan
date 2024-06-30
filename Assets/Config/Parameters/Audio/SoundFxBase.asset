@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134003ee06694d9a8bb98e80ce6f322d, type: 3}
+  m_Name: SoundFxBase
+  m_EditorClassIdentifier: 
+  __alchemySerializationData_Db_Sounds_Impl_SoundFxBase:
+    gameSounds:
+      isCreated: 1
+      data: '[]'
+    uiSounds:
+      isCreated: 1
+      data: '[]'
+    backgroundMusic:
+      isCreated: 1
+      data: '[]'
+    unityObjectReferences: []
