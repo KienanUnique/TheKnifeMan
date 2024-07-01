@@ -7,6 +7,7 @@ using Game.Services.Spawner.Impl;
 using Game.Services.WaveTimer.Impl;
 using Game.Utils;
 using Services.ScreenPosition.Impl;
+using Services.Sound.Impl;
 using UnityEngine;
 using Zenject;
 
@@ -43,6 +44,7 @@ namespace Game.Installers
             Container.BindInterfacesTo<SpawnService>().AsSingle();
             Container.BindInterfacesTo<WaveTimerService>().AsSingle();
             Container.BindInterfacesTo<ScoreService>().AsSingle();
+            Container.BindInterfacesTo<GameSoundFxService>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IDisposable)).To<GameStateMachine.Impl.GameStateMachine>().AsSingle();
         }
     }

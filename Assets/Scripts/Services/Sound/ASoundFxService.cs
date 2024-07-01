@@ -79,14 +79,19 @@ namespace Services.Sound
         {
             var soundVo = GetSoundVoByType(soundFxType);
 
-            var clip = _audioClipRepository.GetClipByName(soundVo.path);
+            return GetAudioSourceWithSfx(soundVo);
+        }
+        
+        private AudioSource GetAudioSourceWithSfx(AudioClipVo audioClipVo)
+        {
+            var clip = _audioClipRepository.GetClipByName(audioClipVo.path);
 
             var source = _audioSourcePool.Get();
             source.clip = clip;
 
-            ApplyGeneralVolume(source, soundVo);
+            ApplyGeneralVolume(source, audioClipVo);
             
-            _activeAudioSources.Add(source, soundVo);
+            _activeAudioSources.Add(source, audioClipVo);
             
             UniTask.WaitWhile(() => source.isPlaying)
                 .ContinueWith(() =>

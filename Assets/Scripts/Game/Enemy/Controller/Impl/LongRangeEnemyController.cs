@@ -10,6 +10,7 @@ using Game.Projectile.Pattern;
 using Game.Projectile.TypeData;
 using UniRx;
 using UnityEngine;
+using Utils.Sounds;
 
 namespace Game.Enemy.Controller.Impl
 {
@@ -44,6 +45,7 @@ namespace Game.Enemy.Controller.Impl
             var attackDirection = _attackDirectionPart.AttackDirection.Value;
             _projectileAttacker.AttackWithProjectile(pattern, type, attackDirection);
             _visualPart.PlayAttackAnimation(attackDirection);
+            GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
         }
         
         public bool Equals(IProjectilesSender other)

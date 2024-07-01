@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using Game.Utils;
 using Utils.Sounds;
 
 namespace Db.Sounds
 {
     public interface ISoundFxBase
     {
-        AudioClipVo GetSoundVoByType(EGameSoundFxType type);
+        GameSoundFxVo GetGameSoundVoByType(EGameSoundFxType type, LevelSceneData currentLevel);
         AudioClipVo GetSoundVoByType(EUiSoundFxType type);
         IReadOnlyList<AudioClipVo> GetBackgroundMusic(EGameSoundFxType type);
     }

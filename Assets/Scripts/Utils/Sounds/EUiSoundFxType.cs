@@ -2,6 +2,7 @@ namespace Utils.Sounds
 {
     public enum EUiSoundFxType
     {
-        ButtonPress = 0,
+        SoundCheck = 0,
+        TheKnifeManButton = 1
     }
 }

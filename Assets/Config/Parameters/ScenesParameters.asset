@@ -14,17 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuSceneName: MainMenu
   levels:
-  - levelName: SampleScene
-    wavesParameters:
-      wavesInfo:
-      - enemies:
-        - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
-          count: 4
-        - enemy: {fileID: 11400000, guid: 1ad13723e6bd7974eabc8f812e1a62ee, type: 2}
-          count: 2
-        delayBeforeSpawnSeconds: 2
-      - enemies:
-        - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
-          count: 3
-        delayBeforeSpawnSeconds: 10
-    targetScore: 200
+  - {fileID: 11400000, guid: 462dbbc81e6bd874daaa84b09c6eb81f, type: 2}
