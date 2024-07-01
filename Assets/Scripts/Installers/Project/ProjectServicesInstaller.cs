@@ -16,6 +16,7 @@ namespace Installers.Project
             Container.BindInterfacesTo<SettingsStorageService>().AsSingle();
             Container.BindInterfacesTo<AudioSourcePool>().AsTransient();
             Container.BindInterfacesTo<UiSoundFxService>().AsSingle();
+            Container.BindInterfacesTo<BackgroundMusicService>().AsSingle();
             Container.BindInterfacesTo<AudioClipRepository>().AsSingle();
         }
     }

@@ -8,6 +8,6 @@ namespace Db.Sounds
     {
         GameSoundFxVo GetGameSoundVoByType(EGameSoundFxType type, LevelSceneData currentLevel);
         AudioClipVo GetSoundVoByType(EUiSoundFxType type);
-        IReadOnlyList<AudioClipVo> GetBackgroundMusic(EGameSoundFxType type);
+        IReadOnlyList<AudioClipVo> GetBackgroundMusic();
     }
 }

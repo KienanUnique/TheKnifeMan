@@ -135,12 +135,16 @@ namespace Game.Player
         {
             if (_characterPart.IsDead.Value)
                 return;
+            
+            if(health == _parameters.Health)
+                return;
 
+            _gameSoundFxService.Play(EGameSoundFxType.PLayerDamageTaken, transform);
+            
             var lowHealthThreshold = _parameters.LowHealthThreshold;
             if (health > lowHealthThreshold) return;
 
             _visualPart.PlayInjuredAnimation();
-            _gameSoundFxService.Play(EGameSoundFxType.PLayerDamageTaken, transform);
         }
 
         private void OnDead(bool isDead)

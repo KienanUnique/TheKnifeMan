@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using Db.Sounds;
 using Services.Settings;
 using UniRx;
@@ -92,13 +91,16 @@ namespace Services.Sound
             ApplyGeneralVolume(source, audioClipVo);
             
             _activeAudioSources.Add(source, audioClipVo);
-            
-            UniTask.WaitWhile(() => source.isPlaying)
-                .ContinueWith(() =>
+
+            Observable.EveryUpdate()
+                .Where(_ => !source.isPlaying)
+                .Take(1)
+                .Subscribe(_ =>
                 {
                     _activeAudioSources.Remove(source);
                     _audioSourcePool.Return(source);
-                }).Forget();
+                })
+                .AddTo(source);
 
             return source;
         }

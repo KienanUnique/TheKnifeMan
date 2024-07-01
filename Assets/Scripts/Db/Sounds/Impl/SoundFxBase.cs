@@ -14,7 +14,7 @@ namespace Db.Sounds.Impl
     [CreateAssetMenu(menuName = MenuPathBase.Parameters + nameof(SoundFxBase), fileName = nameof(SoundFxBase))]
     public partial class SoundFxBase : ScriptableObject, ISoundFxBase
     {
-        private const string TRIM_PATH = "Resources/";
+        private const string LeftTrimPath = "Resources/";
         
         [TabGroup("Tab", "Game")] 
         [AlchemySerializeField, NonSerialized]
@@ -41,7 +41,7 @@ namespace Db.Sounds.Impl
         }
 
         public AudioClipVo GetSoundVoByType(EUiSoundFxType type) => uiSounds[type];
-        public IReadOnlyList<AudioClipVo> GetBackgroundMusic(EGameSoundFxType type) => backgroundMusic;
+        public IReadOnlyList<AudioClipVo> GetBackgroundMusic() => backgroundMusic;
 
         [BoxGroup("GeneralVolume")]
         [SerializeField] 
@@ -93,11 +93,11 @@ namespace Db.Sounds.Impl
         private void UpdateSoundPath(AudioClipVo audioClipVo)
         {
             var path = UnityEditor.AssetDatabase.GetAssetPath(audioClipVo.clip);
-            path = TrimPath(path, TRIM_PATH);
+            path = TrimPathTo(path, LeftTrimPath);
             audioClipVo.path = path;
         }
         
-        private string TrimPath(string path, string trimTo)
+        private string TrimPathTo(string path, string trimTo)
         {
             if (path.Contains(trimTo))
             {
