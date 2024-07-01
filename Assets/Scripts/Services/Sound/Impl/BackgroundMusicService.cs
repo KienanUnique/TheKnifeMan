@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using Db.Sounds;
 using ModestTree;
 using Services.Settings;
@@ -46,8 +45,6 @@ namespace Services.Sound.Impl
 
             _settingsStorageService.MusicVolume.Subscribe(OnMusicVolume).AddTo(_compositeDisposable);
             _settingsStorageService.IsMusicEnabled.Subscribe(OnIsMusicEnabled).AddTo(_compositeDisposable);
-
-            //OnIsMusicEnabled(_settingsStorageService.IsMusicEnabled.Value);
         }
 
         public void Dispose()

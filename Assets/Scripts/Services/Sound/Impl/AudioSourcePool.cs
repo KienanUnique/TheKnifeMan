@@ -7,6 +7,8 @@ namespace Services.Sound.Impl
     {
         private readonly Stack<AudioSource> _pool = new();
 
+        private Transform _rootTransform;
+
         public AudioSource Get()
         {
             AudioSource source;
@@ -34,7 +36,7 @@ namespace Services.Sound.Impl
             source.loop = false;
 
             var sourceTransform = source.transform;
-            sourceTransform.SetParent(null);
+            sourceTransform.SetParent(_rootTransform);
             sourceTransform.position = Vector3.zero;
 
             _pool.Push(source);
@@ -42,8 +44,14 @@ namespace Services.Sound.Impl
 
         public void CreatePoolElement()
         {
+            if (_rootTransform == null)
+            {
+                _rootTransform = new GameObject("AudioSources").transform; 
+            }
+            
             var gameObject = new GameObject("AudioSource");
             var source = gameObject.AddComponent<AudioSource>();
+            gameObject.transform.SetParent(_rootTransform);
             Object.DontDestroyOnLoad(gameObject);
 
             Return(source);
