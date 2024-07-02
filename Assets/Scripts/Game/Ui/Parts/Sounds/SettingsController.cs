@@ -2,7 +2,6 @@
 using Services.Settings;
 using Services.Sound;
 using UniRx;
-using UnityEngine;
 using Utils.Sounds;
 
 namespace Game.Ui.Parts.Sounds
@@ -42,7 +41,6 @@ namespace Game.Ui.Parts.Sounds
 
         private void OnMusicVolumeChanged(float volume)
         {
-            Debug.Log($"OnMusicVolumeChanged: {volume}");
             _settingsStorageService.SetMusicVolume(volume);
         }
         private void OnMusicToggleValueChanged(bool isOn)
