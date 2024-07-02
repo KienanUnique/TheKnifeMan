@@ -2,8 +2,8 @@
 {
     public enum EVfxType
     {
-        SpawnExplosion,
-        DamageCharacter,
-        DamageEnvironment,
+        SpawnExplosion = 0,
+        DamageCharacter = 1,
+        DamageEnvironment = 2,
     }
 }
