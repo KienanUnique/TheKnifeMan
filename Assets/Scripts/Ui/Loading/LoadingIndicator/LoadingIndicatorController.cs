@@ -1,6 +1,7 @@
 ﻿using KoboldUi.Element.Controller;
 using Services.Level;
 using UniRx;
+using UnityEngine;
 
 namespace Ui.Loading.LoadingIndicator
 {
@@ -20,7 +21,10 @@ namespace Ui.Loading.LoadingIndicator
 
         private void OnLoadingProgress(float progress)
         {
-            View.loadingProgressText.text = $"{progress * 100f}%";
+            var progressPercentage = (int) (progress * 100f);
+            progressPercentage = Mathf.Clamp(progressPercentage, 0, 100);
+            
+            View.loadingProgressText.text = $"{progressPercentage}%";
         }
     }
 }
