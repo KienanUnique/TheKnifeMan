@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpreadForwardProjectilePattern
   m_EditorClassIdentifier: 
   angle: 30
-  count: 5
+  count: 3
