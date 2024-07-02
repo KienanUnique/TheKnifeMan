@@ -9,8 +9,10 @@ using Game.Player.Parts.Movement;
 using Game.Player.Parts.Visual;
 using Game.Utils;
 using Game.Utils.Directions;
+using Services.Sound;
 using UniRx;
 using UnityEngine;
+using Utils.Sounds;
 using Zenject;
 
 namespace Game.Player
@@ -23,6 +25,7 @@ namespace Game.Player
         [SerializeField] private PlayerData data;
 
         [Inject] private IPlayerParameters _parameters;
+        [Inject] private IGameSoundFxService _gameSoundFxService;
 
         private IPlayerMovementPart _movementPart;
         private IPlayerVisualPart _visualPart;
@@ -88,6 +91,7 @@ namespace Game.Player
         {
             _characterPart.EnableImmortal();
             _visualPart.StartPlayingDashAnimation();
+            _gameSoundFxService.Play(EGameSoundFxType.PlayerDash, transform);
         }
 
         private void OnDashEnded()
@@ -124,13 +128,19 @@ namespace Game.Player
 
             _attackDirection = _lookDirectionPart.CalculateLookDirection2D();
             _visualPart.PlayAttackAnimation(_attackDirection);
+            _gameSoundFxService.Play(EGameSoundFxType.PlayerAttack, transform);
         }
 
         private void OnHealth(int health)
         {
             if (_characterPart.IsDead.Value)
                 return;
+            
+            if(health == _parameters.Health)
+                return;
 
+            _gameSoundFxService.Play(EGameSoundFxType.PLayerDamageTaken, transform);
+            
             var lowHealthThreshold = _parameters.LowHealthThreshold;
             if (health > lowHealthThreshold) return;
 
@@ -144,6 +154,7 @@ namespace Game.Player
 
             _visualPart.PlayDeathAnimation();
             _movementPart.Disable();
+            _gameSoundFxService.Play(EGameSoundFxType.PlayerDeath, transform);
 
             _aliveDisposable?.Dispose();
         }

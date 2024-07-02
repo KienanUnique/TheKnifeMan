@@ -2,8 +2,10 @@
 using Db.LayerMasks;
 using Game.Interfaces;
 using Game.Projectile.Data;
+using Services.Sound;
 using UniRx;
 using UnityEngine;
+using Utils.Sounds;
 using Zenject;
 
 namespace Game.Projectile.Controller.Impl
@@ -15,6 +17,7 @@ namespace Game.Projectile.Controller.Impl
 
         [Inject] private ILayerMasksParameters _layerMasksParameters;
         [Inject] private ProjectileData _projectileData;
+        [Inject] private IGameSoundFxService _gameSoundFxService;
 
         private CompositeDisposable _appearDisposables;
         private IProjectilesSender _sender;
@@ -78,13 +81,13 @@ namespace Game.Projectile.Controller.Impl
 
             var playerLayer = _layerMasksParameters.PlayerLayer;
             var isCollidingWithPlayer = IsInLayerMask(other, playerLayer);
+
+            if (!isCollidingWithEnemy && !isCollidingWithPlayer || !other.TryGetComponent(out IDamageable damageable))
+            {
+                _gameSoundFxService.Play(EGameSoundFxType.ProjectileHitGround, transform);
+                return;
+            }
             
-            if(!isCollidingWithEnemy && !isCollidingWithPlayer)
-                return;
-
-            if (!other.TryGetComponent(out IDamageable damageable))
-                return;
-
             damageable.HandleDamage(_projectileData.Damage);
         }
 

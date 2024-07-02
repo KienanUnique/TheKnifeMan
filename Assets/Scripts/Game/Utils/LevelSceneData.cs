@@ -1,12 +1,11 @@
-﻿using System;
-using Game.Utils.Waves;
+﻿using Game.Utils.Waves;
 using Game.Utils.Waves.Impl;
 using UnityEngine;
 
 namespace Game.Utils
 {
-    [Serializable]
-    public class LevelSceneData
+    [CreateAssetMenu(menuName = nameof(LevelSceneData), fileName = nameof(LevelSceneData))]
+    public class LevelSceneData : ScriptableObject
     {
         [SerializeField] private string levelName;
         [SerializeField] private WavesParameters wavesParameters;
