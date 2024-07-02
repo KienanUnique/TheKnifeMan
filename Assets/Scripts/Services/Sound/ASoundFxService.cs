@@ -42,46 +42,7 @@ namespace Services.Sound
             _compositeDisposable?.Dispose();
         }
 
-        public void Play(T soundFxType)
-        {
-            var audioSource = GetAudioSourceWithSfx(soundFxType);
-            audioSource.Play();
-        }
-
-        public void Play(T soundFxType, Vector3 position)
-        {
-            var audioSource = GetAudioSourceWithSfx(soundFxType);
-            audioSource.transform.position = position;
-            audioSource.Play();
-        }
-
-        public void Play(T soundFxType, Transform parent)
-        {
-            var audioSource = GetAudioSourceWithSfx(soundFxType);
-            audioSource.transform.SetParent(parent);
-            audioSource.Play();
-        }
-
-        protected abstract AudioClipVo GetSoundVoByType(T type);
-        
-        private void OnIsSoundsEnabled(bool isSoundsEnabled)
-        {
-            ApplyGeneralVolumeToAllSounds(isSoundsEnabled ? _settingsStorageService.SoundsVolume.Value : 0);
-        }
-        
-        private void OnSoundsVolume(float volume)
-        {
-            ApplyGeneralVolumeToAllSounds(_settingsStorageService.SoundsVolume.Value);
-        }
-        
-        private AudioSource GetAudioSourceWithSfx(T soundFxType)
-        {
-            var soundVo = GetSoundVoByType(soundFxType);
-
-            return GetAudioSourceWithSfx(soundVo);
-        }
-        
-        private AudioSource GetAudioSourceWithSfx(AudioClipVo audioClipVo)
+        protected AudioSource GetAudioSourceWithSfx(AudioClipVo audioClipVo, Action callback = null)
         {
             var clip = _audioClipRepository.GetClipByName(audioClipVo.path);
 
@@ -99,10 +60,21 @@ namespace Services.Sound
                 {
                     _activeAudioSources.Remove(source);
                     _audioSourcePool.Return(source);
+                    callback?.Invoke();
                 })
                 .AddTo(source);
 
             return source;
+        }
+
+        private void OnIsSoundsEnabled(bool isSoundsEnabled)
+        {
+            ApplyGeneralVolumeToAllSounds(isSoundsEnabled ? _settingsStorageService.SoundsVolume.Value : 0);
+        }
+
+        private void OnSoundsVolume(float volume)
+        {
+            ApplyGeneralVolumeToAllSounds(_settingsStorageService.SoundsVolume.Value);
         }
 
         private void ApplyGeneralVolumeToAllSounds(float volume)

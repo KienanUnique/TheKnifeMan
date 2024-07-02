@@ -24,7 +24,7 @@ namespace Services.Sound.Impl
         private AudioSource _audioSource;
         private AudioClipVo _currentPlayingClipVo;
 
-        private bool IsSoundsEnabled => _settingsStorageService.IsSoundsEnabled.Value;
+        private bool IsMusicEnabled => _settingsStorageService.IsMusicEnabled.Value;
 
         public BackgroundMusicService(
             ISoundFxBase soundFxBase,
@@ -82,7 +82,10 @@ namespace Services.Sound.Impl
 
         private void ApplyGeneralVolume(float generalVolume)
         {
-            var volume = IsSoundsEnabled ? _currentPlayingClipVo.volume * generalVolume : 0;
+            if(!_audioSource.isPlaying)
+                return;
+            
+            var volume = IsMusicEnabled ? _currentPlayingClipVo.volume * generalVolume : 0;
             _audioSource.volume = volume;
         }
 
@@ -104,6 +107,8 @@ namespace Services.Sound.Impl
             _audioSource.volume = generalVolume * nextTrackVo.volume;
             _audioSource.clip = nextTrackAudioClip;
 
+            _currentPlayingClipVo = nextTrackVo; 
+
             _audioSource.Play();
             
             Observable.EveryUpdate()
@@ -111,7 +116,7 @@ namespace Services.Sound.Impl
                 .Take(1)
                 .Subscribe(_ =>
                 {
-                    if (IsSoundsEnabled)
+                    if (IsMusicEnabled)
                     {
                         PlayNextTrack();
                     }

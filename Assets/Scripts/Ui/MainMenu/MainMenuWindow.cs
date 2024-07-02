@@ -1,4 +1,5 @@
-﻿using KoboldUi.Interfaces;
+﻿using Game.Ui.Parts.Sounds;
+using KoboldUi.Interfaces;
 using KoboldUi.Windows;
 using Ui.MainMenu.Controller;
 using Ui.MainMenu.View;
@@ -9,10 +10,12 @@ namespace Ui.MainMenu
     public class MainMenuWindow : AWindow, IBackLogicIgnorable
     {
         [SerializeField] private MainMenuView mainMenuView;
+        [SerializeField] private SettingsView settingsView;
         
         protected override void AddControllers()
         {
             AddController<ManMenuController, MainMenuView>(mainMenuView);
+            AddController<SettingsController, SettingsView>(settingsView);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Db.Sounds;
 using Services.Settings;
 using Utils.Sounds;
@@ -18,6 +19,22 @@ namespace Services.Sound.Impl
             _soundFxBase = soundFxBase;
         }
 
-        protected override AudioClipVo GetSoundVoByType(EUiSoundFxType type) => _soundFxBase.GetSoundVoByType(type);
+        private AudioClipVo GetSoundVoByType(EUiSoundFxType type) => _soundFxBase.GetSoundVoByType(type);
+        
+        public void Play(EUiSoundFxType soundFxType)
+        {
+            var soundVo = GetSoundVoByType(soundFxType);
+            var audioSource = GetAudioSourceWithSfx(soundVo);
+            
+            audioSource.Play();
+        }
+
+        public void Play(EUiSoundFxType soundFxType, Action onCompleteCallBack)
+        {
+            var soundVo = GetSoundVoByType(soundFxType);
+            var audioSource = GetAudioSourceWithSfx(soundVo, onCompleteCallBack);
+            
+            audioSource.Play();
+        }
     }
 }
