@@ -1,10 +1,9 @@
 ﻿using KoboldUi.Element.Controller;
 using Services.Level;
-using Ui.MainMenu.View;
 using UniRx;
 using UnityEngine;
 
-namespace Ui.MainMenu.Controller
+namespace Ui.MainMenu.MainMenu
 {
     public class ManMenuController : AUiController<MainMenuView>
     {
