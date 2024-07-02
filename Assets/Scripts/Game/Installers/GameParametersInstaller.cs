@@ -10,6 +10,8 @@ using Db.Projectiles;
 using Db.Projectiles.Impl;
 using Db.Spawners;
 using Db.Spawners.Impl;
+using Db.Vfx;
+using Db.Vfx.Impl;
 using Game.Utils.Waves;
 using Game.Utils.Waves.Impl;
 using UnityEngine;
@@ -31,7 +33,9 @@ namespace Game.Installers
         [Header("Spawn")] [SerializeField] private WavesParameters wavesParameters;
         [SerializeField] private SpawnersParameters spawnersParameters;
 
-        [Header("Other")] [SerializeField] private LayerMasksParameters layerMasksParameters;
+        [Header("Other")] 
+        [SerializeField] private LayerMasksParameters layerMasksParameters;
+        [SerializeField] private VfxBase vfxBase;
 
         public override void InstallBindings()
         {
@@ -45,6 +49,7 @@ namespace Game.Installers
             Container.Bind<ISpawnersParameters>().FromInstance(spawnersParameters).AsSingle();
 
             Container.Bind<ILayerMasksParameters>().FromInstance(layerMasksParameters).AsSingle();
+            Container.Bind<IVfxBase>().FromInstance(vfxBase).AsSingle();
         }
     }
 }
