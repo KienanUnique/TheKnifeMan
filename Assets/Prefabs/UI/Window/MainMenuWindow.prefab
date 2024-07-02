@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openAnimation: {fileID: 7583636201722806622}
   closeAnimation: {fileID: 7583636201722806622}
-  speed: 100
+  speed: 125
   text: asdjalskjdl kalskdjakljsdlajsd ljaskdja lksdjlaksjdkl ajskldjalkj dslkajsj
     dkalsj dlaksdjlk ajskldj aklsdj laj dlkaj ldakjsdl ajks djakljsd lkajsdkl jalksd
     klajsdlakjsdlk ajkl asldka lksjdalksdjlkasdas
