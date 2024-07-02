@@ -15,10 +15,10 @@ MonoBehaviour:
   health: 3
   damage: 1
   movementSpeed: 6.3
-  dashForce: 50
+  dashForce: 20
   dashDurationSeconds: 0.2
-  dashCooldownSeconds: 0.2
-  dashDrag: 10
-  animatorMovingSqrVelocityThreshold: 0.001
+  dashCooldownSeconds: 1
+  dashDrag: 8
+  animatorMovingSqrVelocityThreshold: 0.01
   lowHealthThreshold: 1
-  dashEndAnimationDurationSeconds: 0.15
+  dashEndAnimationDurationSeconds: 0.13
