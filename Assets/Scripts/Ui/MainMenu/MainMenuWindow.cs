@@ -1,8 +1,8 @@
 ﻿using Game.Ui.Parts.Sounds;
 using KoboldUi.Interfaces;
 using KoboldUi.Windows;
-using Ui.MainMenu.Controller;
-using Ui.MainMenu.View;
+using Ui.MainMenu.MainMenu;
+using Ui.MainMenu.Ticker;
 using UnityEngine;
 
 namespace Ui.MainMenu
@@ -11,11 +11,13 @@ namespace Ui.MainMenu
     {
         [SerializeField] private MainMenuView mainMenuView;
         [SerializeField] private SettingsView settingsView;
+        [SerializeField] private TickerView tickerView;
         
         protected override void AddControllers()
         {
             AddController<ManMenuController, MainMenuView>(mainMenuView);
             AddController<SettingsController, SettingsView>(settingsView);
+            AddController<TickerController, TickerView>(tickerView);
         }
     }
 }
