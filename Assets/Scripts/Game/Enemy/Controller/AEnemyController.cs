@@ -14,8 +14,10 @@ using Game.Interfaces;
 using Game.Object;
 using Game.Services.Score;
 using Game.Utils.Directions;
+using Services.Sound;
 using UniRx;
 using UnityEngine;
+using Utils.Sounds;
 using Zenject;
 
 namespace Game.Enemy.Controller
@@ -28,6 +30,7 @@ namespace Game.Enemy.Controller
 
         [Inject] private IScoreService _scoreService;
         [Inject] private IEnemyParametersBase _parametersBase;
+        [Inject] protected IGameSoundFxService GameSoundFxService;
         
         private CompositeDisposable _aliveDisposables;
 
@@ -55,6 +58,8 @@ namespace Game.Enemy.Controller
             LookDirectionPart.LookDirection1D.Subscribe(OnLookDirection).AddTo(_aliveDisposables);
 
             Data.NavMeshAgent.isStopped = false;
+            
+            GameSoundFxService.Play(EGameSoundFxType.EnemySpawn, transform);
         }
 
         public virtual void HandleDisableAndReset()
@@ -81,6 +86,7 @@ namespace Game.Enemy.Controller
 
         public void HandleDamage(int damage)
         {
+            GameSoundFxService.Play(EGameSoundFxType.EnemyDamageTaken, transform);
             CharacterPart.HandleDamage(damage);
         }
 
@@ -159,6 +165,8 @@ namespace Game.Enemy.Controller
             _onDead.Execute(this);
             
             _scoreService.IncreaseScore(_parametersBase.PointsForKill);
+            
+            GameSoundFxService.Play(EGameSoundFxType.EnemyDeath, transform);
         }
 
         private void OnLookDirection(EDirection1D direction1D)

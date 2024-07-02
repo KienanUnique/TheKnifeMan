@@ -8,6 +8,7 @@ using Game.Enemy.Parts.Visual;
 using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
+using Utils.Sounds;
 
 namespace Game.Enemy.Controller.Impl
 {
@@ -36,6 +37,7 @@ namespace Game.Enemy.Controller.Impl
 
             _attackDirection = _lookDirectionPart.CalculateLookDirection2D();
             _visualPart.PlayAttackAnimation(_attackDirection);
+            GameSoundFxService.Play(EGameSoundFxType.EnemyMeleeAttack, transform);
         }
 
         protected override void ResolveParts()
