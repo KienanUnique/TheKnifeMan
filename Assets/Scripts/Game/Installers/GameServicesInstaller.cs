@@ -4,6 +4,7 @@ using Game.Level.Provider.Impl;
 using Game.Projectile.Factory.Impl;
 using Game.Services.Score.Impl;
 using Game.Services.Spawner.Impl;
+using Game.Services.VFX.Impl;
 using Game.Services.WaveTimer.Impl;
 using Game.Utils;
 using Services.ScreenPosition.Impl;
@@ -45,6 +46,7 @@ namespace Game.Installers
             Container.BindInterfacesTo<WaveTimerService>().AsSingle();
             Container.BindInterfacesTo<ScoreService>().AsSingle();
             Container.BindInterfacesTo<GameSoundFxService>().AsSingle();
+            Container.BindInterfacesTo<VfxService>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IDisposable)).To<GameStateMachine.Impl.GameStateMachine>().AsSingle();
         }
     }

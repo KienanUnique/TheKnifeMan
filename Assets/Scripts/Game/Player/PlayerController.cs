@@ -7,6 +7,7 @@ using Game.Player.Parts.Character;
 using Game.Player.Parts.LookDirection;
 using Game.Player.Parts.Movement;
 using Game.Player.Parts.Visual;
+using Game.Services.VFX;
 using Game.Utils;
 using Game.Utils.Directions;
 using Services.Sound;
@@ -26,6 +27,7 @@ namespace Game.Player
 
         [Inject] private IPlayerParameters _parameters;
         [Inject] private IGameSoundFxService _gameSoundFxService;
+        [Inject] private IVfxService _vfxService;
 
         private IPlayerMovementPart _movementPart;
         private IPlayerVisualPart _visualPart;
@@ -139,6 +141,7 @@ namespace Game.Player
             if(health == _parameters.Health)
                 return;
 
+            _vfxService.Play(EVfxType.DamageCharacter, transform.position);
             _gameSoundFxService.Play(EGameSoundFxType.PLayerDamageTaken, transform);
             
             var lowHealthThreshold = _parameters.LowHealthThreshold;
@@ -152,6 +155,7 @@ namespace Game.Player
             if (!isDead)
                 return;
 
+            _vfxService.Play(EVfxType.DamageCharacter, transform.position);
             _visualPart.PlayDeathAnimation();
             _movementPart.Disable();
             _gameSoundFxService.Play(EGameSoundFxType.PlayerDeath, transform);

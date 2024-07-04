@@ -13,6 +13,8 @@ using Game.Enemy.Parts.Visual;
 using Game.Interfaces;
 using Game.Object;
 using Game.Services.Score;
+using Game.Services.VFX;
+using Game.Utils;
 using Game.Utils.Directions;
 using Services.Sound;
 using UniRx;
@@ -30,8 +32,9 @@ namespace Game.Enemy.Controller
 
         [Inject] private IScoreService _scoreService;
         [Inject] private IEnemyParametersBase _parametersBase;
+        [Inject] private IVfxService _vfxService;
         [Inject] protected IGameSoundFxService GameSoundFxService;
-        
+
         private CompositeDisposable _aliveDisposables;
 
         private IEnemyContextBase _context;
@@ -86,8 +89,13 @@ namespace Game.Enemy.Controller
 
         public void HandleDamage(int damage)
         {
-            GameSoundFxService.Play(EGameSoundFxType.EnemyDamageTaken, transform);
             CharacterPart.HandleDamage(damage);
+            
+            if(CharacterPart.IsDead.Value)
+                return;
+
+            _vfxService.Play(EVfxType.DamageCharacter, transform.position);
+            GameSoundFxService.Play(EGameSoundFxType.EnemyDamageTaken, transform);
         }
 
         public void EnableMoving()
@@ -155,6 +163,7 @@ namespace Game.Enemy.Controller
             if (!isDead)
                 return;
 
+            _vfxService.Play(EVfxType.DamageCharacter, transform.position);
             EnemyVisualPart.PlayDeathAnimation();
 
             _aliveDisposables?.Dispose();
