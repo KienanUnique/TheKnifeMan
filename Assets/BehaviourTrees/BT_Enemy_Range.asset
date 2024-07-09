@@ -33,11 +33,12 @@ MonoBehaviour:
   - rid: 7309586817818558477
   - rid: 7309586817818558478
   - rid: 8333875050035806210
+  - rid: 8333875050035806212
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 579, y: 112, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 657, y: -374, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -60,7 +61,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6167fd9b84e628d409547b944a71f848
-        position: {x: -75, y: 1065}
+        position: {x: -300, y: 1065}
         blackboard:
           keys: []
         description: 
@@ -71,7 +72,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: eceaf09d5818c564bbb4314421a729ef
-        position: {x: -75, y: 930}
+        position: {x: -300, y: 930}
         blackboard:
           keys: []
         description: 
@@ -195,6 +196,7 @@ MonoBehaviour:
         children:
         - rid: 8333875050035806210
         - rid: 7309586756488134659
+        - rid: 8333875050035806212
         - rid: 7309586817818558466
     - rid: 7309586817818558474
       type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
@@ -267,7 +269,18 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d80d2b5eda99f884aa48c6be7395b5f6
-        position: {x: -285, y: 930}
+        position: {x: -510, y: 930}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 8333875050035806212
+      type: {class: IsPathToPlayerClear, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7400b2a4f87d3a949bf058de326dc4bc
+        position: {x: -120, y: 930}
         blackboard:
           keys: []
         description: 
