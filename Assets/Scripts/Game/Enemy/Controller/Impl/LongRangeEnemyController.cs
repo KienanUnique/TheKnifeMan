@@ -34,9 +34,9 @@ namespace Game.Enemy.Controller.Impl
         public int InstanceId => GetInstanceID();
         public bool IsInReload => _projectileAttacker.IsInReload;
 
-        public override void HandleEnable()
+        public override void HandleEnable(Vector3 position)
         {
-            base.HandleEnable();
+            base.HandleEnable(position);
             _attackDirectionPart.AttackDirection.Subscribe(OnAttackDirection).AddTo(AliveDisposables);
         }
 

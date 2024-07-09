@@ -29,7 +29,13 @@ namespace Game.Enemy.Controller.Impl
         protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
         protected override IAnimatorStatusCheckerPart AnimatorStatusCheckerPart => _animatorStatusCheckerPart;
         protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
-        
+
+        public override void HandleEnable(Vector3 position)
+        {
+            base.HandleEnable(position);
+            Data.AttackTrigger.AttackFramePlayed.Subscribe(_ => OnAttackFramePlayed()).AddTo(AliveDisposables);
+        }
+
         public void AttackMelee()
         {
             if (_animatorStatusCheckerPart.IsAnimatorBusy)
@@ -47,12 +53,6 @@ namespace Game.Enemy.Controller.Impl
             _visualPart = Resolve<IMeleeEnemyVisualPart>();
             _animatorStatusCheckerPart = Resolve<IAnimatorStatusCheckerPart>();
             _lookDirectionPart = Resolve<IEnemyLookDirectionPart>();
-        }
-
-        public override void HandleEnable()
-        {
-            base.HandleEnable();
-            Data.AttackTrigger.AttackFramePlayed.Subscribe(_ => OnAttackFramePlayed()).AddTo(AliveDisposables);
         }
 
         private void OnAttackFramePlayed()

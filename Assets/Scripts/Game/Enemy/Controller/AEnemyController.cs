@@ -48,8 +48,9 @@ namespace Game.Enemy.Controller
         public bool IsInAction => AnimatorStatusCheckerPart.IsAnimatorBusy;
         protected CompositeDisposable AliveDisposables => _aliveDisposables;
 
-        public virtual void HandleEnable()
+        public virtual void HandleEnable(Vector3 position)
         {
+            transform.position = position;
             _aliveDisposables?.Dispose();
             _aliveDisposables = new CompositeDisposable();
 

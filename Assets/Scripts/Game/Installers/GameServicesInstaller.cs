@@ -3,6 +3,7 @@ using Game.Enemy.Factory.Impl;
 using Game.Level.Provider.Impl;
 using Game.Projectile.Factory.Impl;
 using Game.Services.Score.Impl;
+using Game.Services.SpawnEffects.SpawnEffects.Impl;
 using Game.Services.Spawner.Impl;
 using Game.Services.VFX.Impl;
 using Game.Services.WaveTimer.Impl;
@@ -47,6 +48,7 @@ namespace Game.Installers
             Container.BindInterfacesTo<ScoreService>().AsSingle();
             Container.BindInterfacesTo<GameSoundFxService>().AsSingle();
             Container.BindInterfacesTo<VfxService>().AsSingle();
+            Container.BindInterfacesTo<EnemySpawnEffectsService>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IDisposable)).To<GameStateMachine.Impl.GameStateMachine>().AsSingle();
         }
     }
