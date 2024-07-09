@@ -22,3 +22,4 @@ MonoBehaviour:
   layerMasksParameters: {fileID: 11400000, guid: b6c124a0aaed8f041bc2e8a26aaa1d50, type: 2}
   vfxBase: {fileID: 11400000, guid: ef53647bc5af32f4a9411ec4973def31, type: 2}
   enemySpawnFxBase: {fileID: 11400000, guid: fde4159affc95cf4a97e7fd96caa8a75, type: 2}
+  scoreParameters: {fileID: 11400000, guid: edcb854348c27d949861af2f3dabd220, type: 2}
