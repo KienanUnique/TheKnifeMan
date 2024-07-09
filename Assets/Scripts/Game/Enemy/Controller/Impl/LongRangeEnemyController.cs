@@ -6,9 +6,6 @@ using Game.Enemy.Parts.Character;
 using Game.Enemy.Parts.LookDirection;
 using Game.Enemy.Parts.Visual;
 using Game.Projectile;
-using Game.Projectile.Pattern;
-using Game.Projectile.TypeData;
-using UniRx;
 using UnityEngine;
 using Utils.Sounds;
 
@@ -34,17 +31,11 @@ namespace Game.Enemy.Controller.Impl
         public int InstanceId => GetInstanceID();
         public bool IsCanShoot => _projectileAttacker.IsCanShoot;
 
-        public override void HandleEnable(Vector3 position)
-        {
-            base.HandleEnable(position);
-            _attackDirectionPart.AttackDirection.Subscribe(OnAttackDirection).AddTo(AliveDisposables);
-        }
-
         public void AttackWithProjectile()
         {
-            var attackDirection = _attackDirectionPart.AttackDirection.Value;
-            _projectileAttacker.AttackWithProjectile(attackDirection);
-            _visualPart.PlayAttackAnimation(attackDirection);
+            var (vectorDirection, concreteDirection) = _attackDirectionPart.CalculateAttackDirection();
+            _projectileAttacker.AttackWithProjectile(vectorDirection);
+            _visualPart.PlayAttackAnimation(concreteDirection);
             GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
         }
         
@@ -61,11 +52,6 @@ namespace Game.Enemy.Controller.Impl
             _lookDirectionPart = Resolve<IEnemyLookDirectionPart>();
             _attackDirectionPart = Resolve<IProjectileEnemyAttackDirectionPart>();
             _projectileAttacker = Resolve<IEnemyProjectileAttacker>();
-        }
-        
-        private void OnAttackDirection(Vector2 attackDirection)
-        {
-            _visualPart.RotateHandsTowardsAttackDirection(attackDirection);
         }
     }
 }

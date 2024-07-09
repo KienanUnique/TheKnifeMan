@@ -1,6 +1,8 @@
 ﻿using Game.Enemy.Data;
 using Game.Object.Part;
 using Game.Player;
+using Game.Utils;
+using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
 
@@ -34,19 +36,20 @@ namespace Game.Enemy.Parts.LookDirection.Impl
         public void Enable()
         {
             _aliveDisposable = new CompositeDisposable();
-            Observable.EveryUpdate().Subscribe(_ => UpdateAttackDirection()).AddTo(_aliveDisposable);
-        }
-
-        private void UpdateAttackDirection()
-        {
-            var playerPosition = (Vector2) _playerInformation.Transform.position;
-            var enemyPosition = (Vector2) Data.RootTransform.position;
-            _attackDirection.Value = (playerPosition - enemyPosition).normalized;
         }
 
         public void DisableAndReset()
         {
             _aliveDisposable?.Dispose();
+        }
+
+        public (Vector2, EDirection2D) CalculateAttackDirection()
+        {
+            var playerPosition = (Vector2) _playerInformation.Transform.position;
+            var enemyPosition = (Vector2) Data.RootTransform.position;
+            var direction = (playerPosition - enemyPosition).normalized;
+
+            return (direction, direction.ToDirection2D());
         }
     }
 }

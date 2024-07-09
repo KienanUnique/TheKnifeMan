@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using Game.Utils.Directions;
 
 namespace Game.Enemy.Parts.Visual
 {
     public interface IProjectileEnemyVisualPart : IEnemyVisualPartBase
     {
-        void PlayAttackAnimation(Vector2 direction);
-        void RotateHandsTowardsAttackDirection(Vector2 direction);
+        void PlayAttackAnimation(EDirection2D direction);
     }
 }

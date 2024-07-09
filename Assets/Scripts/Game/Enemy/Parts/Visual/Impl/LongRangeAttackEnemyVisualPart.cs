@@ -1,5 +1,6 @@
 ﻿using Db.EnemiesParameters.Parameters;
-using UnityEngine;
+using Game.Utils;
+using Game.Utils.Directions;
 
 namespace Game.Enemy.Parts.Visual.Impl
 {
@@ -9,12 +10,10 @@ namespace Game.Enemy.Parts.Visual.Impl
         {
         }
 
-        public void PlayAttackAnimation(Vector2 direction)
+        public void PlayAttackAnimation(EDirection2D direction)
         {
-        }
-
-        public void RotateHandsTowardsAttackDirection(Vector2 direction)
-        {
+            Animator.SetInteger(AnimationKeys.AttackDirection, (int) direction);
+            Animator.SetTrigger(AnimationKeys.ShootAttackTrigger);
         }
     }
 }
