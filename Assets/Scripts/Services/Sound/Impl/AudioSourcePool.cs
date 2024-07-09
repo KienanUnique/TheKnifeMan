@@ -52,7 +52,7 @@ namespace Services.Sound.Impl
             var gameObject = new GameObject("AudioSource");
             var source = gameObject.AddComponent<AudioSource>();
             gameObject.transform.SetParent(_rootTransform);
-            Object.DontDestroyOnLoad(gameObject);
+            Object.DontDestroyOnLoad(gameObject); // TODO: refactor this
 
             Return(source);
         }

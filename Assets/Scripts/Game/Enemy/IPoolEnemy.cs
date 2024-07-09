@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Enemy
@@ -7,7 +8,7 @@ namespace Game.Enemy
     {
         IObservable<IPoolEnemy> OnDead { get; }
 
-        void HandleEnable();
+        void HandleEnable(Vector3 position);
         void HandleDisableAndReset();
         void HandleGameEnd();
     }

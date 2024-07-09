@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using Db.EnemiesParameters.TypeData;
 using Db.EnemyFactory;
+using Db.EnemySpawnFx;
 using Game.Enemy.PartsFactory.Impl;
 using Game.Object.PartsFactory;
+using Game.Services.SpawnEffects.SpawnEffects;
 using Game.Utils;
 using ModestTree;
 using UniRx;
@@ -18,10 +20,12 @@ namespace Game.Enemy.Factory.Concrete
         private readonly Transform _rootTransform;
         private readonly IEnemyTypeData _typeData;
         private readonly IEnemyFactoryParameters _parameters;
+        private readonly IEnemySpawnEffectsService _spawnEffectsService;
         
         private readonly Queue<IPoolEnemy> _availableEnemies = new();
         private readonly List<IPoolEnemy> _busyEnemies = new();
         private readonly CompositeDisposable _compositeDisposable = new();
+        private readonly CompositeDisposable _waitSpawnEffects = new();
         
         private DiContainer _diContainer;
 
@@ -29,13 +33,15 @@ namespace Game.Enemy.Factory.Concrete
             DiContainer diContainer,
             Transform rootTransform,
             IEnemyFactoryParameters parameters,
-            IEnemyTypeData typeData
+            IEnemyTypeData typeData,
+            IEnemySpawnEffectsService spawnEffectsService
         )
         {
             _rootDiContainer = diContainer;
             _rootTransform = rootTransform;
             _typeData = typeData;
             _parameters = parameters;
+            _spawnEffectsService = spawnEffectsService;
         }
         
         public void Initialize()
@@ -61,13 +67,17 @@ namespace Game.Enemy.Factory.Concrete
         public virtual void Create(Vector3 position)
         {
             var enemy = _availableEnemies.IsEmpty() ? Instantiate(position) : _availableEnemies.Dequeue();
-
-            enemy.HandleEnable();
-            _busyEnemies.Add(enemy);
+            
+            _spawnEffectsService.PlayEffect(position).Subscribe(_ =>
+            {
+                enemy.HandleEnable(position);
+                _busyEnemies.Add(enemy);
+            }).AddTo(_waitSpawnEffects);
         }
 
         public void HandleGameEnd()
         {
+            _waitSpawnEffects?.Dispose();
             foreach (var busyEnemy in _busyEnemies)
             {
                 busyEnemy.HandleGameEnd();

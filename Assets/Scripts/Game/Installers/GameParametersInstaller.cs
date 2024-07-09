@@ -2,6 +2,8 @@
 using Db.EnemiesParameters.EnemiesTypeProvider.Impl;
 using Db.EnemyFactory;
 using Db.EnemyFactory.Impl;
+using Db.EnemySpawnFx;
+using Db.EnemySpawnFx.Impl;
 using Db.LayerMasks;
 using Db.LayerMasks.Impl;
 using Db.Player;
@@ -36,6 +38,7 @@ namespace Game.Installers
         [Header("Other")] 
         [SerializeField] private LayerMasksParameters layerMasksParameters;
         [SerializeField] private VfxBase vfxBase;
+        [SerializeField] private EnemySpawnFxBase enemySpawnFxBase;
 
         public override void InstallBindings()
         {
@@ -50,6 +53,7 @@ namespace Game.Installers
 
             Container.Bind<ILayerMasksParameters>().FromInstance(layerMasksParameters).AsSingle();
             Container.Bind<IVfxBase>().FromInstance(vfxBase).AsSingle();
+            Container.Bind<IEnemySpawnFxBase>().FromInstance(enemySpawnFxBase).AsSingle();
         }
     }
 }

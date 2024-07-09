@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AC_Enemy_SpawnExplosion_2
+  m_Controller: {fileID: 9100000, guid: e7f9caee6276c4949b4d7d5a8a97e4cc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6a64d92adbe8096488a691348774cf9b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a3e6faf4d8d869b46b7291fdbdd6640b, type: 2}
