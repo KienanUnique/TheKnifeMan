@@ -32,7 +32,7 @@ namespace Game.Enemy.Controller.Impl
         protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
 
         public int InstanceId => GetInstanceID();
-        public bool IsInReload => _projectileAttacker.IsInReload;
+        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
 
         public override void HandleEnable(Vector3 position)
         {
@@ -40,10 +40,10 @@ namespace Game.Enemy.Controller.Impl
             _attackDirectionPart.AttackDirection.Subscribe(OnAttackDirection).AddTo(AliveDisposables);
         }
 
-        public void AttackWithProjectile(IProjectilesPattern pattern, IProjectileType type)
+        public void AttackWithProjectile()
         {
             var attackDirection = _attackDirectionPart.AttackDirection.Value;
-            _projectileAttacker.AttackWithProjectile(pattern, type, attackDirection);
+            _projectileAttacker.AttackWithProjectile(attackDirection);
             _visualPart.PlayAttackAnimation(attackDirection);
             GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
         }

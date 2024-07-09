@@ -26,19 +26,18 @@ MonoBehaviour:
   - rid: 7309586756488134682
   - rid: 7309586756488134683
   - rid: 7309586817818558466
-  - rid: 7309586817818558469
   - rid: 7309586817818558470
-  - rid: 7309586817818558471
   - rid: 7309586817818558474
   - rid: 7309586817818558475
   - rid: 7309586817818558476
   - rid: 7309586817818558477
   - rid: 7309586817818558478
+  - rid: 8333875050035806210
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 560, y: -267, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  viewPosition: {x: 579, y: 112, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -182,21 +181,6 @@ MonoBehaviour:
           keys: []
         description: 
         drawGizmos: 0
-        pattern: {fileID: 11400000, guid: a7a5aa079c844274bba771354d25ed6d, type: 2}
-        type: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
-    - rid: 7309586817818558469
-      type: {class: Inverter, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
-      data:
-        state: 0
-        started: 0
-        guid: 277b321334975a64da685c60ea03b9f2
-        position: {x: -255, y: 930}
-        blackboard:
-          keys: []
-        description: 
-        drawGizmos: 0
-        child:
-          rid: 7309586817818558471
     - rid: 7309586817818558470
       type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -209,20 +193,9 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 7309586817818558469
+        - rid: 8333875050035806210
         - rid: 7309586756488134659
         - rid: 7309586817818558466
-    - rid: 7309586817818558471
-      type: {class: IsInReload, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: cd91d2cb101f1f84997d065fc73c1467
-        position: {x: -255, y: 1065}
-        blackboard:
-          keys: []
-        description: 
-        drawGizmos: 0
     - rid: 7309586817818558474
       type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -288,3 +261,14 @@ MonoBehaviour:
         children:
         - rid: 7309586817818558477
         - rid: 7309586817818558474
+    - rid: 8333875050035806210
+      type: {class: IsCanShoot, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d80d2b5eda99f884aa48c6be7395b5f6
+        position: {x: -285, y: 930}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
