@@ -18,22 +18,6 @@ namespace Db.Projectiles.Impl
 
         public IReadOnlyList<IProjectileTypeData> ProjectilesTypes => projectilesTypes;
 
-        // private void OnValidate()
-        // {
-        //     var uniqueProjectilesTypes = new List<ProjectileTypeData>();
-        //     
-        //     foreach (var projectileType in projectilesTypes)
-        //     {
-        //         if (uniqueProjectilesTypes.Contains(projectileType)) 
-        //             continue;
-        //         
-        //         uniqueProjectilesTypes.Add(projectileType);
-        //     }
-        //     
-        //     projectilesTypes.Clear();
-        //     projectilesTypes = uniqueProjectilesTypes;
-        // }
-        
 #if UNITY_EDITOR
         [Button]
         public void AutoFill()

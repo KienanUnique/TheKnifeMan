@@ -10,6 +10,8 @@ using Db.Player;
 using Db.Player.Impl;
 using Db.Projectiles;
 using Db.Projectiles.Impl;
+using Db.Score;
+using Db.Score.Impl;
 using Db.Spawners;
 using Db.Spawners.Impl;
 using Db.Vfx;
@@ -39,6 +41,7 @@ namespace Game.Installers
         [SerializeField] private LayerMasksParameters layerMasksParameters;
         [SerializeField] private VfxBase vfxBase;
         [SerializeField] private EnemySpawnFxBase enemySpawnFxBase;
+        [SerializeField] private ScoreParameters scoreParameters;
 
         public override void InstallBindings()
         {
@@ -54,6 +57,7 @@ namespace Game.Installers
             Container.Bind<ILayerMasksParameters>().FromInstance(layerMasksParameters).AsSingle();
             Container.Bind<IVfxBase>().FromInstance(vfxBase).AsSingle();
             Container.Bind<IEnemySpawnFxBase>().FromInstance(enemySpawnFxBase).AsSingle();
+            Container.Bind<IScoreParameters>().FromInstance(scoreParameters).AsSingle();
         }
     }
 }
