@@ -12,5 +12,10 @@ namespace Game.Utils
 
             return vector.y > 0 ? EDirection2D.Up : EDirection2D.Down;
         }
+        
+        public static EDirection1D ToDirection1D(this Vector2 vector)
+        {
+            return vector.x > 0 ? EDirection1D.Right : EDirection1D.Left;
+        }
     }
 }

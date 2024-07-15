@@ -4,6 +4,6 @@ namespace Game.Enemy.Parts.Visual
 {
     public interface IProjectileEnemyVisualPart : IEnemyVisualPartBase
     {
-        void PlayAttackAnimation(EDirection2D direction);
+        void PlayAttackAnimation(EDirection1D direction);
     }
 }

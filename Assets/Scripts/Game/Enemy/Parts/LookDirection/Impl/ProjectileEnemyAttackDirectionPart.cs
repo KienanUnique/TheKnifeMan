@@ -13,11 +13,7 @@ namespace Game.Enemy.Parts.LookDirection.Impl
     {
         private readonly IPlayerInformation _playerInformation;
 
-        private readonly ReactiveProperty<Vector2> _attackDirection = new();
-        
         private CompositeDisposable _aliveDisposable;
-
-        public IReactiveProperty<Vector2> AttackDirection => _attackDirection;
 
         public ProjectileEnemyAttackDirectionPart(IPlayerInformation playerInformation)
         {
@@ -43,13 +39,13 @@ namespace Game.Enemy.Parts.LookDirection.Impl
             _aliveDisposable?.Dispose();
         }
 
-        public (Vector2, EDirection2D) CalculateAttackDirection()
+        public (Vector2, EDirection1D) CalculateAttackDirection1D()
         {
             var playerPosition = (Vector2) _playerInformation.Transform.position;
             var enemyPosition = (Vector2) Data.RootTransform.position;
             var direction = (playerPosition - enemyPosition).normalized;
 
-            return (direction, direction.ToDirection2D());
+            return (direction, direction.ToDirection1D());
         }
     }
 }

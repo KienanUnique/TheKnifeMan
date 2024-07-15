@@ -6,6 +6,8 @@ using Game.Enemy.Parts.Character;
 using Game.Enemy.Parts.LookDirection;
 using Game.Enemy.Parts.Visual;
 using Game.Projectile;
+using Game.Utils.Directions;
+using UniRx;
 using UnityEngine;
 using Utils.Sounds;
 
@@ -21,6 +23,8 @@ namespace Game.Enemy.Controller.Impl
         private IProjectileEnemyAttackDirectionPart _attackDirectionPart;
         private IEnemyLookDirectionPart _lookDirectionPart;
         private IEnemyProjectileAttacker _projectileAttacker;
+        private Vector2 _attackDirection;
+        private EDirection1D _attackDirection1D;
 
         protected override LongRangeEnemyData Data => data;
         protected override IEnemyCharacterPartBase CharacterPart => _characterPart;
@@ -31,12 +35,23 @@ namespace Game.Enemy.Controller.Impl
         public int InstanceId => GetInstanceID();
         public bool IsCanShoot => _projectileAttacker.IsCanShoot;
 
+        public override void HandleEnable(Vector3 position)
+        {
+            base.HandleEnable(position);
+            Data.AttackTrigger.AttackFramePlayed.Subscribe(_ => OnAttackFramePlayed()).AddTo(AliveDisposables);
+        }
+
+        private void OnAttackFramePlayed()
+        {
+            _projectileAttacker.AttackWithProjectile(_attackDirection, _attackDirection1D);
+            GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
+        }
+
         public void AttackWithProjectile()
         {
-            var (vectorDirection, concreteDirection) = _attackDirectionPart.CalculateAttackDirection();
-            _projectileAttacker.AttackWithProjectile(vectorDirection);
-            _visualPart.PlayAttackAnimation(concreteDirection);
-            GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
+            (_attackDirection, _attackDirection1D) = _attackDirectionPart.CalculateAttackDirection1D();
+
+            _visualPart.PlayAttackAnimation(_attackDirection1D);
         }
         
         public bool Equals(IProjectilesSender other)

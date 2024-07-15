@@ -5,6 +5,6 @@ namespace Game.Enemy.Parts.LookDirection
 {
     public interface IProjectileEnemyAttackDirectionPart : IEnemyPoolPart
     {
-        (Vector2, EDirection2D) CalculateAttackDirection();
+        (Vector2, EDirection1D) CalculateAttackDirection1D();
     }
 }
