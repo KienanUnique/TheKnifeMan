@@ -1,7 +1,6 @@
 ﻿using System;
 using Game.Utils.Spawner;
 using UniRx;
-using UnityEngine;
 
 namespace Game.Services.WaveTimer.Impl
 {
