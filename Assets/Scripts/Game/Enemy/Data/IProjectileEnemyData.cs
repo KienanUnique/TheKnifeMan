@@ -4,6 +4,7 @@ namespace Game.Enemy.Data
 {
     public interface IProjectileEnemyData : IEnemyData
     {
-        Transform ProjectilesSpawnPoint { get; }
+        Transform ProjectilesSpawnPointLeft { get; }
+        Transform ProjectilesSpawnPointRight { get; }
     }
 }

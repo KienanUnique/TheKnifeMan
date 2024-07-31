@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da1286353c2d45e99c8dae411b56426b, type: 3}
-  m_Name: LongRangeEnemyTypeData
+  m_Name: ShotgunerEnemyTypeData
   m_EditorClassIdentifier: 
   startPoolCount: 4
   parameters:
@@ -18,10 +18,10 @@ MonoBehaviour:
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.1
-    pointsForKill: 50
-    reloadDurationSeconds: 4
+    pointsForKill: 15
+    reloadDurationSeconds: 5
     countOfAttacksInClip: 3
-    delayBetweenAttacks: 0.5
-    pattern: {fileID: 11400000, guid: a7a5aa079c844274bba771354d25ed6d, type: 2}
+    delayBetweenAttacks: 2
+    pattern: {fileID: 11400000, guid: 65a8ae7638373ec4e9a7f285ca21d4f0, type: 2}
     type: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
-  prefab: {fileID: 5443585650099049973, guid: 208c0cad58194c745a9bb314fb0620a2, type: 3}
+  prefab: {fileID: 5443585650099049973, guid: 2cf6f1ec616136e468c90f683d1c7ae1, type: 3}

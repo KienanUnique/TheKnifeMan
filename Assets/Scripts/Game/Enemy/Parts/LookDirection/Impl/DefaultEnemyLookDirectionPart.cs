@@ -1,5 +1,6 @@
 ﻿using Game.Enemy.Data;
 using Game.Object.Part;
+using Game.Utils;
 using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
@@ -43,13 +44,7 @@ namespace Game.Enemy.Parts.LookDirection.Impl
             _aliveDisposable?.Dispose();
         }
 
-        public EDirection2D CalculateLookDirection2D()
-        {
-            if (Mathf.Abs(_lookDirection.x) > Mathf.Abs(_lookDirection.y))
-                return _lookDirection.x > 0 ? EDirection2D.Right : EDirection2D.Left;
-
-            return _lookDirection.y > 0 ? EDirection2D.Up : EDirection2D.Down;
-        }
+        public EDirection2D CalculateLookDirection2D() => _lookDirection.ToDirection2D();
 
         private void OnUpdate()
         {
