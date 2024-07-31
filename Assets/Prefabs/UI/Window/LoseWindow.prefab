@@ -133,8 +133,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Any Key To Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cac43bf257efdce48a80f4818045331d, type: 2}
+  m_sharedMaterial: {fileID: 6869504812801133101, guid: cac43bf257efdce48a80f4818045331d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -301,17 +301,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Lose
+  m_text: Loser
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cac43bf257efdce48a80f4818045331d, type: 2}
+  m_sharedMaterial: {fileID: 6869504812801133101, guid: cac43bf257efdce48a80f4818045331d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278219518
+  m_fontColor: {r: 0.9960785, g: 0.44705886, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 5779847767454504925}
   - component: {fileID: 1832899650763686507}
   - component: {fileID: 5648007555667617951}
+  - component: {fileID: 446412580474954949}
   m_Layer: 5
   m_Name: PressAnyKey
   m_TagString: Untagged
@@ -458,6 +459,14 @@ MonoBehaviour:
   focusReturnDelay: 0
   focusRemovedDelay: 0
   disappearDelay: 0
+--- !u!222 &446412580474954949
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746061344609405071}
+  m_CullTransparentMesh: 1
 --- !u!1 &7088183569977521760
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +478,7 @@ GameObject:
   - component: {fileID: 6798506081409480599}
   - component: {fileID: 3667547706838489186}
   - component: {fileID: 5209860185277424633}
+  - component: {fileID: 7035063628574008698}
   m_Layer: 5
   m_Name: LoseWindow
   m_TagString: Untagged
@@ -523,3 +533,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   losePressAnyKeyView: {fileID: 5779847767454504925}
   loseView: {fileID: 4630588640824221769}
+--- !u!222 &7035063628574008698
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7088183569977521760}
+  m_CullTransparentMesh: 1
