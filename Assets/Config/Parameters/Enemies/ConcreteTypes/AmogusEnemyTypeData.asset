@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cbb6f5e63014e1abc0a97074cce4344, type: 3}
-  m_Name: SimpleMeleeEnemyTypeData
+  m_Name: AmogusEnemyTypeData
   m_EditorClassIdentifier: 
   parameters:
     health: 1
