@@ -33,13 +33,11 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 678, y: 211, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 806, y: 523, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 7309586691978690563
       type: {class: RootNode, ns: , asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -92,14 +90,8 @@ MonoBehaviour:
           keys: []
         description: 
         drawGizmos: 0
-        compareType:
-          reference:
-            rid: -2
-          defaultValue: 0
-        compareValue:
-          reference:
-            rid: -2
-          defaultValue: 3
+        compareType: 0
+        compareValue: 2.5
     - rid: 7309586756488134658
       type: {class: IsInAction, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
       data:
