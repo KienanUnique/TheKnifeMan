@@ -47,7 +47,7 @@ namespace Game.Enemy.Parts.Visual
             _aliveDisposables?.Dispose();
         }
 
-        public void PlayDeathAnimation()
+        public virtual void PlayDeathAnimation()
         {
             _aliveDisposables?.Dispose();
             _aliveDisposables = null;

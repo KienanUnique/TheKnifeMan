@@ -1,0 +1,398 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: BT_Enemy_Universal
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 7309586691978690563
+  nodes:
+  - rid: 7309586691978690563
+  - rid: 7309586756488134658
+  - rid: 7309586756488134659
+  - rid: 7309586756488134671
+  - rid: 7309586756488134678
+  - rid: 7309586756488134679
+  - rid: 7309586756488134680
+  - rid: 7309586756488134681
+  - rid: 7309586756488134682
+  - rid: 7309586756488134683
+  - rid: 7309586817818558466
+  - rid: 7309586817818558470
+  - rid: 7309586817818558474
+  - rid: 7309586817818558475
+  - rid: 7309586817818558477
+  - rid: 7309586817818558478
+  - rid: 8333875050035806210
+  - rid: 8333875050035806212
+  - rid: 3768859908650303497
+  - rid: 3768859908650303498
+  - rid: 3768859908650303500
+  - rid: 3768859908650303501
+  - rid: 3768859908650303503
+  - rid: 3768859908650303504
+  - rid: 3768859908650303505
+  - rid: 3768859908650303508
+  - rid: 3768859908650303510
+  treeState: 0
+  blackboard:
+    keys: []
+  viewPosition: {x: 638, y: -237, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3768859908650303497
+      type: {class: Wait, ns: Actions, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 92a5edcf8e690b6498636648c02e4f03
+        position: {x: -302.46997, y: 125.47499}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        duration: 1
+    - rid: 3768859908650303498
+      type: {class: SetPlayerPositionAsDestination, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0d6e625a53759c54fbc67743ee290c80
+        position: {x: 540, y: 795}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 3768859908650303500
+      type: {class: DistanceToPlayer, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: fddb0e721da172b42a51af880cfb0e16
+        position: {x: -450, y: 1200}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        compareType: 1
+        compareValue: 2.75
+    - rid: 3768859908650303501
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 6bd0dfcb4bc3d4546886d7ca0e867bb3
+        position: {x: -45, y: 795}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 7309586756488134659
+        - rid: 8333875050035806212
+        - rid: 3768859908650303503
+    - rid: 3768859908650303503
+      type: {class: Selector, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 2ae3d2fbed2d3f84d8d91d1efce89c78
+        position: {x: -225, y: 930}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 7309586817818558470
+        - rid: 3768859908650303504
+    - rid: 3768859908650303504
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: b49e561f5e860464497858b60ba34602
+        position: {x: 180, y: 1065}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3768859908650303510
+        - rid: 3768859908650303505
+        - rid: 3768859908650303508
+    - rid: 3768859908650303505
+      type: {class: DistanceToPlayer, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ba10b5e1bb5e42347bc2f0031b39c92c
+        position: {x: 240, y: 1200}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        compareType: 0
+        compareValue: 2.5
+    - rid: 3768859908650303508
+      type: {class: AttackMelee, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ccb7d2456ce650948b45454683e9d118
+        position: {x: 465, y: 1200}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 3768859908650303510
+      type: {class: IsCanMeleeAttack, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f64101a9e01cd5a498ee5c541bae79f6
+        position: {x: 15, y: 1200}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586691978690563
+      type: {class: RootNode, ns: , asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 355efef7-45f7-4456-a38d-b3d5082b4976
+        position: {x: -60, y: -150}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 7309586756488134682
+    - rid: 7309586756488134658
+      type: {class: IsInAction, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6167fd9b84e628d409547b944a71f848
+        position: {x: -840, y: 1065}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586756488134659
+      type: {class: Inverter, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: eceaf09d5818c564bbb4314421a729ef
+        position: {x: -840, y: 930}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 7309586756488134658
+    - rid: 7309586756488134671
+      type: {class: Repeat, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: b7be0be10e5babb4f88d05b659ec5c48
+        position: {x: -60, y: 120}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 7309586756488134678
+        restartOnSuccess: 1
+        restartOnFailure: 0
+        maxRepeats: 0
+    - rid: 7309586756488134678
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 9858957555f87bb4093a1a781e4b7486
+        position: {x: -60, y: 255}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 7309586756488134680
+        - rid: 7309586756488134681
+    - rid: 7309586756488134679
+      type: {class: IsPlayerDead, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 1df485a5b2a768f4ea887e96812136e5
+        position: {x: -285, y: 570}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586756488134680
+      type: {class: Inverter, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 222da6e3698b1c84da1bbb326ee4d1df
+        position: {x: -285, y: 390}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 7309586756488134679
+    - rid: 7309586756488134681
+      type: {class: Succeed, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 91828f43e11349e41b816d3f28f7c63a
+        position: {x: 225, y: 390}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 7309586817818558478
+    - rid: 7309586756488134682
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: d39d750af35ad2540a7eaef9f85d208c
+        position: {x: -60, y: -15}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3768859908650303497
+        - rid: 7309586756488134671
+        - rid: 7309586756488134683
+    - rid: 7309586756488134683
+      type: {class: DisableMoving, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e612a02390816d140897ed41fd561de8
+        position: {x: 180, y: 120}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586817818558466
+      type: {class: AttackWithProjectile, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 51d2e0e72bca7cf42af1cdbcd779142c
+        position: {x: -255, y: 1200}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 7309586817818558470
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 02c35ad546c2f444fbd6772c844ad7ac
+        position: {x: -390, y: 1065}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 8333875050035806210
+        - rid: 3768859908650303500
+        - rid: 7309586817818558466
+    - rid: 7309586817818558474
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 8e78d71fc0b33f54eb0f32cdd4dfa97b
+        position: {x: 450, y: 660}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 7309586817818558475
+        - rid: 3768859908650303498
+    - rid: 7309586817818558475
+      type: {class: Wait, ns: Actions, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 1df41789a0acebc40bf2b4f1e306580e
+        position: {x: 345, y: 795}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        duration: 0.1
+    - rid: 7309586817818558477
+      type: {class: Succeed, ns: Decorators, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: d737403093ecf0b4fbfe1cdd506244aa
+        position: {x: -45, y: 660}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3768859908650303501
+    - rid: 7309586817818558478
+      type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: 0eb48991e2b2ede40bc8070e125be950
+        position: {x: 225, y: 525}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 7309586817818558477
+        - rid: 7309586817818558474
+    - rid: 8333875050035806210
+      type: {class: IsCanShoot, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d80d2b5eda99f884aa48c6be7395b5f6
+        position: {x: -630, y: 1200}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 8333875050035806212
+      type: {class: IsPathToPlayerClear, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7400b2a4f87d3a949bf058de326dc4bc
+        position: {x: -660, y: 930}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0

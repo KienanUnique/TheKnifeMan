@@ -7,7 +7,7 @@ namespace Db.EnemiesParameters.Parameters
     {
         float ReloadDurationSeconds { get; }
         int CountOfAttacksInClip { get; }
-        float DelayBetweenAttacks { get; }
+        float DelayBetweenShootAttacks { get; }
         IProjectilesPattern Pattern { get; }
         IProjectileType Type { get; }
     }

@@ -26,14 +26,14 @@ namespace Game.Enemy.Controller.Impl
         private Vector2 _attackDirection;
         private EDirection1D _attackDirection1D;
 
+        public int InstanceId => GetInstanceID();
+        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
+        
         protected override LongRangeEnemyData Data => data;
         protected override IEnemyCharacterPartBase CharacterPart => _characterPart;
         protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
         protected override IAnimatorStatusCheckerPart AnimatorStatusCheckerPart => _animatorStatusCheckerPart;
         protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
-
-        public int InstanceId => GetInstanceID();
-        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
 
         public override void HandleEnable(Vector3 position)
         {
