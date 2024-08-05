@@ -7,12 +7,11 @@ using Utils;
 
 namespace Db.EnemiesParameters.TypeData.Impl
 {
-    [CreateAssetMenu(menuName = MenuPathBase.Enemies + nameof(MeleeEnemyTypeData), fileName = nameof(MeleeEnemyTypeData))]
+    [CreateAssetMenu(menuName = MenuPathBase.Enemies + nameof(UniversalEnemyTypeData), fileName = nameof(UniversalEnemyTypeData))]
     public class UniversalEnemyTypeData : AEnemyTypeData
     {
-        [SerializeField] private MeleeEnemyParameters parameters;
-        [SerializeField] private MeleeEnemyController prefab;
-        private EEnemyType _type;
+        [SerializeField] private UniversalEnemyParameters parameters;
+        [SerializeField] private UniversalEnemyController prefab;
 
         public override Object Prefab => prefab;
         public override IEnemyParametersBase Parameters => parameters;

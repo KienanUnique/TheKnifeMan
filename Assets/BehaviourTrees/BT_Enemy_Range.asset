@@ -34,14 +34,27 @@ MonoBehaviour:
   - rid: 7309586817818558478
   - rid: 8333875050035806210
   - rid: 8333875050035806212
+  - rid: 3768859908650303496
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 657, y: -374, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 692, y: -78, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
+    - rid: 3768859908650303496
+      type: {class: Wait, ns: Actions, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        state: 0
+        started: 0
+        guid: ca86d07031133bc47ab67b0d69a138ba
+        position: {x: -285, y: 120}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        duration: 1
     - rid: 7309586691978690563
       type: {class: RootNode, ns: , asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -158,6 +171,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 3768859908650303496
         - rid: 7309586756488134671
         - rid: 7309586756488134683
     - rid: 7309586756488134683
