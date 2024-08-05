@@ -44,8 +44,8 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 702, y: 195, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  viewPosition: {x: 748, y: -194, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -84,7 +84,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         compareType: 1
-        compareValue: 1.3
+        compareValue: 2.75
     - rid: 3768859908650303501
       type: {class: Sequencer, ns: Composites, asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -140,7 +140,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         compareType: 0
-        compareValue: 0.6
+        compareValue: 2.5
     - rid: 3768859908650303508
       type: {class: AttackMelee, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
       data:

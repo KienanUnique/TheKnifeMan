@@ -57,6 +57,8 @@ namespace Game.Enemy.Controller.Impl
                     GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
                     break;
             }
+            
+            _currentAttackType = EAttackType.None;
         }
 
         public void AttackWithProjectile()
@@ -64,6 +66,8 @@ namespace Game.Enemy.Controller.Impl
             (_projectileAttackDirection, _projectileAttackDirection1D) = _attackDirectionPart.CalculateAttackDirection1D();
 
             _visualPart.PlayAttackAnimation(_projectileAttackDirection1D);
+            
+            _currentAttackType = EAttackType.LongRange;
         }
         
         public void AttackMelee()
@@ -74,6 +78,8 @@ namespace Game.Enemy.Controller.Impl
             _meleeAttackDirection = _lookDirectionPart.CalculateLookDirection2D();
             _visualPart.PlayAttackAnimation(_meleeAttackDirection);
             GameSoundFxService.Play(EGameSoundFxType.EnemyMeleeAttack, transform);
+            
+            _currentAttackType = EAttackType.Melee;
         }
 
         public bool Equals(IProjectilesSender other)

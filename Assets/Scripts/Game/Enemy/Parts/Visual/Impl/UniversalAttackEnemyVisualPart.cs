@@ -21,5 +21,12 @@ namespace Game.Enemy.Parts.Visual.Impl
             Animator.SetInteger(AnimationKeys.AttackDirection, (int) direction2D);
             Animator.SetTrigger(AnimationKeys.MeleeAttackTrigger);
         }
+        
+        public override void PlayDeathAnimation()
+        {
+            Animator.ResetTrigger(AnimationKeys.ShootAttackTrigger);
+            Animator.ResetTrigger(AnimationKeys.MeleeAttackTrigger);
+            base.PlayDeathAnimation();
+        }
     }
 }

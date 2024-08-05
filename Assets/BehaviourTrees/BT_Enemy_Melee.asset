@@ -38,7 +38,7 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 607, y: -60, z: 0}
+  viewPosition: {x: 597, y: -37, z: 0}
   viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
@@ -66,7 +66,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         compareType: 0
-        compareValue: 0.6
+        compareValue: 2.5
     - rid: 3768859908650303494
       type: {class: SetPlayerPositionAsDestination, ns: Game.Enemy.Nodes.Actions, asm: Assembly-CSharp}
       data:
