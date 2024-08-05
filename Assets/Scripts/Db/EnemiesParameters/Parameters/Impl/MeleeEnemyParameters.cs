@@ -8,6 +8,6 @@ namespace Db.EnemiesParameters.Parameters.Impl
     {
         [Header("Attack")] [SerializeField] private int damage = 1;
 
-        public int Damage => damage;
+        public int MeleeDamage => damage;
     }
 }

@@ -70,7 +70,7 @@ namespace Game.Enemy.Parts.Attacker.Impl
                 foundedTargets.Add(damageable);
             }
 
-            var damage = _parameters.Damage;
+            var damage = _parameters.MeleeDamage;
             foreach (var target in foundedTargets) target.HandleDamage(damage);
         }
     }

@@ -1,0 +1,95 @@
+﻿using Game.Character.Parts.AnimatorStatus;
+using Game.Enemy.ActionsExecutor;
+using Game.Enemy.Data.Impl;
+using Game.Enemy.Parts.Attacker;
+using Game.Enemy.Parts.Character;
+using Game.Enemy.Parts.LookDirection;
+using Game.Enemy.Parts.Visual;
+using Game.Projectile;
+using Game.Utils;
+using Game.Utils.Directions;
+using UniRx;
+using UnityEngine;
+using Utils.Sounds;
+
+namespace Game.Enemy.Controller.Impl
+{
+    public class UniversalEnemyController : AEnemyController<UniversalEnemyData>, IMeleeAttackEnemy, IProjectileAttackEnemy
+    {
+        [SerializeField] private UniversalEnemyData data;
+        
+        private IEnemyCharacterPartBase _characterPart;
+        private IUniversalEnemyVisualPart _visualPart;
+        private IAnimatorStatusCheckerPart _animatorStatusCheckerPart;
+        private IEnemyLookDirectionPart _lookDirectionPart;
+        private IProjectileEnemyAttackDirectionPart _attackDirectionPart;
+        private IEnemyMeleeAttacker _attackerPart;
+        private IEnemyProjectileAttacker _projectileAttacker;
+        
+        private Vector2 _projectileAttackDirection;
+        private EDirection1D _projectileAttackDirection1D;
+        private EDirection2D _meleeAttackDirection;
+        private EAttackType _currentAttackType;
+
+        protected override UniversalEnemyData Data => data;
+        protected override IEnemyCharacterPartBase CharacterPart => _characterPart;
+        protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
+        protected override IAnimatorStatusCheckerPart AnimatorStatusCheckerPart => _animatorStatusCheckerPart;
+        protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
+        public int InstanceId => GetInstanceID();
+        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
+        
+        public override void HandleEnable(Vector3 position)
+        {
+            base.HandleEnable(position);
+            Data.AttackTrigger.AttackFramePlayed.Subscribe(_ => OnAttackFramePlayed()).AddTo(AliveDisposables);
+        }
+        
+        private void OnAttackFramePlayed()
+        {
+            switch (_currentAttackType)
+            {
+                case EAttackType.Melee:
+                    _attackerPart.DamageTargets(_meleeAttackDirection);
+                    break;
+                case EAttackType.LongRange:
+                    _projectileAttacker.AttackWithProjectile(_projectileAttackDirection, _projectileAttackDirection1D);
+                    GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
+                    break;
+            }
+        }
+
+        public void AttackWithProjectile()
+        {
+            (_projectileAttackDirection, _projectileAttackDirection1D) = _attackDirectionPart.CalculateAttackDirection1D();
+
+            _visualPart.PlayAttackAnimation(_projectileAttackDirection1D);
+        }
+        
+        public void AttackMelee()
+        {
+            if (_animatorStatusCheckerPart.IsAnimatorBusy)
+                return;
+
+            _meleeAttackDirection = _lookDirectionPart.CalculateLookDirection2D();
+            _visualPart.PlayAttackAnimation(_meleeAttackDirection);
+            GameSoundFxService.Play(EGameSoundFxType.EnemyMeleeAttack, transform);
+        }
+
+        public bool Equals(IProjectilesSender other)
+        {
+            return other != null && InstanceId.Equals(other.InstanceId);
+        }
+
+        protected override void ResolveParts()
+        {
+            _characterPart = Resolve<IEnemyCharacterPartBase>();
+            _visualPart = Resolve<IUniversalEnemyVisualPart>();
+            _animatorStatusCheckerPart = Resolve<IAnimatorStatusCheckerPart>();
+            _lookDirectionPart = Resolve<IEnemyLookDirectionPart>();
+            _attackDirectionPart = Resolve<IProjectileEnemyAttackDirectionPart>();
+            _attackerPart = Resolve<IEnemyMeleeAttacker>();
+            _projectileAttacker = Resolve<IEnemyProjectileAttacker>();
+        }
+    }
+}
