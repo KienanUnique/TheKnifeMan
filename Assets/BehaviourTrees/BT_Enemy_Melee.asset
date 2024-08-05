@@ -35,11 +35,12 @@ MonoBehaviour:
   - rid: 3768859908650303493
   - rid: 3768859908650303494
   - rid: 3768859908650303495
+  - rid: 3768859908650303509
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 597, y: -37, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  viewPosition: {x: 864, y: -360, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -90,6 +91,17 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         duration: 1
+    - rid: 3768859908650303509
+      type: {class: IsCanMeleeAttack, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 058be1bf4472eb2469f33214ea67c61a
+        position: {x: -495, y: 930}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
     - rid: 7309586691978690563
       type: {class: RootNode, ns: , asm: thekiwicoder.behaviourtreeeditor}
       data:
@@ -109,7 +121,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6167fd9b84e628d409547b944a71f848
-        position: {x: -450, y: 1065}
+        position: {x: -690, y: 1065}
         blackboard:
           keys: []
         description: 
@@ -120,7 +132,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: eceaf09d5818c564bbb4314421a729ef
-        position: {x: -450, y: 930}
+        position: {x: -690, y: 930}
         blackboard:
           keys: []
         description: 
@@ -233,6 +245,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 7309586756488134659
+        - rid: 3768859908650303509
         - rid: 8333875050035806212
         - rid: 3768859908650303493
         - rid: 3768859908650303492

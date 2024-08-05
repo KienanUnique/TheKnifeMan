@@ -6,6 +6,7 @@ using Game.Enemy.Data;
 using Game.Interfaces;
 using Game.Object.Part;
 using Game.Utils.Directions;
+using UniRx;
 using UnityEngine;
 
 namespace Game.Enemy.Parts.Attacker.Impl
@@ -18,6 +19,11 @@ namespace Game.Enemy.Parts.Attacker.Impl
         private readonly ILayerMasksParameters _layerMasksParameters;
 
         private readonly Collider2D[] _overlapResult = new Collider2D[MaxOverlapCount];
+        
+        private int _leftCountOfAttacks;
+        private CompositeDisposable _aliveDisposable;
+
+        public bool IsCanMeleeAttack { get; private set; }
 
         public EnemyMeleeAttacker(
             IMeleeEnemyParameters parameters,
@@ -38,10 +44,14 @@ namespace Game.Enemy.Parts.Attacker.Impl
 
         public void Enable()
         {
+            _aliveDisposable = new CompositeDisposable();
+            _leftCountOfAttacks = _parameters.CountOfAttacksInCombo;
+            IsCanMeleeAttack = true;
         }
 
         public void DisableAndReset()
         {
+            _aliveDisposable?.Dispose();
         }
 
         public void DamageTargets(EDirection2D attackDirection)
@@ -71,7 +81,29 @@ namespace Game.Enemy.Parts.Attacker.Impl
             }
 
             var damage = _parameters.MeleeDamage;
-            foreach (var target in foundedTargets) target.HandleDamage(damage);
+            foreach (var target in foundedTargets)
+                target.HandleDamage(damage);
+            
+            _leftCountOfAttacks--;
+            
+            IsCanMeleeAttack = false;
+
+            if (_leftCountOfAttacks <= 0)
+            {
+                var reloadDurationSeconds = _parameters.ComboReloadDurationSeconds;
+                Observable.Timer(TimeSpan.FromSeconds(reloadDurationSeconds)).Subscribe(_ =>
+                    {
+                        IsCanMeleeAttack = true;
+                        _leftCountOfAttacks = _parameters.CountOfAttacksInCombo;
+                    })
+                    .AddTo(_aliveDisposable);
+            }
+            else
+            {
+                var delayBetweenAttacks = _parameters.DelayBetweenMeleeAttacks;
+                Observable.Timer(TimeSpan.FromSeconds(delayBetweenAttacks)).Subscribe(_ => IsCanMeleeAttack = true)
+                    .AddTo(_aliveDisposable);
+            }
         }
     }
 }

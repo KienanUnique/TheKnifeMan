@@ -41,10 +41,11 @@ MonoBehaviour:
   - rid: 3768859908650303504
   - rid: 3768859908650303505
   - rid: 3768859908650303508
+  - rid: 3768859908650303510
   treeState: 0
   blackboard:
     keys: []
-  viewPosition: {x: 748, y: -194, z: 0}
+  viewPosition: {x: 638, y: -237, z: 0}
   viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
@@ -126,6 +127,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 3768859908650303510
         - rid: 3768859908650303505
         - rid: 3768859908650303508
     - rid: 3768859908650303505
@@ -134,7 +136,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ba10b5e1bb5e42347bc2f0031b39c92c
-        position: {x: 75, y: 1200}
+        position: {x: 240, y: 1200}
         blackboard:
           keys: []
         description: 
@@ -147,7 +149,18 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ccb7d2456ce650948b45454683e9d118
-        position: {x: 300, y: 1200}
+        position: {x: 465, y: 1200}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+    - rid: 3768859908650303510
+      type: {class: IsCanMeleeAttack, ns: Game.Enemy.Nodes.States, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f64101a9e01cd5a498ee5c541bae79f6
+        position: {x: 15, y: 1200}
         blackboard:
           keys: []
         description: 

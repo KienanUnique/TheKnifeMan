@@ -23,7 +23,7 @@ namespace Game.Enemy.Controller.Impl
         private IAnimatorStatusCheckerPart _animatorStatusCheckerPart;
         private IEnemyLookDirectionPart _lookDirectionPart;
         private IProjectileEnemyAttackDirectionPart _attackDirectionPart;
-        private IEnemyMeleeAttacker _attackerPart;
+        private IEnemyMeleeAttacker _meleeAttackerPart;
         private IEnemyProjectileAttacker _projectileAttacker;
         
         private Vector2 _projectileAttackDirection;
@@ -31,14 +31,15 @@ namespace Game.Enemy.Controller.Impl
         private EDirection2D _meleeAttackDirection;
         private EAttackType _currentAttackType;
 
+        public bool IsCanMeleeAttack => _meleeAttackerPart.IsCanMeleeAttack;
+        public int InstanceId => GetInstanceID();
+        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
         protected override UniversalEnemyData Data => data;
         protected override IEnemyCharacterPartBase CharacterPart => _characterPart;
         protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
         protected override IAnimatorStatusCheckerPart AnimatorStatusCheckerPart => _animatorStatusCheckerPart;
         protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
-        public int InstanceId => GetInstanceID();
-        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
-        
+
         public override void HandleEnable(Vector3 position)
         {
             base.HandleEnable(position);
@@ -50,7 +51,7 @@ namespace Game.Enemy.Controller.Impl
             switch (_currentAttackType)
             {
                 case EAttackType.Melee:
-                    _attackerPart.DamageTargets(_meleeAttackDirection);
+                    _meleeAttackerPart.DamageTargets(_meleeAttackDirection);
                     break;
                 case EAttackType.LongRange:
                     _projectileAttacker.AttackWithProjectile(_projectileAttackDirection, _projectileAttackDirection1D);
@@ -94,7 +95,7 @@ namespace Game.Enemy.Controller.Impl
             _animatorStatusCheckerPart = Resolve<IAnimatorStatusCheckerPart>();
             _lookDirectionPart = Resolve<IEnemyLookDirectionPart>();
             _attackDirectionPart = Resolve<IProjectileEnemyAttackDirectionPart>();
-            _attackerPart = Resolve<IEnemyMeleeAttacker>();
+            _meleeAttackerPart = Resolve<IEnemyMeleeAttacker>();
             _projectileAttacker = Resolve<IEnemyProjectileAttacker>();
         }
     }

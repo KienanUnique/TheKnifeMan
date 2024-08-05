@@ -82,7 +82,7 @@ namespace Game.Enemy.Parts.Attacker.Impl
             }
             else
             {
-                var delayBetweenAttacks = _projectileEnemyParameters.DelayBetweenAttacks;
+                var delayBetweenAttacks = _projectileEnemyParameters.DelayBetweenShootAttacks;
                 Observable.Timer(TimeSpan.FromSeconds(delayBetweenAttacks)).Subscribe(_ => IsCanShoot = true)
                     .AddTo(_aliveDisposable);
             }

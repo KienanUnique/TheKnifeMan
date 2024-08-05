@@ -23,7 +23,9 @@ namespace Game.Enemy.Controller.Impl
         private IEnemyMeleeAttacker _attackerPart;
 
         private EDirection2D _attackDirection;
+        private bool _isCanMeleeAttack;
 
+        public bool IsCanMeleeAttack => _attackerPart.IsCanMeleeAttack;
         protected override MeleeEnemyData Data => data;
         protected override IEnemyCharacterPartBase CharacterPart => _characterPart;
         protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
