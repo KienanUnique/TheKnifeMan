@@ -4,6 +4,7 @@ using Game.Enemy.Data;
 using Game.Object.Part;
 using Game.Projectile;
 using Game.Projectile.Factory;
+using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Game.Enemy.Parts.Attacker.Impl
         private CompositeDisposable _aliveDisposable;
         private IProjectilesSender _sender;
 
-        private int leftCountOfShoots;
+        private int _leftCountOfShoots;
 
         public bool IsCanShoot { get; private set; }
 
@@ -42,7 +43,7 @@ namespace Game.Enemy.Parts.Attacker.Impl
         public void Enable()
         {
             _aliveDisposable = new CompositeDisposable();
-            leftCountOfShoots = _projectileEnemyParameters.CountOfAttacksInClip;
+            _leftCountOfShoots = _projectileEnemyParameters.CountOfAttacksInClip;
             IsCanShoot = true;
         }
 
@@ -51,30 +52,37 @@ namespace Game.Enemy.Parts.Attacker.Impl
             _aliveDisposable?.Dispose();
         }
 
-        public void AttackWithProjectile(Vector2 attackDirection)
+        public void AttackWithProjectile(Vector2 direction, EDirection1D direction1D)
         {
-            var rotation = Quaternion.FromToRotation(Vector2.left, attackDirection);
-            var position = Data.ProjectilesSpawnPoint.position;
+            var rotation = Quaternion.FromToRotation(Vector2.left, direction);
+
+            var position = direction1D switch
+            {
+                EDirection1D.Left => Data.ProjectilesSpawnPointLeft.position,
+                EDirection1D.Right => Data.ProjectilesSpawnPointRight.position,
+                _ => throw new ArgumentOutOfRangeException(nameof(direction1D), direction1D, null)
+            };
+
             _projectilesFactory.Create(_projectileEnemyParameters.Pattern, _projectileEnemyParameters.Type, _sender,
                 position, rotation);
 
-            leftCountOfShoots--;
+            _leftCountOfShoots--;
             
             IsCanShoot = false;
 
-            if (leftCountOfShoots <= 0)
+            if (_leftCountOfShoots <= 0)
             {
                 var reloadDurationSeconds = _projectileEnemyParameters.ReloadDurationSeconds;
                 Observable.Timer(TimeSpan.FromSeconds(reloadDurationSeconds)).Subscribe(_ =>
                     {
                         IsCanShoot = true;
-                        leftCountOfShoots = _projectileEnemyParameters.CountOfAttacksInClip;
+                        _leftCountOfShoots = _projectileEnemyParameters.CountOfAttacksInClip;
                     })
                     .AddTo(_aliveDisposable);
             }
             else
             {
-                var delayBetweenAttacks = _projectileEnemyParameters.DelayBetweenAttacks;
+                var delayBetweenAttacks = _projectileEnemyParameters.DelayBetweenShootAttacks;
                 Observable.Timer(TimeSpan.FromSeconds(delayBetweenAttacks)).Subscribe(_ => IsCanShoot = true)
                     .AddTo(_aliveDisposable);
             }

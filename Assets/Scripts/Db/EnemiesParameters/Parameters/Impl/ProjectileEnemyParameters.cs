@@ -17,7 +17,7 @@ namespace Db.EnemiesParameters.Parameters.Impl
 
         public float ReloadDurationSeconds => reloadDurationSeconds;
         public int CountOfAttacksInClip => countOfAttacksInClip;
-        public float DelayBetweenAttacks => delayBetweenAttacks;
+        public float DelayBetweenShootAttacks => delayBetweenAttacks;
         public IProjectilesPattern Pattern => pattern;
         public IProjectileType Type => type;
     }

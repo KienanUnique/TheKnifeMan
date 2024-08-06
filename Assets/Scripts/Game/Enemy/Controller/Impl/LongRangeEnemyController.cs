@@ -6,8 +6,7 @@ using Game.Enemy.Parts.Character;
 using Game.Enemy.Parts.LookDirection;
 using Game.Enemy.Parts.Visual;
 using Game.Projectile;
-using Game.Projectile.Pattern;
-using Game.Projectile.TypeData;
+using Game.Utils.Directions;
 using UniRx;
 using UnityEngine;
 using Utils.Sounds;
@@ -24,28 +23,35 @@ namespace Game.Enemy.Controller.Impl
         private IProjectileEnemyAttackDirectionPart _attackDirectionPart;
         private IEnemyLookDirectionPart _lookDirectionPart;
         private IEnemyProjectileAttacker _projectileAttacker;
+        private Vector2 _attackDirection;
+        private EDirection1D _attackDirection1D;
 
+        public int InstanceId => GetInstanceID();
+        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
+        
         protected override LongRangeEnemyData Data => data;
         protected override IEnemyCharacterPartBase CharacterPart => _characterPart;
         protected override IEnemyVisualPartBase EnemyVisualPart => _visualPart;
         protected override IAnimatorStatusCheckerPart AnimatorStatusCheckerPart => _animatorStatusCheckerPart;
         protected override IEnemyLookDirectionPart LookDirectionPart => _lookDirectionPart;
 
-        public int InstanceId => GetInstanceID();
-        public bool IsCanShoot => _projectileAttacker.IsCanShoot;
-
         public override void HandleEnable(Vector3 position)
         {
             base.HandleEnable(position);
-            _attackDirectionPart.AttackDirection.Subscribe(OnAttackDirection).AddTo(AliveDisposables);
+            Data.AttackTrigger.AttackFramePlayed.Subscribe(_ => OnAttackFramePlayed()).AddTo(AliveDisposables);
+        }
+
+        private void OnAttackFramePlayed()
+        {
+            _projectileAttacker.AttackWithProjectile(_attackDirection, _attackDirection1D);
+            GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
         }
 
         public void AttackWithProjectile()
         {
-            var attackDirection = _attackDirectionPart.AttackDirection.Value;
-            _projectileAttacker.AttackWithProjectile(attackDirection);
-            _visualPart.PlayAttackAnimation(attackDirection);
-            GameSoundFxService.Play(EGameSoundFxType.EnemyShoot, transform);
+            (_attackDirection, _attackDirection1D) = _attackDirectionPart.CalculateAttackDirection1D();
+
+            _visualPart.PlayAttackAnimation(_attackDirection1D);
         }
         
         public bool Equals(IProjectilesSender other)
@@ -61,11 +67,6 @@ namespace Game.Enemy.Controller.Impl
             _lookDirectionPart = Resolve<IEnemyLookDirectionPart>();
             _attackDirectionPart = Resolve<IProjectileEnemyAttackDirectionPart>();
             _projectileAttacker = Resolve<IEnemyProjectileAttacker>();
-        }
-        
-        private void OnAttackDirection(Vector2 attackDirection)
-        {
-            _visualPart.RotateHandsTowardsAttackDirection(attackDirection);
         }
     }
 }

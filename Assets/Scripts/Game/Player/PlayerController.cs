@@ -1,4 +1,5 @@
-﻿using Db.Player;
+﻿using System;
+using Db.Player;
 using Game.Character.Parts.AnimatorStatus;
 using Game.Interfaces;
 using Game.Object;
@@ -42,6 +43,7 @@ namespace Game.Player
         public Transform Transform => transform;
         public IReactiveProperty<int> Health => _characterPart.Health;
         public IReactiveProperty<bool> IsDead => _characterPart.IsDead;
+        public IObservable<Unit> EnemyDamaged => _attackPart.EnemyDamaged;
 
         protected override PlayerData Data => data;
 

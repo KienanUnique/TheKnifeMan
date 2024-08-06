@@ -596,7 +596,13 @@ MonoBehaviour:
   openAnimation: {fileID: 3097510369721479071}
   closeAnimation: {fileID: 3097510369721479071}
   cellsContainer: {fileID: 6990306798733373399}
+  rootContainer: {fileID: 4280721250450677834}
   cellHideAnimationDuration: 1
+  shakeAnimationDuration: 1
+  shakeAnimationStrength: {x: 0, y: 0, z: 10}
+  shakeAnimationVibrato: 10
+  shakeAnimationRandomness: 90
+  shakeAnimationRandomnessMode: 0
   healthCellPrefab: {fileID: 631485213251537570, guid: 21b5cd47860517d4b9a826cf780c9399, type: 3}
 --- !u!225 &3570937282477263859
 CanvasGroup:

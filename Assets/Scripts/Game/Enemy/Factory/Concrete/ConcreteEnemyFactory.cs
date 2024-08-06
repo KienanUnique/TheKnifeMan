@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Db.EnemiesParameters.TypeData;
 using Db.EnemyFactory;
-using Db.EnemySpawnFx;
 using Game.Enemy.PartsFactory.Impl;
 using Game.Object.PartsFactory;
 using Game.Services.SpawnEffects.SpawnEffects;
@@ -117,6 +116,7 @@ namespace Game.Enemy.Factory.Concrete
             {
                 EEnemyType.Melee => _diContainer.Instantiate<MeleeEnemyPartsFactory>(),
                 EEnemyType.LongRange => _diContainer.Instantiate<LongRangeEnemyPartsFactory>(),
+                EEnemyType.Universal => _diContainer.Instantiate<UniversalEnemyPartsFactory>(),
                 _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
             };
         }
