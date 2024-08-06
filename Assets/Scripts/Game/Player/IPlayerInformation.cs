@@ -1,3 +1,4 @@
+using System;
 using UniRx;
 using UnityEngine;
 
@@ -9,5 +10,6 @@ namespace Game.Player
         Transform Transform { get; }
         IReactiveProperty<int> Health { get; }
         IReactiveProperty<bool> IsDead { get; }
+        IObservable<Unit> EnemyDamaged { get; }
     }
 }
