@@ -20,10 +20,12 @@ namespace Game.Player.Parts.Attack.Impl
         private readonly ILayerMasksParameters _layerMasksParameters;
 
         private readonly ReactiveCommand _onAttack = new();
+        private readonly ReactiveCommand _enemyDamaged = new();
         private readonly CompositeDisposable _compositeDisposable = new();
         private readonly Collider2D[] _overlapResult = new Collider2D[MaxOverlapCount];
 
         public IObservable<Unit> Attack => _onAttack;
+        public IObservable<Unit> EnemyDamaged => _enemyDamaged;
 
         public PlayerAttackPart(
             IInputService inputService,
@@ -73,7 +75,11 @@ namespace Game.Player.Parts.Attack.Impl
             }
 
             var damage = _playerParameters.Damage;
-            foreach (var target in foundedTargets) target.HandleDamage(damage);
+            foreach (var target in foundedTargets) 
+                target.HandleDamage(damage);
+
+            if (foundedTargets.Count > 0)
+                _enemyDamaged.Execute();
         }
 
         private void OnAttackPressed()
