@@ -708,7 +708,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Burst_20
+      name: Burst_29
       rect:
         serializedVersion: 2
         x: 109
@@ -773,7 +773,6 @@ TextureImporter:
       Burst_18: -2136260950
       Burst_19: -1561312154
       Burst_2: 2068320464
-      Burst_20: 845222578
       Burst_21: 369666249
       Burst_22: -2106337517
       Burst_23: -485156332
@@ -781,8 +780,7 @@ TextureImporter:
       Burst_25: 215041519
       Burst_26: 486493273
       Burst_27: 202121851
-      Burst_28: -396323263
-      Burst_29: -1640399206
+      Burst_29: 845222578
       Burst_3: -362102049
       Burst_4: -1899208036
       Burst_5: -29351638

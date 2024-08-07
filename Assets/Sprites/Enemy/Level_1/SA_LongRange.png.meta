@@ -246,7 +246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_5
+      name: 5
       rect:
         serializedVersion: 2
         x: 2
@@ -267,7 +267,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_7
+      name: 6
       rect:
         serializedVersion: 2
         x: 22
@@ -288,7 +288,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_9
+      name: 7
       rect:
         serializedVersion: 2
         x: 42
@@ -309,7 +309,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_11
+      name: 8
       rect:
         serializedVersion: 2
         x: 62
@@ -330,7 +330,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_13
+      name: 10
       rect:
         serializedVersion: 2
         x: 2
@@ -351,7 +351,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_14
+      name: 11
       rect:
         serializedVersion: 2
         x: 22
@@ -372,7 +372,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_16
+      name: 12
       rect:
         serializedVersion: 2
         x: 42
@@ -393,7 +393,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_18
+      name: 13
       rect:
         serializedVersion: 2
         x: 62
@@ -414,7 +414,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_20
+      name: 14
       rect:
         serializedVersion: 2
         x: 82
@@ -435,7 +435,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_22
+      name: 15
       rect:
         serializedVersion: 2
         x: 102
@@ -456,7 +456,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_24
+      name: 17
       rect:
         serializedVersion: 2
         x: 2
@@ -477,7 +477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_26
+      name: 18
       rect:
         serializedVersion: 2
         x: 22
@@ -498,7 +498,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_28
+      name: 19
       rect:
         serializedVersion: 2
         x: 42
@@ -561,7 +561,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_32
+      name: 21
       rect:
         serializedVersion: 2
         x: 2
@@ -582,7 +582,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_34
+      name: 22
       rect:
         serializedVersion: 2
         x: 23
@@ -603,7 +603,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_36
+      name: 23
       rect:
         serializedVersion: 2
         x: 43
@@ -624,7 +624,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_37
+      name: 25
       rect:
         serializedVersion: 2
         x: 81
@@ -645,7 +645,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_2
+      name: 26
       rect:
         serializedVersion: 2
         x: 101
@@ -653,7 +653,7 @@ TextureImporter:
         width: 19
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,7 +666,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongRange_6
+      name: 24
       rect:
         serializedVersion: 2
         x: 60
@@ -674,7 +674,7 @@ TextureImporter:
         width: 20
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -697,46 +697,46 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      10: 1619342025
+      11: 1055274920
+      12: -293931231
+      13: 143010707
+      14: -1856460760
+      15: -98932048
+      17: 1002136500
+      18: 1689982590
+      19: -678859400
+      21: -1394567793
+      22: -733471909
+      23: 466141142
+      24: 2081868889
+      25: 1813981507
+      26: 403853175
+      5: -131089726
+      6: 2119663136
+      7: 1696836172
+      8: 1931249721
       LongRange_0: -527659194
       LongRange_1: 185253604
       LongRange_10: 2029965752
-      LongRange_11: 1931249721
       LongRange_12: -534249281
-      LongRange_13: 1619342025
-      LongRange_14: 1055274920
       LongRange_15: 516903387
-      LongRange_16: -293931231
       LongRange_17: -1239401443
-      LongRange_18: 143010707
       LongRange_19: -958690733
-      LongRange_2: 403853175
-      LongRange_20: -1856460760
       LongRange_21: 504177924
-      LongRange_22: -98932048
       LongRange_23: -1526115301
-      LongRange_24: 1002136500
       LongRange_25: -1866061941
-      LongRange_26: 1689982590
       LongRange_27: -599346070
-      LongRange_28: -678859400
       LongRange_29: -1867844212
       LongRange_3: 260385624
       LongRange_30: -1099465009
       LongRange_31: 419013695
-      LongRange_32: -1394567793
       LongRange_33: 534190333
-      LongRange_34: -733471909
       LongRange_35: 941543396
-      LongRange_36: 466141142
-      LongRange_37: 1813981507
       LongRange_38: -1896097383
       LongRange_39: -1743486315
       LongRange_4: -750340166
-      LongRange_5: -131089726
-      LongRange_6: 2081868889
-      LongRange_7: 2119663136
       LongRange_8: 1014620766
-      LongRange_9: 1696836172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

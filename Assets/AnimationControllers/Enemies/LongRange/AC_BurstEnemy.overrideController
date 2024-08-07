@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AC_BurstEnemy
+  m_Controller: {fileID: 9100000, guid: 78b473b0932d6b141a77af8955bbfdaa, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 52b9179dbdc76df458e9dec201ece760, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f45783d6e99fe8f4da5ff6ed76b07cea, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9fdfa47cde14cf944bc74f494d2d1d55, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9fdfa47cde14cf944bc74f494d2d1d55, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c5155b0c12d1ee24096d4f5271c15e88, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c5155b0c12d1ee24096d4f5271c15e88, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ae76ed26f43ecdb499ea12264c97e9a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ae76ed26f43ecdb499ea12264c97e9a5, type: 2}
