@@ -1,5 +1,6 @@
 ﻿using Game.Ui.GameplayWindow;
 using Game.Ui.LoseWindow;
+using Game.Ui.PauseWindow;
 using Game.Ui.WinWindow;
 using KoboldUi.Utils;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Game.Installers
     {
         [SerializeField] private Canvas canvas;
         [SerializeField] private GameplayWindow gameplayWindow;
+        [SerializeField] private PauseWindow pauseWindow;
         [SerializeField] private LoseWindow loseWindow;
         [SerializeField] private WinWindow winWindow;
 
@@ -23,6 +25,7 @@ namespace Game.Installers
             Container.BindWindowFromPrefab(canvasInstance, gameplayWindow);
             Container.BindWindowFromPrefab(canvasInstance, loseWindow);
             Container.BindWindowFromPrefab(canvasInstance, winWindow);
+            Container.BindWindowFromPrefab(canvasInstance, pauseWindow);
         }
     }
 }

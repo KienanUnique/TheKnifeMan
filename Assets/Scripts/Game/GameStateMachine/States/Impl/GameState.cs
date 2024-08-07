@@ -51,11 +51,10 @@ namespace Game.GameStateMachine.States.Impl
 
         protected override void HandleEnter()
         {
-            _nextWaveIndex = 0;
-
             _playerInformation.IsDead.Subscribe(OnIsDead).AddTo(ActiveDisposable);
             _scoreService.NeedScoreAchieved.Subscribe(_ => OnNeedScoreAchieved()).AddTo(ActiveDisposable);
             _waveTimerService.OnTimerEnd.Subscribe(_ => StartNewWave()).AddTo(ActiveDisposable);
+            _inputService.PausePressed.Subscribe(_ => OnPauseButtonPressed()).AddTo(ActiveDisposable);
 
             StartNewWave();
             
@@ -67,16 +66,12 @@ namespace Game.GameStateMachine.States.Impl
         protected override void HandleExit()
         {
             ActiveDisposable?.Dispose();
-            
-            _spawnService.ForceStopSpawning();
-            foreach (var gameStateListener in _gameStateListeners)
-            {
-                gameStateListener.OnGameEnd();
-            }
         }
 
+        private void OnPauseButtonPressed() => GameStateMachine.Enter<PauseState>();
         private void OnNeedScoreAchieved()
         {
+            StopSpawnersAndEnemiesLogic();
             GameStateMachine.Enter<WinState>();
         }
 
@@ -85,6 +80,7 @@ namespace Game.GameStateMachine.States.Impl
             if (!isDead)
                 return;
 
+            StopSpawnersAndEnemiesLogic();
             GameStateMachine.Enter<LoseState>();
         }
 
@@ -100,6 +96,15 @@ namespace Game.GameStateMachine.States.Impl
             _waveTimerService.StartTimer(wave);
 
             _nextWaveIndex++;
+        }
+
+        private void StopSpawnersAndEnemiesLogic()
+        {
+            _spawnService.ForceStopSpawning();
+            foreach (var gameStateListener in _gameStateListeners)
+            {
+                gameStateListener.OnGameEnd();
+            }
         }
     }
 }

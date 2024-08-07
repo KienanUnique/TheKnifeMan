@@ -34,6 +34,7 @@ namespace Game.GameStateMachine.Impl
             AddState<GameState>();
             AddState<WinState>();
             AddState<LoseState>();
+            AddState<PauseState>();
 
             Enter<StartState>();
         }
