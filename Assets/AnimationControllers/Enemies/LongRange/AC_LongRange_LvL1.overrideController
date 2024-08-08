@@ -8,4 +8,12 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: AC_LongRange_LvL1
   m_Controller: {fileID: 9100000, guid: 78b473b0932d6b141a77af8955bbfdaa, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 52b9179dbdc76df458e9dec201ece760, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c6a1d520e7469d84c9af068563db336c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9fdfa47cde14cf944bc74f494d2d1d55, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 696ec25030fcfce40b086e4e1deda1fd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ae76ed26f43ecdb499ea12264c97e9a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f4e2bb4cb1776b24aa3fbdffb8ad1a88, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c5155b0c12d1ee24096d4f5271c15e88, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 862dbf2329a9e69428bac897bc54640d, type: 2}

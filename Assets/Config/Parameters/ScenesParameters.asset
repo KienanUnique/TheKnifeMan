@@ -15,3 +15,5 @@ MonoBehaviour:
   mainMenuSceneName: MainMenu
   levels:
   - {fileID: 11400000, guid: 462dbbc81e6bd874daaa84b09c6eb81f, type: 2}
+  - {fileID: 11400000, guid: fc742fad8c956444f8ddb0e9216ea18c, type: 2}
+  - {fileID: 11400000, guid: 0971a646331bb75459d4e3a1c315d082, type: 2}

@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1281227587, guid: c4d1d54d9bd086c4fabb3938b9045f9c, type: 3}
+  m_Sprite: {fileID: 176515887, guid: f110ed23bebce974b9be2cbfed51bc33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -129,7 +129,7 @@ Animator:
   m_GameObject: {fileID: 2837537660762002831}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: ad86ace0d402fbe4e8f29cfde127fbf8, type: 2}
+  m_Controller: {fileID: 22100000, guid: 014ef34d60f59474ea43fb23e51dc2a5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 8746813466028206660}
   - component: {fileID: 7446464241193443202}
   - component: {fileID: 3605866019190661037}
-  - component: {fileID: 614376625546068765}
+  - component: {fileID: 8512428617052640921}
   m_Layer: 7
   m_Name: P_Enemy_Melee_LvL2
   m_TagString: Untagged
@@ -640,7 +640,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84038544, y: 1.2967505}
   m_EdgeRadius: 0
---- !u!114 &614376625546068765
+--- !u!114 &8512428617052640921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -649,19 +649,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8377098691189109644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02de7c6751a45faa34e9a6a11eb95d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0eb7737c13ce4d04996960109767876b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    rootTransform: {fileID: 7120350954458416777}
-    animator: {fileID: 4008327160846171922}
-    mainSprite: {fileID: 2174706623221251543}
-    animatorAttackTrigger: {fileID: 7465630422814646571}
-    behaviourTree: {fileID: 8746813466028206660}
-    navMeshAgent: {fileID: 7446464241193443202}
-    damageColliderUp: {fileID: 8276442503384724030}
-    damageColliderDown: {fileID: 161713836386979922}
-    damageColliderLeft: {fileID: 7322506220119507986}
-    damageColliderRight: {fileID: 2912488641061921876}
-    projectilesSpawnPointLeft: {fileID: 0}
-    projectilesSpawnPointRight: {fileID: 0}
+    rootTransform: {fileID: 0}
+    animator: {fileID: 0}
+    mainSprite: {fileID: 0}
+    animatorAttackTrigger: {fileID: 0}
+    behaviourTree: {fileID: 0}
+    navMeshAgent: {fileID: 0}
+    damageColliderUp: {fileID: 0}
+    damageColliderDown: {fileID: 0}
+    damageColliderLeft: {fileID: 0}
+    damageColliderRight: {fileID: 0}

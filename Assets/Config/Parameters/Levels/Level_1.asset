@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57541d541d4bc2b2292cc3f28e5043, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  levelName: SampleScene
+  levelName: Level_1
   wavesParameters:
     wavesInfo:
     - enemies:
-      - enemy: {fileID: 11400000, guid: 1cdd56a9ff722904e89a1a8e34fe0c6d, type: 2}
-        count: 1
-      - enemy: {fileID: 11400000, guid: 19c65117ccfdf354aa341320cd4acc53, type: 2}
-        count: 1
       - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
+        count: 10
+      - enemy: {fileID: 11400000, guid: 41b132122a20b4b448a38dc780c58ad5, type: 2}
+        count: 5
+      - enemy: {fileID: 11400000, guid: dfbe34ecc79bc094f89169d4639d130d, type: 2}
         count: 5
       delayBeforeSpawnSeconds: 2
   targetScore: 200

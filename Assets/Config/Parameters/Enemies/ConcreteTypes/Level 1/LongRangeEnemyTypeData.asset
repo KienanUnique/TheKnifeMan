@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1286353c2d45e99c8dae411b56426b, type: 3}
+  m_Name: LongRangeEnemyTypeData
+  m_EditorClassIdentifier: 
+  startPoolCount: 4
+  parameters:
+    health: 1
+    acceleration: 5
+    maxSpeed: 5
+    animatorMovingVelocityThreshold: 0.1
+    pointsForKill: 15
+    reloadDurationSeconds: 5
+    countOfAttacksInClip: 3
+    delayBetweenAttacks: 2
+    pattern: {fileID: 11400000, guid: 890492a2396676246812f5972cdf8275, type: 2}
+    type: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
+  prefab: {fileID: 5443585650099049973, guid: b6dad5eeb2c66b747a04f15f99765a61, type: 3}
