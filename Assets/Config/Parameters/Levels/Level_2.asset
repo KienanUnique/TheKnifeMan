@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57541d541d4bc2b2292cc3f28e5043, type: 3}
   m_Name: Level_2
   m_EditorClassIdentifier: 
-  levelName: Level _2
+  levelName: Level_2
   wavesParameters:
     wavesInfo:
     - enemies:
