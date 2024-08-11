@@ -11,7 +11,6 @@ using Services.Input;
 using Services.Level;
 using Services.Settings;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Game.GameStateMachine.States.Impl
@@ -124,7 +123,6 @@ namespace Game.GameStateMachine.States.Impl
             if (allWaves.Count <= _nextWaveIndex)
                 return;
             
-            Debug.Log($"@@@ _settingsStorageService.IsEasyModeEnabled.Value: {_settingsStorageService.IsEasyModeEnabled.Value} ");
             if(_settingsStorageService.IsEasyModeEnabled.Value)
                 _player.ResetHealth();
 
