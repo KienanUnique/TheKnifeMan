@@ -13,6 +13,7 @@ namespace Services.Input
         IObservable<Unit> CloseWindowPressed { get; }
         IObservable<Unit> AttackPressed { get; }
         IObservable<Unit> AnyKeyPressed { get; }
+        IObservable<Unit> RestartLevelPressed { get; }
 
         void SwitchToUiInput();
         void SwitchToGameInput();

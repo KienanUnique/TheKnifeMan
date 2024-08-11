@@ -15,6 +15,7 @@ namespace Services.Input.Impl
         private readonly MainControls _controls = new();
         private readonly ReactiveCommand _attackPressed = new();
         private readonly ReactiveCommand _anyKeyPressed = new();
+        private readonly ReactiveCommand _restartLevelPressed = new();
         private readonly ReactiveCommand _closeWindowPressed = new();
 
         public Vector2 NeedDirection => _controls.Gameplay.Movement.ReadValue<Vector2>();
@@ -25,6 +26,7 @@ namespace Services.Input.Impl
         public IObservable<Unit> CloseWindowPressed => _closeWindowPressed;
         public IObservable<Unit> AttackPressed => _attackPressed;
         public IObservable<Unit> AnyKeyPressed => _anyKeyPressed;
+        public IObservable<Unit> RestartLevelPressed => _restartLevelPressed;
 
         public void Initialize()
         {
@@ -76,6 +78,7 @@ namespace Services.Input.Impl
             _controls.Gameplay.Dash.started += OnDashStarted;
             _controls.Gameplay.Dash.canceled += OnDashCanceled;
             _controls.Gameplay.Pause.performed += OnPausePerformed;
+            _controls.Gameplay.Restart.performed += OnRestartLevelPressed;
         }
 
         private void UnsubscribeOnGameplayEvents()
@@ -84,6 +87,7 @@ namespace Services.Input.Impl
             _controls.Gameplay.Dash.started -= OnDashStarted;
             _controls.Gameplay.Dash.canceled -= OnDashCanceled;
             _controls.Gameplay.Pause.performed -= OnPausePerformed;
+            _controls.Gameplay.Restart.performed -= OnRestartLevelPressed;
         }
 
         private void OnPausePerformed(InputAction.CallbackContext obj)
@@ -104,6 +108,11 @@ namespace Services.Input.Impl
         private void OnDashCanceled(InputAction.CallbackContext obj)
         {
             _isDashPressed.Value = false;
+        }
+        
+        private void OnRestartLevelPressed(InputAction.CallbackContext obj)
+        {
+            _restartLevelPressed.Execute();
         }
 
         #endregion
