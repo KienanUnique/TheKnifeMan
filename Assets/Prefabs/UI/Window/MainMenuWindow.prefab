@@ -228,6 +228,7 @@ MonoBehaviour:
   openAnimation: {fileID: 7583636201722806622}
   closeAnimation: {fileID: 7583636201722806622}
   speed: 125
+  durationSeconds: 123
   text: 'He was a man, but a series of events turned him into a weapon doctor Knifemanmaker
     made him a knife, and he went to take revenge! He went to take revenge on them
     for the sake of all the people and all the knives that the evil Zazi had done
@@ -394,7 +395,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 50}
+  m_SizeDelta: {x: 14029.68, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1133014204777983315
 GameObject:
@@ -1795,7 +1796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5514123626974596318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
@@ -2631,7 +2632,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 0}
+  m_SizeDelta: {x: 14029.68, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &981144907468679163
 CanvasRenderer:
@@ -2661,7 +2662,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: _rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform_rectTransform
+  m_text: 'He was a man, but a series of events turned him into a weapon doctor Knifemanmaker
+    made him a knife, and he went to take revenge! He went to take revenge on them
+    for the sake of all the people and all the knives that the evil Zazi had done
+    their brutal experiments on. But first, before leaving the lab and killing all
+    the Zazi in the knife department, Knifeman discovered a hundred other departments:
+    the Microwave Department, the Katana Department, the Chainsaw Department, the
+    Ship Department, the Airplane Department, the Rhinoceros Beetle Department from
+    Malaysia and many others, he realized that the Zazis had gone completely fucking
+    nuts, and it was time to beat them up mercilessly'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cac43bf257efdce48a80f4818045331d, type: 2}
   m_sharedMaterial: {fileID: 6869504812801133101, guid: cac43bf257efdce48a80f4818045331d, type: 2}
