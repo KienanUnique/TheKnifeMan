@@ -45,6 +45,8 @@ namespace Services.Sound.Impl
 
             _settingsStorageService.MusicVolume.Subscribe(OnMusicVolume).AddTo(_compositeDisposable);
             _settingsStorageService.IsMusicEnabled.Subscribe(OnIsMusicEnabled).AddTo(_compositeDisposable);
+
+            OnMusicVolume(_settingsStorageService.MusicVolume.Value);
         }
 
         public void Dispose()
@@ -98,7 +100,7 @@ namespace Services.Sound.Impl
                 ResetPlaylist();
             }
             
-            var nextTrackIndex = Random.Range(0, _availableMusic.Count - 1);
+            var nextTrackIndex = Random.Range(0, _availableMusic.Count);
             var nextTrackVo = _availableMusic[nextTrackIndex];
             _availableMusic.RemoveAt(nextTrackIndex);
 

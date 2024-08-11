@@ -10,8 +10,10 @@ namespace Services.Input
         Vector2 MousePosition { get; }
         IReactiveProperty<bool> IsDashPressed { get; }
         IObservable<Unit> PausePressed { get; }
+        IObservable<Unit> CloseWindowPressed { get; }
         IObservable<Unit> AttackPressed { get; }
         IObservable<Unit> AnyKeyPressed { get; }
+        IObservable<Unit> RestartLevelPressed { get; }
 
         void SwitchToUiInput();
         void SwitchToGameInput();

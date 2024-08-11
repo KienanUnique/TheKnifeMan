@@ -30,11 +30,6 @@ namespace Installers.Project
             Container.BindInterfacesTo<PostProcessingController>()
                 .FromComponentInNewPrefab(processingController)
                 .AsSingle()
-                .OnInstantiated((_, o) =>
-                {
-                    var component = o as Component;
-                    DontDestroyOnLoad(component.gameObject);
-                })
                 .NonLazy();
         }
         

@@ -17,6 +17,7 @@ namespace Game.Ui.GameplayWindow.Health
         private readonly IPlayerParameters _playerParameters;
 
         private readonly Stack<HealthCell> _activeHealthCells = new();
+        private readonly Stack<HealthCell> _inactiveHealthCells = new();
         
         private IDisposable _healthChangeDisposable;
         private Tween _shakeTween;
@@ -61,6 +62,14 @@ namespace Game.Ui.GameplayWindow.Health
             {
                 var healthCell = _activeHealthCells.Pop();
                 UnFillCell(healthCell);
+                _inactiveHealthCells.Push(healthCell);
+            }
+            
+            while (_activeHealthCells.Count < newHealth)
+            {
+                var healthCell = _inactiveHealthCells.Pop();
+                FillCell(healthCell);
+                _activeHealthCells.Push(healthCell);
             }
             
             _shakeTween?.Kill(true);
@@ -83,7 +92,12 @@ namespace Game.Ui.GameplayWindow.Health
 
         private void UnFillCell(HealthCell healthCell)
         {
-            healthCell.filledCell.DOFade(InvisibleAlpha, View.cellHideAnimationDuration).SetLink(View.gameObject);
+            healthCell.filledCell.DOFade(InvisibleAlpha, View.cellAnimationDuration).SetLink(View.gameObject);
+        }
+        
+        private void FillCell(HealthCell healthCell)
+        {
+            healthCell.filledCell.DOFade(VisibleAlpha, View.cellAnimationDuration).SetLink(View.gameObject);
         }
     }
 }

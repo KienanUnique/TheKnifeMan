@@ -29,6 +29,8 @@ namespace Game.Ui.Parts.Sounds
             
             View.musicVolume.value = _settingsStorageService.MusicVolume.Value;
             View.soundVolume.value = _settingsStorageService.SoundsVolume.Value;
+
+            View.easyModeToggle.isOn = _settingsStorageService.IsEasyModeEnabled.Value;
             
             View.playTestSound.OnClickAsObservable().Subscribe(_ => OnPlayTestSound()).AddTo(View);
             
@@ -37,18 +39,21 @@ namespace Game.Ui.Parts.Sounds
             
             View.soundToggle.OnValueChangedAsObservable().Subscribe(OnSoundToggleValueChanged).AddTo(View);
             View.soundVolume.OnValueChangedAsObservable().Subscribe(OnSoundVolumeChanged).AddTo(View);
+            
+            View.easyModeToggle.OnValueChangedAsObservable().Subscribe(OnEasyModeToggleValueChanged).AddTo(View);
         }
 
         private void OnMusicVolumeChanged(float volume)
         {
             _settingsStorageService.SetMusicVolume(volume);
         }
+        
         private void OnMusicToggleValueChanged(bool isOn)
         {
             _settingsStorageService.SetIsMusicEnabled(isOn);
             View.musicVolume.interactable = isOn;
         }
-        
+
         private void OnSoundToggleValueChanged(bool isOn)
         {
             _settingsStorageService.SetIsSoundsEnabled(isOn);
@@ -73,6 +78,11 @@ namespace Game.Ui.Parts.Sounds
                 View.playTestSound.interactable = true;
                 _isWaitingTestSoundEnd = false;
             });
+        }
+        
+        private void OnEasyModeToggleValueChanged(bool isOn)
+        {
+            _settingsStorageService.SetIsEasyModeEnabled(isOn);
         }
     }
 }

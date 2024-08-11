@@ -1,12 +1,11 @@
-﻿using System;
-using UniRx;
+﻿using UniRx;
 
 namespace Game.Services.Score
 {
     public interface IScoreService
     {
         IReactiveProperty<int> CurrentScore { get; }
-        IObservable<Unit> NeedScoreAchieved { get; }
+        IReactiveProperty<bool> NeedScoreAchieved { get; }
         int NeedScore { get; }
         
         void IncreaseScore(int pointsToAdd);

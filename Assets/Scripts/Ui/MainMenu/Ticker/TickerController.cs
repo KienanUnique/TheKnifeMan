@@ -7,7 +7,7 @@ namespace Ui.MainMenu.Ticker
 {
     public class TickerController : AUiController<TickerView>
     {
-        private IDisposable _updateDisposable;
+        private CompositeDisposable _compositeDisposable;
         
         private float _textFieldWith;
 
@@ -19,31 +19,28 @@ namespace Ui.MainMenu.Ticker
             _textFieldWith = containerRect.width;
             
             ResetTextPosition();
-
-            _updateDisposable?.Dispose();
-            _updateDisposable = Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(View);
+            
+            _compositeDisposable?.Dispose();
+            
+            _compositeDisposable = new CompositeDisposable();
+            Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_compositeDisposable, View);
+            Observable.Interval(TimeSpan.FromSeconds(View.durationSeconds)).Subscribe(_ => ResetTextPosition())
+                .AddTo(_compositeDisposable, View);
         }
 
         protected override void OnClose()
         {
-            _updateDisposable?.Dispose();
+            _compositeDisposable?.Dispose();
         }
 
         private void OnUpdate()
         {
-            if (View.container.anchoredPosition.x < -_textFieldWith)
-            {
-                ResetTextPosition();
-            }
-            else
-            {
-                View.container.anchoredPosition += Vector2.left * View.speed * Time.deltaTime;
-            }
+            View.container.anchoredPosition += Vector2.left * View.speed * Time.deltaTime;
         }
 
         private void ResetTextPosition()
         {
-            View.container.anchoredPosition = new Vector2(_textFieldWith, View.container.anchoredPosition.y);
+            View.container.anchoredPosition = new Vector2(_textFieldWith / 2, View.container.anchoredPosition.y);
         }
     }
 }

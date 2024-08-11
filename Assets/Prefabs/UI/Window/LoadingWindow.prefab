@@ -337,6 +337,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openAnimation: {fileID: 4112830375917570823}
   closeAnimation: {fileID: 4112830375917570823}
+  backgroundImage: {fileID: 6079691364117290192}
+  images:
+  - {fileID: 21300000, guid: 8c719283320139b4eb47c126064db6e7, type: 3}
+  - {fileID: -2078311341, guid: 0d50c7fe7eaa6964a9dba5fccbb679de, type: 3}
+  - {fileID: 1689066427, guid: 45b4558a51093344f956a538ea332afb, type: 3}
+  - {fileID: 21300000, guid: e7803ae52fb644846bf71a83219c8f4f, type: 3}
 --- !u!225 &4775333819225823542
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -376,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
