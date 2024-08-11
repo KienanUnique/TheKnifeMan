@@ -21,6 +21,11 @@ namespace Game.Player.Parts.Character
         {
             _playerParameters = playerParameters;
         }
+        
+        public override void Initialize()
+        {
+            ResetHealth();
+        }
 
         public void EnableImmortal()
         {
@@ -32,11 +37,10 @@ namespace Game.Player.Parts.Character
             _isImmortal = false;
         }
 
-        public override void Initialize()
+        public void ResetHealth()
         {
             _health.Value = _playerParameters.Health;
         }
-
 
         public override void Dispose()
         {

@@ -1,8 +1,9 @@
 ﻿namespace Db.Sounds
 {
-    public interface IStartAudioVolumeParameters
+    public interface IGameDefaultParameters
     {
         float SoundsVolume { get; }
         float MusicVolume { get; }
+        bool IsEasyModeEnabled { get; }
     }
 }

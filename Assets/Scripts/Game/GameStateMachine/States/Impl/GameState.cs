@@ -9,6 +9,7 @@ using Game.Utils;
 using KoboldUi.Utils;
 using Services.Input;
 using Services.Level;
+using Services.Settings;
 using UniRx;
 using Zenject;
 
@@ -16,7 +17,7 @@ namespace Game.GameStateMachine.States.Impl
 {
     public class GameState : AState
     {
-        private readonly IPlayerInformation _playerInformation;
+        private readonly IPlayerController _player;
         private readonly IScoreService _scoreService;
         private readonly ILevelsService _levelsService;
         private readonly ISpawnService _spawnService;
@@ -24,6 +25,7 @@ namespace Game.GameStateMachine.States.Impl
         private readonly IInputService _inputService;
         private readonly SignalBus _signalBus;
         private readonly IPauseService _pauseService;
+        private readonly ISettingsStorageService _settingsStorageService;
         private readonly List<IGameStateListener> _gameStateListeners;
 
         private int _nextWaveIndex;
@@ -31,7 +33,7 @@ namespace Game.GameStateMachine.States.Impl
         private LevelSceneData CurrentLevelData => _levelsService.CurrentLevelData;
 
         public GameState(
-            IPlayerInformation playerInformation,
+            IPlayerController player,
             IScoreService scoreService,
             ILevelsService levelsService,
             ISpawnService spawnService,
@@ -39,10 +41,11 @@ namespace Game.GameStateMachine.States.Impl
             List<IGameStateListener> gameStateListeners,
             IInputService inputService,
             SignalBus signalBus,
-            IPauseService pauseService
+            IPauseService pauseService,
+            ISettingsStorageService settingsStorageService
         )
         {
-            _playerInformation = playerInformation;
+            _player = player;
             _scoreService = scoreService;
             _levelsService = levelsService;
             _spawnService = spawnService;
@@ -51,19 +54,21 @@ namespace Game.GameStateMachine.States.Impl
             _inputService = inputService;
             _signalBus = signalBus;
             _pauseService = pauseService;
+            _settingsStorageService = settingsStorageService;
         }
 
         protected override void HandleEnter()
         {
-            _playerInformation.IsDead.Subscribe(OnIsDead).AddTo(ActiveDisposable);
+            _player.IsDead.Subscribe(OnIsDead).AddTo(ActiveDisposable);
             _scoreService.NeedScoreAchieved.Subscribe(OnNeedScoreAchieved).AddTo(ActiveDisposable);
             _waveTimerService.OnTimerEnd.Subscribe(_ => StartNewWave()).AddTo(ActiveDisposable);
             _inputService.PausePressed.Subscribe(_ => OnPauseButtonPressed()).AddTo(ActiveDisposable);
             _inputService.RestartLevelPressed.Subscribe(_ => OnRestartLevelPressed()).AddTo(ActiveDisposable);
             _pauseService.IsPaused.Subscribe(OnPause).AddTo(ActiveDisposable);
 
-            StartNewWave();
-            
+            if (!_waveTimerService.IsTimerRunning) 
+                StartNewWave();
+
             _inputService.SwitchToGameInput();
             
             _signalBus.OpenWindow<GameplayWindow>();
@@ -117,13 +122,17 @@ namespace Game.GameStateMachine.States.Impl
             var allWaves = CurrentLevelData.WavesParameters.WavesInfo;
             if (allWaves.Count <= _nextWaveIndex)
                 return;
+            
+            if(_settingsStorageService.IsEasyModeEnabled.Value)
+                _player.ResetHealth();
 
             var wave = allWaves[_nextWaveIndex];
 
             _spawnService.SpawnWave(wave);
-            _waveTimerService.StartTimer(wave);
-
+            
             _nextWaveIndex++;
+            if(allWaves.Count > _nextWaveIndex)
+                _waveTimerService.StartTimer(wave);
         }
 
         private void StopSpawnersAndEnemiesLogic(bool isPlayerWin)

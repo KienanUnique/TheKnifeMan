@@ -18,6 +18,7 @@ namespace Game.Services.Score.Impl
         private readonly CompositeDisposable _compositeDisposable = new();
 
         private float _currentScoreModifier = 1f;
+        private int _lastPlayerHealth;
 
         public IReactiveProperty<int> CurrentScore => _currentScore;
         public IReactiveProperty<bool> NeedScoreAchieved => _needScoreAchieved;
@@ -50,6 +51,7 @@ namespace Game.Services.Score.Impl
 
         private void SubscribePlayerHealth()
         {
+            _lastPlayerHealth = _playerInformation.Health.Value; 
             _playerInformation.Health.Subscribe(OnPlayerHealth).AddTo(_compositeDisposable);
         }
 
@@ -70,7 +72,10 @@ namespace Game.Services.Score.Impl
 
         private void OnPlayerHealth(int newHealthValue)
         {
-            _currentScoreModifier = 1f;
+            if (_lastPlayerHealth > newHealthValue) 
+                _currentScoreModifier = 1f;
+
+            _lastPlayerHealth = newHealthValue;
         }
     }
 }

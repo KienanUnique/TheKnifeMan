@@ -42,7 +42,7 @@ namespace Game.GameStateMachine.States.Impl
             Time.timeScale = 1f;
         }
 
-        private void OnCloseWindowPressed() => _pauseService.EnablePause();
+        private void OnCloseWindowPressed() => _pauseService.DisablePause();
 
         private void OnPause(bool isPaused)
         {
