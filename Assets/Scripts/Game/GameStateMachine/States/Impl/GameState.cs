@@ -26,7 +26,7 @@ namespace Game.GameStateMachine.States.Impl
         private readonly IPauseService _pauseService;
         private readonly List<IGameStateListener> _gameStateListeners;
 
-        private int _nextWaveIndex = 0;
+        private int _nextWaveIndex;
 
         private LevelSceneData CurrentLevelData => _levelsService.CurrentLevelData;
 
@@ -56,7 +56,7 @@ namespace Game.GameStateMachine.States.Impl
         protected override void HandleEnter()
         {
             _playerInformation.IsDead.Subscribe(OnIsDead).AddTo(ActiveDisposable);
-            _scoreService.NeedScoreAchieved.Subscribe(_ => OnNeedScoreAchieved()).AddTo(ActiveDisposable);
+            _scoreService.NeedScoreAchieved.Subscribe(OnNeedScoreAchieved).AddTo(ActiveDisposable);
             _waveTimerService.OnTimerEnd.Subscribe(_ => StartNewWave()).AddTo(ActiveDisposable);
             _inputService.PausePressed.Subscribe(_ => OnPauseButtonPressed()).AddTo(ActiveDisposable);
             _pauseService.IsPaused.Subscribe(OnPause).AddTo(ActiveDisposable);
@@ -83,9 +83,12 @@ namespace Game.GameStateMachine.States.Impl
 
         private void OnPauseButtonPressed() => _pauseService.EnablePause();
 
-        private void OnNeedScoreAchieved()
+        private void OnNeedScoreAchieved(bool isNeedScoreAchieved)
         {
-            StopSpawnersAndEnemiesLogic();
+            if(!isNeedScoreAchieved)
+                return;
+            
+            StopSpawnersAndEnemiesLogic(true);
             GameStateMachine.Enter<WinState>();
         }
 
@@ -94,7 +97,7 @@ namespace Game.GameStateMachine.States.Impl
             if (!isDead)
                 return;
 
-            StopSpawnersAndEnemiesLogic();
+            StopSpawnersAndEnemiesLogic(false);
             GameStateMachine.Enter<LoseState>();
         }
 
@@ -112,12 +115,12 @@ namespace Game.GameStateMachine.States.Impl
             _nextWaveIndex++;
         }
 
-        private void StopSpawnersAndEnemiesLogic()
+        private void StopSpawnersAndEnemiesLogic(bool isPlayerWin)
         {
             _spawnService.ForceStopSpawning();
             foreach (var gameStateListener in _gameStateListeners)
             {
-                gameStateListener.OnGameEnd();
+                gameStateListener.OnGameEnd(isPlayerWin);
             }
         }
     }

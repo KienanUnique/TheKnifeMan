@@ -61,7 +61,7 @@ namespace Game.Projectile.Factory.Impl
             }
         }
 
-        public void OnGameEnd()
+        public void OnGameEnd(bool isPlayerWin)
         {
             foreach (var (_, factory) in _factories)
             {

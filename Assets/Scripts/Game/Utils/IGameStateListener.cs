@@ -2,6 +2,6 @@
 {
     public interface IGameStateListener
     {
-        void OnGameEnd();
+        void OnGameEnd(bool isPlayerWin);
     }
 }

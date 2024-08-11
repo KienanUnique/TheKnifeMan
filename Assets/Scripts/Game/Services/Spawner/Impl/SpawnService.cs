@@ -96,7 +96,7 @@ namespace Game.Services.Spawner.Impl
             }
         }
 
-        public void OnGameEnd()
+        public void OnGameEnd(bool isPlayerWin)
         {
             _compositeDisposable?.Dispose();
             _spawnOrder.Clear();

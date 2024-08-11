@@ -67,12 +67,12 @@ namespace Game.Enemy.Factory.Impl
             _compositeDisposable?.Dispose();
         }
 
-        public void OnGameEnd()
+        public void OnGameEnd(bool isPlayerWin)
         {
             _isSpawningDisabled = true;
             foreach (var (_, factory) in _factories)
             {
-                factory.HandleGameEnd();
+                factory.HandleGameEnd(isPlayerWin);
             }
         }
     }

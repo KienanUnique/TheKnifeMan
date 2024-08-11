@@ -7,6 +7,6 @@ namespace Game.Enemy.Factory.Concrete
     {
         void Initialize();
         void Create(Vector3 position);
-        void HandleGameEnd();
+        void HandleGameEnd(bool isPlayerWin);
     }
 }
