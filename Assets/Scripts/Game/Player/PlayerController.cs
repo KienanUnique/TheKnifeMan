@@ -140,6 +140,9 @@ namespace Game.Player
             
             if(health == _parameters.Health)
                 return;
+            
+            _characterPart.EnableImmortalTemporarily(_parameters.AfterDamageImmortalDurationSeconds);
+            _visualPart.PlayBlinkAnimation(_parameters.AfterDamageImmortalDurationSeconds);
 
             _vfxService.Play(EVfxType.DamageCharacter, transform.position);
             _gameSoundFxService.Play(EGameSoundFxType.PLayerDamageTaken, transform);

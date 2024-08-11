@@ -11,6 +11,7 @@ namespace Game.Player.Parts.Character
 
         private readonly ReactiveProperty<int> _health = new();
         private readonly ReactiveProperty<bool> _isDead = new();
+        private IDisposable _immortalDisposable;
 
         private bool _isImmortal = false;
 
@@ -32,6 +33,14 @@ namespace Game.Player.Parts.Character
             _isImmortal = true;
         }
 
+        public void EnableImmortalTemporarily(float time)
+        {
+            EnableImmortal();
+            
+            _immortalDisposable?.Dispose();
+            _immortalDisposable = Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe(_ => DisableImmortal());
+        }
+
         public void DisableImmortal()
         {
             _isImmortal = false;
@@ -44,6 +53,7 @@ namespace Game.Player.Parts.Character
 
         public override void Dispose()
         {
+            _immortalDisposable?.Dispose();
         }
 
         public void HandleDamage(int damage)

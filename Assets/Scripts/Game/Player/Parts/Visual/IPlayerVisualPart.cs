@@ -10,5 +10,6 @@ namespace Game.Player.Parts.Visual
         void PlayDeathAnimation();
         void PlayAttackAnimation(EDirection2D direction2D);
         void StartPlayingDashAnimation();
+        void PlayBlinkAnimation(float durationSeconds);
     }
 }
