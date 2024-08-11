@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa318efa0b04aca986e3f32fa1b80cc, type: 3}
   m_Name: EnemyFactoryParameters
   m_EditorClassIdentifier: 
-  afterDeathDelaySeconds: 2
+  afterDeathDelaySeconds: 1

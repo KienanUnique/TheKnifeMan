@@ -26,7 +26,7 @@ namespace Services.Level.Impl
 
         public IReactiveProperty<float> LoadingProgress => _loadingProgress;
         public IReactiveProperty<bool> IsLoadingCompleted => _isLoadingCompleted;
-        public LevelSceneData CurrentLevelData => _scenesParameters.Levels[0];
+        public LevelSceneData CurrentLevelData => _scenesParameters.Levels[_currentLevelIndex];
 
         public LevelsService(
             IScenesParameters scenesParameters, 

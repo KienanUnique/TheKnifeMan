@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,469 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Side 1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 192
+        width: 17
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5740249, y: 0.050563518}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e74ab38fc3ba6419a1a4d3f8cb6b5a
+      internalID: 434135788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side 2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 192
+        width: 20
+        height: 25
+      alignment: 9
+      pivot: {x: 0.32921427, y: 0.054159544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc55bbf1d4a53d4d871318e2df22218
+      internalID: -51007839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side 3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 192
+        width: 24
+        height: 25
+      alignment: 9
+      pivot: {x: 0.26779112, y: 0.061350096}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999b9afa22edee0459fc8170229aa276
+      internalID: -801570188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side 4
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 192
+        width: 15
+        height: 25
+      alignment: 9
+      pivot: {x: 0.45206097, y: 0.11168701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03826f8a9a5ceb640821a765ad4412d7
+      internalID: -1548445669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 144
+        width: 15
+        height: 26
+      alignment: 9
+      pivot: {x: 0.55992496, y: 0.050563518}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c6333a0cd31054f9cc66a053d51191
+      internalID: 480507639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 144
+        width: 19
+        height: 21
+      alignment: 9
+      pivot: {x: 0.6040806, y: 0.06340463}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8693023d40a844a47ad32631e047e772
+      internalID: 455413425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 3
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 142
+        width: 29
+        height: 24
+      alignment: 9
+      pivot: {x: 0.6053856, y: 0.07303556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84f2054cccbed9419c73500990522a0
+      internalID: 1612783070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 4
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 142
+        width: 34
+        height: 26
+      alignment: 9
+      pivot: {x: 0.621613, y: 0.07822125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a3dfc9ca5effd45a7e47f67a3335bd
+      internalID: -990231669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 5
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 140
+        width: 35
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6181383, y: 0.1404507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36af83c663f77c845b56eec6aaa2b38f
+      internalID: 2067089282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 6
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 139
+        width: 29
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5247971, y: 0.14045094}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f91bec6cb54474bbc5dc93814e2b44
+      internalID: 1624709050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA_Lil_man_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 97
+        width: 15
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5214387, y: 0.029995551}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288d429e46f9c3f4aa05ddd606639000
+      internalID: -1897480516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA_Lil_man_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 97
+        width: 15
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5500237, y: 0.050610177}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502b3878dfb0b6d40a1d80d763e6fb31
+      internalID: 25894538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 49
+        width: 15
+        height: 26
+      alignment: 9
+      pivot: {x: 0.51429254, y: 0.05061003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b73b408772e8744a25c38896915ab9
+      internalID: 1602863342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 48
+        width: 29
+        height: 26
+      alignment: 9
+      pivot: {x: 0.26343432, y: 0.038241606}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141a98c5c52b29f42b6774fadff89c8b
+      internalID: -1821882658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 48
+        width: 14
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5382832, y: 0.034118798}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6d5647420daa247a3ba7b22062136b
+      internalID: 1714185237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 4
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 48
+        width: 14
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5306266, y: 0.02999599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8136b77dee7184b8bfb2b3c0cb99b9
+      internalID: -949436879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk 1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 19
+        height: 26
+      alignment: 9
+      pivot: {x: 0.44255167, y: 0.034706295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6023160cba6e214a8bdab337ad9d9e1
+      internalID: 176515887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk 2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 13
+        height: 25
+      alignment: 9
+      pivot: {x: 0.26910195, y: 0.027009683}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f585ac03c9ec16442a2f9a1634537f10
+      internalID: -204251922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk 3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 20
+        height: 26
+      alignment: 9
+      pivot: {x: 0.46816367, y: 0.0067187077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d5e0b69ccddc649b975bfdb45ff37b
+      internalID: -79680469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk 4
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.4681633, y: 0.041832782}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a688d07c99758664da40dcf5eb5ded9e
+      internalID: -622307372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk 5
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 14
+        height: 26
+      alignment: 9
+      pivot: {x: 0.47400993, y: 0.045201637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35ee09a46b75e694aac99da7ebe38c7f
+      internalID: -1090987835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk 6
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 0
+        width: 22
+        height: 26
+      alignment: 9
+      pivot: {x: 0.08240995, y: 0.031207846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ccf2a23ac406f48ba20eddb26b07f9
+      internalID: -902750240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +581,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dead 1: 480507639
+      Dead 2: 455413425
+      Dead 3: 1612783070
+      Dead 4: -990231669
+      Dead 5: 2067089282
+      Dead 6: 1624709050
+      Idle 1: 1602863342
+      Idle 2: -1821882658
+      Idle 3: 1714185237
+      Idle 4: -949436879
+      SA_Lil_man_sprites_11: -1897480516
+      SA_Lil_man_sprites_12: 25894538
+      SA_Lil_man_sprites_15: -1674431064
+      SA_Lil_man_sprites_9: 470344619
+      Side 1: 434135788
+      Side 2: -51007839
+      Side 3: -801570188
+      Side 4: -1548445669
+      Walk 1: 176515887
+      Walk 2: -204251922
+      Walk 3: -79680469
+      Walk 4: -622307372
+      Walk 5: -1090987835
+      Walk 6: -902750240
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
