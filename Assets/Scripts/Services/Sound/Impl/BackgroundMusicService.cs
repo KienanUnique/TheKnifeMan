@@ -45,6 +45,8 @@ namespace Services.Sound.Impl
 
             _settingsStorageService.MusicVolume.Subscribe(OnMusicVolume).AddTo(_compositeDisposable);
             _settingsStorageService.IsMusicEnabled.Subscribe(OnIsMusicEnabled).AddTo(_compositeDisposable);
+
+            OnMusicVolume(_settingsStorageService.MusicVolume.Value);
         }
 
         public void Dispose()

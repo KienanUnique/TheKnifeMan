@@ -17,12 +17,14 @@ namespace Installers.Project
         [SerializeField] private ScenesParameters scenesParameters;
         [SerializeField] private PostProcessingParameters postProcessingParameters;
         [SerializeField] private SoundFxBase soundFxBase;
+        [SerializeField] private StartAudioVolumeParameters startAudioVolumeParameters;
 
         public override void InstallBindings()
         {
             Container.Bind<IScenesParameters>().FromInstance(scenesParameters).AsSingle();
             Container.Bind<IPostProcessingParameters>().FromInstance(postProcessingParameters).AsSingle();
             Container.Bind<ISoundFxBase>().FromInstance(soundFxBase).AsSingle();
+            Container.Bind<IStartAudioVolumeParameters>().FromInstance(startAudioVolumeParameters).AsSingle();
         }
     }
 }
