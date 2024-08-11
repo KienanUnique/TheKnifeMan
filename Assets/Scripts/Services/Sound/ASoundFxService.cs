@@ -35,6 +35,8 @@ namespace Services.Sound
         {
             _settingsStorageService.IsSoundsEnabled.Subscribe(OnIsSoundsEnabled).AddTo(_compositeDisposable);
             _settingsStorageService.SoundsVolume.Subscribe(OnSoundsVolume).AddTo(_compositeDisposable);
+            
+            OnSoundsVolume(_settingsStorageService.SoundsVolume.Value);
         }
 
         public void Dispose()
