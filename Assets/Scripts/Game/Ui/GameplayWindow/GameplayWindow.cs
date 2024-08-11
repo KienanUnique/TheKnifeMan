@@ -1,12 +1,13 @@
 ﻿using Game.Ui.GameplayWindow.Health;
 using Game.Ui.GameplayWindow.Score;
 using Game.Ui.GameplayWindow.Timer;
+using KoboldUi.Interfaces;
 using KoboldUi.Windows;
 using UnityEngine;
 
 namespace Game.Ui.GameplayWindow
 {
-    public class GameplayWindow : AWindow
+    public class GameplayWindow : AWindow, IBackLogicIgnorable
     {
         [SerializeField] private ScoreCounterView scoreCounterView;
         [SerializeField] private HealthView healthView;

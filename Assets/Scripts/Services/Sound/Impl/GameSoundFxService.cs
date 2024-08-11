@@ -49,7 +49,7 @@ namespace Services.Sound.Impl
         private AudioClipVo GetSoundVoByType(EGameSoundFxType type)
         {
             var gameSound = _soundFxBase.GetGameSoundVoByType(type, _levelsService.CurrentLevelData);
-            var randomSoundIndex = Random.Range(0, gameSound.audioClipVo.Count - 1);
+            var randomSoundIndex = Random.Range(0, gameSound.audioClipVo.Count);
             
             return gameSound.audioClipVo[randomSoundIndex];
         }

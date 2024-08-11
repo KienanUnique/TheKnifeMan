@@ -31,7 +31,7 @@ namespace Game.Services.SpawnEffects.SpawnEffects.Impl
 
         public IObservable<Unit> PlayEffect(Vector3 position)
         {
-            var randomEffectPoolIndex = Random.Range(0, _pools.Count - 1);
+            var randomEffectPoolIndex = Random.Range(0, _pools.Count);
             var randomEffectPool = _pools[randomEffectPoolIndex];
 
             var spawnEffectData = randomEffectPool.Get();

@@ -8,6 +8,7 @@ namespace Ui.MainMenu.Ticker
     {
         [Header("Settings")]
         public float speed = 100f;
+        public float durationSeconds;
         [TextArea] public string text;
         
         [Header("Links")]
