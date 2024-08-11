@@ -68,24 +68,36 @@ namespace Game.Enemy.Controller
 
         public virtual void HandleDisableAndReset()
         {
-            gameObject.SetActive(false);
+            HandleDisable();
 
             foreach (var poolPart in _poolParts) poolPart.DisableAndReset();
 
             Data.BehaviourTreeInstance.Reset();
         }
+        
+        public virtual void HandleDisable()
+        {
+            gameObject.SetActive(false);
+        }
 
-        public void HandleGameEnd()
+        public void HandleGameEnd(bool isPlayerWin)
         {
             _aliveDisposables?.Dispose();
             
-            foreach (var poolPart in _poolParts) poolPart.DisableAndReset();
+            foreach (var poolPart in _poolParts) 
+                poolPart.DisableAndReset();
             Data.BehaviourTreeInstance.Reset();
             
             Data.NavMeshAgent.isStopped = true;
             Data.NavMeshAgent.ResetPath();
             
             Data.NavMeshAgent.velocity = Vector3.zero;
+
+            if (!isPlayerWin) 
+                return;
+            
+            EnemyVisualPart.PlayDeathAnimation();
+            _vfxService.Play(EVfxType.DamageCharacter, transform.position);
         }
 
         public void HandleDamage(int damage)

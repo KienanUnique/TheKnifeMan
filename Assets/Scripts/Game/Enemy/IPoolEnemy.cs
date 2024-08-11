@@ -10,6 +10,7 @@ namespace Game.Enemy
 
         void HandleEnable(Vector3 position);
         void HandleDisableAndReset();
-        void HandleGameEnd();
+        void HandleDisable();
+        void HandleGameEnd(bool isPlayerWin);
     }
 }

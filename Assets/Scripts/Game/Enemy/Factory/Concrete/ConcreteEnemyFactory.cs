@@ -74,13 +74,24 @@ namespace Game.Enemy.Factory.Concrete
             }).AddTo(_waitSpawnEffects);
         }
 
-        public void HandleGameEnd()
+        public void HandleGameEnd(bool isPlayerWin)
         {
             _waitSpawnEffects?.Dispose();
             foreach (var busyEnemy in _busyEnemies)
             {
-                busyEnemy.HandleGameEnd();
+                busyEnemy.HandleGameEnd(isPlayerWin);
             }
+
+            if(!isPlayerWin)
+                return;
+
+            var afterDeathDelay = _parameters.AfterDeathDelaySeconds;
+            Observable.Timer(TimeSpan.FromSeconds(afterDeathDelay)).Subscribe(_ =>
+                {
+                    foreach (var busyEnemy in _busyEnemies) 
+                        busyEnemy.HandleDisable();
+                })
+                .AddTo(_compositeDisposable);
         }
 
         private IPoolEnemy Instantiate(Vector3 position)

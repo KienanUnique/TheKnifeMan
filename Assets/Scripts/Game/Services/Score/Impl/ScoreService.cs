@@ -14,13 +14,13 @@ namespace Game.Services.Score.Impl
         private readonly IScoreParameters _scoreParameters;
 
         private readonly ReactiveProperty<int> _currentScore = new(0);
-        private readonly ReactiveCommand _needScoreAchieved = new();
+        private readonly ReactiveProperty<bool> _needScoreAchieved = new();
         private readonly CompositeDisposable _compositeDisposable = new();
 
         private float _currentScoreModifier = 1f;
 
         public IReactiveProperty<int> CurrentScore => _currentScore;
-        public IObservable<Unit> NeedScoreAchieved => _needScoreAchieved;
+        public IReactiveProperty<bool> NeedScoreAchieved => _needScoreAchieved;
         public int NeedScore => _levelsService.CurrentLevelData.TargetScore;
 
         public ScoreService(
@@ -65,8 +65,7 @@ namespace Game.Services.Score.Impl
 
             _currentScoreModifier += _scoreParameters.AdditionalRatioForEnemyKill;
 
-            if (_currentScore.Value >= _levelsService.CurrentLevelData.TargetScore)
-                _needScoreAchieved.Execute();
+            _needScoreAchieved.Value = _currentScore.Value >= _levelsService.CurrentLevelData.TargetScore;
         }
 
         private void OnPlayerHealth(int newHealthValue)

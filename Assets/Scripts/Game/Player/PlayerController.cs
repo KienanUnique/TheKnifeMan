@@ -52,7 +52,7 @@ namespace Game.Player
             _characterPart.HandleDamage(damage);
         }
         
-        public void OnGameEnd()
+        public void OnGameEnd(bool isPlayerWin)
         {
             _movementPart.Disable();
             _aliveDisposable?.Dispose();
