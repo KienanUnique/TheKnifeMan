@@ -16,7 +16,7 @@ namespace Game.GameStateMachine.States.Impl
 {
     public class GameState : AState
     {
-        private readonly IPlayerInformation _playerInformation;
+        private readonly IPlayerController _player;
         private readonly IScoreService _scoreService;
         private readonly ILevelsService _levelsService;
         private readonly ISpawnService _spawnService;
@@ -31,7 +31,7 @@ namespace Game.GameStateMachine.States.Impl
         private LevelSceneData CurrentLevelData => _levelsService.CurrentLevelData;
 
         public GameState(
-            IPlayerInformation playerInformation,
+            IPlayerController player,
             IScoreService scoreService,
             ILevelsService levelsService,
             ISpawnService spawnService,
@@ -42,7 +42,7 @@ namespace Game.GameStateMachine.States.Impl
             IPauseService pauseService
         )
         {
-            _playerInformation = playerInformation;
+            _player = player;
             _scoreService = scoreService;
             _levelsService = levelsService;
             _spawnService = spawnService;
@@ -55,7 +55,7 @@ namespace Game.GameStateMachine.States.Impl
 
         protected override void HandleEnter()
         {
-            _playerInformation.IsDead.Subscribe(OnIsDead).AddTo(ActiveDisposable);
+            _player.IsDead.Subscribe(OnIsDead).AddTo(ActiveDisposable);
             _scoreService.NeedScoreAchieved.Subscribe(OnNeedScoreAchieved).AddTo(ActiveDisposable);
             _waveTimerService.OnTimerEnd.Subscribe(_ => StartNewWave()).AddTo(ActiveDisposable);
             _inputService.PausePressed.Subscribe(_ => OnPauseButtonPressed()).AddTo(ActiveDisposable);
@@ -117,13 +117,17 @@ namespace Game.GameStateMachine.States.Impl
             var allWaves = CurrentLevelData.WavesParameters.WavesInfo;
             if (allWaves.Count <= _nextWaveIndex)
                 return;
+            
+            // TODO: add difficulty check
+            _player.ResetHealth();
 
             var wave = allWaves[_nextWaveIndex];
 
             _spawnService.SpawnWave(wave);
-            _waveTimerService.StartTimer(wave);
-
+            
             _nextWaveIndex++;
+            if(allWaves.Count > _nextWaveIndex)
+                _waveTimerService.StartTimer(wave);
         }
 
         private void StopSpawnersAndEnemiesLogic(bool isPlayerWin)

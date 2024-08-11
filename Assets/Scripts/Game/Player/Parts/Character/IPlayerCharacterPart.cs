@@ -1,4 +1,3 @@
-using System;
 using Game.Interfaces;
 using Game.Object.Part;
 using UniRx;
@@ -12,5 +11,6 @@ namespace Game.Player.Parts.Character
         
         void EnableImmortal();
         void DisableImmortal();
+        void ResetHealth();
     }
 }

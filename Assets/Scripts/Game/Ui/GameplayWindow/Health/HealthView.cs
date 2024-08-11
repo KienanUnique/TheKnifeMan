@@ -12,7 +12,7 @@ namespace Game.Ui.GameplayWindow.Health
         public RectTransform rootContainer;
         
         [Header("Cell Hide Animation")]
-        public float cellHideAnimationDuration;
+        public float cellAnimationDuration = 1f;
         
         [Header("Shake Animation")]
         public float shakeAnimationDuration = 1f;

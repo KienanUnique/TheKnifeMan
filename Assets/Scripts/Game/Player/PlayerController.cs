@@ -19,7 +19,7 @@ using Zenject;
 
 namespace Game.Player
 {
-    public class PlayerController : AObjectController<PlayerData>, IPlayerInformation, IDamageable, INeedWaitInitializable, IGameStateListener
+    public class PlayerController : AObjectController<PlayerData>, IPlayerController, IDamageable, INeedWaitInitializable, IGameStateListener
     {
         private readonly CompositeDisposable _aliveDisposable = new();
         private readonly ReactiveProperty<bool> _isInitilized = new();
@@ -47,11 +47,9 @@ namespace Game.Player
 
         protected override PlayerData Data => data;
 
-        public void HandleDamage(int damage)
-        {
-            _characterPart.HandleDamage(damage);
-        }
-        
+        public void HandleDamage(int damage) => _characterPart.HandleDamage(damage);
+        public void ResetHealth() => _characterPart.ResetHealth();
+
         public void OnGameEnd(bool isPlayerWin)
         {
             _movementPart.Disable();
