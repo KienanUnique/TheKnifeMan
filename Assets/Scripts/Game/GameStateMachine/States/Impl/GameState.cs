@@ -9,7 +9,9 @@ using Game.Utils;
 using KoboldUi.Utils;
 using Services.Input;
 using Services.Level;
+using Services.Settings;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace Game.GameStateMachine.States.Impl
@@ -24,6 +26,7 @@ namespace Game.GameStateMachine.States.Impl
         private readonly IInputService _inputService;
         private readonly SignalBus _signalBus;
         private readonly IPauseService _pauseService;
+        private readonly ISettingsStorageService _settingsStorageService;
         private readonly List<IGameStateListener> _gameStateListeners;
 
         private int _nextWaveIndex;
@@ -39,7 +42,8 @@ namespace Game.GameStateMachine.States.Impl
             List<IGameStateListener> gameStateListeners,
             IInputService inputService,
             SignalBus signalBus,
-            IPauseService pauseService
+            IPauseService pauseService,
+            ISettingsStorageService settingsStorageService
         )
         {
             _player = player;
@@ -51,6 +55,7 @@ namespace Game.GameStateMachine.States.Impl
             _inputService = inputService;
             _signalBus = signalBus;
             _pauseService = pauseService;
+            _settingsStorageService = settingsStorageService;
         }
 
         protected override void HandleEnter()
@@ -62,8 +67,9 @@ namespace Game.GameStateMachine.States.Impl
             _inputService.RestartLevelPressed.Subscribe(_ => OnRestartLevelPressed()).AddTo(ActiveDisposable);
             _pauseService.IsPaused.Subscribe(OnPause).AddTo(ActiveDisposable);
 
-            StartNewWave();
-            
+            if (!_waveTimerService.IsTimerRunning) 
+                StartNewWave();
+
             _inputService.SwitchToGameInput();
             
             _signalBus.OpenWindow<GameplayWindow>();
@@ -118,8 +124,9 @@ namespace Game.GameStateMachine.States.Impl
             if (allWaves.Count <= _nextWaveIndex)
                 return;
             
-            // TODO: add difficulty check
-            _player.ResetHealth();
+            Debug.Log($"@@@ _settingsStorageService.IsEasyModeEnabled.Value: {_settingsStorageService.IsEasyModeEnabled.Value} ");
+            if(_settingsStorageService.IsEasyModeEnabled.Value)
+                _player.ResetHealth();
 
             var wave = allWaves[_nextWaveIndex];
 

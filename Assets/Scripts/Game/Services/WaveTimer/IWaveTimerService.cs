@@ -8,6 +8,7 @@ namespace Game.Services.WaveTimer
     {
         IReactiveProperty<TimeSpan> RemainingTime { get; }
         IObservable<Unit> OnTimerEnd { get; }
+        bool IsTimerRunning { get; }
 
         void StartTimer(WaveData waveData);
     }

@@ -8,10 +8,12 @@ namespace Services.Settings
         IReactiveProperty<float> MusicVolume { get; }
         IReactiveProperty<bool> IsSoundsEnabled { get; }
         IReactiveProperty<bool> IsMusicEnabled { get; }
+        IReactiveProperty<bool> IsEasyModeEnabled { get; }
         
         void SetSoundsVolume(float newSoundVolume);
         void SetMusicVolume(float newSoundVolume);
         void SetIsSoundsEnabled(bool isSoundsEnabled);
-        bool SetIsMusicEnabled(bool isMusicEnabled);
+        void SetIsMusicEnabled(bool isMusicEnabled);
+        void SetIsEasyModeEnabled(bool isMusicEnabled);
     }
 }
