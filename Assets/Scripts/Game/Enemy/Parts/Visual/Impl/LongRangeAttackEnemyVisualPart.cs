@@ -12,7 +12,6 @@ namespace Game.Enemy.Parts.Visual.Impl
 
         public void PlayAttackAnimation(EDirection1D direction)
         {
-            Animator.SetInteger(AnimationKeys.AttackDirection, (int) direction);
             Animator.SetTrigger(AnimationKeys.ShootAttackTrigger);
         }
 

@@ -46,13 +46,12 @@ namespace Services.Sound.Impl
         {
             if (_rootTransform == null)
             {
-                _rootTransform = new GameObject("AudioSources").transform; 
+                _rootTransform = new GameObject("AudioSources").transform;
             }
             
             var gameObject = new GameObject("AudioSource");
             var source = gameObject.AddComponent<AudioSource>();
             gameObject.transform.SetParent(_rootTransform);
-            Object.DontDestroyOnLoad(gameObject); // TODO: refactor this
 
             Return(source);
         }
