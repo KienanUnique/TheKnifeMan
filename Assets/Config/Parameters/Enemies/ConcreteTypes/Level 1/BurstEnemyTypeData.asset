@@ -15,13 +15,13 @@ MonoBehaviour:
   startPoolCount: 4
   parameters:
     health: 1
-    acceleration: 5
-    maxSpeed: 5
+    acceleration: 3
+    maxSpeed: 3
     animatorMovingVelocityThreshold: 0.1
-    pointsForKill: 15
-    reloadDurationSeconds: 5
-    countOfAttacksInClip: 3
-    delayBetweenAttacks: 2
+    pointsForKill: 1500
+    reloadDurationSeconds: 2
+    countOfAttacksInClip: 10
+    delayBetweenAttacks: 0.05
     pattern: {fileID: 11400000, guid: 65a8ae7638373ec4e9a7f285ca21d4f0, type: 2}
     type: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
   prefab: {fileID: 5443585650099049973, guid: 31a2fa38113a6f14a83d224d6d658c58, type: 3}

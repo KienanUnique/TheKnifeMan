@@ -74,24 +74,37 @@ MonoBehaviour:
         0.5\n                }\n            ]\n        }\n    }\n]"
     levelSoundsOverrides:
       isCreated: 1
-      data: '[]'
+      data: "[\n    {\n        \"Key\": 19,\n        \"Value\": [\n            {\n               
+        \"Key\": 2,\n                \"Value\": {\n                    \"audioClipVo\":
+        [\n                        {\n                            \"clip\": 20,\n                           
+        \"path\": \"SFX/Sounds/SFX_Enemy_ShootLevel_2\",\n                           
+        \"volume\": 0.5\n                        }\n                    ]\n               
+        }\n            }\n        ]\n    },\n    {\n        \"Key\": 21,\n       
+        \"Value\": [\n            {\n                \"Key\": 2,\n               
+        \"Value\": {\n                    \"audioClipVo\": [\n                       
+        {\n                            \"clip\": 5,\n                           
+        \"path\": \"SFX/Sounds/SFX_Enemy_ShootLevel_1\",\n                           
+        \"volume\": 0.5\n                        },\n                        {\n                           
+        \"clip\": 20,\n                            \"path\": \"SFX/Sounds/SFX_Enemy_ShootLevel_2\",\n                           
+        \"volume\": 0.5\n                        }\n                    ]\n               
+        }\n            }\n        ]\n    }\n]"
     uiSounds:
       isCreated: 1
       data: "[\n    {\n        \"Key\": 0,\n        \"Value\": {\n            \"clip\":
-        19,\n            \"path\": \"SFX/Sounds/SFX_SoundCheck\",\n            \"volume\":
+        22,\n            \"path\": \"SFX/Sounds/SFX_SoundCheck\",\n            \"volume\":
         0.5\n        }\n    },\n    {\n        \"Key\": 1,\n        \"Value\": {\n           
-        \"clip\": 20,\n            \"path\": \"SFX/Sounds/SFX_UI_TheKnifeManButton\",\n           
+        \"clip\": 23,\n            \"path\": \"SFX/Sounds/SFX_UI_TheKnifeManButton\",\n           
         \"volume\": 0.5\n        }\n    }\n]"
     backgroundMusic:
       isCreated: 1
-      data: "[\n    {\n        \"clip\": 21,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_1\",\n       
-        \"volume\": 0.5\n    },\n    {\n        \"clip\": 22,\n        \"path\":
+      data: "[\n    {\n        \"clip\": 24,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_1\",\n       
+        \"volume\": 0.5\n    },\n    {\n        \"clip\": 25,\n        \"path\":
         \"SFX/Music/SFX_Backgroud_music_2\",\n        \"volume\": 0.5\n    },\n   
-        {\n        \"clip\": 23,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_3\",\n       
-        \"volume\": 0.5\n    },\n    {\n        \"clip\": 24,\n        \"path\":
+        {\n        \"clip\": 26,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_3\",\n       
+        \"volume\": 0.5\n    },\n    {\n        \"clip\": 27,\n        \"path\":
         \"SFX/Music/SFX_Backgroud_music_4\",\n        \"volume\": 0.5\n    },\n   
-        {\n        \"clip\": 25,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_5\",\n       
-        \"volume\": 0.5\n    },\n    {\n        \"clip\": 26,\n        \"path\":
+        {\n        \"clip\": 28,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_5\",\n       
+        \"volume\": 0.5\n    },\n    {\n        \"clip\": 29,\n        \"path\":
         \"SFX/Music/SFX_Backgroud_music_6\",\n        \"volume\": 0.5\n    }\n]"
     unityObjectReferences:
     - {fileID: 8300000, guid: 4bc4db927daee684981e694624e1fed6, type: 3}
@@ -113,6 +126,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8ca9aba561199f1428cc67b4bd61cc1b, type: 3}
     - {fileID: 8300000, guid: 0be4a7ccb9fce8444ac38b001645e7a3, type: 3}
     - {fileID: 8300000, guid: e41ad5d8252c4a34a840211e190614dd, type: 3}
+    - {fileID: 11400000, guid: fc742fad8c956444f8ddb0e9216ea18c, type: 2}
+    - {fileID: 8300000, guid: b18dd61d42d038b49b79e2ee8109ce37, type: 3}
+    - {fileID: 11400000, guid: 0971a646331bb75459d4e3a1c315d082, type: 2}
     - {fileID: 8300000, guid: 0d66b850448a84d458dbf18ba6c2c452, type: 3}
     - {fileID: 8300000, guid: 287208049ff3daa4ba2c5e3066764ac5, type: 3}
     - {fileID: 8300000, guid: c0c026953c6b58344ad957277a7b73b3, type: 3}

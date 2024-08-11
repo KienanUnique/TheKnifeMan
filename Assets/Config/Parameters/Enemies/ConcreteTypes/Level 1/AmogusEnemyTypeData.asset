@@ -18,9 +18,9 @@ MonoBehaviour:
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.1
-    pointsForKill: 25
+    pointsForKill: 1000
     damage: 1
-    comboReloadDurationSeconds: 4
+    comboReloadDurationSeconds: 2
     countOfAttacksInCombo: 1
     delayBetweenMeleeAttacks: 1
   prefab: {fileID: 469239487118506368, guid: 0062c2ea37ca94342a6c4cfad3e7d0cd, type: 3}

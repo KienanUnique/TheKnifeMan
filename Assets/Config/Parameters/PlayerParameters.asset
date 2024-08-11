@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e02f9ba78894ed6ad72cc89bcc41c67, type: 3}
   m_Name: PlayerParameters
   m_EditorClassIdentifier: 
-  health: 3
+  health: 5
   damage: 1
-  movementSpeed: 6.3
-  dashForce: 20
-  dashDurationSeconds: 0.2
-  dashCooldownSeconds: 1
+  movementSpeed: 6.5
+  dashForce: 30
+  dashDurationSeconds: 0.15
+  dashCooldownSeconds: 0.5
   dashDrag: 8
   animatorMovingSqrVelocityThreshold: 0.01
   lowHealthThreshold: 1
-  dashEndAnimationDurationSeconds: 0.13
+  dashEndAnimationDurationSeconds: 0.01

@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbb6f5e63014e1abc0a97074cce4344, type: 3}
   m_Name: MeleeLvL2EnemyTypeData
   m_EditorClassIdentifier: 
+  startPoolCount: 4
   parameters:
     health: 1
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.1
-    pointsForKill: 25
+    pointsForKill: 10000
     damage: 1
+    comboReloadDurationSeconds: 2
+    countOfAttacksInCombo: 2
+    delayBetweenMeleeAttacks: 1
   prefab: {fileID: 469239487118506368, guid: af4dc9292ce5b7e4b844384aa345a590, type: 3}

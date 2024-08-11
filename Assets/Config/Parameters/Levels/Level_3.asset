@@ -15,18 +15,36 @@ MonoBehaviour:
   levelName: Level_3
   wavesParameters:
     wavesInfo:
+    - enemies: []
+      delayBeforeSpawnSeconds: 5
     - enemies:
       - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
+        count: 15
+      - enemy: {fileID: 11400000, guid: 06a082967b2c0e04a8af35ca8de65d60, type: 2}
+        count: 15
+      - enemy: {fileID: 11400000, guid: 41b132122a20b4b448a38dc780c58ad5, type: 2}
         count: 5
+      delayBeforeSpawnSeconds: 30
+    - enemies:
+      - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
+        count: 10
       - enemy: {fileID: 11400000, guid: 1cdd56a9ff722904e89a1a8e34fe0c6d, type: 2}
-        count: 1
+        count: 3
       - enemy: {fileID: 11400000, guid: dfbe34ecc79bc094f89169d4639d130d, type: 2}
-        count: 1
+        count: 2
       - enemy: {fileID: 11400000, guid: 19c65117ccfdf354aa341320cd4acc53, type: 2}
         count: 1
       - enemy: {fileID: 11400000, guid: 41b132122a20b4b448a38dc780c58ad5, type: 2}
-        count: 1
+        count: 8
       - enemy: {fileID: 11400000, guid: 06a082967b2c0e04a8af35ca8de65d60, type: 2}
-        count: 1
-      delayBeforeSpawnSeconds: 2
-  targetScore: 200
+        count: 5
+      delayBeforeSpawnSeconds: 40
+    - enemies:
+      - enemy: {fileID: 11400000, guid: 19c65117ccfdf354aa341320cd4acc53, type: 2}
+        count: 5
+      delayBeforeSpawnSeconds: 30
+    - enemies:
+      - enemy: {fileID: 11400000, guid: 06a082967b2c0e04a8af35ca8de65d60, type: 2}
+        count: 100
+      delayBeforeSpawnSeconds: 0
+  targetScore: 1111111

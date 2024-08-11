@@ -751,7 +751,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.35
+      value: 0.2
       mode: 0
       spread: 0
       speed:
@@ -1317,7 +1317,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
+        ctime1: 43754
         ctime2: 0
         ctime3: 0
         ctime4: 0
@@ -1325,8 +1325,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 26021
-        atime2: 65342
+        atime1: 19082
+        atime2: 41441
         atime3: 65342
         atime4: 65342
         atime5: 0

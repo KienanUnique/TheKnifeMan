@@ -18,10 +18,10 @@ MonoBehaviour:
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.1
-    pointsForKill: 15
+    pointsForKill: 15000
     reloadDurationSeconds: 5
     countOfAttacksInClip: 3
     delayBetweenAttacks: 2
     pattern: {fileID: 11400000, guid: a7a5aa079c844274bba771354d25ed6d, type: 2}
-    type: {fileID: 11400000, guid: 7e06b1c113ba05d4c91f8c8ec5510e25, type: 2}
+    type: {fileID: 11400000, guid: 6d39720d06a901749b8a5f8799b6b42b, type: 2}
   prefab: {fileID: 5443585650099049973, guid: 2cf6f1ec616136e468c90f683d1c7ae1, type: 3}
