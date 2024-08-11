@@ -1,5 +1,6 @@
 ﻿using System;
 using Db.Player;
+using DG.Tweening;
 using Game.Object.Part;
 using Game.Utils;
 using Game.Utils.Directions;
@@ -22,6 +23,9 @@ namespace Game.Player.Parts.Visual
         private bool _isInDash = false;
         private IDisposable _dashDisposable;
 
+        private Color _originalSpriteColor;
+        private Sequence _blinkAnimationSequence;
+
         public PlayerVisualPart(IPlayerParameters playerParameters)
         {
             _playerParameters = playerParameters;
@@ -34,6 +38,10 @@ namespace Game.Player.Parts.Visual
             _spriteRenderer = Data.MainSprite;
 
             Observable.EveryUpdate().Subscribe(_ => OnUpdate()).AddTo(_aliveDisposables);
+            
+            _originalSpriteColor = Data.MainSprite.color;
+
+            SetupBlinkAnimation();
         }
 
         public override void Dispose()
@@ -89,10 +97,47 @@ namespace Game.Player.Parts.Visual
                 .Subscribe(_ => StopPlayingDashAnimation());
         }
 
+        public void PlayBlinkAnimation(float durationSeconds) => _blinkAnimationSequence.Restart();
+
         private void StopPlayingDashAnimation()
         {
             _isInDash = false;
             _animator.SetBool(AnimationKeys.IsDashing, false);
+        }
+        
+        private void SetupBlinkAnimation()
+        {
+            var blinksAnimationDuration = _playerParameters.AfterDamageImmortalDurationSeconds;
+            var totalBlinksCount = _playerParameters.AfterDamageBlinksCount * 2;
+            var delayBetweenBlinks = blinksAnimationDuration / totalBlinksCount;
+
+            _blinkAnimationSequence = DOTween.Sequence();
+            for (var i = 0; i < _playerParameters.AfterDamageBlinksCount; i++)
+            {
+                _blinkAnimationSequence.AppendCallback(SetMainSpriteBlinkColor);
+                _blinkAnimationSequence.AppendInterval(delayBetweenBlinks);
+                _blinkAnimationSequence.AppendCallback(ResetMainSpriteColor);
+                _blinkAnimationSequence.AppendInterval(delayBetweenBlinks);
+            }
+
+            _blinkAnimationSequence.SetAutoKill(false);
+            _blinkAnimationSequence.SetLink(Data.RootTransform.gameObject);
+            _blinkAnimationSequence.Pause();
+        }
+        
+        private void SetMainSpriteBlinkColor()
+        {
+            SetMainSpriteColor(_playerParameters.AfterDamageBlinkColor);
+        }
+        
+        private void ResetMainSpriteColor()
+        {
+            SetMainSpriteColor(_originalSpriteColor);
+        }
+        
+        private void SetMainSpriteColor(Color newColor)
+        {
+            Data.MainSprite.color = newColor;
         }
     }
 }

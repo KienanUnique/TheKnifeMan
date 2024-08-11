@@ -10,6 +10,7 @@ namespace Game.Player.Parts.Character
         IReactiveProperty<bool> IsDead { get; }
         
         void EnableImmortal();
+        void EnableImmortalTemporarily(float time);
         void DisableImmortal();
         void ResetHealth();
     }
