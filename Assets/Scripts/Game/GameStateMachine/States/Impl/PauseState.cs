@@ -1,4 +1,5 @@
-﻿using Game.Ui.PauseWindow;
+﻿using Game.Services.Pause;
+using Game.Ui.PauseWindow;
 using KoboldUi.Utils;
 using Services.Input;
 using UniRx;
@@ -11,14 +12,17 @@ namespace Game.GameStateMachine.States.Impl
     {
         private readonly IInputService _inputService;
         private readonly SignalBus _signalBus;
+        private readonly IPauseService _pauseService;
 
         public PauseState(
             IInputService inputService, 
-            SignalBus signalBus
+            SignalBus signalBus,
+            IPauseService pauseService
         )
         {
             _inputService = inputService;
             _signalBus = signalBus;
+            _pauseService = pauseService;
         }
 
         protected override void HandleEnter()
@@ -29,16 +33,23 @@ namespace Game.GameStateMachine.States.Impl
             Time.timeScale = 0f;
 
             _inputService.CloseWindowPressed.Subscribe(_ => OnCloseWindowPressed()).AddTo(ActiveDisposable);
-        }
-
-        private void OnCloseWindowPressed()
-        {
-            GameStateMachine.Enter<GameState>();
+            _pauseService.IsPaused.Subscribe(OnPause).AddTo(ActiveDisposable);
         }
 
         protected override void HandleExit()
         {
+            _signalBus.CloseWindow();
             Time.timeScale = 1f;
+        }
+
+        private void OnCloseWindowPressed() => _pauseService.EnablePause();
+
+        private void OnPause(bool isPaused)
+        {
+            if(isPaused)
+                return;
+            
+            GameStateMachine.Enter<GameState>();
         }
     }
 }

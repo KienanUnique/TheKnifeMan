@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Player;
+using Game.Services.Pause;
 using Game.Services.Score;
 using Game.Services.Spawner;
 using Game.Services.WaveTimer;
@@ -22,6 +23,7 @@ namespace Game.GameStateMachine.States.Impl
         private readonly IWaveTimerService _waveTimerService;
         private readonly IInputService _inputService;
         private readonly SignalBus _signalBus;
+        private readonly IPauseService _pauseService;
         private readonly List<IGameStateListener> _gameStateListeners;
 
         private int _nextWaveIndex = 0;
@@ -36,7 +38,8 @@ namespace Game.GameStateMachine.States.Impl
             IWaveTimerService waveTimerService,
             List<IGameStateListener> gameStateListeners,
             IInputService inputService,
-            SignalBus signalBus
+            SignalBus signalBus,
+            IPauseService pauseService
         )
         {
             _playerInformation = playerInformation;
@@ -47,6 +50,7 @@ namespace Game.GameStateMachine.States.Impl
             _gameStateListeners = gameStateListeners;
             _inputService = inputService;
             _signalBus = signalBus;
+            _pauseService = pauseService;
         }
 
         protected override void HandleEnter()
@@ -55,6 +59,7 @@ namespace Game.GameStateMachine.States.Impl
             _scoreService.NeedScoreAchieved.Subscribe(_ => OnNeedScoreAchieved()).AddTo(ActiveDisposable);
             _waveTimerService.OnTimerEnd.Subscribe(_ => StartNewWave()).AddTo(ActiveDisposable);
             _inputService.PausePressed.Subscribe(_ => OnPauseButtonPressed()).AddTo(ActiveDisposable);
+            _pauseService.IsPaused.Subscribe(OnPause).AddTo(ActiveDisposable);
 
             StartNewWave();
             
@@ -68,7 +73,16 @@ namespace Game.GameStateMachine.States.Impl
             ActiveDisposable?.Dispose();
         }
 
-        private void OnPauseButtonPressed() => GameStateMachine.Enter<PauseState>();
+        private void OnPause(bool isPaused)
+        {
+            if(!isPaused)
+                return;
+            
+            GameStateMachine.Enter<PauseState>();
+        }
+
+        private void OnPauseButtonPressed() => _pauseService.EnablePause();
+
         private void OnNeedScoreAchieved()
         {
             StopSpawnersAndEnemiesLogic();
