@@ -59,6 +59,7 @@ namespace Game.GameStateMachine.States.Impl
             _scoreService.NeedScoreAchieved.Subscribe(OnNeedScoreAchieved).AddTo(ActiveDisposable);
             _waveTimerService.OnTimerEnd.Subscribe(_ => StartNewWave()).AddTo(ActiveDisposable);
             _inputService.PausePressed.Subscribe(_ => OnPauseButtonPressed()).AddTo(ActiveDisposable);
+            _inputService.RestartLevelPressed.Subscribe(_ => OnRestartLevelPressed()).AddTo(ActiveDisposable);
             _pauseService.IsPaused.Subscribe(OnPause).AddTo(ActiveDisposable);
 
             StartNewWave();
@@ -66,6 +67,16 @@ namespace Game.GameStateMachine.States.Impl
             _inputService.SwitchToGameInput();
             
             _signalBus.OpenWindow<GameplayWindow>();
+        }
+
+        private void OnRestartLevelPressed()
+        {
+            if(!_levelsService.IsLoadingCompleted.Value)
+                return;
+            
+            ActiveDisposable?.Dispose();
+            StopSpawnersAndEnemiesLogic(false);
+            _levelsService.ReloadLevel();
         }
 
         protected override void HandleExit()
