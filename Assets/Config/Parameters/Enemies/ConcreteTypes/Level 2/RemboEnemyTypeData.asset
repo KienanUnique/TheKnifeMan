@@ -18,7 +18,7 @@ MonoBehaviour:
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.01
-    pointsForKill: 50000
+    pointsForKill: 1250
     meleeDamage: 1
     comboReloadDurationSeconds: 4
     countOfAttacksInCombo: 2

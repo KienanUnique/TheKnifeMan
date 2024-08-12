@@ -18,7 +18,7 @@ MonoBehaviour:
     acceleration: 5
     maxSpeed: 5
     animatorMovingVelocityThreshold: 0.1
-    pointsForKill: 15000
+    pointsForKill: 3000
     reloadDurationSeconds: 5
     countOfAttacksInClip: 3
     delayBetweenAttacks: 2

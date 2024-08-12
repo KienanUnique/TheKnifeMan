@@ -31,20 +31,20 @@ MonoBehaviour:
       - enemy: {fileID: 11400000, guid: 1cdd56a9ff722904e89a1a8e34fe0c6d, type: 2}
         count: 3
       - enemy: {fileID: 11400000, guid: dfbe34ecc79bc094f89169d4639d130d, type: 2}
-        count: 2
+        count: 5
       - enemy: {fileID: 11400000, guid: 19c65117ccfdf354aa341320cd4acc53, type: 2}
         count: 1
       - enemy: {fileID: 11400000, guid: 41b132122a20b4b448a38dc780c58ad5, type: 2}
         count: 8
       - enemy: {fileID: 11400000, guid: 06a082967b2c0e04a8af35ca8de65d60, type: 2}
         count: 5
-      delayBeforeSpawnSeconds: 40
+      delayBeforeSpawnSeconds: 25
     - enemies:
       - enemy: {fileID: 11400000, guid: 19c65117ccfdf354aa341320cd4acc53, type: 2}
         count: 5
       delayBeforeSpawnSeconds: 30
     - enemies:
-      - enemy: {fileID: 11400000, guid: 06a082967b2c0e04a8af35ca8de65d60, type: 2}
-        count: 100
+      - enemy: {fileID: 11400000, guid: 1cdd56a9ff722904e89a1a8e34fe0c6d, type: 2}
+        count: 25
       delayBeforeSpawnSeconds: 0
-  targetScore: 1111111
+  targetScore: 166666
