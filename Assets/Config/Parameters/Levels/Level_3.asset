@@ -24,7 +24,7 @@ MonoBehaviour:
         count: 15
       - enemy: {fileID: 11400000, guid: 41b132122a20b4b448a38dc780c58ad5, type: 2}
         count: 5
-      delayBeforeSpawnSeconds: 30
+      delayBeforeSpawnSeconds: 20
     - enemies:
       - enemy: {fileID: 11400000, guid: 954f942a182903344b09b5ba4ec3949d, type: 2}
         count: 10
@@ -38,11 +38,11 @@ MonoBehaviour:
         count: 8
       - enemy: {fileID: 11400000, guid: 06a082967b2c0e04a8af35ca8de65d60, type: 2}
         count: 5
-      delayBeforeSpawnSeconds: 25
+      delayBeforeSpawnSeconds: 20
     - enemies:
       - enemy: {fileID: 11400000, guid: 19c65117ccfdf354aa341320cd4acc53, type: 2}
         count: 5
-      delayBeforeSpawnSeconds: 30
+      delayBeforeSpawnSeconds: 20
     - enemies:
       - enemy: {fileID: 11400000, guid: 1cdd56a9ff722904e89a1a8e34fe0c6d, type: 2}
         count: 25
