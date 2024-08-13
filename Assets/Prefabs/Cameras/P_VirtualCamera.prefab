@@ -194,10 +194,10 @@ MonoBehaviour:
   data:
     virtualCamera: {fileID: 1671079949966716781}
     enemyTakeDamageEffect:
-      _amplitudeGain: 5
+      _amplitudeGain: 2
       _frequencyGain: 1
       _durationSeconds: 0.2
     playerTakeDamageEffect:
-      _amplitudeGain: 10
+      _amplitudeGain: 5
       _frequencyGain: 1
       _durationSeconds: 0.2

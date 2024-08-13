@@ -339,10 +339,10 @@ MonoBehaviour:
   closeAnimation: {fileID: 4112830375917570823}
   backgroundImage: {fileID: 6079691364117290192}
   images:
-  - {fileID: 21300000, guid: 8c719283320139b4eb47c126064db6e7, type: 3}
-  - {fileID: -2078311341, guid: 0d50c7fe7eaa6964a9dba5fccbb679de, type: 3}
-  - {fileID: 1689066427, guid: 45b4558a51093344f956a538ea332afb, type: 3}
-  - {fileID: 21300000, guid: e7803ae52fb644846bf71a83219c8f4f, type: 3}
+  - {fileID: 21300000, guid: 0cc2112071f62d442abfcd58aabbd9d6, type: 3}
+  - {fileID: 21300000, guid: 9dbfe122b6ca15a47b8aafcdb3b1012e, type: 3}
+  - {fileID: 21300000, guid: 5518239b1a8098a44824b3dc7c095cfc, type: 3}
+  - {fileID: 21300000, guid: f6e4d336e8ed0914490f50f02d0c5b2e, type: 3}
 --- !u!225 &4775333819225823542
 CanvasGroup:
   m_ObjectHideFlags: 0
