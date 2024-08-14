@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace Services.Sound.Impl
 {
-    public class BackgroundMusicService : IInitializable, IDisposable
+    public class BackgroundMusicService : IInitializable, IDisposable, IBackgroundMusicService
     {
         private readonly ISoundFxBase _soundFxBase;
         private readonly ISettingsStorageService _settingsStorageService;
@@ -23,8 +23,9 @@ namespace Services.Sound.Impl
 
         private AudioSource _audioSource;
         private AudioClipVo _currentPlayingClipVo;
+        private bool _needPlay;
 
-        private bool IsMusicEnabled => _settingsStorageService.IsMusicEnabled.Value;
+        private bool IsMusicEnabled => _settingsStorageService.IsMusicEnabled.Value && _needPlay;
 
         public BackgroundMusicService(
             ISoundFxBase soundFxBase,
@@ -40,8 +41,6 @@ namespace Services.Sound.Impl
         public void Initialize()
         {
             _audioSource = CreateAudioSource();
-            
-            ResetPlaylist();
 
             _settingsStorageService.MusicVolume.Subscribe(OnMusicVolume).AddTo(_compositeDisposable);
             _settingsStorageService.IsMusicEnabled.Subscribe(OnIsMusicEnabled).AddTo(_compositeDisposable);
@@ -52,6 +51,21 @@ namespace Services.Sound.Impl
         public void Dispose()
         {
             _compositeDisposable?.Dispose();
+        }
+        
+        public void Play()
+        {
+            _needPlay = true;
+            
+            if(!_audioSource.isPlaying)
+                PlayNextTrack();
+        }
+
+        public void Stop()
+        {
+            _needPlay = false;
+            if(_audioSource.isPlaying)
+                _audioSource.Stop();
         }
 
         private void OnMusicVolume(float newVolume)
@@ -64,14 +78,10 @@ namespace Services.Sound.Impl
 
         private void OnIsMusicEnabled(bool isMusicEnabled)
         {
-            if (_audioSource.isPlaying && !isMusicEnabled)
-            {
+            if (_audioSource.isPlaying && !IsMusicEnabled)
                 _audioSource.Stop();
-            }
-            else if (!_audioSource.isPlaying && isMusicEnabled)
-            {
+            else if (!_audioSource.isPlaying && IsMusicEnabled) 
                 PlayNextTrack();
-            }
         }
 
         private AudioSource CreateAudioSource()

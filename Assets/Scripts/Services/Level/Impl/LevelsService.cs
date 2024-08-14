@@ -63,15 +63,13 @@ namespace Services.Level.Impl
         
         public void LoadNextLevel()
         {
-            var nextSceneName = _scenesParameters.MainMenuSceneName;
+            var nextSceneName = _scenesParameters.FinalTitlesSceneName;
             
             _currentLevelIndex++;
             
             if (_currentLevelIndex < _scenesParameters.Levels.Count)
-            {
                 nextSceneName = _scenesParameters.Levels[_currentLevelIndex].LevelName;
-            }
-            
+
             LoadScene(nextSceneName);
         }
 

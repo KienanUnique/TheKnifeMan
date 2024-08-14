@@ -1,6 +1,6 @@
 ﻿using Game.Object.PartsFactory;
-using Installers.MainMenu;
 using KoboldUi.Utils;
+using PostProcessing.Impl;
 using Ui.Loading;
 using UnityEngine;
 using Utils;

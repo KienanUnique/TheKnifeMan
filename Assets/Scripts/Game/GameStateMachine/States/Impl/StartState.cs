@@ -3,6 +3,7 @@ using System.Linq;
 using Game.Utils;
 using ModestTree;
 using Services.Input;
+using Services.Sound;
 using UniRx;
 using UnityEngine;
 
@@ -12,14 +13,17 @@ namespace Game.GameStateMachine.States.Impl
     {
         private readonly IInputService _inputService;
         private readonly List<INeedWaitInitializable> _needWaitInitializables;
+        private readonly IBackgroundMusicService _backgroundMusicService;
 
         public StartState(
             IInputService inputService, 
-            List<INeedWaitInitializable> needWaitInitializables
+            List<INeedWaitInitializable> needWaitInitializables,
+            IBackgroundMusicService backgroundMusicService
         )
         {
             _inputService = inputService;
             _needWaitInitializables = needWaitInitializables;
+            _backgroundMusicService = backgroundMusicService;
         }
 
         protected override void HandleEnter()
@@ -46,6 +50,7 @@ namespace Game.GameStateMachine.States.Impl
             }).AddTo(ActiveDisposable);
             
             _inputService.SwitchToUiInput();
+            _backgroundMusicService.Play();
         }
 
         private void OnAllInitializeblesWaited()

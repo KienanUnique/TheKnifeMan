@@ -1,6 +1,8 @@
 ﻿using Game.CameraHolder;
+using Game.CameraHolder.Impl;
 using Game.Object.PartsFactory;
 using KoboldUi.Utils;
+using Services;
 using Ui.MainMenu;
 using UnityEngine;
 using Utils;
@@ -21,7 +23,7 @@ namespace Installers.MainMenu
             
             Container.BindWindowFromPrefab(canvasInstance, menuWindow);
             
-            Container.BindInterfacesTo<MainMenuOpener>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<MainMenuService>().AsSingle().NonLazy();
 
             InstallCameras();
         }

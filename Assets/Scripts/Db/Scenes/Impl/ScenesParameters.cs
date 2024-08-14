@@ -9,9 +9,11 @@ namespace Db.Scenes.Impl
     public class ScenesParameters : ScriptableObject, IScenesParameters
     {
         [SerializeField] private string mainMenuSceneName;
+        [SerializeField] private string finalTitlesSceneName;
         [SerializeField] private List<LevelSceneData> levels;
 
         public string MainMenuSceneName => mainMenuSceneName;
+        public string FinalTitlesSceneName => finalTitlesSceneName;
         public IReadOnlyList<LevelSceneData> Levels => levels;
     }
 }
