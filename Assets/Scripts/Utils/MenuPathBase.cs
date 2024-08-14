@@ -6,5 +6,6 @@
         public const string Parameters = "Parameters/";
         public const string Projectiles = "Projectiles/";
         public const string Enemies = "Enemies/";
+        public const string Helpers = "Helpers/";
     }
 }
