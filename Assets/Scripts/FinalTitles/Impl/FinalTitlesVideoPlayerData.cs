@@ -9,7 +9,9 @@ namespace FinalTitles.Impl
     public class FinalTitlesVideoPlayerData : AObjectData
     {
         [SerializeField] private VideoPlayer videoPlayer;
+        [SerializeField] private string videoName = "VC_Final.mp4";
 
         public VideoPlayer VideoPlayer => videoPlayer;
+        public string VideoName => videoName;
     }
 }

@@ -31,6 +31,8 @@ namespace FinalTitles.Impl
         public void Play()
         {
             var videoPlayer = data.VideoPlayer;
+            
+            videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, data.VideoName);
 
             var needVolume = _settingsStorage.SoundsVolume.Value;
             for (ushort i = 0; i < videoPlayer.controlledAudioTrackCount; i++)
