@@ -15,7 +15,13 @@ namespace Game.Utils
         private const string SEARCH_FOLDER = "Assets/";
         private const float TREASHOLD = 0.01f;
 
-        [SerializeField] private Vector2 colliderSize;
+        [Header("Collider")]
+        [SerializeField] private Vector2 colliderSize = new(0.5f, 0.25f);
+        
+        [Header("Rigidbody")]
+        [SerializeField] private float mass = 1; 
+        [SerializeField] private float linearDrag = 0f;
+        [SerializeField] private float angularDrag = 0.05f;
 
 #if UNITY_EDITOR
         [Button]
@@ -37,11 +43,14 @@ namespace Game.Utils
                     rigidbodyToSetup.gravityScale = 0f;
                     rigidbodyToSetup.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
                     rigidbodyToSetup.freezeRotation = true;
+                    rigidbodyToSetup.mass = mass;
+                    rigidbodyToSetup.angularDrag = angularDrag;
+                    rigidbodyToSetup.drag = linearDrag;
 
                     var boxCollider = controllerBase.GetComponent<BoxCollider2D>();
                     var deltaSize = boxCollider.size - colliderSize;
-                    
-                    if(deltaSize.sqrMagnitude > TREASHOLD)
+
+                    if (deltaSize.sqrMagnitude > TREASHOLD)
                     {
                         var deltaSizeY = deltaSize.y;
                         var newOffset = new Vector2(0f, boxCollider.offset.y - deltaSizeY / 2);

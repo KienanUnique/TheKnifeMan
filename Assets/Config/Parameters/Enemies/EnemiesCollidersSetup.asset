@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: EnemiesCollidersSetup
   m_EditorClassIdentifier: 
   colliderSize: {x: 0.5, y: 0.25}
+  collisionDetectionMode: 0
+  mass: 1
+  linearDrag: 0
+  angularDrag: 0.05
