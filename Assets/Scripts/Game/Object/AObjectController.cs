@@ -2,12 +2,11 @@
 using Game.Object.Part;
 using Game.Object.PartsFactory;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Game.Object
 {
-    public abstract class AObjectController<TData> : MonoBehaviour, IInitializable
+    public abstract class AObjectController<TData> : AObjectControllerBase, IInitializable
         where TData : AObjectData
     {
         protected readonly CompositeDisposable CompositeDisposable = new();

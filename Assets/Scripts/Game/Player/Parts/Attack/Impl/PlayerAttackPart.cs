@@ -5,6 +5,7 @@ using Db.Player;
 using Game.Interfaces;
 using Game.Object.Part;
 using Game.Utils.Directions;
+using Game.Utils.HitBox;
 using Services.Input;
 using UniRx;
 using UnityEngine;
@@ -68,7 +69,7 @@ namespace Game.Player.Parts.Attack.Impl
             {
                 var collider = _overlapResult[i];
 
-                if (!collider.TryGetComponent(out IDamageable damageable))
+                if (!collider.TryGetEnemyComponent(out IDamageable damageable))
                     continue;
 
                 foundedTargets.Add(damageable);
