@@ -1,5 +1,6 @@
 ﻿using Alchemy.Inspector;
 using Game.CameraHolder;
+using Game.CameraHolder.Impl;
 using Game.Object.PartsFactory;
 using Game.Player;
 using Game.Player.PartsFactory;
