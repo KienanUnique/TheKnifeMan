@@ -1,31 +1,33 @@
-﻿using Game.CameraHolder;
+﻿using Db.Splash;
+using Db.Splash.Impl;
 using Game.CameraHolder.Impl;
 using Game.Object.PartsFactory;
 using KoboldUi.Utils;
-using Services;
-using Services.MainMenu;
-using Services.MainMenu.Impl;
-using Ui.MainMenu;
+using Services.Splash;
+using Ui.Splash;
 using UnityEngine;
 using Utils;
 using Zenject;
 
-namespace Installers.MainMenu
+namespace Installers.Splash
 {
-    [CreateAssetMenu(menuName = MenuPathBase.Installers + nameof(MainMenuInstaller), fileName = nameof(MainMenuInstaller))]
-    public class MainMenuInstaller : ScriptableObjectInstaller
+    [CreateAssetMenu(menuName = MenuPathBase.Installers + nameof(SplashInstaller),
+        fileName = nameof(SplashInstaller))]
+    public class SplashInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private Canvas canvas;
         [SerializeField] private CameraHolderController cameraHolderPrefab;
-        [SerializeField] private MainMenuWindow menuWindow;
+        [SerializeField] private SplashWindow splashWindow;
+        [SerializeField] private SplashParameters splashParameters;
 
         public override void InstallBindings()
         {
             var canvasInstance = Instantiate(canvas);
             
-            Container.BindWindowFromPrefab(canvasInstance, menuWindow);
+            Container.BindWindowFromPrefab(canvasInstance, splashWindow);
             
-            Container.BindInterfacesTo<MainMenuService>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<SplashService>().AsSingle().NonLazy();
+            Container.Bind<ISplashParameters>().FromInstance(splashParameters).AsSingle();
 
             InstallCameras();
         }

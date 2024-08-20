@@ -7,5 +7,6 @@ namespace Services.Sound
     {
         void Play(EUiSoundFxType soundFxType);
         void Play(EUiSoundFxType soundFxType, Action onCompleteCallBack);
+        void Interrupt();
     }
 }

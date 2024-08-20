@@ -36,5 +36,10 @@ namespace Services.Sound.Impl
             
             audioSource.Play();
         }
+
+        public void Interrupt()
+        {
+            foreach (var (audioSource, _) in ActiveAudioSources) audioSource.Stop();
+        }
     }
 }
