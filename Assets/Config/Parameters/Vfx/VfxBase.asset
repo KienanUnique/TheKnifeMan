@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269e58c0561b47149080ac738c3c017e, type: 3}
+  m_Name: VfxBase
+  m_EditorClassIdentifier: 
+  changeMeToApplyChanges: 4
+  __alchemySerializationData_Db_Vfx_Impl_VfxBase:
+    _prefabs:
+      isCreated: 1
+      data: "[\n    {\n        \"Key\": 1,\n        \"Value\": 0\n    },\n    {\n       
+        \"Key\": 2,\n        \"Value\": 1\n    }\n]"
+    unityObjectReferences:
+    - {fileID: 7746385671621001010, guid: dc477e507f32143448009a7fa0a42b9d, type: 3}
+    - {fileID: 6563869518276375515, guid: 18fe24eac5f88cd48b2fcfbff64ab92b, type: 3}

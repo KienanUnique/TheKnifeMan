@@ -759,7 +759,7 @@ PlayerSettings:
     Stadia: DOTWEEN
     Standalone: DOTWEEN;ZEN_SIGNALS_ADD_UNIRX;KOBOLD_ALCHEMY_SUPPORT
     VisionOS: DOTWEEN
-    WebGL: DOTWEEN
+    WebGL: DOTWEEN;ZEN_SIGNALS_ADD_UNIRX;KOBOLD_ALCHEMY_SUPPORT
     Windows Store Apps: DOTWEEN
     XboxOne: DOTWEEN
     iPhone: DOTWEEN
@@ -868,7 +868,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0

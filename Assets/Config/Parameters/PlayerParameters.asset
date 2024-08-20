@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e02f9ba78894ed6ad72cc89bcc41c67, type: 3}
+  m_Name: PlayerParameters
+  m_EditorClassIdentifier: 
+  health: 5
+  damage: 1
+  movementSpeed: 6.5
+  dashForce: 30
+  dashDurationSeconds: 0.15
+  dashCooldownSeconds: 0.5
+  dashDrag: 8
+  animatorMovingSqrVelocityThreshold: 0.01
+  lowHealthThreshold: 1
+  dashEndAnimationDurationSeconds: 0.01
