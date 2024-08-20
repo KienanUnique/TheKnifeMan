@@ -3,7 +3,7 @@ using Services.Sound;
 using Ui.MainMenu;
 using Zenject;
 
-namespace Services
+namespace Services.MainMenu.Impl
 {
     public class MainMenuService : IInitializable
     {

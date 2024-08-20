@@ -16,8 +16,10 @@ namespace Services.Sound
         private readonly IAudioClipRepository _audioClipRepository;
 
         private readonly Dictionary<AudioSource, AudioClipVo> _activeAudioSources = new();
+
         private readonly CompositeDisposable _compositeDisposable = new();
         
+        protected IReadOnlyDictionary<AudioSource, AudioClipVo> ActiveAudioSources => _activeAudioSources;
         private bool IsSoundsEnabled => _settingsStorageService.IsSoundsEnabled.Value;
 
         protected ASoundFxService(

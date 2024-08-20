@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134003ee06694d9a8bb98e80ce6f322d, type: 3}
   m_Name: SoundFxBase
   m_EditorClassIdentifier: 
-  generalSound: 0.5
+  generalSound: 0.659
   __alchemySerializationData_Db_Sounds_Impl_SoundFxBase:
     gameSounds:
       isCreated: 1
@@ -94,17 +94,19 @@ MonoBehaviour:
         22,\n            \"path\": \"SFX/Sounds/SFX_SoundCheck\",\n            \"volume\":
         0.5\n        }\n    },\n    {\n        \"Key\": 1,\n        \"Value\": {\n           
         \"clip\": 23,\n            \"path\": \"SFX/Sounds/SFX_UI_TheKnifeManButton\",\n           
-        \"volume\": 0.5\n        }\n    }\n]"
+        \"volume\": 0.5\n        }\n    },\n    {\n        \"Key\": 2,\n        \"Value\":
+        {\n            \"clip\": 24,\n            \"path\": \"SFX/SFX_StartGame\",\n           
+        \"volume\": 1\n        }\n    }\n]"
     backgroundMusic:
       isCreated: 1
-      data: "[\n    {\n        \"clip\": 24,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_1\",\n       
-        \"volume\": 0.5\n    },\n    {\n        \"clip\": 25,\n        \"path\":
+      data: "[\n    {\n        \"clip\": 25,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_1\",\n       
+        \"volume\": 0.5\n    },\n    {\n        \"clip\": 26,\n        \"path\":
         \"SFX/Music/SFX_Backgroud_music_2\",\n        \"volume\": 0.5\n    },\n   
-        {\n        \"clip\": 26,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_3\",\n       
-        \"volume\": 0.5\n    },\n    {\n        \"clip\": 27,\n        \"path\":
+        {\n        \"clip\": 27,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_3\",\n       
+        \"volume\": 0.5\n    },\n    {\n        \"clip\": 28,\n        \"path\":
         \"SFX/Music/SFX_Backgroud_music_4\",\n        \"volume\": 0.5\n    },\n   
-        {\n        \"clip\": 28,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_5\",\n       
-        \"volume\": 0.5\n    },\n    {\n        \"clip\": 29,\n        \"path\":
+        {\n        \"clip\": 29,\n        \"path\": \"SFX/Music/SFX_Backgroud_music_5\",\n       
+        \"volume\": 0.5\n    },\n    {\n        \"clip\": 30,\n        \"path\":
         \"SFX/Music/SFX_Backgroud_music_6\",\n        \"volume\": 0.5\n    }\n]"
     unityObjectReferences:
     - {fileID: 8300000, guid: 4bc4db927daee684981e694624e1fed6, type: 3}
@@ -131,6 +133,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0971a646331bb75459d4e3a1c315d082, type: 2}
     - {fileID: 8300000, guid: 0d66b850448a84d458dbf18ba6c2c452, type: 3}
     - {fileID: 8300000, guid: 287208049ff3daa4ba2c5e3066764ac5, type: 3}
+    - {fileID: 8300000, guid: afb3e57b5a7486b44a2b849af88188ec, type: 3}
     - {fileID: 8300000, guid: c0c026953c6b58344ad957277a7b73b3, type: 3}
     - {fileID: 8300000, guid: 79f5e976f3575c645b92f23e84637db8, type: 3}
     - {fileID: 8300000, guid: cd4c610d3667bd34cabea7af44eafab9, type: 3}

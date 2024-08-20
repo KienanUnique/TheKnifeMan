@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68afcd00da9d495fae51b3c38228fde7, type: 3}
+  m_Name: SplashInstaller
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 4456162027341417173, guid: 14cf35d36a3d7994a8e36d520ac25c52, type: 3}
+  cameraHolderPrefab: {fileID: 8844555703248953365, guid: 2ac33cf283534094a97ccb7d8d2291f6, type: 3}
+  splashWindow: {fileID: 6132093753010485584, guid: 475722093076d794182cee59462a4991, type: 3}
+  splashParameters: {fileID: 11400000, guid: 0e34e1f32014c7e4191bec78bc3b5ca1, type: 2}
