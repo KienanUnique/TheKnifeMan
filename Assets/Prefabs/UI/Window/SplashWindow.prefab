@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 505, y: -117.63}
+  m_AnchoredPosition: {x: 259, y: 162}
   m_SizeDelta: {x: 910, y: 335.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1608660441453118519
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CHIN CHONE \nCHIN CHIII NO "
+  m_text: Kitchen in the Dungeon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cb587a4454179f4babc5903c715196a, type: 2}
   m_sharedMaterial: {fileID: -76228796217750897, guid: 2cb587a4454179f4babc5903c715196a, type: 2}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280736075
+  m_fontColor: {r: 0.29509404, g: 0.8490566, b: 0.1481844, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -100.867676, y: 0, z: 0, w: 0}
+  m_margin: {x: -100.867676, y: 0, z: 405.98743, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.000011444, y: -124}
+  m_SizeDelta: {x: 493.4075, y: 493.4075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6650370671523943856
 CanvasRenderer:
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1394567793, guid: e320368e5c2f38549afb097c0d6c839a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2804c0403e4dec4cacc6a7899033e6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
